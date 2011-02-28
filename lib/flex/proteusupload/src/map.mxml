@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+                layout="absolute" borderThickness="0" xmlns:srilabs="com.srilabs.*" width="100%" height="400">
+  
+  
+ 
+  
+  <mx:VBox width="100%" height="100%" verticalGap="0">
+  	
+  
+  		<maps:Map xmlns:maps="com.google.maps.*" 
+              id="mymap"
+              mapevent_mapready="onMapReady(event)"
+              width="100%"
+              height="100%"
+              key="ABQIAAAAOfg_dOoUj91KMjwrCjmiixRhLcQr4LvZ5Dq_dDz3pAvYF3VJHxTBSt_diyTz7JUoTIDHvuHy9pyn7A"/>
+  
+  </mx:VBox>
+  
+<!--  <mx:HTTPService id="jsonService" resultFormat="text" method="GET" result="onGetPaAResults(event)" fault="Alert.show('ERROR: Please contact administrator')" />
+  
+-->  	
+  
+ 
+
+    
+  <mx:Script>
+    <![CDATA[
+    	import com.google.maps.overlays.PolygonOptions;
+    	import org.vizzuality.maps.Multipolygon;
+      import com.google.maps.controls.MapTypeControlOptions;
+      import com.google.maps.MapOptions;
+      import com.google.maps.controls.NavigationControl;
+      import com.google.maps.controls.ZoomControl;
+      import com.google.maps.controls.MapTypeControl;
+      import com.google.maps.LatLng;
+      import com.google.maps.Map;
+      import com.google.maps.MapEvent;
+      import com.google.maps.MapType;
+      import com.google.maps.interfaces.*;
+	  import com.google.maps.overlays.TileLayerOverlay;
+
+	  private var PAOverlay:TileLayerOverlay;
+	 
+	  
+	  
+      private function onMapReady(event:Event):void {
+        mymap.setCenter(new LatLng(0, 0), 2);
+        mymap.enableScrollWheelZoom();
+        mymap.addControl(new MapTypeControl());
+        mymap.addControl(new NavigationControl());
+
+        
+        //We add the TileLayerOverlay
+        var ctl:CustomTileLayer = new CustomTileLayer("http://maps.unep-wcmc.org/ArcGIS/rest/services/WDPAv2_0/wdpa_all/MapServer/tile/|Z|/|Y|/|X|");
+        PAOverlay = new TileLayerOverlay(ctl);
+        PAOverlay.foreground.alpha=1;
+        
+        mymap.addOverlay(PAOverlay);
+      
+      } 
+      
+      /* private function addGeoJsonToMap(geoJson:String,map:Map):void {
+				var polOpt:PolygonOptions=new PolygonOptions({
+					  strokeStyle: {
+					    thickness: 2,
+					    color: 0xFF7600,
+					    alpha: 1
+					  },
+					  fillStyle: {
+					    color: 0xFF7600,
+					    alpha: 0.4
+					  }	
+				});
+
+				var geoJsondata:Object = JSON.decode(geoJson);
+				var mp:Multipolygon= new Multipolygon();
+				mp.fromGeojsonMultiPolygon(geoJsondata.coordinates,polOpt);						
+				mp.addToMap(mymap);
+			
+				map.setCenter(mp.getLatLngBounds().getCenter(),mymap.getBoundsZoomLevel(mp.getLatLngBounds())-1);	
+		} */
+      
+    ]]>
+  </mx:Script>
+</mx:Application>

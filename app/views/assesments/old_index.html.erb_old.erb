@@ -1,0 +1,76 @@
+<% content_for :left do %>
+	<h2>Your Tenement Assessments</h2>
+
+	<table class="zebra">
+		<thead>
+			<th>
+				File name
+			</th>
+			<th>
+				Tenements
+			</th>
+			<th>
+				Overlapping PA's
+			</th>
+			<th>
+				Nearby PA's
+			</th>
+			<th>
+				Actions
+			</th>
+		</thead>
+	<tbody>
+	<% if @assesments.empty? %>
+			<tr><td style="height:100px;color:#444;" colspan="5"><div><center><%= image_tag 'icons/information.png'%><span style="margin-bottom:20px;"><b> Upload an ESRI shapefile to start</b></span> <%= image_tag "icons/arrow_right.png" %></center></div></td><tr>
+	<% else %>
+		
+				<% @assesments.each do |a| %>
+				<tr>
+					<td><%= link_to a.file_name, a %><br>
+						<span class="small quiet"><%= a.created_at.to_s(:short) %></span>
+					</td> 
+					<td>
+						<%= pluralize a.tenements.count, "tenement"%>
+					</td>
+					<td>
+						<%= pluralize a.tenements.inject(0){|sum,t|t.overlapping_pas.count}, "pa"%>
+					</td>
+					<td>
+						<%= pluralize a.tenements.inject(0){|sum,t|t.nearby_pas.count}, "pa"%>
+					</td>
+					<td>
+						<%= link_to image_tag('icons/zoom.png', :alt => "view", :title => "view this assessment"), assesment_path(a) %>
+						<%= link_to image_tag('icons/delete.png', :alt => "delete", :title => "delete this assessment"), assesment_path(a), :method => :delete, :confirm => "are you sure you want to delete this assesment?" %>
+					
+					</td>	
+				<% end -%>
+				</tr>		
+	<% end -%>
+			</tbody>	
+			</table>	
+<% end -%>			
+
+
+
+
+
+<% content_for :right do %>
+	<h3 style="margin-bottom:0.5em;">Upload New Assessment</h3>
+	<% form_for @assesment, :html => {:multipart => true} do |f| %>  
+		<div style="background:#D1DFF9;padding:1em;margin-bottom:1em;">
+		<%= f.file_field :shape, :class => 'file_input' %>
+		
+		</div>
+		<div style="float:right;">
+		<%= f.submit "Upload" %>
+		</div>
+	
+		<div style="clear:both;"></div>
+		<h6 class="quiet" style="margin-top:0em;">File Format</h6>
+		<p class="quiet">Please upload all tenements as zipped shapefiles in the <b>WGS84 projection (SRID 4326)</b>. If you would like to name your tenements for analysis, please include a field called <b>"name"</b> in your shape attributes.</p>	  	
+
+	
+		<h6 class="quiet" style="margin-top:0em;">Privacy note</h6>
+		<p class="quiet">Please note that all data uploaded to the Tenement Analysis tool is <b>deleted nightly</b>. You can also delete your assessment manually at any time.</p>	  	
+	<% end %>
+<% end -%>

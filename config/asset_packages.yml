@@ -1,0 +1,66 @@
+--- 
+javascripts: 
+- register:
+  - register/main
+- about:
+  - about/main
+- country:
+  - country/country_map
+- user:
+  - user/jquery.flip  
+  - user/main
+- home:
+  - home/gmaps_xml_util
+  - common/hoverIntent
+  - home/sparsetile
+  - common/jquery.autocomplete
+  - common/jquery.easing.1.3
+  - common/jquery.history
+  - common/jquery.cookies.2.1.0
+  - home/homeEffects
+  - home/homeMap
+  - home/PAInfoWindow
+- site:
+  - site/PanoramioMarker
+  - site/PAMarkerInfowindow
+  - site/PAMarker
+  - site/POIMarker
+  - site/pa_map
+  - geometry/editing_map
+  - site/main
+- activity:
+  - activity/Activity_Marker
+  - activity/Fluster2ProjectionOverlay
+  - activity/Fluster2Cluster
+  - activity/Fluster2ClusterMarker
+  - activity/Fluster2
+  - activity/main
+  - activity/activity_map
+- search:
+  - home/sparsetile
+  - search/search_map
+  - search/SearchMarker
+  - search/main
+- base:
+  - common/jquery.jcarousel
+  - common/jquery.livequery
+  - common/jquery.simplemodal
+  - common/jquery.stylish-select
+  - common/hoverIntent
+  - common/flashobject
+  - common/jquery.tipsy
+  - common/jquery.autocomplete
+  - common/jquery.cookies.2.1.0
+  - common/easySlider1.7
+  - common/jquery.form
+  - common/jquery.json-2.2
+  - common/jquery.scrollTo
+  - common/underscore-min
+  - common/jquery.selectbox-0.6
+  #- application
+  - common/main
+stylesheets: 
+- base:
+  - layout
+  - tipsy
+  - jquery.autocomplete

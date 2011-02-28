@@ -1,0 +1,5 @@
+<% options = {:q => params[:q], facet_name => facet_result.id}.reverse_merge(@search.filter) %>
+<li>
+<% name_method ||= "name"%>	
+<%= link_to "#{facet_result.name}", search_url(options) %> (<%= facet[facet_result.id]%>)
+</li>

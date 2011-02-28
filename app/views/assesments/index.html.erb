@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head lang="en" xml:lang="en">
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>ProtectedPlanet.net - Explore Protected Areas</title>
+		<meta name="description" content="Discover and help Protected Areas globally. The latest innovation from the World Database on Protected Areas">
+		<meta name="keywords" content="Protected Area, PA, WDPA, World Database on Protected Areas, conservation, biodiversity, iucn, unep, united nations, unep-wcmc, National Park, World Heritage Site">
+		
+		<!-- STYLESHEETS GO HERE -->
+		<%= stylesheet_link_merged :base %>
+		
+		<!--[if IE]><%= stylesheet_link_tag "ie" %><![endif]-->
+		
+		<!-- JAVASCRIPT GOES HERE -->
+		<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script> 
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+		<%= javascript_include_merged :home %>
+		<%= javascript_include_tag "environments/#{RAILS_ENV}" %>
+		
+															
+	</head>
+	<body onload="initialize()">	
+                <div id="login_error_home"<%= "style='display:none; top:-50px'"%>>
+                    <%= flash[:login] %>
+                </div>							
+		
+		<div id="header_home">
+			<%= link_to "", "javascript:void showExploreInput()", :class => "logoHome"%>
+			
+			<!--
+			<%= link_to "", "#", :id => "aboutButton"%>
+			
+			<span id="tinyExplore">
+				<a>Explore options</a>
+			</span>
+
+			<form action="javascript:void goToSearchSecond()">
+				<div class="search_spinner_header" style="right:190px;">
+					<%= image_tag 'common/indicator.gif'%>
+				</div>
+				<input type="text" value="Search PAs, countries,..." id="searchHeader"/>
+				<input type="submit" value="" />
+			</form>-->
+		</div>
+		
+		<a id="zoomIn"></a>
+		<a id="zoomOut"></a>
+		<p id="loading">Transfering data</p>
+
+			
+	    <div id="searchBox">
+				
+				
+				
+
+				<h3>Asses Tenements in ProtectedPlanet.net</h3>
+				<div id="search_input">
+					<label>Upload a new assessment</label>
+					<% form_for @assesment, :html => {:multipart => true} do |f| %>  
+						<div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
+						<%= f.file_field :shape, :class => 'file_input' %>
+						<div style="float:right;">
+						<%= f.submit "Upload", :disable_with => "Uploading..." %>
+						</div>
+						</div>
+					<% end -%>						
+				</div>
+				<div id="explore_input">
+					<label>File formats</label>
+					<p style="color:#eee;font-size:11px;">Please upload zipped tenement ESRI shapefiles in<br> <b>WGS84 projection</b>. <br>Please note, all data uploaded is <b>deleted nightly</b>.</p>
+					
+				</div>
+				<div class="bottomContainer">
+					<div class="logosContainer">
+						 <div class="logoContainer">
+							<a href="http://www.unep-wcmc.org/" target="_blank"><img src="../images/logos/UNEPhome.gif"></a>
+							<a href="http://www.iucn.org/" target="_blank"><img src="../images/logos/IUCNhome.gif"></a>
+							<a href="http://www.iucn.org/about/union/commissions/wcpa/" target="_blank"><img src="../images/logos/WCPAhome.gif"></a>
+						 </div>
+						 <div class="bottomLinks"><p>&copy; 2010 ProtectedPlanet.net / All rights reserved / <%= link_to 'all', "http://www.protectedplanet.net" %> /
+							<%= link_to 'blog', "http://blog.protectedplanet.net"%> / <%= link_to 'about', "http://www.protectedplanet.net" %><!--<a href="#">/ sitemap</a>--></p></div>
+					</div>
+				</div>
+				
+				</div>
+			</div>
+
+
+			<div id="categoryBox">
+				<p id="close_options"><a>Explore options</a></p>
+				<label>FILTER BY IUCN CATEGORY</label>
+				<div class="IUCN">
+					<span>
+						<label><input type="checkbox" value="Ia" id="c1" checked="true"/>Ia</label>
+					</span>
+					<span>
+						<label><input type="checkbox" value="Ib" id="c2" checked="true"/>Ib</label>
+					</span>
+					<span>
+						<label><input type="checkbox" value="II" id="c3" checked="true"/>II</label>
+					</span>
+					<span>
+						<label><input type="checkbox" value="III" id="c4" checked="true"/>III</label>
+					</span>
+					<span>
+						<label><input type="checkbox" value="IV" id="c5" checked="true"/>IV</label>
+					</span>
+					<span>
+						<label><input type="checkbox" value="V" id="c6" checked="true"/>V</label>
+					</span>
+					<span>
+						<label><input type="checkbox" value="VI" id="c7" checked="true"/>VI</label>
+					</span>
+					<span>
+						<label><input type="checkbox" value="Unkown" id="c8" checked="true"/>Unknown</label>
+					</span>					
+					<span>
+						<label><input type="checkbox" value="ALL" id="all" checked="true"/>ALL</label>
+					</span>
+				</div>
+			</div>
+
+
+
+
+		<div style="position:absolute; top:0; left:0; width:100%; height:100%">
+	  	<div id="map_canvas" style="z-index:1; position:absolute; top:0; left:0; right:0; bottom:0; height:100%"></div>
+		</div>
+		
+		<div id="container" style="position:absolute; bottom:0; left:0; width: 100%; height:30%; display:none;"></div>
+	
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-12920389-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+		  })();
+		</script>
+		
+	
+		
+	</body>
+</html>
+
+
+

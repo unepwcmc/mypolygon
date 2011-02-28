@@ -1,0 +1,140 @@
+<% content_for :main_area do %>
+				
+			
+      <div id="outer_upper_area">
+        <div id="inner_upper_area">
+          <div id="upper_area">
+            <div class="content">
+              <div class="left_sec">
+                <h1>Tenement <%= @t.id %></h1>
+                <p>                  
+									<%= link_to "Your assesment", assesment_path(@a)%>
+                </p>		
+                <div class="star_area">
+                  <% if !@t.sites.empty? %>
+                    <p class="pa_marine"><%= pluralize @t.sites.count, "Protected Area"%> intersect</p>
+                  <% end -%>					
+                </div>
+              </div>
+                    
+
+              <div id="tabsC">
+                <ul>								
+                  <li id="currentTab"><%= link_to "<span>Information</span>", assesment_tenement_path(@a,@t) %></li>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+        
+		<div class="pa_map" style="height:0px;">	       
+        </div>	
+
+        <div class="toggle_map_size_container">
+        
+        </div>
+
+				<div id="layout">
+			    <div id="containers">
+			      <div id="left_container">
+			        <div class="content_area">
+
+                                  <!-- SITE IMAGES -->
+                                  <% if !@images.empty? %>
+                                    <div class="pa_images" id="slider2">
+                                      <ul style="float:left; position:relative; list-style:none">
+                                        <% @images.each_with_index do |r,i| %>
+                                          <% if  i % 3 == 0 %><li><% end %>
+                                            <%= (i % 3 != 2) ? '<div class="pa_image">' : '<div class="pa_image_last">' %>									
+                                            <span class="shadow"></span>
+                                            <div>
+                                                <%= link_to image_tag(r, {:style => 'width:189px'}), "#", {:style => 'position:relative; overflow:hidden; ', :target=>'_blank'} %>
+
+                                            </div>
+                                          </div>
+                                          <%if  i % 3 == 2 %> </li> <% end %>
+                                          <%if  i+1 == @images.size %> </li> <% end %>
+                                        <% end -%>
+                                      </ul>
+                                    </div>
+                                  <% end -%>				
+  
+                                 
+																
+								<!-- RELATED AREAS -->
+								<% if !@t.sites.empty? %>									
+									<div class="relatedAreas" style="margin:26px 0 0 0">
+									
+									<h3><%= pluralize @t.sites.count, "Protected Area"%> Intersect this Tenement</h3>
+									<% @t.sites.each_with_index do |r,i| %>
+									  <% d = YAML.load(r.data_standard) %>
+										<%= (i % 3 != 2) ? "<div class=\"relatedBox\">" : "<div class=\"relatedBox\" style=\"margin-right:0\">" %>
+											<% if r.image %>
+												<div class="relatedToolTipBack">
+												</div>
+												<div class="relatedToolTipImage">
+													<a href="http://stage-www.tinypla.net/sites/<%=r.wdpaid%>">
+															<%= image_tag r.image %>
+													</a>
+												</div>
+											<% end -%>
+											<a href="http://stage-www.tinypla.net/sites/<%=r.wdpaid%>">
+												<div class="image" style="background-image: url(http://maps.google.com/maps/api/staticmap<%=r.epl%>&sensor=false)"></div>
+											</a>
+											<a href="http://stage-www.tinypla.net/sites/<%=r.wdpaid%>">
+												<div class="bottomData">
+
+														<p class="description"><%= link_to truncate(d["NAME"],:length => 22), "http://stage-www.tinypla.net/sites/#{r.wdpaid}"%></p>
+														<p class="submitted">
+														<%= number_with_delimiter(number_with_precision(r.percent_affected, :precision => 0)) %>% overlap 
+														
+														(<%= number_with_delimiter(number_with_precision(r.query_area_protected_km2, :precision => 0)) %> /
+														<%= number_with_delimiter(number_with_precision(r.protected_area_km2, :precision => 0)) %>km<sup>2</sup>)
+														
+														</p>
+												</div>
+											</a>
+										</div>
+									<% end -%>
+								</div>
+								  <% end -%>
+	 						</div>
+ 						</div>
+
+
+						<div id="right_container">
+							<span class="clear"></span>
+			        <div class="protected_area">
+                                  <div class="completed"><p><%= number_with_precision(@percent_protected*100,:precision => 0) %>% OVERLAP</p></div>
+			          <h3>Tenement Record</h3>
+			          <ul>
+									<li><div class="<%= cycle('up','down') %>"> <strong>TENEMENT ID</strong><span><%= @t.id %></div></li>
+									<li><div class="<%= cycle('up','down') %> last"> <strong>SITE COUNT</strong><span><%= @t.sites.count%></div></li>
+									<li><div class="<%= cycle('up','down') %> last"> <strong>TENEMENT AREA</strong><span><%= number_with_delimiter(number_with_precision(@t.query_area_km2))%> <sup>km2</sup></div></li>
+									<li><div class="<%= cycle('up','down') %> last"> <strong>TENEMENT AREA CARBON</strong><span><%= number_with_delimiter(number_with_precision(@t.query_area_carbon_kg/ 1000) ) %><sup>t</sup></div></li>	
+			          </ul>
+			        </div>
+							<div class="biodiversity">
+								<h3 style="margin-bottom:5px;">Other tenements in <%= link_to "assessment", assesment_path(@a), :style => "color:#222"%> </h3>
+								
+									<% @a.tenements.each do |t| %>
+										<div style="padding:4px;"><%= link_to "Tenement #{t.id}", assesment_tenement_path(@a,t)%></div>
+									<%end	%>
+
+								</div>
+						</div>
+					</div>
+			  </div>
+
+		
+
+
+				<a id="pa_map_json_link" href="<%= @t.id %>" style="display:none" ></a>
+				<a id="is_pa_editable" style="display:none">true</a>
+								
+
+				<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAdc829JdHWtQwsQprwWSx5xQckUEosiSFA09wO5aMrMRSmM89ohSqmg4BhCoZRK2_LVTJ2yZjy9gcGw" type="text/javascript" charset="utf-8"></script>
+				<%= javascript_include_merged :site %>
+
+<% end -%>

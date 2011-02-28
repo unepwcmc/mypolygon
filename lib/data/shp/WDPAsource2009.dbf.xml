@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE metadata SYSTEM "http://www.fgdc.gov/metadata/fgdc-std-001-1998.dtd">
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>Protected Areas Programme, UNEP-WCMC</origin>
+				<pubdate>February 2009</pubdate>
+				<title>WDPA Annual Release 2009 Data Source Information</title>
+				<edition>2009 Annual Release (Web download version</edition>
+				<geoform Sync="TRUE">tabular digital data</geoform>
+				<serinfo>
+					<sername>WDPA Annual Release</sername>
+					<issue>2009 Annual Release (Web download version)</issue>
+				</serinfo>
+				<pubinfo>
+					<pubplace>UNEP-WCMC</pubplace>
+					<publish>UNEP-WCMC</publish>
+				</pubinfo>
+				<othercit>Dataset citation: World Database on Protected Areas (WDPA) Annual Release 2009 (web download version), February 2009.  The WDPA is a joint product of UNEP and IUCN, prepared by UNEP-WCMC, supported by IUCN WCPA and working with Governments, the Secretariats of MEAs and collaborating NGOs. For further information: protectedareas@unep-wcmc.org</othercit>
+				<onlink>www.wdpa.org</onlink>
+				<ftname Sync="TRUE">WDPAsource2009</ftname></citeinfo>
+		</citation>
+		<descript>
+			<abstract>This table contains the source information for the spatial and attribute data in the WDPA. Currently only site level metadata is being provided in this release. The legacy attribute source information has been transferred from the old WDPA and linked, where available, to the attribute tables of the spatial data. Source information for the spatial data has been transferred into the new metadata table structure which can be linked, via the 'METADATAID' field, to the main attribute tables of the spatial data.</abstract>
+			<purpose>To enable accurate sourcing of both spatial (GIS) data and bibliographic (journals, books, reports) data sources, we took commonly required attributes from three international standards (Dublin Core, ISO 19115 and Federal Geographic Data Committee - FGDC) and combined them to build a WDPA data source (metadata) standard.</purpose>
+			<langdata Sync="TRUE">en</langdata></descript>
+		<timeperd>
+			<timeinfo>
+				<rngdates>
+					<begdate>December 2007</begdate>
+					<enddate>February 2009</enddate>
+				</rngdates>
+			</timeinfo>
+			<current>publication date</current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>Annually</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc>
+REQUIRED: Western-most coordinate of the limit of coverage expressed in longitude.</westbc>
+				<eastbc>
+REQUIRED: Eastern-most coordinate of the limit of coverage expressed in longitude.</eastbc>
+				<northbc>
+REQUIRED: Northern-most coordinate of the limit of coverage expressed in latitude.</northbc>
+				<southbc>
+REQUIRED: Southern-most coordinate of the limit of coverage expressed in latitude.</southbc>
+			</bounding>
+		</spdom>
+		<keywords>
+			<theme>
+				<themekt>REQUIRED: Reference to a formally registered thesaurus or a similar authoritative source of theme keywords.</themekt>
+				<themekey>WDPA</themekey>
+				<themekey>Protected Areas</themekey>
+				<themekey>Metadata</themekey>
+				<themekey>Data sources</themekey>
+			</theme>
+		</keywords>
+		<accconst>You need to be a registered non-commercial user and agree to the Terms and Conditions of the WDPA to download this dataset. If you wish to use this dataset for any commercial use/purpose then please contact wdpacommerical@unep-wcmc.org to discuss access.</accconst>
+		<useconst>By downloading this dataset you have agreed to abide by the Terms and Conditions of Use of the World Database on Protected Areas: 
+
+Access to all WDPA data (or the "WDPA materials") is provided on the understanding that the end-user read and consents to be bound to the terms outlined in these Terms and Conditions of Use.
+
+PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY. IF YOU DO NOT AGREE TO ANY OF THE TERMS AND CONDITIONS DO NOT DOWNLOAD
+
+NO COMMERCIAL USE
+The WDPA and any derivatives must not be used or made available for any Commercial Purpose without permission. Any use of WDPA content by an individual or entity operating within or on behalf of or to the benefit of any organisation other than a not-for-profit organisation will be deemed to be for a Commercial Purpose and will constitute a breach of the Terms and Conditions. To apply for permission for commercial use please send an email to wdpacommercial@unep-wcmc.org outlining your needs.
+
+NO SUB-LICENSING OR REDISTRIBUTING OF WDPA DATA
+The WDPA may not be sub-licensed in whole or in part without permission. You may not redistribute the attributes or spatial data contained in the WDPA in whole or in part by any means including (but not limited to) digitally, via web downloads, through web services, interactive web maps or file transfer protocols. If you know of others who wish to use the WDPA we suggest you refer them to this website. If you wish to provide a service though which the attributes and/or spatial data of the WDPA are downloadable or otherwise made available for redistribution, please contact protectedareas@unep-wcmc.org for further guidance.
+
+PUBLISHING THE WDPA
+You may publish the WDPA in whole or in part, including on-line, providing the attributes and spatial data are not downloadable. You must ensure that the latest released version of the WDPA Materials is being used and the year of release is visible. Material published online must provide a clear link to the original WDPA and the attribution below must be clearly visible in all publications. We recommend that you have the material reviewed by UNEP-WCMC and/or the IUCN-WCPA prior to publication and we require two copies of all published materials be lodged free of charge with the supplier of the dataset, preferably in electronic format via: protectedareas@unep-wcmc.org
+
+ATTRIBUTION
+You must ensure that the attribution set out below is always clearly reproduced in the use of any part of the WDPA in any format, so that individual users are made aware of it:
+
+World Database on Protected Areas (WDPA) Annual Release 2009 (web download version), February 2009.  The WDPA is a joint product of UNEP and IUCN, prepared by UNEP-WCMC, supported by IUCN WCPA and working with Governments, the Secretariats of MEAs and collaborating NGOs. For further information: protectedareas@unep-wcmc.org
+
+WDPA UPDATES
+Unless required to do so for specific analyses, you should not use any version of the WDPA after it has been superseded by a subsequent version. It is your responsibility to check if an update of the WDPA is available. 
+
+NO WARRANTY AND WAIVER OF LIABILITY
+The WDPA is provided to you 'as is', and no warranty of any kind is given. In consideration of the rights granted in this download, you hereby waive and release UNEP, IUCN and WCMC 2000 from any liability whatsoever and howsoever arising in connection with use of the WDPA. You agree that this waiver and release is effective in any and every jurisdiction in the world. UNEP, IUCN and WCMC 2000 will not be responsible for negligence, strict liability or otherness in the use of WDPA data by you or other users as a result of WDPA data being posted on any website following this download. You download the WDPA at your own discretion and risk and are solely responsible in the event of any damage occurring to computer systems as a result of attempts to download WDPA data.
+
+FEEDBACK AND REVISED INFORMATION
+In order to keep the WDPA up to date, UNEP and IUCN would like you to provide feedback on the quality, reliability and accuracy of the WDPA. We also welcome revised information on the WDPA in the form of GIS data, electronic images, paper maps, tables, GPS coordinates, and/or in any other useable format. Such contributions should be free of restrictions. The objective is to improve the WDPA for the benefit of the global conservation community. You can register to submit electronic protected area data via the WDPA website.
+
+LAW AND JURISDICTION
+Any dispute arising out of or in connection with this download and the subsequent use of the WDPA shall be settled by amicable negotiation between you and the supplier of the dataset. Should attempts at amicable negotiation fail, any such dispute shall, upon request by either you or the supplier of the WDPA, be referred to arbitration in accordance with the UNCITRAL arbitration rules then prevailing.
+
+COMMUNICATION
+Any communication with respect to these Terms and Conditions and any issue arising from them shall be in writing, in English, and sent by email. The address for communication with the WDPA supplier is:protectedareas@unep-wcmc.org
+</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>UNEP World Conservation Monitoring Centre (UNEP-WCMC)</cntorg>
+					<cntper>WDPA Team</cntper>
+				</cntorgp>
+				<cntpos>Protected Areas Programme</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>219 Huntingdon Road</address>
+					<city>Cambridge</city>
+					<state>Cambridgeshire</state>
+					<postal>CB3 0DL</postal>
+					<country>United Kingdom</country>
+				</cntaddr>
+				<cntvoice>+ 44 (0) 1223 277314</cntvoice>
+				<cntfax>+ 44 (0) 1223 2773136</cntfax>
+				<cntemail>protectedareas@unep-wcmc.org</cntemail>
+				<cntemail>wdpacommercial@unep-wcmc.org</cntemail>
+				<hours>Monday - Friday (9 am - 5:30pm GMT)</hours>
+				<cntinst>Email protectedareas@unep-wcmc.org if you have any questions about this dataset. If you wish to use the WDPA dataset for commercial use/purpose please email wdpacommercial@unep-wcmc.org. 
+Please include 'WDPA 2009 Annual Dataset enquiry' in the subject line of your email.</cntinst>
+			</cntinfo>
+		</ptcontac>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.0.1770</native>
+		<crossref>
+			<citeinfo>
+				<origin>Protected Areas Programme, UNEP-WCMC</origin>
+				<pubdate>February 2009</pubdate>
+				<title>World Database on Protected Areas (WDPA) 2009 Annual Release (Web download version) - Data Source table</title>
+				<edition>2009 Annual Release (Web download version)</edition>
+				<serinfo>
+					<sername>WDPA Annual Release</sername>
+					<issue>2009 Annual Release (Web download version)</issue>
+				</serinfo>
+				<pubinfo>
+					<pubplace>UNEP-WCMC</pubplace>
+					<publish>UNEP-WCMC</publish>
+				</pubinfo>
+				<othercit>Dataset citation: World Database on Protected Areas (WDPA) Annual Release 2009 (web download version), February 2009.  The WDPA is a joint product of UNEP and IUCN, prepared by UNEP-WCMC, supported by IUCN WCPA and working with Governments, the Secretariats of MEAs and collaborating NGOs. For further information: protectedareas@unep-wcmc.org</othercit>
+				<onlink>www.wdpa.org</onlink>
+			</citeinfo>
+		</crossref>
+		<natvform Sync="TRUE">dBASE Table</natvform></idinfo>
+	<dataqual>
+		<logic>The WDPA is provided to you 'as is', and no warranty of any kind is given. In consideration of the rights granted in this download, you hereby waive and release UNEP, IUCN and WCMC 2000 from any liability whatsoever and howsoever arising in connection with use of the WDPA. You agree that this waiver and release is effective in any and every jurisdiction in the world. UNEP, IUCN and WCMC 2000 will not be responsible for negligence, strict liability or otherness in the use of WDPA data by you or other users as a result of WDPA data being posted on any website following this download. You download the WDPA at your own discretion and risk and are solely responsible in the event of any damage occurring to computer systems as a result of attempts to download WDPA data.</logic>
+		<complete>The WDPA is a work in progress, continually being updated once new information becomes available. The Annual Release includes all nationally designated (e.g. National Parks, Nature Reserves) and internationally recognized protected areas (e.g. UNESCO World Heritage Sites, Wetlands of International Importance) currently held in the WDPA, up to end of February 2009.  This static version contains all data improvements made to the WDPA since the previous annual release in December 2007
+
+During 2008, data improvement work was ongoing as well as transfer of legacy data from the old system into the new WDPA Portal (v1.0 launched in October 2008). By February 2009, 100% of all legacy data has been transferred and internal data validation processes (geography, geometry, topology and attributes) have been performed.  A number of sites had no source information recorded therefore during the legacy data transfer process they have been assigned a 'generic' WDPA source. Although the new WDPA can store data sources to the attribute level, this system is not currently fully operational. Therefore attribute level sourcing from the MPA Global database are not included in this release. From March 2009 work will continue on the crosschecking the results of the internal data validation processes and making corrections where possible.</complete>
+		<lineage><procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\UNEP-WCMC\Other_Projects\Proteus\WDPA_Annual_Release_2008\WDPA_AR_2008_datasource_draft_global.xml</srcused><procdate Sync="TRUE">20090310</procdate><proctime Sync="TRUE">17380600</proctime></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">C:\UNEP-WCMC\Other_Projects\Proteus\WDPA_Annual_Release_2008\FINAL_DATASET\WDPAsource2009</srcused><procdate Sync="TRUE">20090310</procdate><proctime Sync="TRUE">17533800</proctime></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">C:\UNEP-WCMC\Other_Projects\Proteus\WDPA_Annual_Release_2008\FINAL_DATASET\WDPA_Global_AR2009\WDPAsource2009</srcused><procdate Sync="TRUE">20090310</procdate><proctime Sync="TRUE">17542300</proctime></procstep></lineage></dataqual>
+	<eainfo>
+		<detailed Name="WDPAsource2009">
+			<enttyp>
+				<enttypl Sync="TRUE">WDPAsource2009</enttypl>
+				<enttypt Sync="TRUE">Table</enttypt><enttypc Sync="TRUE">751</enttypc><enttypd>World Database on Protected Areas Annual Release 2009</enttypd><enttypds>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </enttypds></enttyp>
+			<attr>
+				<attrlabl>OID</attrlabl>
+				<attrdef>Internal feature number.</attrdef>
+				<attrdefs>ESRI</attrdefs>
+				<attrdomv>
+					<udom>Sequential unique whole numbers that are automatically generated.</udom>
+				</attrdomv>
+				<attalias Sync="TRUE">OID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr>
+			<attr>
+				<attrlabl>METADATAID</attrlabl>
+				<attrdef>Unique identification number specific to each data source.</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">METADATAID</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">18</attwidth></attr>
+			<attr>
+				<attrlabl>TITLE</attrlabl>
+				<attrdef>Title of dataset or publication</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">TITLE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">200</attwidth></attr>
+			<attr>
+				<attrlabl>REF_DATE</attrlabl>
+				<attrdef>Date of creation</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">REF_DATE</attalias><attrtype Sync="TRUE">Date</attrtype><attwidth Sync="TRUE">8</attwidth></attr>
+			<attr>
+				<attrlabl>RESP_PARTY</attrlabl>
+				<attrdef>Dataset creator</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">RESP_PARTY</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">200</attwidth></attr>
+			<attr>
+				<attrlabl>G_LOCATION</attrlabl>
+				<attrdef>Extent of Dataset (e.g. national, global, single site)</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">G_LOCATION</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>LANGUAGE</attrlabl>
+				<attrdef>Language that the dataset is written in</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">LANGUAGE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">200</attwidth></attr>
+			<attr>
+				<attrlabl>CHAR_SET</attrlabl>
+				<attrdef>Character set used for creation of the data</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">CHAR_SET</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>TOPIC_CAT</attrlabl>
+				<attrdef>The topic of dataset or publication (e.g. protected areas)</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">TOPIC_CAT</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>ABSTRACT</attrlabl>
+				<attrdef>Abstract describing the dataset or publication</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">ABSTRACT</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>D_FORMAT</attrlabl>
+				<attrdef>Format that the dataset is made available for distribution (e.g. GIS shapefile, paper map)</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">D_FORMAT</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>SP_TYPE</attrlabl>
+				<attrdef>GIS data type (e.g. point, line or polygon)</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">SP_TYPE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>REF_SYSTEM</attrlabl>
+				<attrdef>Projection system used</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">REF_SYSTEM</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>SCALE</attrlabl>
+				<attrdef>Scale of map or dataset</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">SCALE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>LINEAGE</attrlabl>
+				<attrdef>Historic information about where the dataset came from</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">LINEAGE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth></attr>
+			<attr>
+				<attrlabl>ONLINE_REF</attrlabl>
+				<attrdef>URL linking to where the dataset or document can be obtained</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">ONLINE_REF</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">60</attwidth></attr>
+			<attr>
+				<attrlabl>ADDRESS</attrlabl>
+				<attrdef>Address of publisher</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">ADDRESS</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">200</attwidth></attr>
+			<attr>
+				<attrlabl>AUTHOR</attrlabl>
+				<attrdef>Author of Publication</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">AUTHOR</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">50</attwidth></attr>
+			<attr>
+				<attrlabl>CHAPTER</attrlabl>
+				<attrdef>Chapter within a publication</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">CHAPTER</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">11</attwidth><atnumdec Sync="TRUE">5</atnumdec></attr>
+			<attr>
+				<attrlabl>EDITION</attrlabl>
+				<attrdef>Edition of publication</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">EDITION</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">10</attwidth></attr>
+			<attr>
+				<attrlabl>EDITOR</attrlabl>
+				<attrdef>Name of person/s who edited report or collection of articles</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">EDITOR</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">60</attwidth></attr>
+			<attr>
+				<attrlabl>JOURNAL</attrlabl>
+				<attrdef>Name of Journal</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">JOURNAL</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">150</attwidth></attr>
+			<attr><attrlabl Sync="TRUE">MONTH</attrlabl><attalias Sync="TRUE">MONTH</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">10</attwidth><attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs><attrdef>Month of publication</attrdef></attr><attr><attrlabl Sync="TRUE">NUMBER</attrlabl><attalias Sync="TRUE">NUMBER</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">10</attwidth><attrdef>Journal or publication number</attrdef><attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs></attr><attr><attrlabl Sync="TRUE">PAGES</attrlabl><attalias Sync="TRUE">PAGES</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">10</attwidth><attrdef>Range of pages for a publication/article</attrdef><attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs></attr><attr>
+				<attrlabl>PUBLISHER</attrlabl>
+				<attrdef>Publisher Name</attrdef>
+				<attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs>
+				<attalias Sync="TRUE">PUBLISHER</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">50</attwidth></attr>
+			<attr><attrlabl Sync="TRUE">SERIES</attrlabl><attalias Sync="TRUE">SERIES</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">10</attwidth><attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs><attrdef>Name of a series of books or reports</attrdef></attr><attr><attrlabl Sync="TRUE">TYPE</attrlabl><attalias Sync="TRUE">TYPE</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">50</attwidth><attrdef>Type of publication</attrdef><attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs></attr><attr><attrlabl Sync="TRUE">VOLUME</attrlabl><attalias Sync="TRUE">VOLUME</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">10</attwidth><attrdef>Volume of journal or series</attrdef><attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs></attr><attr><attrlabl Sync="TRUE">YEAR</attrlabl><attalias Sync="TRUE">YEAR</attalias><attrtype Sync="TRUE">Number</attrtype><attwidth Sync="TRUE">10</attwidth><attrdef>Year of publication</attrdef><attrdefs>UNEP-WCMC, February 2009. 'Data structure of the World Database on Protected Areas (WDPA) Annual Release 2009, New WDPA Schema, Web-download Version - February 2009. </attrdefs></attr></detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntperp>
+					<cntper>WDPA Team</cntper>
+					<cntorg>UNEP World Conservation Monitoring Centre (UNEP-WCMC)</cntorg>
+				</cntperp>
+				<cntpos>Protected Areas Programme</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>219 Huntingdon Road</address>
+					<city>Cambridge</city>
+					<state>Cambridgeshire</state>
+					<postal>CB3 0DL</postal>
+					<country>United Kingdom</country>
+				</cntaddr>
+				<cntvoice>+44(0)1223 277314</cntvoice>
+				<cntfax>+44(0)1223 277136</cntfax>
+				<cntemail>protectedareas@unep-wcmc.org</cntemail>
+				<cntemail>wdpacommerical@unep-wcmc.org</cntemail>
+				<hours>Monday - Friday (9 am - 5 pm GMT)</hours>
+			</cntinfo>
+		</distrib>
+		<resdesc>Web Downloadable Data from WDPA.org</resdesc>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<transize>2.463</transize>
+					<dssize Sync="TRUE">2.589</dssize></digtinfo>
+			</digform>
+		</stdorder>
+	</distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20090310</metd>
+		<metrd>20100127</metrd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>UNEP World Conservation Monitoring Centre (UNEP-WCMC)</cntorg>
+					<cntper>WDPA Team</cntper>
+				</cntorgp>
+				<cntpos>Protected Areas Programme</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>219 Huntingdon Road</address>
+					<city>Cambridge</city>
+					<state>Cambridgeshire</state>
+					<postal>CB3 0DL</postal>
+					<country>United Kingdom</country>
+				</cntaddr>
+				<cntvoice>+44(0) 1223 277314</cntvoice>
+				<cntfax>+44(0) 1223 277136</cntfax>
+				<cntemail>protectedareas@unep-wcmc.org</cntemail>
+				<cntemail>wdpacommercial@unep-wcmc.org</cntemail>
+				<hours>onday to Friday (9 am - 5:30 pm GMT)</hours>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<langmeta Sync="TRUE">en</langmeta><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><CreaDate>20090310</CreaDate><CreaTime>17542300</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20090310</SyncDate><SyncTime>17380700</SyncTime><ModDate>20090310</ModDate><ModTime>17480600</ModTime><MetaID>{8ED7C88A-5C18-4487-850B-E3092AE05B1E}</MetaID></Esri><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.0.1770</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">WDPAsource2009</resTitle><presForm><PresFormCd Sync="TRUE" value="011"></PresFormCd></presForm></idCitation></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">file://\\WCMC-PC-00692\C$\UNEP-WCMC\Other_Projects\Proteus\WDPA_Annual_Release_2008\FINAL_DATASET\WDPA_Global_AR2009\WDPApol2009_1\WDPAsource2009</linkage><protocol Sync="TRUE">Local Area Network</protocol></onLineSrc><transSize Sync="TRUE">2.589</transSize></distorTran><distorFormat><formatName Sync="TRUE">dBASE Table</formatName></distorFormat></distributor></distInfo><mdDateSt Sync="TRUE">20090310</mdDateSt></metadata>

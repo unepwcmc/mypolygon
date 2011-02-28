@@ -1,0 +1,13 @@
+<ul>
+     <li><%= link_to "<span>Explore</span>", root_path,
+	:class=> "#{current_page?(:controller => 'home', :action => 'index') || current_page?(:controller => 'sites', :action => 'show') ? 'current' : '' }" %></li>
+     <li><%= link_to "<span>Search</span>", search_path,
+	:class=> "#{current_page?(:controller => 'search') ? 'current' : '' }" %></li>
+	   <li><%= link_to "<span>Countries</span>", countries_path,
+	:class=> "#{current_page?(:controller => 'countries') ? 'current' : '' }" %></li>
+  
+     <!-- <li><%= link_to "<span>Participate</span>", participate_path,
+	:class=> "#{current_page?(:controller => 'static_content', :action => 'participate') ? 'current' : '' }" %></li> -->
+		 <li><%= link_to "<span>About</span>", about_path,
+				:class=> "#{current_page?(:controller => 'static_content', :action => 'about') ? 'current' : '' }" %></li>
+</ul>

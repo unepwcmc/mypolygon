@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby -ws
+
+require 'rubygems'
+require 'dbf'
+
+$a ||= false
+$s ||= false
+
+if defined? $h then
+  puts "usage: #{File.basename(__FILE__)} [-h|-s|-a] filename"
+  puts "  -h = print this message"
+  puts "  -s = print summary information"
+  puts "  -a = create an ActiveRecord::Schema"
+else
+
+  filename = ARGV.shift
+  abort "You must supply a filename on the command line" unless filename
+
+  # create an ActiveRecord::Schema
+  if $a
+    table = DBF::Table.new filename
+    puts table.schema
+  end
+  
+  if $s
+    table = DBF::Table.new filename
+    puts
+    puts "Database: #{filename}"
+    puts "Type: (#{table.version}) #{table.version_description}"
+    puts "Memo Type: #{table.memo_file_format}" if table.has_memo_file?
+    puts "Records: #{table.record_count}"
+    
+    puts "\nFields:"
+    puts "Name             Type       Length     Decimal"
+    puts "-" * 78
+    table.columns.each do |f|
+      puts "%-16s %-10s %-10s %-10s" % [f.name, f.type, f.length, f.decimal]
+    end
+  end
+end

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head lang="en" xml:lang="en">
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title> ProtectedPlanet - Tenement Analysis</title>
+
+		<!-- STYLESHEETS GO HERE -->
+		<%= stylesheet_link_merged :base %>
+		<!--[if IE]><%= stylesheet_link_tag "ie" %><![endif]-->		
+		
+		<!-- JAVASCRIPT GOES HERE -->
+		<% if protect_against_forgery? %>
+		  <script type='text/javascript'>
+		      //<![CDATA[
+		        window._auth_token_name = "#{request_forgery_protection_token}";
+		        window._auth_token = "#{form_authenticity_token}";
+		    //]]>
+		    </script>
+		<% end %>
+		
+		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", 				
+															 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js",
+															 javascript_environment %>
+		<%= javascript_include_merged :base %>
+                <%= yield :js_include %>
+	</head>
+	<body>	
+
+    <div id="login_error" <%= "style='display:none; height:0px'" %>>
+        <%= flash[:login] %>
+    </div>
+
+		
+		<div id="outer_layout">
+			<div id="outer_header">
+				<div id="inner_header">
+			  	<div id="header">						
+						<%= link_to "", {:controller => 'assesments', :action => 'index', :anchor => session[:home_anchor]}, :class => 'logo' %>
+			     </div>
+			 		</div>
+			  </div>
+			 </div>
+			
+	  	<%= yield :home_page %>
+
+	    <%= yield :main_area %>
+			
+			<div id="outer_footer">
+				<div id="inside_footer">
+			  	<div id="footer">
+						<p>ProtectedPlanet.net - 2010 - All rights reserved</p>
+			    	<ul>
+			      	<li class="none">
+				<%= link_to "Explore", {:controller => 'assesments', :action => 'index', :anchor => session[:home_anchor]} %></li>
+			        <li><%= link_to "About", "http://www.protectedplanet.net" %></li>
+			      </ul>
+			      <div class="powered"> 
+							<a href="http://www.iucn.org/about/union/commissions/wcpa/"><img src="/images/logos/wcpa.gif" class="last" alt=""/></a>
+							<a href="http://www.iucn.org/"><img src="/images/logos/iucn.gif" alt=""/></a> 
+							<a href="http://www.unep-wcmc.org/"><img src="/images/logos/wcmc.gif" alt=""/></a> 
+							<a href="http://www.unep-wcmc.org/"><img src="/images/logos/unep.gif" alt=""/></a>
+						</div>
+			    </div>
+			  </div>
+			</div>
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-12920389-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+		  })();
+		</script>
+	</body>
+</html>

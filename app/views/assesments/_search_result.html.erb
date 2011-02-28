@@ -1,0 +1,25 @@
+<li class="first">
+
+	<div class="pic_area" style="position:relative; overflow:hidden;">
+		<div style="position:relative; overflow:hidden;">
+			<%= link_to image_tag("http://maps.google.com/maps/api/staticmap#{search_result.epl(169,120)}&sensor=false", {:style => 'width:169px'}), assesment_tenement_path(@a, search_result), :class => "searchImage" %>			
+		</div>
+	</div>
+
+	<div class="content_center">
+ 		<div class="top_information">
+ 			<h4><%= link_to "Tenement #{search_result.id}", assesment_tenement_path(@a, search_result) %></h4>
+			<p class="category">
+				<b><%= pluralize search_result.sites.count, "Protected Area" %> found</b>  
+			</p>
+			<p class="distance">
+				<%= number_with_precision search_result.query_area_km2, 2 %> <b>km<sup>2</sup></b><br>
+				<% if search_result.query_area_carbon_kg %>
+					<%= number_with_delimiter (search_result.query_area_carbon_kg / 1000) %><b><sup>t Carbon</sup> </b>
+				<% end -%>					
+			</p>
+			<p>
+ 		</div>
+	</div>
+	<div class="avatarBottomEnd"></div>
+</li>

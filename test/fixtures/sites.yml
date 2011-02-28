@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tenement_id: 1
+  wdpaid: 1
+  image: MyString
+  data_standard: MyText
+  protected_carbon_kg: 1.5
+  protected_area_km2: 1.5
+  query_area_protected_km2: 1.5
+  query_area_protected_carbon_kg: 1.5
+
+two:
+  tenement_id: 1
+  wdpaid: 1
+  image: MyString
+  data_standard: MyText
+  protected_carbon_kg: 1.5
+  protected_area_km2: 1.5
+  query_area_protected_km2: 1.5
+  query_area_protected_carbon_kg: 1.5

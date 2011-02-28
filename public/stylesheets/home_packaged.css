@@ -1,0 +1,732 @@
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,form,fieldset,p{margin:0; padding:0; font-weight:normal}
+img,fieldset{border:none; padding:0; margin:0;}
+body{font:12px Arial, Helvetica, sans-serif; color:#666666; background:#eeeeee}
+span.clear{clear:both;}
+div.left{float:left; width:auto;}
+div.right{float:right; width:auto;}
+a:focus{outline:none}
+img.left_curve{float:left;}
+img.right_curve{float:right;}
+div#outer_layout{float:left; width:100%;}
+div#layout{margin:0 auto; width:961px;}
+ #simplemodal-overlay {background-color:#FFFFFF; cursor:default;}
+#simplemodal-container {height:281px; width:298px; border:4px #c4d8ea solid; background:#eeeeee;}
+#simplemodal-container a {color:#ddd; cursor:pointer;}
+#simplemodal-container a.modalCloseImg {background:url(../images/icons/x.jpg) no-repeat center center; width:15px; height:15px; display:inline; z-index:3200; position:absolute; top:10px; right:10px; cursor:pointer;}
+ #login_modal {display:none; background:#eeeeee;}
+#login_modal div.header {float:left; width:298px; height:35px; background: url(../images/login_repeat.gif) repeat-x #eeeeee;}
+#login_modal div.header h2{font: 17px Arial; color:#FFFFFF; width: 50px; height: 25px; padding: 8px 15px 0 15px; margin: 0;}
+#login_modal div.login_up {width: 100%; background: url(../images/icons/dolls.gif) no-repeat 250px 26px; clear:both;}
+#login_modal div.login_up p.first {font-size: 13px; font-family: Arial; color:#999999; padding: 16px 0 0 15px; height: 22px; margin:0; height:17px;}
+#login_modal div.login_up p.second {font-size: 13px; font-family: Arial; font-weight: bold; color:#666666; padding: 0 0 0 15px; height: 22px; margin:0;}
+#login_modal div.login_form {float:left; width:263px; padding:10px 15px; position:absolute; height:171px; background:#eeeeee;}
+#login_modal div.login_form label {width:100%; font-size:10px; color: #999999; font-weight: bold;}
+#login_modal div.login_form label.remember {float:left; width:75px; margin:4px 0 0 0;}
+#login_modal div.login_form input {width:253px; font-size:12px; color: #666666; font-weight: normal; border: 1px solid #cccccc; margin:0 0 10px 0; padding: 5px 6px;}
+#login_modal div.login_form input[type='checkbox'] {float:left;width:12px; height:12px; margin:3px 3px 0 0;}
+#login_modal div.login_form input.last {width:253px; font-size:12px; color: #666666; font-weight: normal; border: 1px solid #cccccc; margin:0; padding: 5px 6px;}
+#login_modal div.login_form a {float:right; text-decoration: none; text-align: right; font-weight: bold; font-size: 10px; color: #336699; margin:4px 0 0 0; padding:0; width:auto;}
+#login_modal div.login_form a:hover {color: #003366;}
+#login_modal div.login_form div.footer {position: absolute; width: 298px; background: #ffffff; border-top: solid 1px #c0c0c0; height:41px; bottom:0; left:0;}
+#login_modal div.login_form div.footer span{float:left; width: auto; color: #666666; font-size: 11px; padding: 14px 0 0 15px;}
+#login_modal div.login_form div.footer span a.create{float:none; font-weight: bold; font-size: 11px; color: #336699; margin:0 0 0 3px; padding:0;}
+#login_modal div.login_form div.footer span a.create:hover {color: #003366;}
+#login_modal div.footer a.sign_button{float:right; width:auto; background:url(../images/common/download_left.gif) no-repeat 0 0; height:27px; color:#fff; text-decoration:none; padding:0; margin: 7px 15px 0 0; cursor:pointer}
+#login_modal div.footer a.sign_button span{float:left; width:auto; background:url(../images/common/download_right.gif) no-repeat right 0; height:19px; color:#666666; font-size: 11px; padding:8px 6px 0 22px; margin: 0 0 0 3px;}
+#login_modal div.footer a.sign_button:hover{}
+#login_modal div.footer a.sign_button:hover span{color:#333333; background:url(../images/common/download_right.gif) no-repeat right -27px;}
+#login_modal div.footer a.sign_button span.image {position:absolute; background:url(../images/icons/lock.gif) no-repeat center; height:15px; width:16px; right:64px; top:14px; padding:0;}
+#login_modal div.footer a.sign_button:hover span.image {position:absolute; background:url(../images/icons/lock.gif) no-repeat center; height:15px; width:16px; right:64px; top:14px; padding:0;}
+#login_modal div.footer a.retrieve_button{float:right; width:auto; background:url(../images/common/download_left.gif) no-repeat 0 0; height:27px; color:#fff; text-decoration:none; padding:0; margin: 7px 15px 0 0; cursor:pointer}
+#login_modal div.footer a.retrieve_button span{float:left; width:auto; background:url(../images/common/download_right.gif) no-repeat right 0; height:19px; color:#666666; font-size: 11px; padding:8px 6px 0 16px; margin: 0 0 0 3px;}
+#login_modal div.footer a.retrieve_button:hover{}
+#login_modal div.footer a.retrieve_button:hover span{color:#333333; background:url(../images/common/download_right.gif) no-repeat right -27px;}
+#login_modal div.footer a.retrieve_button span.image {position:absolute; background:url(../images/icons/warning.gif) no-repeat center; height:15px; width:16px; right:119px; top:13px; padding:0;}
+#login_modal div.footer a.retrieve_button:hover span.image {position:absolute; background:url(../images/icons/warning.gif) no-repeat center; height:15px; width:16px; right:119px; top:13px; padding:0;}
+ div#outer_header{float:left; width:100%; background:url(../images/common/header_bg.gif) repeat-x 0 0; height:36px;}
+div#inner_header{margin:0 auto; width:961px;}
+div#header{float:left; width:952px; padding:0 0 0 9px; height:35px;}
+div#header a.logo{float:left; width:255px; height:36px; background:url(../images/logo.png) no-repeat 0 0;}
+div#header form {float:right; width:auto; margin:6px 0 0 0;}
+div#header form input[type="text"]{float:left; background:url(../images/home/inputSearch.gif) no-repeat 0 0; padding:5px 25px 5px 5px; width:165px; margin:0; border:none; font:normal 13px Arial; font-style:italic; color:#aaaaaa;}
+div#header form input[type="text"]:focus {outline:none;}
+div#header form input[type="submit"]{float:left; background:url(../images/home/buttonSearch.gif) no-repeat 0 0; margin:0; width:27px; height:24px; border:none;}
+div#header form input[type="submit"]:focus {outline:none;}
+div#header form input[type="submit"]:hover {cursor:pointer;}
+div#menu{float:left; width:685px; padding-top:76px; margin:16px 0 0 0;}
+div#menu ul{float:right; width:auto; list-style:none;}
+div#menu li{float:left; width:auto; font:normal 16px/18px Arial, Helvetica, sans-serif; color:#ffffff; padding-left:2px;}
+div#menu li a{float:left; width:auto; background:url(../images/left_curve_menu.gif) no-repeat 0 0; height:34px; color:#ffffff; text-decoration:none; padding-left:4px; cursor:pointer}
+div#menu li a span{float:left; width:auto; background:url(../images/right_curve_menu.gif) no-repeat right 0; height:26px; color:#ffffff; padding:8px 31px 0 26px;text-shadow: 0px -1px 0px #6666cc;}
+div#menu li a:hover{float:left; width:auto; background:url(../images/left_curve_menu.gif) no-repeat 0 bottom; height:34px; color:#333333; text-decoration:none;}
+div#menu li a:hover span{float:left; width:auto; background:url(../images/right_curve_menu.gif) no-repeat right bottom; height:26px; color:#333333;text-shadow: none;}
+div#menu li a.current{float:left; width:auto; background:url(../images/left_curve_menu.gif) no-repeat 0 bottom; height:34px; color:#333333; text-decoration:none; cursor:text;text-shadow: none;}
+div#menu li a.current span{float:left; width:auto; background:url(../images/right_curve_menu.gif) no-repeat right bottom; height:26px; color:#333333;text-shadow: none; cursor: pointer;}
+ div#header_home {z-index:1000; position:absolute; top:0; left:0; right:0; background:url(../images/home/header_bg_home.png) repeat-x 0 0; display:none;}
+div#header_home a.logoHome{float:left; width:200px; height:36px; background:url(../images/home/logoHome.png) no-repeat 0 0;}
+div#header_home form {float:right; width:auto; margin:6px 5px 0 0;}
+div#header_home form input[type="text"]{float:left; background:url(../images/home/inputSearch.gif) no-repeat 0 0; padding:5px 25px 5px 5px; width:165px; margin:0; border:none; font:normal 13px Arial; font-style:italic; color:#aaaaaa;}
+div#header_home form input[type="text"]:focus {outline:none;}
+div#header_home form input[type="submit"]{float:left; background:url(../images/home/buttonSearch.gif) no-repeat 0 0; margin:0; width:27px; height:24px; border:none;}
+div#header_home form input[type="submit"]:focus {outline:none;}
+div#header_home form input[type="submit"]:hover {cursor:pointer;}
+div#tinyExplore {position: relative; float: right; margin:5px 5px 0 0;}
+div#tinyExplore a#backToStart {float:left; position:relative; width:auto;}
+div#tinyExplore a#backToStart:hover {cursor:pointer;}
+div#tinyExplore p {float:right; background:url(../images/home/filter_bkg.png) no-repeat 0 0; width:118px; margin:1px 0 0 0; text-align:center; height:25px; padding:5px 0 0 0}
+div#tinyExplore p a {background:url(../images/icons/transArrow.png) no-repeat right 2px; font:bold 12px Arial; color:#ffffff; letter-spacing:-0.5px; padding:0 13px 0 0; text-decoration:none;}
+div#tinyExplore p a:hover {text-decoration:underline; cursor:pointer;}
+a#aboutButton {width:24px; height:24px; float:right; background:url(../images/home/aboutBtn.png) no-repeat 0 0; margin:6px 5px 0 0;}
+a#aboutButton:hover {background:url(../images/home/aboutBtn.png) no-repeat -24px 0;}
+.search_spinner_header{display:none; position:absolute;top:5px;right:30px;z-index:999;}
+ div#footer_home{ width:100%; background:url(../images/footer_bg_home.png) repeat-x 0 0; height:36px; position:absolute; z-index: 1000; bottom:0;}
+div#footer_home .logoContainer{margin:0; margin-right: 16px; float:right;}
+div#footer_home .logoContainer img{ margin: 0; padding: 0; margin-left: -3px; margin-top:5px;}
+div#footer_home .bottomLinks{color: #8aa0b3; float:left; margin-left: 18px; margin-top: 12px;}
+div#footer_home .bottomLinks a{ text-decoration: none; color: #d0d9e0; margin:0; margin-left:3px;}
+div#footer_home .bottomLinks a:hover{ color: #ffffff;}
+ a#zoomIn {position:absolute; top:50px; left:15px; width:25px; height:25px; background:url(../images/icons/moreZoomBtnExplore.png) no-repeat 0 0; z-index:1000; display:none;}
+a#zoomIn:hover {background:url(../images/icons/moreZoomBtnExplore.png) no-repeat -25px 0; cursor:pointer;}
+a#zoomOut {position:absolute; top:80px; left:15px; width:25px; height:25px; background:url(../images/icons/lessZoomBtnExplore.png) no-repeat 0 0; z-index:1000; display:none;}
+a#zoomOut:hover {background:url(../images/icons/lessZoomBtnExplore.png) no-repeat -25px 0; cursor:pointer;}
+div#searchBox {width:800px; height:215px; margin:120px auto auto auto; position:relative; z-index: 1000; background:url(../images/common/background.png) no-repeat 0 0;}
+div#searchBox label {font:bold 17px Arial; color:white; letter-spacing:-0.5px;}
+div#searchBox h3 {float:left; width:700px; font:bold 33px Arial; color: #133E64; letter-spacing:-1px; padding:0; margin:40px 0 0 36px;}
+div#searchBox div#search_input {float:left; width:460px; height:80px; margin:15px 0 0 36px;}
+div#searchBox input#search_inputText {float:left; width:320px; padding:9px 8px 10px 8px; margin-top:5px; font:normal 15px Arial; color:#999999; background:url(../images/common/textinput.png) no-repeat 0 0; border:none;}
+div#searchBox input#search_inputText:focus {border:none; outline:none;}
+div#searchBox input#search_inputButton {float:left; width:120px; height:36px; margin-top:5px; padding:0px 8px 0 8px; font:bold 21px Arial; color:#FFFFFF; background:url(../images/common/search.png) no-repeat right 0; border:none; letter-spacing:-1px;}
+div#searchBox input#search_inputButton:hover {background:url(../images/common/search.png) no-repeat right -36px; cursor:pointer;}
+div#searchBox div#explore_input {float:left; width:240px; height:90px; margin:15px 0 0 15px;}
+div#searchBox div#explore_input a {float:left; width:240px; background:url(../images/common/explore.png) no-repeat 0 0; margin-top:5px; font:bold 19px Arial; color:#FFFFFF; padding:8px 0 5px 0; text-align:center; height:23px; text-decoration:none;}
+div#searchBox div#explore_input a:hover {background:url(../images/common/explore.png) no-repeat 0 -36px; cursor: pointer;}
+div#searchBox div#explore_input a:focus {outline:none;}
+div#searchBox div.bottomContainer{margin: 0 0 0 20px; padding: 0; height: 30px; width: 749px;}
+div#searchBox div.bottomContainer p{float: left; margin:0; color: #8aa0b3; margin-top: -2px;}
+div#searchBox .logoContainer{ height: 30px; width: 110px; margin:0; margin-right: 3px; float:right;}
+div#searchBox .logoContainer img{ margin: 0; padding: 0; margin-top: -10px; margin-left: -3px;}
+div#searchBox .bottomLinks{ float:left; margin-left: 18px;}
+div#searchBox .bottomLinks a{ text-decoration: none; color: #d0d9e0; margin:0; margin-left:3px;}
+div#searchBox .bottomLinks a:hover{ color: #ffffff;}
+div#searchBox div#loginBox {position:absolute; right: 50px; top:-15px; width:177px; height:24px; background:url(../images/signin.gif) 0 0 no-repeat; margin:0; padding:0;}
+div#searchBox div#loginBox p{float:left; width:auto; margin:0; padding:0; font:normal 12px Arial; color:#FFFFFF; display:inline; padding:5px; margin:0;}
+div#searchBox div#loginBox a{float:right; width:auto; margin:0; padding:0; font:bold 12px Arial; color:#FF9900; text-decoration:none; padding:5px 15px 5px 0; margin:0 5px 0 0; background:url(../images/icons/signinArrow.gif) no-repeat right 7px}
+div#searchBox div#loginBox a:hover {text-decoration:underline;}
+div#searchBox div#loginBox a:focus {outline:none;}
+div#searchBox div#signUp {position:absolute; right: 40px; top:-25px; width:258px; height:229px; background:url(../images/signup.png) no-repeat 0 0; z-index:2000; margin:0; padding:0; display:none;}
+div#searchBox div#signUp div.loginTop {float:right; width:177px; margin:11px 10px 0 0; padding:0; height:25px;}
+div#searchBox div#signup div.loginTop {float:right; width:177px; margin:11px 10px 0 0; padding:0; height:25px;}
+div#searchBox div#signUp div.loginTop p{float:left; width:auto; margin:0; padding:0; font:normal 12px Arial; color:#333333; display:inline; padding:5px; margin:0;}
+div#searchBox div#signUp div.loginTop a{float:right; width:auto; margin:0; padding:0; font:bold 12px Arial; color:#333333; text-decoration:none; padding:0px 15px 5px 0; margin:5px 5px 0 0; background:url(../images/icons/signinArrow.gif) no-repeat right -18px}
+div#searchBox div#signUp div.loginTop a:hover {text-decoration:underline;}
+div#searchBox div#signUp div.loginTop a:focus {outline:none;}
+div#searchBox div#signUp div.data {float:left; width: 217px; height:140px; margin:5px 0 0 20px; padding:0;}
+div#searchBox div#signUp div.data label{float:left;width: 217px; font:normal 12px Arial; color:#333333; letter-spacing:0px; padding:0; margin:6px 0 3px 0;}
+div#searchBox div#signUp div.data input[type="text"],div#searchBox div#signUp div.data input[type="password"]{float:left;width: 207px; border:1px solid #CED5E4; padding:4px; font:normal 14px Arial; color:#333333; margin:0;}
+div#searchBox div#signUp div.data input:focus {outline:none; border:1px solid #336699;}
+div#searchBox div#signUp div.data p{ float:left; width:217px; margin:8px 0 0 0; padding:0;}
+div#searchBox div#signUp div.data p a{ float:left; width:auto; font:bold 11px Arial; color:#1B5990; text-decoration:none; letter-spacing:-0.5px; margin:7px 0 0 0;}
+div#searchBox div#signUp div.data p a:hover{color:#003366;}
+div#searchBox div#signUp div.data p input[type="button"]{ float:right; width:82px; border:none; background:url(../images/signInButton.png) no-repeat 0 0; text-align:center; height:28px; font:bold 15px Arial; color:#FFFFFF; padding:4px 0 4px 0; margin:0;}
+div#searchBox div#signUp div.data p input[type="button"]:hover {background:url(../images/signInButton.png) no-repeat 0 -28px; cursor:pointer;}
+div#searchBox div#signUp div.data p input[type="button"]:focus {outline:none;}
+div#searchBox div#signUp div.bottomData {float:left; width: 217px; margin:15px 0 0 20px; padding:0;}
+div#searchBox div#signUp div.bottomData p {font:normal 12px Arial; color:#666666;}
+div#searchBox div#signUp div.bottomData p a {text-decoration:none; font:bold 12px Arial; color:#FF6600; margin:0 0 0 5px;}
+div#searchBox div#signUp div.bottomData p a:hover {text-decoration:underline}
+div#categoryBox {width:258px; height:158px; position:absolute; top:-4px; right: 25px; z-index: 2000; background:url(../images/common/category_bkg.png) no-repeat 0 0; display:none;}
+div#categoryBox p#close_options {float:right; width:118px; margin:10px 10px 0 0; text-align:center; padding:5px 0 0 0}
+div#categoryBox p#close_options a{background:url(../images/icons/blueArrow.png) no-repeat right 3px; font:bold 12px Arial; color:#1D5991; letter-spacing:-0.5px; padding:0 13px 0 0; text-decoration:none;}
+div#categoryBox p#close_options a:hover {text-decoration:underline; cursor:pointer;}
+div#categoryBox div.search_box {float:left; width:225px; margin:13px 0 10px 20px;}
+div#categoryBox div.search_box input[type="text"] {float:left; border:none; background:url(../images/searchExploreTiny.gif) no-repeat 0 0; width:180px; padding:7px 5px; font:normal 13px Arial; color:#666666; margin:0;}
+div#categoryBox div.search_box input[type="text"]:focus {outline:none;}
+div#categoryBox div.search_box input[type="submit"] {float:left; border:none; background:url(../images/searchButtonHome.gif) no-repeat 0 0; width:27px; height:28px; padding:0; margin:0;}
+div#categoryBox div.search_box input[type="submit"]:hover {cursor:pointer;}
+div#categoryBox label{float:left; width:225px; font:bold 12px Arial; color: #4879A9; letter-spacing:-1px; padding:0; margin:13px 0 3px 20px;}
+div#categoryBox div.IUCN {float:left; width:225px; margin:0 0 10px 20px; height:58px;}
+div#categoryBox span{float:left; width:73px; padding:0; margin:0;}
+div#categoryBox span label{font:bold 12px Arial; color: #4679A9; letter-spacing:1px; margin:0; padding:0; width:auto;}
+ div#outer_upper_area{float:left; width:100%;}
+div#inner_upper_area{margin:0 auto; width:961px}
+div#upper_area{float:left; width:967px; padding:0 0 0 9px; background: url(../images/common/dottedMap.jpg) no-repeat 0 0;}
+div#upper_area div.content{float:left; width:953px; height:97px; padding:0;}
+div#upper_area div.content div.left_sec{float:left; width:441px;}
+div#upper_area div.content div.left_sec p {float:left; width:auto; font:normal 13px Arial; color:#666666; margin:0;}
+div#upper_area div.content div.left_sec p a {border-bottom:1px solid #006699; color:#336699;}
+div#upper_area div.content div.left_sec p a:hover {color:#254C72; border-bottom:1px dotted #254C72; cursor:pointer;}
+div#upper_area div.content div.left_sec h1{float:left; width:920px; font:bold 27px Arial; line-height:31px; color:#333333; padding:20px 0 0 0; margin:0; letter-spacing:-2px;}
+div#upper_area div.content div.left_sec v.star_area{float:left; width:440px;}
+div#upper_area .content div.left_sec div.star_area ul{float:left; width:440px; list-style:none;}
+div#upper_area .content div.left_sec div.star_area li{float:left; width:auto; font-size:12px; line-height:14px; color:#999999; padding:0; margin:0;}
+div#upper_area .content div.left_sec div.star_area li span{float:left; width:auto; font-style:italic; margin-right:6px; display:inline;}
+div#upper_area .content div.left_sec div.star_area li strong{float:left; width:119px; color:#339900; font-size:8px; text-transform:uppercase; margin-left:0; display:inline;line-height:16px;}
+div#upper_area div.content div.left_sec div.star_area li strong img{float:left; margin:2px 3px 0 0; display:inline;}
+div#upper_area div.content div#tabsC {float:right;font-size:12px;line-height:normal;color: #FFFFFF; width:auto; padding-top:65px;}
+div#upper_area div.content div#tabsC ul {margin:0; padding:10px 0px 0 0; list-style:none;float:right; width:auto; list-style:none;}
+div#upper_area div.content div#tabsC li {display:inline; margin:0; padding:0; text-align: center;}
+div#upper_area div.content div#tabsC a {float:left; background:url("../images/tableftC.gif") no-repeat left top; margin:0; padding:0 2px 0 3px; text-decoration:none; font-weight:bold; color: white; width: 85px;}
+div#upper_area div.content div#tabsC a span {float:left; display:block; background:url("../images/tabrightC.gif") no-repeat right top; padding: 5px 7px 5px 3px;}
+div#upper_area div.content div#tabsC a span {float:none;}
+div#upper_area div.content div#tabsC a:hover span {}
+div#upper_area div.content div#tabsC a:hover {background-position:0% -24px}
+div#upper_area div.content div#tabsC a:hover span {background-position:100% -24px;}
+div#upper_area div.content div#tabsC #green a {background:url("../images/tableftG.gif") no-repeat left top; width: 85px; padding:0 0 0 3px; margin:0;}
+div#upper_area div.content div#tabsC #green a span {float:left; display:block; background:url("../images/tabrightG.gif") no-repeat right top; padding: 5px 10px 5px 5px; width: 70px;}
+div#upper_area div.content div#tabsC #green a:hover span {}
+div#upper_area div.content div#tabsC #green a:hover {background-position:0% -42px;}
+div#upper_area div.content div#tabsC #green a:hover span {background-position:100% -42px;}
+div#upper_area div.content div#tabsC #currentTab a {background-position:0% -24px;}
+div#upper_area div.content div#tabsC #currentTab a span {background-position:100% -24px;}
+ div#left_container{float:left; width:649px; margin:0;}
+div#left_container div.content_area{float:left; width:613px; padding:0px 19px 0 11px;}
+div#left_container div.content_area div.wikipedia {float:left; width:578px; padding:10px 15px; border:1px solid #CCCCCC; border-bottom:none; background:#FFFFFF; margin:0; overflow:hidden;}
+div#left_container div.content_area div.wikipedia h3 {float:left; width:100%; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; letter-spacing:-1px;}
+div#left_container div.content_area div.wikipedia p {float:left; width:100%; font:normal 13px Arial; color:#666666; padding:0; line-height:19px; margin:10px 0;}
+div#left_container div.content_area div.wikipedia p a{font:bold 13px Arial; color:#006699; text-decoration:none;}
+div#left_container div.content_area div.wikipedia p a:hover {color:#254C72; border-bottom: 1px dotted #254C72;}
+div#left_container div.content_area div.wikipedia p a.more{font:normal 13px Arial; color:#006699; border-bottom:1px solid #006699; text-decoration:none;}
+div#left_container div.content_area div.wikipedia p a.more:hover {color:#254C72; border-bottom:1px dotted #254C72;}
+div#left_container div.content_area div.wikipedia p.emptyFirst {float:left; width:578px; text-align:center; font:bold 13px Arial; color:#666666; padding:0; margin:25px 0 0;}
+div#left_container div.content_area div.wikipedia p.empty {float:left; width:578px; text-align:center; font:normal 13px Arial; color:#666666; padding:0; margin:4px 0 0 0;}
+div#left_container div.content_area div.wikipedia p.empty a {text-decoration:none; color:#FF6600; font-weight:bold; border:0px;}
+div#left_container div.content_area div.wikipedia p.empty a:hover {color:#C95000; border:0px;}
+div#left_container div.content_area div.bottomWikipediaEmpty {float:left; width:613px; padding:0; height:22px; background:url(../images/sites/bottomWikipedia.png) no-repeat 0 bottom; margin:0;}
+div#left_container div.content_area div.bottomWikipedia {float:left; width:590px; padding:22px 15px 10px; height:25px; background:url(../images/sites/bottomWikipedia.png) no-repeat 0 top; margin:0;}
+div#left_container div.content_area div.bottomWikipedia p b{font:normal 13px Arial; color:#999999;}
+div#left_container div.content_area div.bottomWikipedia p a{text-decoration:none; color:#FEB13E; font-weight:bold;}
+div#left_container div.content_area div.bottomWikipedia p a:hover {color:#FF6600;}
+div#left_container div.content_area div.interestPoint {float:left; position:relative; width:610px; margin:25px 0 0 0;}
+div#left_container div.content_area div.interestPoint h3{float:left; width:100%; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; letter-spacing:-1px;}
+div#left_container div.content_area div.interestPoint div.interestBox {position:relative; float:left; width:197px; height:173px; background:#CCCCCC; margin:12px 9px 0 0;}
+div#left_container div.content_area div.interestPoint div.interestBox div.bottomData {position:absolute; bottom:0; left:0; right:0; height:58px; background:url(../images/sites/pointBottom.png) no-repeat 0 0;}
+div#left_container div.content_area div.interestPoint div.interestBox:hover {cursor:pointer;}
+div#left_container div.content_area div.interestPoint div.interestBox div.image {float:left; width:197px; height:124px; background-position:0 0; background-repeat:no-repeat;}
+div#left_container div.content_area div.interestPoint div.interestBox:hover div.image {border:2px solid #FF0066; border-bottom:none; width:193px; height:124px; background-position:-2px -2px;}
+div#left_container div.content_area div.interestPoint div.interestBox div.bottomData a {color:white;text-decoration:none;}
+div#left_container div.content_area div.interestPoint div.interestBox:hover div.bottomData{background:url(../images/sites/pointBottom.png) no-repeat 0 -58px;}
+div#left_container div.content_area div.interestPoint div.interestBox div.bottomData p.description {float:left; margin:15px 0 0 15px; width:auto; padding:2px 0 0 16px; background:url(../images/icons/heartInterest.png) no-repeat 0 5px;}
+div#left_container div.content_area div.interestPoint div.interestBox div.bottomData p.description a{font:bold 13px Arial; color:#FFFFFF; text-decoration:none;}
+div#left_container div.content_area div.interestPoint div.interestBox div.bottomData p.submitted {float:left; margin:0 0 0 15px; font:normal 11px Arial; color:#939393; width:160px; padding:0 0 0 16px; background:none;}
+div#left_container div.content_area div.interestPoint div.interestBox:hover div.bottomData p.submitted {color:#CFC0C6;}
+div#left_container div.content_area div.interestPoint div.interestBox div.bottomData p.submitted a{text-decoration:underline; color:#FFFFFF;}
+div#left_container div.content_area div.interestPoint div.interestBox div.bottomData p.submitted a:hover {text-decoration:underline; color:#F7f7f7;}
+div#left_container div.content_area div.relatedAreas {float:left; width:610px;}
+div#left_container div.content_area div.relatedAreas h3{float:left; width:100%; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; letter-spacing:-1px;}
+div#left_container div.content_area div.relatedAreas div.relatedBox {position:relative; float:left; width:197px; height:173px; background:#CCCCCC; margin:12px 9px 0 0;}
+div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData {position:absolute; bottom:0; left:0; right:0; height:59px; background:url(../images/sites/relatedBottom.png) no-repeat 0 0;}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover {cursor:pointer;}
+div#left_container div.content_area div.relatedAreas div.relatedBox div.image {float:left; width:197px; height:124px; background-position:0 0; background-repeat:no-repeat;}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.image {border:2px solid #254C72; border-bottom:none; width:193px; height:124px; background-position:-2px -2px;}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData{background:url(../images/sites/relatedBottom.png) no-repeat 0 -59px;}
+div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.description {float:left; margin:15px 0 0 15px; width:auto; padding:2px 0 0 16px; background:url(../images/icons/arrowRelated.png) no-repeat 0 2px;}
+div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.description a{font:bold 13px Arial; color:#FFFFFF; text-decoration:none;}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.description {background:url(../images/icons/arrowRelated.png) no-repeat 0 -15px;}
+div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.submitted {float:left; margin:0 0 0 15px; font:normal 11px Arial; color:#719FB5; width:auto; padding:0 0 0 16px; background:none;}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.submitted {color:#7787A7;}
+div.relatedToolTipBack{position:absolute;background: url('/images/icons/marker.png') left top no-repeat;width:80px;height:80px;left:58px;top:10px;}
+div.relatedToolTipImage{ position:absolute;top:22px;left:73px;width:50px;height:50px;overflow:hidden;}
+div#right_container{float:left; width:312px; position:relative;}
+div#right_container div.top_sec{float:left; width:255px; padding:62px 0 59px 57px;}
+div#right_container div.top_sec img{float:left;}
+div#right_container div.top_sec div.pic01{float:right; width:91px; padding-top:68px;}
+div#right_container div.pic02{float:none; top:78px; left:82px; position:absolute; width:auto;}
+div#right_container div.edit_row{float:left; width:308px; padding:0 2px 12px 2px;}
+div#right_container div.edit_row ul{float:left; width:160px; list-style:none;}
+div#right_container div.edit_row li{float:left; width:auto; height:27px; background:url(../images/common/button01.gif) no-repeat 0 0; font-size:11px; line-height:13px; padding-left:5px;}
+div#right_container div.edit_row li a{float:left; width:auto; background:url(../images/icons/pencil01.gif) no-repeat 0 0; color:#666666; text-decoration:none; padding:0 0 5px 20px;}
+div#right_container div.edit_row li a:hover{text-decoration:underline;}
+div#right_container div.edit_row li span{float:left; background:url(../images/common/button01right.gif) no-repeat right 0; padding:7px 11px 0 5px; width:auto; height:20px;}
+div#right_container div.edit_row label{float:right; width:auto; font-size:11px; line-height:13px; padding-top:6px; font-weight:bold;}
+div#right_container div.edit_row label a{color:#2f6ca4; text-decoration:none;}
+div#right_container div.edit_row label a:hover{text-decoration:underline;}
+div#right_container div.protected_area{position:relative; float:left; width:285px; border:1px solid #cccccc; background:#fff9e0; padding:8px 12px 13px;}
+div#right_container div.completed {position:absolute; background: url("../images/common/completed.gif") no-repeat right center; text-align:right; height:30px; right:-8px; top:5px; bottom:0;}
+div#right_container div.completed p {padding:7px 5px 0 5px; letter-spacing:0px; font-weight:bold; font-size:10px;font-family:Arial;text-align:right;color:white;}
+div#right_container div.protected_area h3{position:relative; float:left; width:285px; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; margin:2px 0 0 0; letter-spacing:-1px;}
+div#right_container div.protected_area ul{position:relative; float:left; width:285px; list-style:none; padding:5px 0 0 0; overflow:hidden;}
+div#right_container div.protected_area ul span{position:relative; float:left; width:285px; margin:0; padding:0;}
+div#right_container div.protected_area li{ position:relative; float:left; width:285px; font-size:12px; line-height:14px; color:#666666;}
+div#right_container div.protected_area li strong{float:left; width:230px; font-weight:bold; font-size:10px; text-transform:uppercase}
+div#right_container div.protected_area li span{float:left; width:230px;}
+div#right_container div.protected_area li small{float:right; width:auto; padding-top:11px;}
+div#right_container div.protected_area li img{float:left;}
+div#right_container div.protected_area li .up{float:left; width:269px; padding:5px 9px 6px 7px;}
+div#right_container div.protected_area li .down{float:left; width:269px; padding:5px 9px 6px 7px; background:#fde3be}
+div#right_container div.protected_area div.protect_sec{float:left; width:285px; background:url(../images/sites/protect_bg.gif) repeat-y 0 0;}
+div#right_container div.protected_area div.protect_sec .top_curve{float:left; width:285px; background:url(../images/top_curve_pro.gif) no-repeat 0 0;}
+div#right_container div.protected_area div.protect_sec .bottom_curve{float:left; width:279px; background:url(../images/common/bottom_curve_pro.gif) no-repeat 0 bottom; padding:6px 3px;}
+div#right_container div.protected_area div.protect_sec .bottom_curve p.title{float:left; font-size: 18px; color:white; padding:0 4px; width:270px;}
+div#right_container div.protected_area div.protect_sec .bottom_curve p.text{float:left; font-size: 13px;font-family: Arial; color:white; padding:0 4px 3px;width:270px;}
+div#right_container div.protected_area div.protect_sec div.percent{float:left; width:273px; background:url(../images/common/percent_bg.gif) no-repeat 0 0; height:32px; padding:2px 3px; margin-top:5px;}
+div#right_container div.protected_area div.protect_sec div.percent .repeat{float:left; width:auto; background:url(../images/repeat_orange.gif) repeat-x 0 0; height:28px; font:bold 12px/14px Arial, Helvetica, sans-serif; color:#fff; text-align:right;}
+div#right_container div.protected_area div.protect_sec div.percent .repeat span{float:right; width:auto; padding:6px 7px 0 0;}
+div#right_container div.protected_area div.protect_sec ul{float:left; width:277px; list-style:none; padding:2px 0 0 2px;}
+div#right_container div.protected_area div.protect_sec li{float:left; width:auto; height:27px; background:none;}
+div#right_container div.protected_area div.protect_sec li a{float:left; position:relative; width:auto; background:url(../images/common/orange_button_left.gif) no-repeat 0 0; height:27px; color:#fff; text-decoration:none; padding:0 0 0 2px; margin: 2px 0 0 0; cursor:pointer;}
+div#right_container div.protected_area div.protect_sec li a span{float:left; width:auto; font-weight:normal; background:url(../images/common/orange_button_right.gif) no-repeat right 0; height:19px; color:#666666; font-size: 11px; padding:8px 8px 0 20px;}
+div#right_container div.protected_area div.protect_sec li a:hover{}
+div#right_container div.protected_area div.protect_sec li a:hover span{background:url(../images/common/orange_button_right.gif) no-repeat right -27px; color:#333333;}
+div#right_container div.protected_area div.protect_sec li a span.image {position:absolute; background:url(../images/icons/pencil.gif) no-repeat 0 0; height:13px; width:14px; right:73px; top:7px; padding:0;}
+div#right_container div.protected_area div.protect_sec li a:hover span.image {position:absolute; background:url(../images/icons/pencil.gif) no-repeat 0 0; height:13px; width:14px; right:73px; top:7px; padding:0;}
+div#right_container div.protected_area div.protect_sec li a span.image2 {position:absolute; background:url(../images/icons/pencil.gif) no-repeat 0 0; height:13px; width:14px; right:70px; top:7px; padding:0;}
+div#right_container div.protected_area div.protect_sec li a:hover span.image2 {position:absolute; background:url(../images/icons/pencil.gif) no-repeat 0 0; height:13px; width:14px; right:70px; top:7px; padding:0;}
+div#right_container div.protected_area div.protect_sec li.description{float:right; width:auto; background:none; font-size:11px; line-height:13px; padding:6px 0 0 0;}
+div#right_container div.protected_area div.protect_sec li.description a{float:left; width:162px; background:url(../images/icons/icon03.gif) no-repeat 0 0; color:#fff; text-decoration:none; padding:4px 0 5px 15px; height:13px;}
+div#right_container div.protected_area div.protect_sec li.description a strong{color:#fff;}
+div#right_container div.protected_area div.protect_sec li.description a:hover{text-decoration:underline;}
+div#right_container div.view_more{float:right; background:url(../images/viewMore.png) no-repeat right -9px; height:16px;width:92px; margin:0 1px 0 0;}
+div#right_container div.view_more:hover {background:url(../images/viewMore.png) no-repeat right -44px; cursor:pointer;}
+div#right_container div.view_more a{float:left; width:auto; background:url(../images/icons/viewMoreArrows.png) no-repeat 24px 4px; font:bold 10px Arial; color:#FFFFFF; text-decoration:none; margin:0; padding:1px 0 0 36px;}
+div#right_container div.view_more:hover a{text-decoration:underline;}
+div#right_container div.biodiversity {float:left; width:312px; margin:20px 0 0;}
+div#right_container div.biodiversity h3 {float:left; width:100%; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; letter-spacing:-1px;}
+div#right_container div.biodiversity div.flash {float:left; width:312px; margin:12px 0 0 0; padding:0;}
+div#right_container div.externalLinks {float:left; width:312px; margin:35px 0 0 0;}
+div#right_container div.externalLinks h3 {float:left; width:100%; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; letter-spacing:-1px;}
+div#right_container div.externalLinks ul {float:left; width:312px; margin:8px 0 0 0; list-style: none;}
+div#right_container div.externalLinks ul li {float:left; width:312px; margin:0; margin:1px 0 1px; line-height:18px; color:#006699;}
+div#right_container div.externalLinks ul li a {font:bold 13px Arial; color:#006699; text-decoration:none;}
+div#right_container div.externalLinks ul li a:hover {color:#254C72; text-decoration:none; border-bottom:1px dotted #254C72;}
+  #download_modal {display:none; background:#eeeeee;width:594px;}
+#download_modal div.header {float:left; width:594px; height:35px; background: url(../images/login_repeat.gif) repeat-x #eeeeee;}
+#download_modal div.header h2{font: 17px Arial; color:#FFFFFF; width: 550px; height: 25px; padding: 8px 15px 0 15px; margin: 0; letter-spacing: 1px;}
+#download_modal div.header h2 small{font: 12px Arial; color:#FFFFFF; width:auto; height: 25px;}
+#download_modal div.download_data {float:left; width: 594px; text-align:center; margin: 40px 0 0 0;}
+#download_modal div.download_data p.processing{font: 18px Arial; color: #666666; margin: 0 0 15px 0; font-weight:bold;}
+#download_modal div.download_data p.wait{font: 14px Arial; color: #666666; margin: 0 0 20px 0; font-weight:normal;}
+#download_modal div.download_data p.automatically{font: 12px Arial; color: #666666; margin:0; font-weight:normal;}
+#download_modal div.download_data p.automatically a{float:none; font: 12px Arial; color: #336699; margin:0; font-weight:bold; text-decoration:none;}
+#download_modal div.download_data p.automatically a:hover {color: #003366;}
+#download_modal div.footer {position:absolute; width: 594px; background: #ffffff; border-top: solid 1px #c0c0c0; height:41px; bottom:0; left:0;}
+#download_modal div.footer a{position:relative; float:right; width:auto; background:url(../images/common/download_left.gif) no-repeat 0 0; height:27px; color:#fff; text-decoration:none; padding:0 0 0 2px; margin: 7px 15px 0 0; cursor:pointer}
+#download_modal div.footer a span{float:left; width:auto; background:url(../images/common/download_right.gif) no-repeat right 0; height:19px; color:#666666; font-size: 11px; padding:8px 28px 0 8px;}
+#download_modal div.footer a:hover{}
+#download_modal div.footer a:hover span{background:url(../images/common/download_right.gif) no-repeat right -27px; color: #333333;}
+#download_modal div.footer a span.image {position:absolute; background:url(../images/icons/close_modal.gif) no-repeat 0 0; height:13px; width:14px; right:23px; top:14px; padding:0;}
+#download_modal div.footer a:hover span.image {background:url(../images/icons/close_modal.gif) no-repeat 0 -13px;}
+ div.clean_selection {clear:both; height: 40px;}
+ div.upper_area_search{width:967px; background: url(../images/common/dottedMap.jpg) no-repeat 0 0; height: 97px; position:relative; margin: -40px auto 0 auto;}
+div.upper_area_search p{ font-size:27px; font-family: Arial; margin-left: 14px; padding-top: 30px; color:#333333; letter-spacing: -1px; font-weight: bold;}
+#outer_search_box {position:relative; width: 100%; margin-top: -5px; height: 70px; background:transparent;}
+div.search_Container {position:relative; width: 941px; background:url(../images/search_normal.png) no-repeat 0 0; height:60px; margin:0 auto auto; z-index:100000;}
+div.search_Container span.search_input label {float:left; background:url(/images/search_input.gif) no-repeat 0 0; padding: 0; height: 33px; margin: 8px 0 0 8px; width:800px}
+div.search_Container span.search_input input {background:transparent; padding-top: 8px; padding-left: 6px; float:left; border: none; color: #cccccc; font-size: 13px; width: 800px; font-style: italic; font-family: Arial; line-height: 20px;}
+div.search_Container span.search_input input:focus {outline:none;}
+div.search_Container span.search_button input {background: url(/images/search_button_bkg.gif) no-repeat 0 0; border:none; height: 33px; font-size: 16px; color: #ffffff; font-weight: 600; width: 125px; margin-top: 8px;}
+div.search_Container span.search_button input:hover {color: #ffffff; background: url(/images/search_button_bkg_hover.gif) no-repeat 0 0;}
+div.search_Container span.search_button input:focus {outline:none;}
+div.flash_container {position:relative; width:100%; height: 71px; margin-top: -45px; float:left;z-index:0; border-top: 3px solid #336699; border-bottom: 2px solid #336699;}
+div.search_container {margin:0 auto; width:973px;}
+div.search_container div.toggleTab {float:right; width:961px; margin:0px; margin-top:-25px; height: 27px; z-index:1; position: relative; margin-bottom: 20px;}; div.search_container div.toggleTab ul {float:right; width:90px; list-style:none; margin:0; height: 27px; right:0;}
+div.search_container div.toggleTab ul li{ float:right; color: #ffffff; list-style: none; background:url(../images/tab_search.png) no-repeat; height: 27px; width: 89px; padding: 6px 10px 0 10px; position:relative; margin:0;}
+div.search_container div.toggleTab ul li a {background:url(../images/icons/double_arrow.gif) no-repeat 0 0; text-decoration:none; color: white;}
+div.search_container div.toggleTab ul li a {text-decoration:none; color: white}
+div.search_container div.toggleTab ul li a:hover {text-decoration:underline;}
+ #advanced_search_box {position: absolute; width: 940px; background: url(../images/search_expand.gif) no-repeat 0 bottom; top: 63px; left:0; height:0; display:none; padding: 0 10px 0 11px; color:white;}
+#advanced_search_box #first_advanced_search {float:left; width: 235px; height: 100px; border-right: 1px solid #c46d00}
+#advanced_search_box h6{float:left; width: 100%; font:12px Arial; font-weight:bold; color:#ffcc66; text-shadow: 0px -1px 0px #d77100; padding: 0 0 4px 0;}
+#advanced_search_box input[type='checkbox'] {float:left; -khtml-appearance: none; border:none; background:url(../images/unchecked.gif) no-repeat 0 top white; width:12px; height:12px; margin:0 3px 0 0; padding:0;}
+#advanced_search_box select {-khtml-appearance: none; border: 1px solid #c46d00; -webkit-border-radius:3px; -moz-border-radius:3px; background:#fbe1bf; color:#c46d00; font:10px Arial; font-weight:bold; width:225px; padding:5px; position:relative;}
+#advanced_search_box select.category {width:45px;}
+#advanced_search_box select:focus {outline:none;}
+#advanced_search_box input[type='checkbox']:checked {-khtml-appearance: none; border:none; background:url(../images/checked.gif) no-repeat 0 top white; width:12px; height:12px;}
+#advanced_search_box label {float:left; font:10px Arial; font-weight:bold; padding:0 0 1px 0; width:auto; display:inline; margin:0 4px 0 0;}
+#advanced_search_box label.all {float:left; font:10px Arial; font-weight:bold; padding:0; width:100px; margin:5px 0 0 0;}
+#advanced_search_box label.title {float:left; font:10px Arial; font-weight:bold;width:200px;}
+#advanced_search_box #second_advanced_search {float: left; width: 335px; height: 100px; border-left: 1px solid #f2a133; border-right: 1px solid #c46d00; padding: 0 0 0 10px;}
+#advanced_search_box #second_advanced_search div.first {float:left; width: 150px; height:100px;}
+#advanced_search_box #second_advanced_search div.first label{width: 150px;}
+#advanced_search_box #second_advanced_search div.second {float:left; width: 150px; height:100px;}
+#advanced_search_box #second_advanced_search div.second label{width: 150px; padding:0; margin:0 0 3px 0;}
+#advanced_search_box #third_advanced_search {float: left; width: 335px; height: 100px;border-left: 1px solid #f2a133; padding: 0 0 0 10px;}
+#advanced_search_box #third_advanced_search label{ padding-right:10px; margin: 0 0 3px 0;}
+ div#left_container div.content_area div.protected_search{float:left; width:940px; border-bottom:1px solid #bebebe; padding:0px 0 5px; margin:0; position: relative;}
+div#left_container div.content_area div.protected_search h3{float:left; width:406px; font:normal 19px Arial; color:#333333; font-weight:bold; letter-spacing: -1px;}
+div#left_container div.content_area div.protected_search span{float:right; width:auto;}
+div#left_container div.content_area div.protected_search label{float:right; width:200px; font-size:11px; text-align:right; line-height:25px;}
+div#left_container div.content_area div.pagination {float:right; width:auto; margin:0 0 0 10px; padding:0;}
+div#left_container div.content_area a.next_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_right.gif) no-repeat 0 0; margin:0; padding:0;}
+div#left_container div.content_area a.next_page:hover {background: url(../images/icons/search_pag_right.gif) no-repeat 0 -22px;}
+div#left_container div.content_area span.disabled .next_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_right.gif) no-repeat 0 -43px;}
+div#left_container div.content_area span.disabled .next_page:hover {background: url(../images/icons/search_pag_right.gif) no-repeat 0 -43px; cursor:pointer;}
+div#left_container div.content_area a.prev_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_left.gif) no-repeat 0 0; margin:0 3px 0 0; padding:0;}
+div#left_container div.content_area a.prev_page:hover {background: url(../images/icons/search_pag_left.gif) no-repeat 0 -22px;}
+div#left_container div.content_area span.disabled .prev_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_left.gif) no-repeat 0 43px;}
+div#left_container div.content_area span.disabled .prev_page:hover {background: url(../images/icons/search_pag_left.gif) no-repeat 0 -43px; cursor:pointer;}
+ div#left_container div.search_list{float:left; width:940px; padding:7px 0 8px;}
+div#left_container div.search_list ul{float:left; width:940px; list-style:none;}
+div#left_container div.search_list li{float:left; width:100%; padding:10px 0 10px 0; border-bottom: 1px #c5c5c5 dotted;}
+div#left_container div.search_list li.none{float:left; background:none;}
+div#left_container div.search_list li.first{float:left; padding-top:6px;}
+div#left_container div.search_list li div.pic_area{float:left; border-top:1px solid #d0d7e1; border-right:1px solid #d0d7e1; border-left:1px solid #d0d7e1; background:#f7f7f7; padding:3px; margin:0 10px 0 0;}
+div#left_container div.search_list li div.pic_area div {overflow:hidden; width:169px; height:111px;}
+div#left_container div.search_list li div.pic_area div img{float:left;}
+div#left_container div.search_list div.avatarBottomEnd{background: url(../images/common/avatarBottomEnd.gif) no-repeat 0 0; height:7px; width:177px; margin:0; position: absolute; margin-top:118px;}
+ div#left_container div.search_list li div.content_center{float:left; width:700px;}
+div#left_container div.search_list li div.content_center div.top_information {float:left; height: 45px;}
+div#left_container div.search_list li div.content_center div.top_information h4{float:left; width:690px; font-size:17px; line-height:15px; color:#006699; font-weight:bold; padding:0; margin:0; margin-bottom:3px; margin-top:4px;}
+div#left_container div.search_list li div.content_center div.top_information h4 a{color:#336699; text-decoration:none;}
+div#left_container div.search_list li div.content_center div.top_information h4 a:hover{text-decoration:none; color:#003366;}
+div#left_container div.search_list li div.content_center div.top_information p.countryResult{float:left; width:377px; font-size:13px; color:#666666; padding:0; margin-top:0;}
+div#left_container div.search_list li div.content_center p.category{float:left; width:690px; font-size:12px; color:#666666; padding:0;}
+div#left_container div.search_list li div.content_center p.pointInterest{float:left; width:690px; font-size:12px; color:#666666; padding:0; margin-top:49px;}
+div#left_container div.search_list li div.content_center p.pointInterest a{font-size:12px; color:#666666; padding:0; margin-top:51px; border:none; text-decoration: none; border-bottom: 1px solid #666666;}
+div#left_container div.search_list li div.content_center p.pointInterest a:hover{font-size:12px; color:#ff0066; padding:0; margin-top:51px; text-decoration: none; border-bottom: 1px dotted #ff0066;}
+div#left_container div.search_list li div.content_center p a.submit{line-height:14px; color:#ff0066; text-decoration: none; border-bottom: 1px solid #ff0066;}
+div#left_container div.search_list li div.content_center p a.submit:hover{color:#cc0066; cursor: pointer; border-bottom: 1px dotted #cc0066;}
+div#left_container div.search_list li div.content_right {float:right; width:160px; text-align: right;}
+div#left_container div.search_list li div.content_right div.top_data {float:right; width: 170px; height: 33px;}
+div#left_container div.search_list li div.content_right div.top_data p{float:right; width:170px; font-size: 10px; color: #ff6600;}
+div#left_container div.search_list li div.content_right div.top_data p a{color: #336699;}
+div#left_container div.search_list li div.content_right div.top_data p a:hover {color: #003366;}
+div#left_container div.search_list li div.content_right div.bottom_data ul {float:right; width: 30px;}
+div#left_container div.search_list li div.content_right div.bottom_data ul li{float:right; width: 12px; border:none;}
+div#left_container div.content_area div.bottom_paginator {float:left; width:940px;}
+div#left_container div.content_area div.bottom_paginator ul{float:left; width:406px; list-style:none; padding-bottom: 45px;}
+div#left_container div.content_area div.bottom_paginator li{float:left; width:auto; position:relative;}
+div#left_container div.content_area div.bottom_paginator li a{float:left; width:auto; background:url(../images/common/download_left.gif) no-repeat 0 0; height:27px; color:#fff; text-decoration:none; padding:0 0 0 2px; margin: 0px 15px 0 0; cursor:pointer}
+div#left_container div.content_area div.bottom_paginator li a span{float:left; width:auto; background:url(../images/common/download_right.gif) no-repeat right 0; height:19px; color:#666666; font-size: 11px; padding:8px 18px 0 5px;}
+div#left_container div.content_area div.bottom_paginator li a:hover{}
+div#left_container div.content_area div.bottom_paginator li a:hover span{background:url(../images/common/download_right.gif) no-repeat right -27px; color: #333333;}
+div#left_container div.content_area div.bottom_paginator li a span.image {position:absolute; background:url(../images/icons/download_arrow.gif) no-repeat 0 0; height:13px; width:14px; right:14px; top:13px; padding:0;}
+div#left_container div.content_area div.bottom_paginator li a:hover span.image {position:absolute; background:url(../images/icons/download_arrow.gif) no-repeat 0 0; height:13px; width:14px; right:14px; top:13px; padding:0;}
+div#left_container div.content_area div.bottom_paginator label{float:right; width:200px; font-size:11px; line-height:25px; text-align:right; padding:0;}
+div#left_container div.content_area div.bottom_paginator label a{color:#2f6ca4; text-decoration:none;}
+div#left_container div.content_area div.bottom_paginator label a:hover{text-decoration:underline;}
+ div#left_small_container div.content_area {float:left; width:620px; margin:14px 0 0 10px;}
+div#left_small_container div.content_area div.protected_search{float:left; width:620px; border-bottom:1px solid #bebebe; padding:0px 0 5px; margin:0; position: relative;}
+div#left_small_container div.content_area div.protected_search h3{float:left; width:406px; font:normal 19px Arial; color:#333333; font-weight:bold; letter-spacing: -1px}
+div#left_small_container div.content_area div.protected_search span{float:right; width:auto;}
+div#left_small_container div.content_area div.protected_search label{float:right; width:200px; font-size:11px; text-align:right; line-height:25px;}
+div#left_small_container div.content_area div.pagination {float:right; width:auto; margin:0 0 0 10px; padding:0;}
+div#left_small_container div.content_area a.next_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_right.gif) no-repeat 0 0; margin:0; padding:0;}
+div#left_small_container div.content_area a.next_page:hover {background: url(../images/icons/search_pag_right.gif) no-repeat 0 -22px;}
+div#left_small_container div.content_area span.disabled .next_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_right.gif) no-repeat 0 -43px;}
+div#left_small_container div.content_area span.disabled .next_page:hover {background: url(../images/icons/search_pag_right.gif) no-repeat 0 -43px; cursor:pointer;}
+div#left_small_container div.content_area a.prev_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_left.gif) no-repeat 0 0; margin:0 3px 0 0; padding:0;}
+div#left_small_container div.content_area a.prev_page:hover {background: url(../images/icons/search_pag_left.gif) no-repeat 0 -22px;}
+div#left_small_container div.content_area span.disabled .prev_page {float:left; width:22px; height:22px; background: url(../images/icons/search_pag_left.gif) no-repeat 0 43px;}
+div#left_small_container div.content_area span.disabled .prev_page:hover {background: url(../images/icons/search_pag_left.gif) no-repeat 0 -43px; cursor:pointer;}
+div#left_small_container div.search_list{float:left; width:620px; padding:7px 0 8px;}
+div#left_small_container div.search_list ul{float:left; width:620px; list-style:none;}
+div#left_small_container div.search_list li{float:left; width:100%; padding:10px 0 10px 0; border-bottom: 1px #c5c5c5 dotted;}
+div#left_small_container div.search_list li.none{float:left; background:none;}
+div#left_small_container div.search_list li.first{float:left; padding-top:6px;}
+div#left_small_container div.search_list li div.pic_area{float:left; border-top:1px solid #d0d7e1; border-right:1px solid #d0d7e1; border-left:1px solid #d0d7e1; background:#f7f7f7; padding:3px; margin:0 10px 0 0;}
+div#left_small_container div.search_list li div.pic_area div {overflow:hidden; width:169px; height:111px;}
+div#left_small_container div.search_list li div.pic_area div img{float:left;}
+div#left_small_container div.search_list div.avatarBottomEnd{background: url(../images/common/avatarBottomEnd.gif) no-repeat 0 0; height:7px; width:177px; margin:0; position: absolute; margin-top:118px;}
+div#left_small_container div.search_list li div.content_center{float:left; width:377px;}
+div#left_small_container div.search_list li div.content_center div.top_information {float:left; height: 45px;}
+div#left_small_container div.search_list li div.content_center div.top_information h4{float:left; width:377px; font-size:17px; line-height:15px; color:#006699; font-weight:bold; padding:0; margin:0; margin-bottom:3px; margin-top:4px;}
+div#left_small_container div.search_list li div.content_center div.top_information h4 a{color:#336699; text-decoration:none;}
+div#left_small_container div.search_list li div.content_center div.top_information h4 a:hover{text-decoration:none; color:#003366;}
+div#left_small_container div.search_list li div.content_center div.top_information p.countryResult{float:left; width:377px; font-size:13px; color:#666666; padding:0; margin-top:0;}
+div#left_small_container div.search_list li div.content_center p.category{float:left; width:367px; font-size:12px; color:#666666; padding:0;}
+div#left_small_container div.search_list li div.content_center p.pointInterest{float:left; width:367px; font-size:12px; color:#666666; padding:0; margin-top:49px;}
+div#left_small_container div.search_list li div.content_center p.pointInterest a{font-size:12px; color:#666666; padding:0; margin-top:51px; border:none; text-decoration: none; border-bottom: 1px solid #666666;}
+div#left_small_container div.search_list li div.content_center p.pointInterest a:hover{font-size:12px; color:#ff0066; padding:0; margin-top:51px; text-decoration: none; border-bottom: 1px dotted #ff0066;}
+div#left_small_container div.search_list li div.content_center p a.submit{line-height:14px; color:#ff0066; text-decoration: none; border-bottom: 1px solid #ff0066}
+div#left_small_container div.search_list li div.content_center p a.submit:hover{color:#cc0066; cursor: pointer; border-bottom: 1px dotted #cc0066;}
+div#left_small_container div.search_list li div.content_right {float:right; width:160px; text-align: right;}
+div#left_small_container div.search_list li div.content_right div.top_data {float:right; width: 170px; height: 33px;}
+div#left_small_container div.search_list li div.content_right div.top_data p{float:right; width:170px; font-size: 10px; color: #ff6600;}
+div#left_small_container div.search_list li div.content_right div.top_data p a{color: #336699;}
+div#left_small_container div.search_list li div.content_right div.top_data p a:hover {color: #003366;}
+div#left_small_container div.search_list li div.content_right div.bottom_data ul {float:right; width: 30px;}
+div#left_small_container div.search_list li div.content_right div.bottom_data ul li{float:right; width: 12px; border:none;}
+div#left_small_container div.content_area div.bottom_paginator {float:left; width:620px;}
+div#left_small_container div.content_area div.bottom_paginator ul{float:left; width:406px; list-style:none; padding-bottom: 45px;}
+div#left_small_container div.content_area div.bottom_paginator li{float:left; width:auto; position:relative;}
+div#left_small_container div.content_area div.bottom_paginator li a{float:left; width:auto; background:url(../images/common/download_left.gif) no-repeat 0 0; height:27px; color:#fff; text-decoration:none; padding:0 0 0 2px; margin: 0px 15px 0 0; cursor:pointer}
+div#left_small_container div.content_area div.bottom_paginator li a span{float:left; width:auto; background:url(../images/common/download_right.gif) no-repeat right 0; height:19px; color:#666666; font-size: 11px; padding:8px 18px 0 5px;}
+div#left_small_container div.content_area div.bottom_paginator li a:hover{}
+div#left_small_container div.content_area div.bottom_paginator li a:hover span{background:url(../images/common/download_right.gif) no-repeat right -27px; color: #333333;}
+div#left_small_container div.content_area div.bottom_paginator li a span.image {position:absolute; background:url(../images/icons/download_arrow.gif) no-repeat 0 0; height:13px; width:14px; right:14px; top:13px; padding:0;}
+div#left_small_container div.content_area div.bottom_paginator li a:hover span.image {position:absolute; background:url(../images/icons/download_arrow.gif) no-repeat 0 0; height:13px; width:14px; right:14px; top:13px; padding:0;}
+div#left_small_container div.content_area div.bottom_paginator label{float:right; width:200px; font-size:11px; line-height:25px; text-align:right; padding:0;}
+div#left_small_container div.content_area div.bottom_paginator label a{color:#2f6ca4; text-decoration:none;}
+div#left_small_container div.content_area div.bottom_paginator label a:hover{text-decoration:underline;}
+ div#right_container {float:right; height:auto;}
+div#bottom_right_container{ height:9px; width:312px; position:absolute; bottom:0px; background:url(../images/common/bottom_right_container.gif) no-repeat 0 0; margin:0; margin-left:-8px;}
+div#right_container div.arrowFilterResults{background:url(../images/common/arrowFilterResults.gif) no-repeat 0 0; height:28px; width:14px; position:absolute; margin-left:-20px; margin-top: 12px; z-index:1;}
+div#right_container div.filter_container {float:left; width:285px; border-top:1px solid #cccccc; border-left:1px solid #cccccc; border-right:1px solid #cccccc; background:#ffffff; padding:8px 12px 13px; margin:0 0 0 -7px; position: relative; margin-bottom: 3px;}
+div#right_container div.filter_container h3{float:left; width:285px; font:normal 19px Arial; color:#333333; font-weight:bold; letter-spacing: -1px; border-bottom:1px solid #c6c6c6; padding:0 0 4px!important; margin:6px 0 5px 0;}
+div#right_container div.filter_container h4{float:left; width:285px; font:normal 11px Arial; color:#999999; font-weight:bold; padding:6px 0 0;}
+div#right_container div.filter_container ul{float:left; width:285px; border-bottom: 1px solid #cbcbcb; padding:6px 0 10px 0; list-style:none;}
+div#right_container div.filter_container ul li {float:left; width:285px; font:bold 11px Arial; color:#999999; padding:1px 0 1px 0;}
+div#right_container div.filter_container ul li.last {border-bottom: 1px solid #ffffff;}
+div#right_container div.filter_container ul li a{font:bold 13px Arial; color:#336699; text-decoration:none;}
+div#right_container div.filter_container ul li a:hover{color:#003366; text-decoration:none;}
+div#right_container div.filter_container ul li ul.country_list {float:left; width:270px; font:bold 11px Arial; color:#999999; padding:1px 0 1px 0; border:none; margin:0 0 7px 6px;}
+div#right_container div.filter_container ul li ul.country_list li {float:left; width:260px; font:bold 11px Arial; color:#999999; padding:1px 0 1px 0;}
+div#right_container div.filter_container ul li ul.country_list li a{font:bold 13px Arial; color:#336699; padding:0 0 0 10px; text-decoration:none; background: url(../images/icons/filterArrow.gif) no-repeat 0 3px;}
+div#right_container div.filter_container ul li ul.country_list li a:hover{color:#003366; text-decoration:none;}
+ div#user_layout{margin:0 auto; width:961px;}
+div.dashboard {float:left; width: 300px; margin:20px 0 0 10px; padding:0;}
+div.dashboard ul {list-style:none; width:300px;}
+div.dashboard ul li{float:left; width:auto; background:url(../images/common/arrow.gif) no-repeat right 6px; padding:0 10px 0 0; margin: 0 7px 0 0; font:12px Arial; color:#336699;}
+div.user_container {float:left; margin:20px 0 20px 10px; width:951px}
+div.user_container div.user_left {float:left; width:301px; border:1px solid #cccccc; padding:0; min-height:1080px; padding:0 0 20px 0; margin:0 0 20px; background:#f7f7f7;}
+div.user_container div.user_left div.personal_data {float:left; margin:10px 0 0 10px; width:278px;}
+div.personal_data div.user_image {float:left; margin:0 10px 0 0;}
+div.personal_data div.user_image img{width:59px; height:59px; padding:2px; border:1px solid #cccccc;}
+div.personal_data div.user_data {float:left; padding:10px 0 0 0;}
+div.personal_data div.user_data p.wellcome{width:200px; font:18px Arial; color:#666666;}
+div.personal_data div.user_data p.username{width:200px; font:18px Arial; color:#333333;}
+div.user_container ul.data {float:left; width:281px; margin:10px 0 0 10px; list-style:none; padding:0 0 10px; border-bottom:1px solid #dedede;}
+div.user_container ul.data li{float:left; width:281px; margin:0 0 7px 0}
+div.user_container ul.data li label{width:281px;font:10px Arial; font-weight:bold; color:#666666;}
+div.user_container ul.data li p{width:281px;font:12px Arial; font-weight:normal; color:#666666;}
+div.user_container ul.data li p b{color:#336699;}
+div.user_container a.edit_information {float:left; width:268px; text-align:right; padding:0 12px 0 0; margin:6px 0 0 10px; font:11px Arial; font-weight:bold; background:url(../images/icons/blue_pencil.gif) no-repeat right 3px; color:#336699; text-decoration:none;}
+div.user_container a.edit_information:hover {color:#003366;}
+div.user_container div.contributed {float:left; width:281px; margin:30px 0 0 10px;}
+div.user_container div.contributed span{float:left; width:281px; padding:0 0 8px 0; border-bottom: 1px solid #c6c6c6; margin:0 0 5px 0;}
+div.user_container div.contributed span h3{float:left; width:auto;font:18px Arial; color: #4e4e4e;}
+div.user_container div.contributed span a{float:right; width:auto;font:10px Arial; color: #dc6d00; font-weight:bold; text-decoration:none; padding:6px 19px 3px 0; background:url(../images/icons/rss.gif) no-repeat right 4px;}
+div.user_container div.contributed span a:hover {color:#996600;}
+div.user_container div.contributed ul{float:left; list-style:none;}
+div.user_container div.contributed ul li {float:left; width:281px; margin:5px 0 0 0; padding:0 0 5px 0; border-bottom:1px dotted #cccccc;}
+div.user_container div.contributed ul li.last{border:none;}
+div.user_container div.contributed ul li div.image{float:left; margin:0 7px 0 0; padding:0; height:65px;}
+div.user_container div.contributed ul li div.image img{width:59px; height:59px; padding:2px; border:1px solid #cccccc; margin:0;}
+div.user_container div.contributed ul li div.text{float:left; width: 200px;}
+div.user_container div.contributed ul li div.text .upText{float:left; width: 200px; min-height: 40px; margin:5px 0 0 0;}
+div.user_container div.contributed ul li div.text .upText h5{float:left; width: 200px;}
+div.user_container div.contributed ul li div.text .upText h5 a{text-decoration:none; font: 14px Arial; font-weight:bold; color:#336699;}
+div.user_container div.contributed ul li div.text .upText h5 a:hover {color:#003366;}
+div.user_container div.contributed ul li div.text .upText p {font: 10px Arial; font-weight:normal; color:#666666; padding:0;}
+div.user_container div.contributed ul li div.text p.local{float:left; font: 10px Arial; font-weight:bold; color:#666666; padding:0 0 0 11px; background: url(../images/icons/clock.gif) no-repeat left 2px;}
+div.user_container div.user_right {float:right; width:640px; margin:50px 0 0 0; padding:0;}
+div.user_right h3 {float:left; font: 18px Arial; color:#4e4e4e; width: 640px; margin:0 0 5px 0; padding:0 0 8px 0; border-bottom:1px solid #cccccc;}
+div.user_right h3 small{font: 12px Arial; color:#999999;}
+div.priorities div.right_sec {float:left; margin:0 0 0 10px; padding:0;}
+div.priorities ul{float:left; width:315px; margin:0; padding:0; list-style:none;}
+div.priorities li{float:left; width:315px; border-bottom:1px dotted #c5c5c5; background:none; margin:3px 0 0 0; padding:0 0 5px 0;}
+div.priorities li.last{border:none;}
+div.priorities li div.pic_area{float:left; width:54px; height:54px; border:1px solid #d0d7e1; overflow:hidden; background:#f7f7f7; padding:2px; margin:0 7px 0 0;}
+div.priorities li div.content_right div.upText{float:left; width:243px; min-height:37px; margin:5px 0 0 0;}
+div.priorities li div.content_right div.upText span{float:left; color:#666666; font:10px Arial; font-weight:normal; padding:0; margin:0; line-height:10px;}
+div.priorities li div.content_right div.upText h4 {float:left; padding:0; margin:0; width:243px;}
+div.priorities li div.content_right div.upText h4 a{color:#336699; text-decoration:none; font:13px Arial; font-weight:bold;}
+div.priorities li div.content_right div.upText h4 a:hover{color:#003366;}
+div.priorities li div.content_right span {color:#ee8700; font:9px Arial;}
+div.priorities li div.content_right span.distance {color:#666666; font:10px Arial; font-weight:bold;}
+div.priorities li div.content_right span a.designated {padding:3px 0 4px 20px; background:url(../images/icons/icon05.gif) no-repeat 0 0; font-weight:bold; text-decoration:none;color:#ee8700;}
+div.priorities li div.content_right span a.points {padding:3px 0 4px 18px; background:url(../images/icons/dards.gif) no-repeat 0 1px; font-weight:bold; text-decoration:none;color:#ee8700; margin:0 0 0 3px;}
+div.priorities div.caption {float:left; width:640px; background:white; border-top:1px solid #bebebe; margin:10px 0 0 0;}
+div.priorities div.caption p {width:630px; text-align:right; padding:12px 10px 12px 0; font:12px Arial; color:#999999; margin:0;}
+div.priorities div.caption p a{width:auto; text-decoration:none; padding:0; color:#336699; font-weight:bold; background:none;}
+div.priorities div.caption p a.reload{width:auto; text-decoration:none; padding:0 20px 0 0; font:11px Arial; color:#336699; font-weight:bold; background:url(../images/icons/reload.gif) no-repeat right center;}
+div.priorities div.caption p a:hover{color:#003366;}
+div.ux_map {float:left; margin:30px 0 0 0;}
+div.ux_map p{float:left; width:640px; margin:10px 0; font:14px Arial; color:#666666;}
+div.ux_map div.map {float:left; width: 630px; border:1px solid #cccccc; padding:4px; margin:0 0 10px 0;}
+div.ux_map div.map img{margin:0; padding:0;}
+div.participation {float:left; margin:30px 0 20px 0;}
+div.participation ul {float:left; width:640px; margin:0; padding:0; list-style: none;}
+div.participation ul li {float:left; width:640px; margin:5px 0 0 0; padding:0 0 5px 0; border-bottom:1px dotted #c5c5c5;}
+div.participation ul li.last {border:none;}
+div.participation ul li div.date_area {float:left; width:65px; font:11px Arial; color:#333333; font-weight:bold;}
+div.participation ul li div.content_right {float:left; width:570px;}
+div.participation ul li div.content_right div.upText{float:left; width:570px; min-height:37px; margin:0;}
+div.participation ul li div.content_right div.upText span{float:left; color:#666666; font:10px Arial; font-weight:normal; padding:0; margin:0; line-height:10px;}
+div.participation ul li div.content_right div.upText h4 {float:left; padding:0; margin:0; width:570px;}
+div.participation ul li div.content_right div.upText h4 a{color:#336699; text-decoration:none; font:13px Arial; font-weight:bold;}
+div.participation ul li div.content_right div.upText h4 a:hover{color:#003366;}
+div.participation ul li div.content_right span {color:#666666; font:11px Arial; font-weight:normal;}
+div.participation ul li div.content_right span a{text-decoration: none; color:#336699; font:11px Arial; font-weight:bold;}
+div.participation ul li div.content_right span a:hover{color:#003366;}
+div.participation div.caption {float:left; width:640px; background:white; border-top:1px solid #bebebe; margin:10px 0 0 0;}
+div.participation div.caption p {width:630px; text-align:right; padding:12px 10px 12px 0; font:12px Arial; color:#999999; margin:0;}
+div.participation div.caption p a{width:auto; text-decoration:none; padding:0; color:#336699; font-weight:bold; background:none;}
+div.participation div.caption p a.reload{width:auto; text-decoration:none; padding:0 20px 0 0; font:11px Arial; color:#336699; font-weight:bold; background:url(../images/icons/reload.gif) no-repeat right center;}
+div.participation div.caption p a:hover{color:#003366;}
+ div.register_container {float:left; margin:40px 0 0 120px; padding:0 0 40px; width:770px; display:inline;}
+div.register_container div.register_box_left {width:520px; float:left; background:url(../images/register_bkg.gif) repeat-y 0 0; margin: 4px 0 0 0;}
+div.register_container div.register_box_left .register_box_left_top{float:left; width:520px; background:url(../images/top_register.gif) no-repeat 0 0}
+div.register_container div.register_box_left .register_box_left_bottom{float:left; width:520px; background:url(../images/bottom_register.gif) no-repeat 0 bottom; padding: 0 0 40px 0;}
+div.register_container div.register_box_left .register_box_left_bottom h3{float:left; display:inline; width:455px; margin: 18px 18px 5px 18px; font:18px Arial; color:white; background: url(../images/label_top.gif) no-repeat 0 0; padding: 7px 15px 15px 15px;}
+div.register_container div.register_box_left .register_box_left_bottom p{display:inline; float:right; margin:-5px 17px 0; width:478px; text-align:right; font:12px Arial; color:#999999;}
+div.register_container div.register_box_left .register_box_left_bottom p a{color:#336699; font-weight:bold; text-decoration:none;}
+div.register_container div.register_box_left .register_box_left_bottom p a:hover{color:#003366;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input {float:left; margin:25px 0 0 19px; width:480px; background:url(../images/register_input_bkg.gif) repeat 0 0; padding:0; display:inline;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_top {float:left; width:480px; background:url(../images/register_input_top.gif) no-repeat right top; margin:0; padding:0;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom {float:left; width:480px; background:url(../images/register_input_bottom.gif) no-repeat right bottom; margin:0; padding:0;}
+div.register_container div.register_box_left .register_box_left_bottom label{float:left; font: 14px Arial; color: #333333; padding: 0 0 0 15px; margin:15px 0 0 0; width:125px;}
+div.register_container div.register_box_left .register_box_left_bottom input{float:left; font: 14px Arial; color: #333333; padding: 6px; width:315px; border: 1px solid #cccccc; margin:10px 0 0 0;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom p{display:inline; float:right; width: auto; color:#333333; padding: 7px 0 8px 0; font:11px Arial;}
+div.register_container div.register_box_left .register_box_left_bottom .register2 {float:left; margin:25px 0 0 19px; width:480px; background: #f2f2d6; padding:0; display:inline; -webkit-border-radius:5px; -moz-border-radius:5px;}
+div.register_container div.register_box_left .register_box_left_bottom .register2 label {color:#666666;}
+div.register_container div.register_box_left .register_box_left_bottom .register2 p{display:inline; float:left; margin:5px 0 0 140px; padding: 1px 0 5px 18px; text-align:left; font: 11px Arial; color: #666666; background: url(../images/icons/necesary.gif) no-repeat left 0; width:230px;}
+div.register_container div.register_box_left .register_box_left_bottom .last_data {float:left; margin:10px 0 19px 19px; width:480px; background:none; display:inline;}
+div.register_container div.register_box_left .register_box_left_bottom .last_data label{color:#666666;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_last {position:relative; float:left; margin:10px 0 0 19px; width:480px; background:url(../images/register_input_bkg.gif) repeat-x 0 0; display:inline;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_top_last {float:left; width:480px; background:url(../images/register_input_top.gif) no-repeat right top;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last {float:left; width:480px; background:url(../images/register_input_bottom.gif) no-repeat right bottom;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last p {display:inline; float:left; margin: 10px 0 0 10px; text-align:left; width:258px; font: 11px Arial; color: #666666; padding: 0 0 15px 0;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last a.button {position:relative; float:right; text-align:left; width:auto; background:url(../images/reg_but_left.gif) no-repeat 0 0; height:31px; color:#fff; text-decoration:none; padding:0 0 0 2px; margin: 9px 10px 0 0; cursor:pointer}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last a.button span{float:left; width:auto; background:url(../images/reg_but_right.gif) no-repeat right 0; height:23px; color:#666666; font-size: 13px; padding:8px 31px 0 10px;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last a.button:hover{}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last a.button:hover span{background:url(../images/reg_but_right.gif) no-repeat right -31px; color: #333333;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last a.button span.image {position:absolute; background:url(../images/icons/reg_arrow.gif) no-repeat 0 0; height:13px; width:14px; right:10px; top:9px; padding:0;}
+div.register_container div.register_box_left .register_box_left_bottom .register_input_bottom_last a.button:hover span.image {position:absolute; background:url(../images/icons/reg_arrow.gif) no-repeat 0 0; height:13px; width:14px; right:10px; top:9px; padding:0;}
+div.register_container div.register_box_right {width:228px; float:left; background:url(../images/register_bkg.gif) repeat-y right 0; margin: 70px 0 0 0; padding:0; height:430px;}
+div.register_container div.register_box_right .register_box_right_top{float:left; width:228px; background:url(../images/top_register.gif) no-repeat right 0; height:430px;}
+div.register_container div.register_box_right .register_box_right_bottom{float:left; width:228px; background:url(../images/bottom_register.gif) no-repeat right bottom; height:430px;}
+div.register_container div.register_box_right .register_box_right_bottom h3{margin: 20px 10px 10px 15px; font: 18px Arial; color:#336699;}
+div.register_container div.register_box_right .register_box_right_bottom p{margin: 15px; font:13px Arial; color:#666666;}
+ div.last_data span.title {float:left; width:315px;}
+div.last_data span.title div.selectbox-wrapper {position:absolute; width:62px; background-color:white; border:1px solid #ccc; margin:0px; margin-top:10px; padding:0; font-size:11px; text-align:left; height:auto; overflow: hidden;}
+div.last_data span.title div.selectbox-wrapper ul {list-style-type:none; margin:0px; padding:0px; width:auto;}
+div.last_data span.title div.selectbox-wrapper ul li.selected {background-color: #EAF2FB;}
+div.last_data span.title div.selectbox-wrapper ul li.current {background-color: #CDD8E4;}
+div.last_data span.title div.selectbox-wrapper ul li {list-style-type:none; display:block; margin:0; padding:2px; cursor:pointer; width:100%; font-size:13px;}
+div.last_data span.title input.selectbox{float:left; cursor:pointer; font: 14px Arial; color: #333333; padding: 6px; width:50px; border: 1px solid #cccccc; margin:10px 0 0 0; background: url('../images/select1.gif') no-repeat 48px 12px white;}
+div.last_data span.country {float:left; width:315px;}
+div.last_data span.country div.selectbox-wrapper {position:absolute; width:327px; background-color:white; border:1px solid #ccc; margin:0px; margin-top:10px; padding:0px; font-size:11px; text-align:left; height:200px; overflow: auto; z-index:10000}
+div.last_data span.country div.selectbox-wrapper ul {list-style-type:none; margin:0px; padding:0px; width:308px}
+div.last_data span.country div.selectbox-wrapper ul li.selected {background-color: #EAF2FB}
+div.last_data span.country div.selectbox-wrapper ul li.current {background-color: #CDD8E4;}
+div.last_data span.country div.selectbox-wrapper ul li {list-style-type:none; display:block; margin:0; padding:2px; cursor:pointer; width:308px; font-size:13px;}
+div.last_data span.country input.selectbox{float:left; cursor:pointer; font: 14px Arial; color: #333333; padding: 6px; width:303px; border: 1px solid #cccccc; margin:10px 0 0 0; background: url('../images/select1.gif') no-repeat 312px 12px white;}
+ div.aboutContainer{margin:0 auto; width:961px;}
+div.aboutContainer div.topInformation {float:left; width:943px; margin:0 0 0 12px; background:url(../images/about/bigDottedMap.jpg) no-repeat 0 -25px}
+div.aboutContainer div.topInformation h4{float:left; width:943px; font:bold 53px Arial; color:#4C4C4C; letter-spacing:-1px; line-height:50px; margin:50px 0 0 0;}
+div.aboutContainer div.topInformation div.versionContainer {float:left; width:883px; border:1px solid #cccccc; background:#FFFFFF; margin:40px 0 0 1px; border-bottom:none; padding:27px 28px 27px 28px;}
+div.aboutContainer div.topInformation div.versionContainer p {color:#666666; font:normal 17px Arial; line-height:23px; margin:0 0 30px;}
+div.aboutContainer div.topInformation div.versionContainer div.actualVersion {float:left; width:300px; height:201px; background:url(../images/about/orangeBox.jpg) no-repeat 0 0; margin:0;}
+div.aboutContainer div.topInformation div.versionContainer div.actualVersion h3 {float:left; font:bold 11px Arial; color:#FFFFFF; width:auto; margin:13px 0 0 10px;}
+div.aboutContainer div.topInformation div.versionContainer div.actualVersion h3 b{color:#FFAC7A;}
+div.aboutContainer div.topInformation div.versionContainer div.actualVersion p {float:left; margin:35px 0 0 12px; font:bold 19px Arial; color:#4E4E4E; width:280px; letter-spacing:-1px;}
+div.aboutContainer div.topInformation div.versionContainer div.actualVersion p.last {margin:10px 0 0 10px;}
+div.aboutContainer div.topInformation div.versionContainer div.nextVersion {float:left; width:294px; height:167px; background:url(../images/about/blueBox1.jpg) no-repeat 0 0; margin:17px 1px 0 1px;}
+div.aboutContainer div.topInformation div.versionContainer div.nextVersion h3 {float:left; font:bold 11px Arial; color:#FFFFFF; width:auto; margin:13px 0 0 10px;}
+div.aboutContainer div.topInformation div.versionContainer div.nextVersion p {float:left; margin:40px 0 0 12px; font:bold 19px Arial; color:#56869D; width:275px; letter-spacing:-1px;}
+div.aboutContainer div.topInformation div.versionContainer div.lastVersion {float:left; width:280px; height:167px; background:url(../images/about/blueBox2.jpg) no-repeat 0 0; margin:17px 0 0 0;}
+div.aboutContainer div.topInformation div.versionContainer div.lastVersion h3 {float:left; font:bold 11px Arial; color:#FFFFFF; width:auto; margin:13px 0 0 10px;}
+div.aboutContainer div.topInformation div.versionContainer div.lastVersion p {float:left; margin:40px 0 0 12px; font:bold 19px Arial; color:#89A8B9; width:260px; letter-spacing:-1px;}
+div.aboutContainer div.topInformation div.shadowContainer {float:left; background:url(../images/about/borderWhiteBox.jpg) no-repeat 0 bottom; width:941px; height:20px; margin:0 0 0 1px; padding:0;}
+div.aboutContainer div.informationContainer {float:left; width:942px; margin:30px 0 0 12px;}
+div.aboutContainer div.informationContainer div#leftContainer {float:left; width:608px; margin:15px 0 0 0;}
+div.aboutContainer div.informationContainer div#leftContainer h3{float:left; width:608px; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding: 0 0 4px; margin:0 0 15px 0;}
+div.aboutContainer div.informationContainer div#leftContainer div.moreAbout {float:left; width:608px; margin:0;}
+div.aboutContainer div.informationContainer div#leftContainer div.moreAbout p {float:left; width:608px; font:normal 15px Arial; color:#666666; margin:0 0 20px 0; padding:0;}
+div.aboutContainer div.informationContainer div#leftContainer div.moreAbout p a {color:#006699; text-decoration:none; font-weight:bold;}
+div.aboutContainer div.informationContainer div#leftContainer div.moreAbout p a:hover {color:#254C72; border-bottom:1px dotted #254C72;}
+div.aboutContainer div.informationContainer div#leftContainer div.organizations {float:left; width:608px; margin:20px 0 0 0;}
+div.aboutContainer div.informationContainer div#leftContainer div.organizations p {font:normal 15px Arial; color:#666666; margin:0;}
+div.aboutContainer div.informationContainer div#leftContainer div.partners {float:left; width:608px; margin:40px 0 0 0;}
+div.aboutContainer div.informationContainer div#leftContainer div.partners p {font:bold 10px Arial; color:#666666; margin:0;}
+div.aboutContainer div.informationContainer div#leftContainer div.partners a.heroku {float:right; width:115px; height:40px; background:url(../images/about/logoHeroku.jpg) no-repeat 0 0;}
+div.aboutContainer div.informationContainer div#rightContainer {float:right; border:1px solid #cccccc; width:277px; margin:0; background:white; padding:15px 15px 0 15px; border-bottom:none;}
+div.aboutContainer div.informationContainer div#rightContainer h3 {float:left; width:278px; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding: 0 0 4px; margin:0 0 10px 0; letter-spacing:-1px;}
+div.aboutContainer div.informationContainer div#rightContainer div.craig {float:left; position:relative; width:278px; background:url(../images/about/craigPic.jpg) no-repeat 0 0; height:202px; margin:0 0 15px 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.craig:hover {cursor:pointer;}
+div.aboutContainer div.informationContainer div#rightContainer div.overCraig {display:none; position:absolute; top:0; left:0; right:0; z-index:1000; width:278px; height:202px; background:url(../images/about/detailBox.jpg) no-repeat 0 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.overCraig p.name {float:left; margin:11px 0 0 10px; font:bold 21px Arial; color:#FFFFFF; width:200px; line-height:21px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overCraig p.secondary {float:left; margin:0 0 0 10px; font:normal 15px Arial; color:#FFFFFF; width:270px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overCraig p.description {float:left; margin:30px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:80px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overCraig p.contact {float:left; margin:10px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:40px; border-top:1px solid #cccccc;}
+div.aboutContainer div.informationContainer div#rightContainer div.overCraig p.contact a {float:left; margin:7px 0 0 0; background:url(../images/about/mailIcon.jpg) no-repeat 0 2px; padding:0 0 0 21px; font:normal 12px Arial; color:#FF6600; text-decoration:none;}
+div.aboutContainer div.informationContainer div#rightContainer div.overCraig p.contact a:hover {text-decoration:underline}
+div.aboutContainer div.informationContainer div#rightContainer div.simon {float:left; position:relative; width:278px; background:url(../images/about/simonPic.jpg) no-repeat 0 0; height:202px; margin:0 0 15px 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.simon:hover {cursor:pointer;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSimon {display:none; position:absolute; top:0; left:0; right:0; z-index:1000; width:278px; height:202px; background:url(../images/about/detailBox.jpg) no-repeat 0 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSimon p.name {float:left; margin:11px 0 0 10px; font:bold 21px Arial; color:#FFFFFF; width:200px; line-height:21px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSimon p.secondary {float:left; margin:0 0 0 10px; font:normal 15px Arial; color:#FFFFFF; width:270px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSimon p.description {float:left; margin:30px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:80px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSimon p.contact {float:left; margin:10px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:40px; border-top:1px solid #cccccc;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSimon p.contact a {float:left; margin:7px 0 0 0; background:url(../images/about/mailIcon.jpg) no-repeat 0 2px; padding:0 0 0 21px; font:normal 12px Arial; color:#FF6600; text-decoration:none;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSimon p.contact a:hover {text-decoration:underline}
+div.aboutContainer div.informationContainer div#rightContainer div.vizzuality {float:left; position:relative; width:278px; background:url(../images/about/vizzualityPic.jpg) no-repeat 0 0; height:202px; margin:0 0 15px 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.vizzuality:hover {cursor:pointer;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality {display:none; position:absolute; top:0; left:0; right:0; z-index:1000; width:278px; height:202px; background:url(../images/about/detailBox.jpg) no-repeat 0 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.name {float:left; margin:11px 0 0 10px; font:bold 21px Arial; color:#FFFFFF; width:200px; line-height:21px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.secondary {float:left; margin:0 0 0 10px; font:normal 15px Arial; color:#FFFFFF; width:270px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.description {float:left; margin:30px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:80px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.contact {float:left; margin:10px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:40px; border-top:1px solid #cccccc;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.contact a.mail {float:left; width:auto; margin:8px 0 0 0; background:url(../images/about/mailIcon.jpg) no-repeat 0 2px; padding:0 0 0 21px; font:normal 12px Arial; color:#FF6600; text-decoration:none;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.contact a.mail:hover {text-decoration:underline}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.contact a.home {float:right; width:auto; margin:7px 0 0 0; background:url(../images/about/webicon.jpg) no-repeat 0 0; padding:1px 0 2px 21px; font:normal 12px Arial; color:#FF6600; text-decoration:none;}
+div.aboutContainer div.informationContainer div#rightContainer div.overVizzuality p.contact a.home:hover {text-decoration:underline}
+div.aboutContainer div.informationContainer div#rightContainer div.solertium {float:left; position:relative; width:278px; background:url(../images/about/solertiumPic.jpg) no-repeat 0 0; height:202px; margin:0 0 5px 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.solertium:hover {cursor:pointer;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium {display:none; position:absolute; top:0; left:0; right:0; z-index:1000; width:278px; height:202px; background:url(../images/about/detailBox.jpg) no-repeat 0 0;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.name {float:left; margin:11px 0 0 10px; font:bold 21px Arial; color:#FFFFFF; width:200px; line-height:21px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.secondary {float:left; margin:0 0 0 10px; font:normal 15px Arial; color:#FFFFFF; width:270px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.description {float:left; margin:30px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:80px;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.contact {float:left; margin:10px 0 0 10px; font:normal 13px Arial; color:#333333; width:255px; height:40px; border-top:1px solid #cccccc;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.contact a {float:left; width:auto; margin:8px 0 0 0; background:url(../images/about/mailIcon.jpg) no-repeat 0 2px; padding:0 0 0 21px; font:normal 12px Arial; color:#FF6600; text-decoration:none;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.contact a:hover {text-decoration:underline}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.contact a.home {float:right; width:auto; margin:7px 0 0 0; background:url(../images/about/webicon.jpg) no-repeat 0 0; padding:1px 0 2px 21px; font:normal 12px Arial; color:#FF6600; text-decoration:none;}
+div.aboutContainer div.informationContainer div#rightContainer div.overSolertium p.contact a.home:hover {text-decoration:underline}
+div.aboutContainer div.informationContainer div#rightContainer div div.bottomInformation {position:absolute; bottom:0; left:0; right:0; height:70px; background:url(../images/about/blackTitleBox.png) no-repeat 0 0;}
+div.aboutContainer div.informationContainer div#rightContainer div div.bottomInformation p.name {float:left; margin:19px 0 0 10px; font:bold 21px Arial; color:#FFFFFF; width:200px; line-height:21px;}
+div.aboutContainer div.informationContainer div#rightContainer div div.bottomInformation p.secondary {float:left; margin:0 0 0 10px; font:normal 15px Arial; color:#FFFFFF; width:270px;}
+div.aboutContainer div.informationContainer div.shadowRightContainer {float:right; width:309px; height:20px; background:url(../images/about/borderShortWhiteBox.jpg) no-repeat 0 bottom; margin:0;}
+ #outer_bottom_section{margin:0 auto; width:961px;}
+#bottom_section{float:left; width:951px; padding:0 0 0 10px;}
+#bottom_section div.tabs{float:right; width:951px; padding-bottom:35px; margin-top:-3px;}
+#bottom_section div.content{float:left; width:939px; background:url("../images/border_tabs.gif") no-repeat 0 0; padding:15px 0 17px 12px; margin:40px 0 0 0;}
+#bottom_section div.content p{float:left; width:290px; font-size:13px; font-weight:bold; line-height:15px; color:#999999; padding-bottom:10px;}
+#bottom_section div.content span{float:left; width:270px; font-size:12px; line-height:18px; color:#999999;}
+#bottom_section div.content span a{color:#999999; font-weight:bold; text-decoration:none;}
+#bottom_section div.content span a:hover{color:#666666;}
+#bottom_section div.content div.cols1{float:left; width:290px; background:url("../images/ver_bor.gif") repeat-y right 0; padding:4px 0 9px;}
+#bottom_section div.content div.cols2{float:left; width:315px; background:url("../images/ver_bor.gif") repeat-y right 0; padding:4px 0 9px 15px;}
+#bottom_section div.content div.cols3{float:left; width:290px; padding:4px 0 9px 15px;}
+#outer_footer{float:left; width:100%; background:#dddddd; border-top:1px solid #c3c3c3; margin:70px 0 0 0;}
+#inside_footer{margin:0 auto; width:961px;}
+#footer{float:left; width:951px; padding:13px 0 16px 10px;}
+#footer p{float:left; width:300px; padding: 10px 0 60px 0; font:normal 12px Arial; color:#999999;}
+#footer ul{float:right; width:auto; list-style:none; padding:10px 0 60px 0;}
+#footer li{float:left; width:auto; font-size:12px; line-height:14px; font-weight:normal; color:#999999; background:url("../images/common/footer_divider.gif") no-repeat 0 3px; padding:0 6px 0 9px}
+#footer li.none{float:left; background:none; padding-left:0;}
+#footer li a{color:#999999; text-decoration:none; font-weight:bold;}
+#footer li a:hover{color:#666666;}
+#footer div.powered{float:right; width:600px;}
+#footer div.powered a{float:right;}
+#footer div.powered a img{float:left; margin-right:10px; display:inline;}
+#footer div.powered a img.last{float:left; margin-right:0; display:inline;}
+ .pa_graph_container{height:6px; width:130px; float:right; border:1px solid #B6B6B6;-moz-border-radius:3px;-webkit-border-radius:3px; padding:1px;background:white;}
+.pa_graph{float:left;background:#FF6600;-moz-border-radius:2px;-webkit-border-radius:2px; height:6px; overflow:hidden;}
+ div#right_container div.filter_container a.more {background:#336699; padding:1px 5px 2px 4px; color:white; margin-top:1em; font-weight:normal; -moz-border-radius: 3px; -webkit-border-radius: 3px}
+#more_designations_container{ position:absolute; z-index:999; background:#336699;  color:#fff; -moz-border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius-topleft: 0px; -webkit-border-top-left-radius: 0px}
+#more_designations_container ul{ margin:1em; list-style:none}
+#more_designations_container ul li{ line-height:1.5em; color:#B4CDE6}
+#more_designations_container ul a{ color:white; font-weight:bold; text-decoration:none}
+#more_designations_container ul a:hover{ text-decoration:underline}
+.country_image_box{ width:100px;height:100px;float:left;overflow:hidden;position:relative;margin:0 1px 1px 0}
+.country_image{top:-20px; left:-50px;float:left;position:absolute;}
+.country_link_back{position:absolute;background:black;width:100px;height:20px;top:80px;filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity: 0.7;opacity: 0.7;}
+.country_link{font-size:10px;position:absolute; left:5px; top:85px; color:white;text-decoration:none;}
+#infovis {position:relative; width:927px; height:300px; overflow:hidden; margin-bottom:1em}
+#slider {position:relative;}
+#slider ul, #slider li, #slider2 ul, #slider2 li{ position:relative; margin:0; padding:0; list-style:none}
+#slider2{margin-top:1em;}
+#slider li, #slider2 li{  width:612px; height:213px; overflow:hidden}
+#prevBtn, #nextBtn, #slider1next, #slider1prev{ display:block; width:30px; height:77px; position:absolute; right:0; top:71px; z-index:1000}
+#nextBtn, #slider1next{ left:696px}
+#prevBtn a, #nextBtn a, #slider1next a, #slider1prev a{ display:block; position:relative; width:30px; height:77px; background:url(../images/btn_prev.gif) no-repeat 0 0}
+#nextBtn a, #slider1next a{ background:url(../images/btn_next.gif) no-repeat 0 0}
+ol#controls{ margin:10px 0 0 0; padding:0; height:28px; position:relative; float:right}
+ol#controls li{ margin:0 5px 0 0; font:bold 11px Arial; padding:0; float:left; list-style:none; height:28px; line-height:28px}
+ol#controls li a{ float:left; background:url(../images/common/paginationButtons.png) no-repeat 0 0; width:16px; text-align:center; height:16px; line-height:16px; color:#fff; padding:0; text-decoration:none}
+ol#controls li.current a{ background:url(../images/common/paginationButtons.png) no-repeat 0 -16px; color:#fff}
+ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+.tipsy {padding: 5px; font-size: 10px; opacity: 0.8; filter: alpha(opacity=80); background-repeat: no-repeat}
+.tipsy-inner {padding: 4px 5px; background-color: black; color: white; max-width: 180px; text-align: center}
+.tipsy-north {background-image: url(../images/tipsy-north.gif); background-position: top center}
+.tipsy-south {background-image: url(../images/tipsy-south.gif); background-position: bottom center}
+.tipsy-east {background-image: url(../images/tipsy-east.gif); background-position: right center}
+.tipsy-west {background-image: url(../images/tipsy-west.gif); background-position: left center}
+#tipsy{font-size:0.8em;}
+.ac_results {padding: 4px 0 0 0; border: 1px solid #183B67; border-top:none; background-color: white; overflow: hidden; z-index: 99999;  }
+.ac_results_small{ border: 1px solid #00334E; border-top:none}
+.ac_results ul {width: 100%; list-style-position: outside; list-style: none; padding: 0; border-top:1px solid #cccccc; margin: 0}
+.ac_results li {margin: 0px; padding: 2px 5px; cursor: default; display: block;   font: menu; font-size: 12px;  line-height: 16px; overflow: hidden; border-bottom:1px solid #ccc}
+ .ac_odd {background-color: #f6f6f6}
+.ac_over {background-color: #FFFFD4; color: #333; cursor:pointer}

@@ -1,0 +1,102 @@
+<% content_for :left do %>
+	<h2>Assessment for <%= @a.file_name%></h2>
+
+	<% @a.tenements.each_with_index do |t,i| %>
+		<h3 style="margin:0;">Tenement <%= t.id%> <%= YAML.load(t.attribute_data).attributes[:name]	 %></h3>
+		<h5 class="quiet" style="margin:0.2em;">Overlaps</h5>
+		<table class="zebra">
+			<thead>
+				<th>
+					PA name
+				</th>
+				<th>
+					IUCN 
+				</th>
+				<th>
+					Designation
+				</th>			
+			</thead>
+		<tbody>
+		<% if t.overlapping_pas.empty? %>
+				<tr><td style="height:100px;color:#444;" colspan="4"><div><center><%= image_tag 'icons/information.png'%><span style="margin-bottom:20px;"><b> There was no overlap for this tenement</b></span></center></div></td><tr>
+		<% else %>		
+				<% t.overlapping_pas.each do |p| %>
+				<tr>
+					<td>
+						<%= p.name_eng == 'English name not known' ? p.name_loc : p.name_eng  %>
+					</td> 
+					<td>
+						<%= p.iucncat %>
+					</td>
+					<td>
+						<%= p.desig_eng%>
+					</td>
+				</tr>		
+				<% end -%>
+		<% end -%>
+			</tbody>	
+		</table>
+		
+		<h5 class="quiet" style="margin:0.2em;">Nearby</h5>
+		<table class="zebra">
+			<thead>
+				<th>
+					PA name
+				</th>
+				<th>
+					IUCN 
+				</th>
+				<th>
+					Designation
+				</th>	
+				<th>
+					Distance
+				</th>		
+			</thead>
+		<tbody>
+		<% if t.nearby_pas.empty? %>
+				<tr><td style="height:100px;color:#444;" colspan="4"><div><center><%= image_tag 'icons/information.png'%><span style="margin-bottom:20px;"><b> There were no nearby PAs for this tenement</b></span></center></div></td><tr>
+		<% else %>		
+				<% t.nearby_pas.each do |p| %>
+				<tr>
+					<td>
+						 <%= p.name_eng == 'English name not known' ? p.name_loc : p.name_eng  %>					
+					</td> 
+					<td>
+						<%= p.iucncat %>
+					</td>
+					<td>
+						<%= p.desig_eng%>
+					</td>
+					<td>
+						<%= number_with_precision p.analyses.find_by_tenement_id(t.id, :conditions => "analyses.type = 'AnalysisProximity'").try(:value) * 100,:precision => 2 %> km
+					</td>
+				</tr>		
+				<% end -%>
+		<% end -%>
+			</tbody>	
+		</table>
+	<% end -%>	
+	<br><br>
+<% end -%>			
+
+
+<% content_for :right do %>
+	<h3 style="margin-bottom:0.5em;">Options</h3>
+	<ul id="menu">
+		<li><%= link_to "#{image_tag 'icons/page_excel.png'} Download results (CSV)", assesment_path(@a,:csv), :class => "button" %></li>
+		<li><%= link_to "#{image_tag 'icons/delete.png'} Delete assessment", assesment_path(@a), :method => :delete, :confirm => "are you sure you want to delete this assessment?", :class => "button negative" %>		
+	</ul>
+	
+	<div class="clear" style="border-bottom:1px solid #fff;"></div>
+	<div style="margin:1em 0;"><%= link_to "back to assessments", root_url, :class => "quiet small" %></div>
+	
+<% end -%>
+
+<% content_for :map do %>
+
+	<div style="border:1em solid #EEEEEE;">
+	<%= swf_tag "map", :flashvars => {:URL => request.url, :KEY => "ABQIAAAAdc829JdHWtQwsQprwWSx5xQckUEosiSFA09wO5aMrMRSmM89ohSqmg4BhCoZRK2_LVTJ2yZjy9gcGw"}, :height => 400 %>
+	</div>
+
+<% end -%>
