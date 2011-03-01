@@ -1,0 +1,997 @@
+# Logfile created on 2011-03-01 10:34:35 +0000DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from <top (required)> at /Users/andren/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from <top (required)> at /Users/andren/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from <top (required)> at /Users/andren/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (76.2ms)[0m   [0;1mCREATE TABLE schema_migrations ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (12.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091207104742)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (63.7ms)[0m   [0;1mCREATE TABLE users ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091207104742')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+Migrating to CreateAssesments (20091207104748)
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (29.1ms)[0m   [0;1mCREATE TABLE assesments ("id" serial primary key, "user_id" integer, "file_name" character varying(255), "state" character varying(255), "delete_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091207104748')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCOMMIT[0m
+Migrating to CreateTenements (20091207120310)
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mCREATE TABLE tenements ("id" serial primary key, "assesment_id" integer, "attribute_data" text, "query_area_km2" float, "query_area_carbon_kg" float, "encoded_polyline_cache" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERROR: function addgeometrycolumn(unknown, unknown, integer, unknown, integer) does not exist
+LINE 1: SELECT AddGeometryColumn('tenements','the_geom',4326,'MULTIP...
+ ^
+HINT: No function matches the given name and argument types. You might need to add explicit type casts.
+: SELECT AddGeometryColumn('tenements','the_geom',4326,'MULTIPOLYGON',2)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091207104742)
+Migrating to CreateAssesments (20091207104748)
+Migrating to CreateTenements (20091207120310)
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (7.9ms)[0m   [0;1mCREATE TABLE tenements ("id" serial primary key, "assesment_id" integer, "attribute_data" text, "query_area_km2" float, "query_area_carbon_kg" float, "encoded_polyline_cache" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERROR: AddGeometryColumns() - invalid SRID
+CONTEXT: SQL statement "SELECT AddGeometryColumn('','',$1,$2,$3,$4,$5)"
+PL/pgSQL function "addgeometrycolumn" line 4 at SQL statement
+: SELECT AddGeometryColumn('tenements','the_geom',4326,'MULTIPOLYGON',2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091207104742)
+Migrating to CreateAssesments (20091207104748)
+Migrating to CreateTenements (20091207120310)
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (41.4ms)[0m   [0;1mCREATE TABLE tenements ("id" serial primary key, "assesment_id" integer, "attribute_data" text, "query_area_km2" float, "query_area_carbon_kg" float, "encoded_polyline_cache" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (39.4ms)[0m   [0mSELECT AddGeometryColumn('tenements','the_geom',4326,'MULTIPOLYGON',2)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091207120310')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+Migrating to CreateSites (20100916204226)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (4.6ms)[0m   [0mCREATE TABLE sites ("id" serial primary key, "tenement_id" integer, "wdpaid" integer, "image" character varying(255), "data_standard" text, "protected_carbon_kg" float, "protected_area_km2" float, "query_area_protected_km2" float, "query_area_protected_carbon_kg" float, "encoded_polyline_cache" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT AddGeometryColumn('sites','the_geom',4326,'MULTIPOLYGON',2)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100916204226')[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091207104742)
+Migrating to CreateAssesments (20091207104748)
+Migrating to CreateTenements (20091207120310)
+Migrating to CreateSites (20100916204226)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+DEPRECATION WARNING: require "activerecord" is deprecated and will be removed in Rails 3. Use require "active_record" instead.. (called from /Users/andren/.rvm/gems/ruby-1.8.7-p334/gems/activerecord-2.3.5/lib/activerecord.rb:2)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing AssesmentsController#index (for 127.0.0.1 at 2011-03-01 11:45:51) [GET]
+Rendering assesments/index
+Completed in 473ms (View: 253, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing AssesmentsController#index (for 127.0.0.1 at 2011-03-01 11:50:34) [GET]
+Rendering assesments/index
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing AssesmentsController#create (for 127.0.0.1 at 2011-03-01 11:59:06) [POST]
+  Parameters: {"commit"=>"Upload", "authenticity_token"=>"PB1KO8l/N7CTVgD2Cvlb45sobTyEkMMODx7gilZBh1c=", "assesment"=>{"shape"=>#<File:/var/folders/LG/LGUwC9EOHMekcXmbrqEy+++++TI/-Tmp-/RackMultipart20110301-17442-l2z5ez-0>}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (57.2ms)[0m   [0mINSERT INTO "assesments" ("created_at", "updated_at", "file_name", "user_id", "delete_at", "state") VALUES('2011-03-01 11:59:06.813604', '2011-03-01 11:59:06.813604', E'tenements.zip', NULL, NULL, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (17.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (86.5ms)[0m   [0;1mINSERT INTO "tenements" ("created_at", "attribute_data", "updated_at", "the_geom", "assesment_id", "encoded_polyline_cache", "query_area_km2", "query_area_carbon_kg") VALUES('2011-03-01 11:59:06.944832', E'--- !ruby/object:DBF::Record 
+attributes: 
+ lic_number: LPL344
+ province: Western Province
+ region: ""
+ hectares: 300478.256374
+ applic: 18991230
+ AREA: "4657183952950"
+ LIC_NUMBER: LPL344
+ REGION: ""
+ expiry: 20090509
+ area: "4657183952950"
+ PROJECT: None as yet
+ lic_holder: BHP Billiton Developement (Z)
+ PERIMETER: 9449923.69303
+ landassist: ""
+ status: Granted
+ DATE_: 18991230
+ _ND_RENEW: 18991230
+ fase: ""
+ nome: ""
+ _nd_renew: 18991230
+ ENTITY_1: ""
+ STATUS: Granted
+ PROVINCE: Western Province
+ ENTITY_2: ""
+ HECTARES: 300478.256374
+ FASE: ""
+ NOME: ""
+ LIC_HOLDER: BHP Billiton Developement (Z)
+ date_: 18991230
+ lic_name: Senanga
+ map_no: ""
+ BHPB_ENTIT: BHP Billiton Developement (Z)
+ LIC_DOCS: "Yes"
+ commodity: Cu, Co, Pb, Zn, Ni, Pt, Au, Ag
+ project: None as yet
+ notes: Generated from Coordinates
+ COMMODITY: Cu, Co, Pb, Zn, Ni, Pt, Au, Ag
+ acres: 742459.945565
+ _ST_RENEW: 18991230
+ _nd_expiry: 18991230
+ _st_renew: 18991230
+ bhpb_entit: BHP Billiton Developement (Z)
+ country: Zambia
+ ACRES: 742459.945565
+ LANDASSIST: ""
+ LIC_NAME: Senanga
+ _ND_EXPIRY: 18991230
+ mag_dist: Senanga
+ lic_type: Prospecting License
+ AREA_HA: 0.0
+ COUNTRY: Zambia
+ lic_docs: "Yes"
+ _rd_expiry: 18991230
+ perimeter: 9449923.69303
+ relinquish: 18991230
+ issue: 20070510
+ entity_1: ""
+ RELINQUISH: 18991230
+ area_ha: 0.0
+ entity_2: ""
+ _RD_EXPIRY: 18991230
+ NOTES: Generated from Coordinates
+ MAG_DIST: Senanga
+ geologist: James McMaster
+ ISSUE: 20070510
+ GEOLOGIST: James McMaster
+ APPLIC: 18991230
+ MAP_NO: ""
+ LIC_TYPE: Prospecting License
+ ADDRESS: BHP Billiton, Private Bag 122X, RW, Lusaka
+ address: BHP Billiton, Private Bag 122X, RW, Lusaka
+ EXPIRY: 20090509
+ N_BOM1040: ""
+ n_bom1040: ""
+data: &id001 !ruby/object:File {}
+
+memo: 
+table: !ruby/object:DBF::Reader 
+ column_count: 37
+ columns: 
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: DATE_
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: STATUS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: N_BOM1040
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: AREA
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: PROVINCE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: AREA_HA
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: FASE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: NOME
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: COUNTRY
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: PROJECT
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_NAME
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_NUMBER
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: MAP_NO
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_TYPE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_HOLDER
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: BHPB_ENTIT
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ENTITY_1
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ENTITY_2
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ADDRESS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: REGION
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: MAG_DIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: COMMODITY
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: GEOLOGIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: APPLIC
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: ISSUE
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ST_RENEW
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ND_EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ND_RENEW
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _RD_EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: RELINQUISH
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: NOTES
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_DOCS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LANDASSIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: PERIMETER
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: ACRES
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: HECTARES
+ type: N
+ data: *id001
+ db_index: 
+ - 0
+ - 1
+ - 2
+ - 3
+ header_length: 1217
+ memo: 
+ options: {}
+
+ record_count: 4
+ record_length: 6320
+ records: 
+ version: "03"
+', '2011-03-01 11:59:06.944832', '0106000020E61000000100000001030000000100000008000000325EBA490CEE3640DC283764169C2FC00000000000000000FFFFFFFFFFFFEFFF8E7F4705EC6A37401DF4918129A02EC00000000000000000FFFFFFFFFFFFEFFFB1972576BCBB374084F0F390C7E72EC00000000000000000FFFFFFFFFFFFEFFF1DAC65F62A8C3740DD97B868DB432FC00000000000000000FFFFFFFFFFFFEFFFF2A9830BDB3B3740DBE3F0ABAEF22FC00000000000000000FFFFFFFFFFFFEFFF331BC389D52037401B6B754CF0F02FC00000000000000000FFFFFFFFFFFFEFFF325EBA490CEE36409CACB00615EA2FC00000000000000000FFFFFFFFFFFFEFFF325EBA490CEE3640DC283764169C2FC00000000000000000FFFFFFFFFFFFEFFF', 1, NULL, NULL, NULL) RETURNING "id"[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO "tenements" ("created_at", "attribute_data", "updated_at", "the_geom", "assesment_id", "encoded_polyline_cache", "query_area_km2", "query_area_carbon_kg") VALUES('2011-03-01 11:59:07.186640', E'--- !ruby/object:DBF::Record 
+attributes: 
+ lic_number: ""
+ province: Western Province
+ region: ""
+ hectares: 400063.24829
+ applic: 18991230
+ AREA: "6201118445990"
+ LIC_NUMBER: ""
+ REGION: ""
+ expiry: 20080126
+ area: "6201118445990"
+ PROJECT: None As Yet
+ lic_holder: BHP Billiton Developement (Z)
+ PERIMETER: 17298130.6097
+ landassist: ""
+ status: Granted
+ DATE_: 18991230
+ _ND_RENEW: 18991230
+ fase: ""
+ nome: ""
+ _nd_renew: 18991230
+ ENTITY_1: ""
+ STATUS: Granted
+ PROVINCE: Western Province
+ ENTITY_2: ""
+ HECTARES: 400063.24829
+ FASE: ""
+ NOME: ""
+ LIC_HOLDER: BHP Billiton Developement (Z)
+ date_: 18991230
+ lic_name: Kaoma
+ map_no: ""
+ BHPB_ENTIT: BHP Billiton Developement (Z)
+ LIC_DOCS: No, Requested from Gilbert Zambia
+ commodity: Cu, Co, Pb, Zn, Ni, Pt, Au, Ag
+ project: None As Yet
+ notes: First offer not signed within a month. New agreement signed in Jan 2008. Awaiting doc s from Gilbert in Zambia.
+ COMMODITY: Cu, Co, Pb, Zn, Ni, Pt, Au, Ag
+ acres: 988597.85449
+ _ST_RENEW: 18991230
+ _nd_expiry: 18991230
+ _st_renew: 18991230
+ bhpb_entit: BHP Billiton Developement (Z)
+ country: Zambia
+ ACRES: 988597.85449
+ LANDASSIST: ""
+ LIC_NAME: Kaoma
+ _ND_EXPIRY: 18991230
+ mag_dist: Kaoma District
+ lic_type: Prospecting License
+ AREA_HA: 0.0
+ COUNTRY: Zambia
+ lic_docs: No, Requested from Gilbert Zambia
+ _rd_expiry: 18991230
+ perimeter: 17298130.6097
+ relinquish: 18991230
+ issue: 20060126
+ entity_1: ""
+ RELINQUISH: 18991230
+ area_ha: 0.0
+ entity_2: ""
+ _RD_EXPIRY: 18991230
+ NOTES: First offer not signed within a month. New agreement signed in Jan 2008. Awaiting doc s from Gilbert in Zambia.
+ MAG_DIST: Kaoma District
+ geologist: James McMaster
+ ISSUE: 20060126
+ GEOLOGIST: James McMaster
+ APPLIC: 18991230
+ MAP_NO: ""
+ LIC_TYPE: Prospecting License
+ ADDRESS: BHP Billiton, Private Bag 122X, RW, Lusaka
+ address: BHP Billiton, Private Bag 122X, RW, Lusaka
+ EXPIRY: 20080126
+ N_BOM1040: ""
+ n_bom1040: ""
+data: &id001 !ruby/object:File {}
+
+memo: 
+table: !ruby/object:DBF::Reader 
+ column_count: 37
+ columns: 
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: DATE_
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: STATUS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: N_BOM1040
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: AREA
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: PROVINCE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: AREA_HA
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: FASE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: NOME
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: COUNTRY
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: PROJECT
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_NAME
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_NUMBER
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: MAP_NO
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_TYPE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_HOLDER
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: BHPB_ENTIT
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ENTITY_1
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ENTITY_2
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ADDRESS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: REGION
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: MAG_DIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: COMMODITY
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: GEOLOGIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: APPLIC
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: ISSUE
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ST_RENEW
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ND_EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ND_RENEW
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _RD_EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: RELINQUISH
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: NOTES
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_DOCS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LANDASSIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: PERIMETER
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: ACRES
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: HECTARES
+ type: N
+ data: *id001
+ db_index: 
+ - 0
+ - 1
+ - 2
+ - 3
+ header_length: 1217
+ memo: 
+ options: {}
+
+ record_count: 4
+ record_length: 6320
+ records: 
+ version: "03"
+', '2011-03-01 11:59:07.186640', '0106000020E61000000100000001030000000100000012000000C6F65E25F9BC3840A0627A351CCB2DC00000000000000000FFFFFFFFFFFFEFFF402773D656ED3840E51A9BE4F1CB2DC00000000000000000FFFFFFFFFFFFEFFF916EB85547073940C63DC27E64CC2DC00000000000000000FFFFFFFFFFFFEFFF0358183A0C2339401FAE4F2EDFCC2DC00000000000000000FFFFFFFFFFFFEFFFA62659563442394082844AD568CD2DC00000000000000000FFFFFFFFFFFFEFFFFCFFFF5F226D3940E2FFFF7F26CE2DC00000000000000000FFFFFFFFFFFFEFFFB47E10E7106B3940647FEF2784E72DC00000000000000000FFFFFFFFFFFFEFFF9F4786119E653940FFE9457F611C2EC00000000000000000FFFFFFFFFFFFEFFF9FC0A9E67A6039403D37EF8033482EC00000000000000000FFFFFFFFFFFFEFFFC2FFC78C81E83840FE2E8C2BCA462EC00000000000000000FFFFFFFFFFFFEFFFFF5C75B7C8E83840FB917F7D91ED2DC00000000000000000FFFFFFFFFFFFEFFF818A04F6E26A3840DE5A6CC281F02DC00000000000000000FFFFFFFFFFFFEFFFE40C485D06693840A4EE71DC22EB2EC00000000000000000FFFFFFFFFFFFEFFF5F18AE1C43173840DBDE9C2441EA2EC00000000000000000FFFFFFFFFFFFEFFF800A17EB2E1738401C39EDBC3FC82DC00000000000000000FFFFFFFFFFFFEFFFB5586C28B44A38403BA1DA5B23C92DC00000000000000000FFFFFFFFFFFFEFFF8D26B689B38A38401C2FB41A3ECA2DC00000000000000000FFFFFFFFFFFFEFFFC6F65E25F9BC3840A0627A351CCB2DC00000000000000000FFFFFFFFFFFFEFFF', 1, NULL, NULL, NULL) RETURNING "id"[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPGError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+: INSERT INTO "tenements" ("created_at", "attribute_data", "updated_at", "the_geom", "assesment_id", "encoded_polyline_cache", "query_area_km2", "query_area_carbon_kg") VALUES('2011-03-01 11:59:07.355819', E'--- !ruby/object:DBF::Record 
+attributes: 
+ lic_number: LPL374
+ province: ""
+ region: ""
+ hectares: 131833.282954
+ applic: 18991230
+ AREA: "2043420581980"
+ LIC_NUMBER: LPL374
+ REGION: ""
+ expiry: 20091113
+ area: "2043420581980"
+ PROJECT: Mumbwa Project
+ lic_holder: BHP Billiton World Exploration
+ PERIMETER: 10855541.2864
+ landassist: ""
+ status: Granted
+ DATE_: 18991230
+ _ND_RENEW: 18991230
+ fase: ""
+ nome: ""
+ _nd_renew: 18991230
+ ENTITY_1: ""
+ STATUS: Granted
+ PROVINCE: ""
+ ENTITY_2: ""
+ HECTARES: 131833.282954
+ FASE: ""
+ NOME: ""
+ LIC_HOLDER: BHP Billiton World Exploration
+ date_: 18991230
+ lic_name: Mumbwa
+ map_no: ""
+ BHPB_ENTIT: BHP Billiton World Exploration
+ LIC_DOCS: "Yes"
+ commodity: Cu Co Pb Zn Au Pt
+ project: Mumbwa Project
+ notes: New license - BBWEI. License was held AIM Resourses (PLLS39) from 21041999 to 01092006 for a 2yr period, with two 2yr renewals. Excluded areas held by Sulmach.
+ COMMODITY: Cu Co Pb Zn Au Pt
+ acres: 325767.233888
+ _ST_RENEW: 18991230
+ _nd_expiry: 18991230
+ _st_renew: 18991230
+ bhpb_entit: BHP Billiton World Exploration
+ country: Zambia
+ ACRES: 325767.233888
+ LANDASSIST: ""
+ LIC_NAME: Mumbwa
+ _ND_EXPIRY: 18991230
+ mag_dist: ""
+ lic_type: Prospecting License
+ AREA_HA: 0.0
+ COUNTRY: Zambia
+ lic_docs: "Yes"
+ _rd_expiry: 18991230
+ perimeter: 10855541.2864
+ relinquish: 18991230
+ issue: 20071114
+ entity_1: ""
+ RELINQUISH: 18991230
+ area_ha: 0.0
+ entity_2: ""
+ _RD_EXPIRY: 18991230
+ NOTES: New license - BBWEI. License was held AIM Resourses (PLLS39) from 21041999 to 01092006 for a 2yr period, with two 2yr renewals. Excluded areas held by Sulmach.
+ MAG_DIST: ""
+ geologist: James McMaster
+ ISSUE: 20071114
+ GEOLOGIST: James McMaster
+ APPLIC: 18991230
+ MAP_NO: ""
+ LIC_TYPE: Prospecting License
+ ADDRESS: ""
+ address: ""
+ EXPIRY: 20091113
+ N_BOM1040: ""
+ n_bom1040: ""
+data: &id001 !ruby/object:File {}
+
+memo: 
+table: !ruby/object:DBF::Reader 
+ column_count: 37
+ columns: 
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: DATE_
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: STATUS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: N_BOM1040
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: AREA
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: PROVINCE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: AREA_HA
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: FASE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: NOME
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: COUNTRY
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: PROJECT
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_NAME
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_NUMBER
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: MAP_NO
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_TYPE
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_HOLDER
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: BHPB_ENTIT
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ENTITY_1
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ENTITY_2
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: ADDRESS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: REGION
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: MAG_DIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: COMMODITY
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: GEOLOGIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: APPLIC
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: ISSUE
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ST_RENEW
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ND_EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _ND_RENEW
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: _RD_EXPIRY
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 11
+ name: RELINQUISH
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: NOTES
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LIC_DOCS
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 0
+ length: 254
+ name: LANDASSIST
+ type: C
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: PERIMETER
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: ACRES
+ type: N
+ - !ruby/object:DBF::Column 
+ decimal: 15
+ length: 31
+ name: HECTARES
+ type: N
+ data: *id001
+ db_index: 
+ - 0
+ - 1
+ - 2
+ - 3
+ header_length: 1217
+ memo: 
+ options: {}
+
+ record_count: 4
+ record_length: 6320
+ records: 
+ version: "03"
+', '2011-03-01 11:59:07.355819', '0106000020E610000001000000010300000003000000260000001EDDBD2D44A13A407CC19CB961E62CC00000000000000000FFFFFFFFFFFFEFFFC23ADAA23BA03A4010A8B1A008E62CC00000000000000000FFFFFFFFFFFFEFFF6602710B599F3A4057C473C95BE52CC00000000000000000FFFFFFFFFFFFEFFFF5662E65AF9D3A40EC0B03758BE22CC00000000000000000FFFFFFFFFFFFEFFFFB8BE142C49B3A405D8A176D0EE32CC00000000000000000FFFFFFFFFFFFEFFFA54FAED67C9A3A403140B1B1E4E62CC00000000000000000FFFFFFFFFFFFEFFF6110A45A3B9A3A403D745FEE3DEB2CC00000000000000000FFFFFFFFFFFFEFFFE55733066B973A40236903AF55EF2CC00000000000000000FFFFFFFFFFFFEFFFD420AEB917943A40D429F93214EF2CC00000000000000000FFFFFFFFFFFFEFFF9D092E2BE5903A407C3A0392F0E82CC00000000000000000FFFFFFFFFFFFEFFF36F2AD9CB28D3A40CB00A735A3E62CC00000000000000000FFFFFFFFFFFFEFFF4084A3030C873A40CC6EB1CE49ED2CC00000000000000000FFFFFFFFFFFFEFFFCD52CCD6AC813A40C2DCBB67F0F32CC00000000000000000FFFFFFFFFFFFEFFF573E2358747D3A407C4D9D1091F92CC00000000000000000FFFFFFFFFFFFEFFFB501F0EB2C7C3A402DF5030685022DC00000000000000000FFFFFFFFFFFFEFFF915F37162D713A40EEC055C92BFE2CC00000000000000000FFFFFFFFFFFFEFFFD59E41926E713A400E4B0DF1CCE22CC00000000000000000FFFFFFFFFFFFEFFF97C3FB0879843A40EE60679C50C22CC00000000000000000FFFFFFFFFFFFEFFF97F18A6FF7A03A40C04A61EA6AC22CC00000000000000000FFFFFFFFFFFFEFFF76A37FE82EC03A40DD05EE9BDDFB2CC00000000000000000FFFFFFFFFFFFEFFF71081FEF28C03A4091565C6787252DC00000000000000000FFFFFFFFFFFFEFFF7907677FA8EA3A40F42CDCDE96252DC00000000000000000FFFFFFFFFFFFEFFFA358529ABBFB3A405F5A96FD92262DC00000000000000000FFFFFFFFFFFFEFFF49089CA5F2FF3A400DD6CDC419312DC00000000000000000FFFFFFFFFFFFEFFF49089CA5F2FF3A406C05C93B63DA2DC00000000000000000FFFFFFFFFFFFEFFFC8781287B9C43A40B84EC539DFD92DC00000000000000000FFFFFFFFFFFFEFFF798E595FA4C43A406E69975CFBD92DC00000000000000000FFFFFFFFFFFFEFFF7220481102C23A406EA045D968802DC00000000000000000FFFFFFFFFFFFEFFF94C930EDD5C13A401CBD41848A7A2DC00000000000000000FFFFFFFFFFFFEFFFF92CAB8EB4C13A40F28065E31A762DC00000000000000000FFFFFFFFFFFFEFFF053D93899EC13A404C98A2135D752DC00000000000000000FFFFFFFFFFFFEFFF7BF4E1F4FEBD3A40B2541CA30E642DC00000000000000000FFFFFFFFFFFFEFFFA461D5E75ABC3A405158FED9375C2DC00000000000000000FFFFFFFFFFFFEFFFE80D7108A8B43A40BF9F250A6C372DC00000000000000000FFFFFFFFFFFFEFFF7AAA016CC6B13A40F7C056DFD0292DC00000000000000000FFFFFFFFFFFFEFFF1BBC482841A63A40A4F14DC669F32CC00000000000000000FFFFFFFFFFFFEFFFABD2A49426A33A40D75188B5BEE42CC00000000000000000FFFFFFFFFFFFEFFF1EDDBD2D44A13A407CC19CB961E62CC00000000000000000FFFFFFFFFFFFEFFF050000009A14AE47E1DA3A40102A3B4C5D6E2DC00000000000000000FFFFFFFFFFFFEFFFB336D06903CD3A40102A3B4C5D6E2DC00000000000000000FFFFFFFFFFFFEFFF64AF269E15CD3A40FFD6A3703D8A2DC00000000000000000FFFFFFFFFFFFEFFF9A14AE47E1DA3A40FFD6A3703D8A2DC00000000000000000FFFFFFFFFFFFEFFF9A14AE47E1DA3A40102A3B4C5D6E2DC00000000000000000FFFFFFFFFFFFEFFF050000000AEFEEEEEEDE3A40724602BE79352DC00000000000000000FFFFFFFFFFFFEFFF0AEFEEEEEEDE3A404002BE7935512DC00000000000000000FFFFFFFFFFFFEFFF40547698BAEC3A404002BE7935512DC00000000000000000FFFFFFFFFFFFEFFF40547698BAEC3A40724602BE79352DC00000000000000000FFFFFFFFFFFFEFFF0AEFEEEEEEDE3A40724602BE79352DC00000000000000000FFFFFFFFFFFFEFFF', 1, NULL, NULL, NULL) RETURNING "id"[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: no connection to the server
+: ROLLBACK[0m
+
+ActiveRecord::StatementInvalid (PGError: no connection to the server
+: ROLLBACK):
+  app/controllers/assesments_controller.rb:58:in `create'
+  vendor/gems/nofxx-georuby-1.6.2/lib/geo_ruby/shp4r/shp.rb:122:in `each'
+  vendor/gems/nofxx-georuby-1.6.2/lib/geo_ruby/shp4r/shp.rb:121:in `each'
+  app/controllers/assesments_controller.rb:57:in `create'
+  vendor/gems/nofxx-georuby-1.6.2/lib/geo_ruby/shp4r/shp.rb:56:in `open'
+  app/controllers/assesments_controller.rb:56:in `create'
+  app/controllers/assesments_controller.rb:48:in `each'
+  app/controllers/assesments_controller.rb:48:in `create'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/andren/.rvm/rubies/ruby-1.8.7-p334/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (118.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing AssesmentsController#index (for 127.0.0.1 at 2011-03-01 12:13:26) [GET]
+  [4;36;1mAssesment Load (41.8ms)[0m   [0;1mSELECT * FROM "assesments" WHERE (id IN (1)) ORDER BY created_at DESC[0m
+Rendering assesments/index
+Completed in 91ms (View: 19, DB: 42) | 200 OK [http://localhost/]

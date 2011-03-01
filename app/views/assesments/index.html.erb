@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="http://www.google.com/jsapi"></script> 
 		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
 		<%= javascript_include_merged :home %>
-		<%= javascript_include_tag "environments/#{RAILS_ENV}" %>
+		<%= javascript_include_tag "environments/#{Rails.env}" %>
 		
 															
 	</head>
@@ -58,7 +58,7 @@
 				<h3>Asses Tenements in ProtectedPlanet.net</h3>
 				<div id="search_input">
 					<label>Upload a new assessment</label>
-					<% form_for @assesment, :html => {:multipart => true} do |f| %>  
+					<%= form_for @assesment, :html => {:multipart => true} do |f| %>  
 						<div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
 						<%= f.file_field :shape, :class => 'file_input' %>
 						<div style="float:right;">

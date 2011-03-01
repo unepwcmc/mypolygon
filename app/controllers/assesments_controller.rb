@@ -3,7 +3,7 @@ class AssesmentsController < ApplicationController
   
   def index 
     if !session[:assesment_ids].blank?
-      @assesments = Assesment.all :conditions => ['id IN (?)', session[:assesment_ids]], :order => "created_at DESC"
+      @assesments = Assesment.find(session[:assesment_ids]).order("created_at DESC")
     else  
       @assesments ||= []
     end 
@@ -24,7 +24,7 @@ class AssesmentsController < ApplicationController
         
     #GENERATE INDIVIDUAL FOLDER
     directory_name = Digest::SHA1.hexdigest("#{Time.now.usec}#{file_name}")
-    directory = "#{RAILS_ROOT}/tmp/shape_uploads/#{directory_name}"
+    directory = "#{Rails.root}/tmp/shape_uploads/#{directory_name}"
                                 
     #BUILD FOLDER IF NOT THERE
     FileUtils.mkdir_p directory
@@ -77,11 +77,13 @@ class AssesmentsController < ApplicationController
     
     
   def show
-    @a = Assesment.find(params[:id], :include => {:tenements => :sites})
+    @a = Assesment.find(params[:id]).includes({:tenements => :sites})
     
     # percent protected to non protected    
-    @protected_area = Site.sum(:query_area_protected_km2, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
-    @total_area     = Tenement.sum(:query_area_km2, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
+    #@protected_area = Site.sum(:query_area_protected_km2, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
+    #@total_area     = Tenement.sum(:query_area_km2, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
+    @protected_area = a.sites.sum(:query_area_protected_km2)#, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
+    @total_area     = a.tenements.sum(:query_area_km2)#, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
     @percent_protected = (@protected_area/@total_area) 
     
     respond_to do |wants|
