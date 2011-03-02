@@ -7,7 +7,6 @@ class AssesmentsController < ApplicationController
     else  
       @assesments ||= []
     end 
-    
     @assesment = Assesment.new
   end
   
@@ -52,6 +51,7 @@ class AssesmentsController < ApplicationController
         session[:assesment_ids] ||= []
         session[:assesment_ids] << @assesment.id
         
+        #require 'geo_ruby/shp'
         #READ IN AND CREATE TENEMENTS
         GeoRuby::Shp4r::ShpFile.open(File.join(directory,f)) do |shp|
           shp.each do |shape|

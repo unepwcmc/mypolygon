@@ -16,7 +16,7 @@ class Assesment < ActiveRecord::Base
     url = "http://ppe:ppe@stage-www.tinypla.net/api2/geo_searches"
     
     res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => data.to_json).body
-    
+   debugger 
     # populate DB with results
     res["results"].each do |res|
       t = Tenement.find res["id"]

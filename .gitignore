@@ -1,4 +1,6 @@
 .DS_Store
-*/.DS_Store
+*.swp
+.bundle
+db/*.sqlite3
+log/*.log
 tmp/
-
