@@ -10,13 +10,14 @@ class Assesment < ActiveRecord::Base
   # call ppe web service, get results and store locally
   def analyse    
     # build up data structure for the API request
-    data = api_tenements.map{|x| {:id => x.id, :the_geom => x.x_wkt}}
+    data = api_tenements.find_all{|tnm| tnm.valid_geom?}.map{|x| {:id => x.id, :the_geom => x.x_wkt}}
     
     # call API
     url = "http://ppe:ppe@stage-www.tinypla.net/api2/geo_searches"
     
     res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => data.to_json).body
-   debugger 
+    
+    if res["results"].present?
     # populate DB with results
     res["results"].each do |res|
       t = Tenement.find res["id"]
@@ -37,7 +38,8 @@ class Assesment < ActiveRecord::Base
                         :protected_area_km2             => s['protected_area_km2'],
                         :query_area_protected_km2       => s['query_area_protected_km2'],
                         :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']        
-      end      
+        end
+    end 
     end    
   end  
 end

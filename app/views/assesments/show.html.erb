@@ -40,8 +40,8 @@
 	                     <div class="data_content">
 
 												<h4 style="margin:5px 0 10px 0;">Assesment Protected Area coverage</h4>
-												<%= Gchart.pie(:data => [@percent_protected, 1-@percent_protected], 
-																			 :labels => ["P (#{number_with_precision(@percent_protected *100, 1)}%)", "No P (#{number_with_precision((1-@percent_protected) *100, 1)}%)"], 
+												<%= Gchart.pie(:data => [@percent_protected, 1-@percent_protected],
+																			 :labels => ["P (#{number_with_precision(@percent_protected *100, :precision => 1)}%)", "No P (#{number_with_precision((1-@percent_protected) *100, :precision => 1)}%)"],
 																			 :size => "280x100", :format => 'image_tag') %>
 
 												<h4 style="margin:10px 0 5px 0;">Photos</h4>

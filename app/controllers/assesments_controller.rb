@@ -77,14 +77,14 @@ class AssesmentsController < ApplicationController
     
     
   def show
-    @a = Assesment.find(params[:id]).includes({:tenements => :sites})
+    @a = Assesment.find(params[:id]) #.includes(:tenements => :sites)
     
     # percent protected to non protected    
     #@protected_area = Site.sum(:query_area_protected_km2, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
     #@total_area     = Tenement.sum(:query_area_km2, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
-    @protected_area = a.sites.sum(:query_area_protected_km2)#, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
-    @total_area     = a.tenements.sum(:query_area_km2)#, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
-    @percent_protected = (@protected_area/@total_area) 
+    @protected_area = 0 #@a.sum(":query_area_protected_km2")#, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
+    @total_area     = 1 #@a.tenements.sum(:query_area_km2)#, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
+    @percent_protected = @protected_area == 0 ? 0 : @protected_area/@total_area
     
     respond_to do |wants|
       wants.html
