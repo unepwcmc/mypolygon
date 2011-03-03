@@ -3,7 +3,7 @@ class AssesmentsController < ApplicationController
   
   def index 
     if !session[:assesment_ids].blank?
-      @assesments = Assesment.find(session[:assesment_ids]).order("created_at DESC")
+      @assesments = Assesment.find(session[:assesment_ids], :order => "created_at DESC")
     else  
       @assesments ||= []
     end 
@@ -79,12 +79,10 @@ class AssesmentsController < ApplicationController
   def show
     @a = Assesment.find(params[:id]) #.includes(:tenements => :sites)
     
-    # percent protected to non protected    
-    #@protected_area = Site.sum(:query_area_protected_km2, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
-    #@total_area     = Tenement.sum(:query_area_km2, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
-    @protected_area = 0 #@a.sum(":query_area_protected_km2")#, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
-    @total_area     = 1 #@a.tenements.sum(:query_area_km2)#, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
-    @percent_protected = @protected_area == 0 ? 0 : @protected_area/@total_area
+    # percent protected to non protected
+    protected_area = @a.tenements.inject(0){|sum,tenement|sum+tenement.sites.sum("query_area_protected_km2")}
+    total_area     = @a.tenements.sum(:query_area_km2)
+    @percent_protected = protected_area/total_area
     
     respond_to do |wants|
       wants.html

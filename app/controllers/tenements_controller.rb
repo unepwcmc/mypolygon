@@ -2,7 +2,7 @@ class TenementsController < ApplicationController
   layout 'base_layout'
   
   def show
-    @t = Tenement.find(params[:id]).includes(:sites)
+    @t = Tenement.includes(:sites).find(params[:id])
     @a = Assesment.find(params[:assesment_id])
     @images = @t.sites.map{|s| s.image }.flatten.compact
     @protected_area = @t.sites.sum(:query_area_protected_km2)
