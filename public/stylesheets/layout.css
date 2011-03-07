@@ -429,16 +429,20 @@ ol#controls_img_site li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none
 
 div#left_container div.content_area div.relatedAreas {float:left; width:610px; margin:28px 0 0 0;}
 div#left_container div.content_area div.relatedAreas h3{float:left; width:610px; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; letter-spacing:-1px;}
-div#left_container div.content_area div.relatedAreas div.relatedBox {position:relative; float:left; width:197px; height:173px; background:#CCCCCC; margin:12px 9px 0 0;}
-div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData {position:absolute; bottom:0; left:0; right:0; height:59px; background:url(../images/sites/relatedBottom.png) no-repeat 0 0;}
-div#left_container div.content_area div.relatedAreas div.relatedBox:hover {cursor:pointer;}
+div#left_container div.content_area div.relatedAreas div.relatedBox {position:relative; float:left; width:197px; height:193px; background: #006699; margin:12px 9px 0 0;}
+div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData {position:absolute; bottom:20px; left:0; right:0; height:59px; background:url(../images/sites/relatedBottom.png) no-repeat 0 0;}
+div#left_container div.content_area div.relatedAreas div.relatedBox .strapLine {position:absolute; bottom:0; left:0; right:0; height:20px; }
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover {cursor:pointer; background: #254C72;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.image {float:left; width:197px; height:124px; background-position:0 0; background-repeat:no-repeat;}
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.image {border:3px solid #254C72; border-bottom:none; width:191px; height:122px; background-position:-3px -3px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData{background:url(../images/sites/relatedBottom.png) no-repeat 0 -59px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.description {float:left; margin:15px 0 0 13px; width:auto; padding:2px 0 0 16px; background:url(../images/icons/arrowRelated.png) no-repeat 0 2px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.description a{font:bold 13px Arial; color:#FFFFFF; text-decoration:none;}
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.description {background:url(../images/icons/arrowRelated.png) no-repeat 0 -15px;}
-div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.submitted {float:left; margin:0 0 0 15px; font:normal 11px Arial; color:#719FB5; width:auto; padding:0 0 0 16px; background:none;}
+div#left_container div.content_area div.relatedAreas div.relatedBox .strapLine,
+div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.submitted{float:left; margin:0 0 0 15px; font:normal 11px Arial; color:#719FB5; width:auto; padding:0 0 0 16px; background:none; }
+div#left_container div.content_area div.relatedAreas div.relatedBox .strapLine { padding-left: 16px; background:url(../images/icons/atoz.png) no-repeat center left;}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover .strapLine,
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.submitted {color:#7787A7;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.relatedToolTipBack {position:absolute; background: url('/images/icons/marker.png') left top no-repeat; width:80px; height:80px; left:58px; top:22px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.relatedToolTipImage {position:absolute; width:50px; height:50px; overflow:hidden; top: 34px; left:73px;}

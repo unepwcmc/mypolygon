@@ -3,11 +3,10 @@ class AssesmentsController < ApplicationController
   
   def index 
     if !session[:assesment_ids].blank?
-      @assesments = Assesment.all :conditions => ['id IN (?)', session[:assesment_ids]], :order => "created_at DESC"
+      @assesments = Assesment.find(session[:assesment_ids], :order => "created_at DESC")
     else  
       @assesments ||= []
     end 
-    
     @assesment = Assesment.new
   end
   
@@ -24,7 +23,7 @@ class AssesmentsController < ApplicationController
         
     #GENERATE INDIVIDUAL FOLDER
     directory_name = Digest::SHA1.hexdigest("#{Time.now.usec}#{file_name}")
-    directory = "#{RAILS_ROOT}/tmp/shape_uploads/#{directory_name}"
+    directory = "#{Rails.root}/tmp/shape_uploads/#{directory_name}"
                                 
     #BUILD FOLDER IF NOT THERE
     FileUtils.mkdir_p directory
@@ -52,6 +51,7 @@ class AssesmentsController < ApplicationController
         session[:assesment_ids] ||= []
         session[:assesment_ids] << @assesment.id
         
+        #require 'geo_ruby/shp'
         #READ IN AND CREATE TENEMENTS
         GeoRuby::Shp4r::ShpFile.open(File.join(directory,f)) do |shp|
           shp.each do |shape|
@@ -85,16 +85,16 @@ class AssesmentsController < ApplicationController
     tenement = Tenement.create_from_geojson(params[:data],@assesment)
 
     tenement.analysePolygon(params[:data])
-    render :json => @assesment.to_json
+    render :json => @assesment.as_json
   end
     
   def show
-    @a = Assesment.find(params[:id], :include => {:tenements => :sites})
+    @a = Assesment.find(params[:id]) #.includes(:tenements => :sites)
     
-    # percent protected to non protected    
-    @protected_area = Site.sum(:query_area_protected_km2, :conditions => "assesments.id = #{@a.id}", :joins => {:tenement => :assesment})
-    @total_area     = Tenement.sum(:query_area_km2, :conditions => "assesments.id = #{@a.id}", :joins => [:assesment])
-    @percent_protected = (@protected_area/@total_area) 
+    # percent protected to non protected
+    protected_area = @a.tenements.inject(0){|sum,tenement|sum+tenement.sites.sum("query_area_protected_km2")}
+    total_area     = @a.tenements.sum(:query_area_km2)
+    @percent_protected = protected_area/total_area
     
     respond_to do |wants|
       wants.html
@@ -102,6 +102,7 @@ class AssesmentsController < ApplicationController
         
         require "csv"
         if CSV.const_defined? :Reader
+          # This first part of the if is for rails2/ruby1.8, and can be removed.
           require 'fastercsv'
           csv_string = FasterCSV.generate do |csv|
             # header row
@@ -109,24 +110,22 @@ class AssesmentsController < ApplicationController
 
             # data rows
             @a.tenements.each do |t|
-              t.sites.each do |pa|
-                d = YAML.load(pa.data_standard)
-                csv << [t.id, pa.wdpaid, d["NAME"].to_s, d["IUCNCAT"].to_s,d["DESIG"].to_s, pa.query_area_protected_km2, pa.query_area_protected_carbon_kg ]
+              t.sites.each do |s|
+                d = YAML.load(s.data_standard)
+                csv << [t.id, s.wdpaid, d["NAME"].to_s, d["IUCNCAT"].to_s,d["DESIG"].to_s, s.query_area_protected_km2, s.query_area_protected_carbon_kg ]
               end
             end
           end
         else
           csv_string = CSV.generate do |csv|
             # header row
-            csv << ["tenement_id", "wdpa_site_code", "pa_name", "iucn_cat", "designation", "analysis type", "distance"]
+            csv << ["tenement_id", "wdpa_site_code", "pa_name", "iucn_cat", "designation", "tenement_i_km2", "tenement_i_C"]
 
             # data rows
             @a.tenements.each do |t|
-              t.overlapping_pas.each do |pa|
-                csv << [t.id, pa.site_id, pa.name_eng,pa.iucncat,pa.desig_eng,"overlap",-1]
-              end
-              t.nearby_pas.each do |pa|
-                csv << [t.id, pa.site_id, pa.name_eng,pa.iucncat,pa.desig_loc,"nearby",pa.analyses.find_by_tenement_id(t.id).try(:value)]
+              t.sites.each do |s|
+                d = YAML.load(s.data_standard)
+                csv << [t.id, s.wdpaid, d["NAME"].to_s, d["IUCNCAT"].to_s,d["DESIG"].to_s, s.query_area_protected_km2, s.query_area_protected_carbon_kg ]
               end
             end
           end

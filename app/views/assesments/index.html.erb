@@ -8,20 +8,21 @@
 		<meta name="keywords" content="Protected Area, PA, WDPA, World Database on Protected Areas, conservation, biodiversity, iucn, unep, united nations, unep-wcmc, National Park, World Heritage Site">
 		
 		<!-- STYLESHEETS GO HERE -->
-		<%= stylesheet_link_merged :base %>
+		<%= raw(stylesheet_link_merged :base) %>
 		<%= stylesheet_link_tag 'interaction' %>
-		
+
 		<!--[if IE]><%= stylesheet_link_tag "ie" %><![endif]-->
 		
 		<!-- JAVASCRIPT GOES HERE -->
 		<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
-		<%= javascript_include_merged :home %>
-		<%= javascript_include_tag "environments/#{RAILS_ENV}" %>
+
+        <%= raw(javascript_include_merged :home) %>
+        <%= javascript_include_tag "environments/#{Rails.env}" %>
       	<%= javascript_include_tag "jquery.json-2.2.js" %>
         <%= javascript_include_tag "drawPolygon.js" %>
-															
+
 	</head>
 	<body onload="initialize()">	
                 <div id="login_error_home"<%= "style='display:none; top:-50px'"%>>
@@ -51,8 +52,6 @@
 		<a id="zoomOut"></a>
 		<p id="loading">Transfering data</p>
 
-
-
 	    <div id="download_window"></div>
 
         <div id="map_tools">
@@ -65,12 +64,12 @@
                 <a id="done" class="disabled" href="javascript: void submitPolygon()"></a>
             </div>
         </div>
-
+			
 	    <div id="searchBox">
-				<h3>Asses Tenements in ProtectedPlanet.net</h3>
+				<h3>Assessments in ProtectedPlanet.net</h3>
 				<div id="search_input">
 					<label>Upload a new assessment</label>
-					<% form_for @assesment, :html => {:multipart => true} do |f| %>  
+					<%= form_for @assesment, :html => {:multipart => true} do |f| %>  
 						<div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
 						<%= f.file_field :shape, :class => 'file_input' %>
 						<div style="float:right;">

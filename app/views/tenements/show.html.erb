@@ -20,7 +20,7 @@
 
               <div id="tabsC">
                 <ul>								
-                  <li id="currentTab"><%= link_to "<span>Information</span>", assesment_tenement_path(@a,@t) %></li>
+                  <li id="currentTab"><%= link_to "<span>Information</span>".html_safe, assesment_tenement_path(@a,@t) %></li>
                 </ul>
               </div>
             </div>
@@ -46,7 +46,7 @@
                                       <ul style="float:left; position:relative; list-style:none">
                                         <% @images.each_with_index do |r,i| %>
                                           <% if  i % 3 == 0 %><li><% end %>
-                                            <%= (i % 3 != 2) ? '<div class="pa_image">' : '<div class="pa_image_last">' %>									
+                                            <%= raw (i % 3 != 2) ? '<div class="pa_image">' : '<div class="pa_image_last">' %>
                                             <span class="shadow"></span>
                                             <div>
                                                 <%= link_to image_tag(r, {:style => 'width:189px'}), "#", {:style => 'position:relative; overflow:hidden; ', :target=>'_blank'} %>
@@ -69,7 +69,7 @@
 									<h3><%= pluralize @t.sites.count, "Protected Area"%> Intersect this Tenement</h3>
 									<% @t.sites.each_with_index do |r,i| %>
 									  <% d = YAML.load(r.data_standard) %>
-										<%= (i % 3 != 2) ? "<div class=\"relatedBox\">" : "<div class=\"relatedBox\" style=\"margin-right:0\">" %>
+										<div class="relatedBox" <%= raw (i % 3 != 2) ? "" : "style='margin-right:0;'" %>>
 											<% if r.image %>
 												<div class="relatedToolTipBack">
 												</div>
@@ -95,6 +95,11 @@
 														</p>
 												</div>
 											</a>
+                                            <% atoz_id,atoz_strap_line = r.atoz_data d["NAME"]
+                                               unless atoz_id.blank?
+                                            %>
+                                                <a class="strapLine" href="http://www.biodiversitya-z.org/areas/<%= atoz_id %>"><%= truncate(atoz_strap_line,:length => 22) %></a>
+                                            <% end %>
 										</div>
 									<% end -%>
 								</div>
@@ -135,6 +140,6 @@
 								
 
 				<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAdc829JdHWtQwsQprwWSx5xQckUEosiSFA09wO5aMrMRSmM89ohSqmg4BhCoZRK2_LVTJ2yZjy9gcGw" type="text/javascript" charset="utf-8"></script>
-				<%= javascript_include_merged :site %>
+				<%= raw javascript_include_merged :site %>
 
 <% end -%>
