@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => :assesments, :action => :index
-  map.resources :assesments, :member => {:json => :get}, :has_many => :tenements
+  map.resources :assesments, :member => {:json => :get}, :collection => {:createFromPolygon => :post}, :has_many => :tenements
 
   # The priority is based upon order of creation: first created -> highest priority.
 

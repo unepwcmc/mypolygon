@@ -2,7 +2,48 @@ class Tenement < ActiveRecord::Base
   belongs_to :assesment
   has_many :sites, :dependent => :destroy
   acts_as_geom :the_geom => :polygon  
-  
+
+  def self.create_from_geojson (geojson,assesment)
+        wkb = ActiveRecord::Base.connection.execute("SELECT ST_GeomFromText('#{GeomHelper.geojson_to_wkt geojson}')")
+        assesment.tenements.create :the_geom =>  wkb.getvalue(0,0)
+
+  end
+    # call ppe web service, get results and store locally
+  def analysePolygon(geojson)
+    #convert geojson to wkt
+    wkt = GeomHelper.geojson_to_wkt geojson
+    query = [{:id => id, :the_geom => wkt}].to_json
+
+
+    # call API
+    url = "http://ppe:ppe@stage-www.tinypla.net/api2/geo_searches"
+
+    res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => query).body
+
+    # populate DB with results
+    res["results"].each do |res|
+      t = Tenement.find res["id"]
+      t.query_area_km2 = res["query_area_km2"]
+      t.query_area_carbon_kg = res["query_area_carbon_kg"]
+      t.save
+
+      res["protected_areas"].each do |s|
+        ds   = s['data_standard']
+        wkt  = ds["GEOM"]
+        conn = Site.connection
+        s = Site.create :tenement_id                    => t.id,
+                        :wdpaid                         => s['wdpaid'],
+                        :image                          => s['image'],
+                        :encoded_polyline_cache         => s['epl'],
+                        :data_standard                  => s['data_standard'],
+                        :protected_carbon_kg            => s['protected_carbon_kg'],
+                        :protected_area_km2             => s['protected_area_km2'],
+                        :query_area_protected_km2       => s['query_area_protected_km2'],
+                        :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']
+      end
+    end
+  end
+
   # Encoded polyline of the PA geometry optimised for static map display
   # If not cached, generate 
   # @return [String] encoded polyline 

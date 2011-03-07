@@ -74,7 +74,19 @@ class AssesmentsController < ApplicationController
     end
     redirect_to assesment_path(@assesment)
   end
-    
+
+  def createFromPolygon
+   #CREATE ASSESSMENT
+    @assesment ||= Assesment.create()
+    session[:assesment_ids] ||= []
+    session[:assesment_ids] << @assesment.id
+
+    #READ IN AND CREATE TENEMENTS
+    tenement = Tenement.create_from_geojson(params[:data],@assesment)
+
+    tenement.analysePolygon(params[:data])
+    render :json => @assesment.to_json
+  end
     
   def show
     @a = Assesment.find(params[:id], :include => {:tenements => :sites})
