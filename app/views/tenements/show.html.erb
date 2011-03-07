@@ -69,7 +69,7 @@
 									<h3><%= pluralize @t.sites.count, "Protected Area"%> Intersect this Tenement</h3>
 									<% @t.sites.each_with_index do |r,i| %>
 									  <% d = YAML.load(r.data_standard) %>
-										<%= raw (i % 3 != 2) ? "<div class=\"relatedBox\">" : "<div class=\"relatedBox\" style=\"margin-right:0\">" %>
+										<div class="relatedBox" <%= raw (i % 3 != 2) ? "" : "style='margin-right:0;'" %>>
 											<% if r.image %>
 												<div class="relatedToolTipBack">
 												</div>
@@ -95,6 +95,11 @@
 														</p>
 												</div>
 											</a>
+                                            <% atoz_id,atoz_strap_line = r.atoz_data d["NAME"]
+                                               unless atoz_id.blank?
+                                            %>
+                                                <a class="strapLine" href="http://www.biodiversitya-z.org/areas/<%= atoz_id %>"><%= truncate(atoz_strap_line,:length => 22) %></a>
+                                            <% end %>
 										</div>
 									<% end -%>
 								</div>
