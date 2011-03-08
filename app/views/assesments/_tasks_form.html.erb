@@ -1,23 +1,24 @@
-
-
 <div id="simplemodal-container" class="simplemodal-container" style="position: fixed; z-index: 1002; height: 300px; width: 510px; left: 386.5px; top: 40px; background-image: url('/images/sites/download_bkg.png');">
   <a title="Close" class="modalCloseImg simplemodal-close"></a>
+
   <div tabindex="-1" class="simplemodal-wrap" style="height: 100%; outline: 0px none; width: 100%; overflow: auto;">
     <div id="download_window" class="simplemodal-data" style="display: block;">
       <p class="title">Assess Tenements in ProtectedPlanet.net</p>
-<p class="subtitle">Choose how to submit your data</p>
 
-  <div class="versions_area">
-    <div class="last_version">
-      <div class="version"><p>Version</p></div>
-      <div class="date"><p>Date</p></div>
-      <%= link_to "Draw on Map", "#", :onclick => "$('#download_window').hide();$('#map_tools').show();", :class => "button" %>
-    </div>
-    <div class="your_version">
-      <div class="version"><p>Version</p></div>
-      <div class="date"><p>Date</p></div>
-      <%= link_to "Upload File", "#", :onclick => "$('#download_window').hide();$('#searchBox').show();", :class => "button" %>
+      <p class="subtitle">Choose how to submit your data</p>
+
+      <div class="versions_area">
+        <div class="last_version">
+          <div class="version"><p>Version</p></div>
+          <div class="date"><p>Date</p></div>
+          <%= link_to "Draw on Map", "#", :onclick => "$('#download_window').hide();$('#map_tools').show();", :class => "button" %>
+        </div>
+        <div class="your_version">
+          <div class="version"><p>Version</p></div>
+          <div class="date"><p>Date</p></div>
+          <%= link_to "Upload File", "#", :onclick => "$('#download_window').hide();$('#searchBox').show();", :class => "button" %>
+        </div>
+      </div>
     </div>
   </div>
-</div></div></div>
-
+</div>
