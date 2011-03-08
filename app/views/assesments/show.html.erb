@@ -1,91 +1,84 @@
 <% content_for :main_area do %>
+    <div class="upper_area_search">
+      <h1>Polygon details for <%= @a.file_name %></h1>
+    </div>
 
+    <div id="outer_search_box" style="margin-top:50px;">
+      <div class="flash_container">
 
-				<div class="upper_area_search">
-					<h1>Polygon details for <%= @a.file_name %></h1>
-				</div>
-				
-				
-				<div id="outer_search_box" style="margin-top:50px;">
-					<div class="flash_container">
+        <a id="zoom_in"></a>
+        <a id="zoom_out"></a>
 
-						<a id="zoom_in"></a>
-						<a id="zoom_out"></a>
-						
-						<div id="map_canvas"></div>
-						
-						<div class="search_container">
-			    		<div class="toggleTab">
-								<ul>
-						       <li><a id="button_map" href="#">show map</a></li>
-						    </ul>
-							</div>
-			    	</div>
-					</div>
-				</div>
+        <div id="map_canvas"></div>
 
+        <div class="search_container">
+          <div class="toggleTab">
+            <ul>
+              <li><a id="button_map" href="#">show map</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div id="layout_search">
+      <div id="containers">
+        <div id="left_small_container">
+          <%= render :partial => 'search_results' %>
+        </div>
+        <div id="right_container">
+          <div class="arrowFilterResults"></div>
+          <div class="contentFilter">
+            <div class="filter_container">
+              <h3>Protection analysis</h3>
 
-				<div id="layout_search">
-			    <div id="containers">
-	          <div id="left_small_container">
-	          	<%= render :partial => 'search_results' %>
-	          </div>
-	          <div id="right_container">
-	              <div class="arrowFilterResults"></div>
-	              <div class="contentFilter">
-	                  <div class="filter_container">
-	                  		<h3>Protection analysis</h3>	
-																										
-	                     <div class="data_content">
+              <div class="data_content">
 
-												<h4 style="margin:5px 0 10px 0;">Overall protection in upload</h4>
-												<%= raw Gchart.pie(:data => [@percent_protected, 1-@percent_protected],
-																			 :custom => "chdl=#{["Protection", "No Protection"].join("|")}&amp;chco=#{pie_colors.join("|")}",
-																			 :labels => ["#{number_with_precision(@percent_protected *100, :precision => 0)}%", "#{number_with_precision((1-@percent_protected) *100, :precision => 0)}%"], 
-																			 :size => "280x120", :format => 'image_tag') %>
+                <h4 style="margin:5px 0 10px 0;">Overall protection in upload</h4>
+                <%= raw Gchart.pie(:data => [@percent_protected, 1-@percent_protected],
+                                   :custom => "chdl=#{["Protection", "No Protection"].join("|")}&amp;chco=#{pie_colors.join("|")}",
+                                   :labels => ["#{number_with_precision(@percent_protected *100, :precision => 0)}%", "#{number_with_precision((1-@percent_protected) *100, :precision => 0)}%"],
+                                   :size => "280x120", :format => 'image_tag') %>
 
-												<% images = @a.tenements.map{|t| t.sites.map{|s| s.image } }.flatten.compact %>
-                                                <% unless images.blank? %>
-                                                    <h4 style="margin:10px 0 5px 0;">Protected area images</h4>
-                                                    <p>
-                                                    <% images[0..7].each do |s| %>
-                                                        <%= image_tag(s, :width => 58, :height => 50, :style => "float:left;margin:0 5px 5px 0; padding:3px; border: 1px solid #ddd;") %>
-                                                    <% end -%>
+                <% images = @a.tenements.map { |t| t.sites.map { |s| s.image } }.flatten.compact %>
+                <% unless images.blank? %>
+                    <h4 style="margin:10px 0 5px 0;">Protected area images</h4>
 
-                                                    </p>
-                                                <% end %>
+                    <p>
+                      <% images[0..7].each do |s| %>
+                          <%= image_tag(s, :width => 58, :height => 50, :style => "float:left;margin:0 5px 5px 0; padding:3px; border: 1px solid #ddd;") %>
+                      <% end -%>
 
-												<h4 style="margin:15px 0 0px 0;">Download results</h4>							
-												<ul id="menu">
-													<li><%= link_to "#{image_tag 'famfamfam/page_white_acrobat.png'} PDF document".html_safe, assesment_path(@a,:csv), :class => "button" %></li>
-													<li><%= link_to "#{image_tag 'famfamfam/page_excel.png'} Excel spreadsheet (CSV)".html_safe, assesment_path(@a,:csv), :class => "button" %></li>															
-												</ul>
+                    </p>
+                <% end %>
 
-												<h4 style="margin:10px 0 0px 0;">Actions</h4>							
-												<ul id="menu">												
-												<li><%= link_to "#{image_tag 'famfamfam/delete.png'} Delete assessment".html_safe, assesment_path(@a), :method => :delete, :confirm => "are you sure you want to delete this assessment?", :class => "button negative" %></li>
-												</ul>
-												
-	                     </div>
-	                     <div id="bottom_right_container"></div>
-										</div>
-								</div>
-						 </div>				
-		       	</div>
-		    	</div>
-				</div>
-		
-				<div id="share_horizontal">
-					<div class="participate">															
-						
-					</div>
-				</div>
+                <h4 style="margin:15px 0 0 0;">Download results</h4>
+                <ul id="menu">
+                  <li><%= link_to "#{image_tag 'famfamfam/page_white_acrobat.png'} PDF document".html_safe, assesment_path(@a, :csv), :class => "button" %></li>
+                  <li><%= link_to "#{image_tag 'famfamfam/page_excel.png'} Excel spreadsheet (CSV)".html_safe, assesment_path(@a, :csv), :class => "button" %></li>
+                </ul>
 
-			
-			<p id="search_map_data" style="display:none"><%= @map_json %></p>
-			<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" charset="utf-8"></script>
-			<%= raw javascript_include_merged :search %>
+                <h4 style="margin:10px 0 0px 0;">Actions</h4>
+                <ul id="menu">
+                  <li><%= link_to "#{image_tag 'famfamfam/delete.png'} Delete assessment".html_safe, assesment_path(@a), :method => :delete, :confirm => "are you sure you want to delete this assessment?", :class => "button negative" %></li>
+                </ul>
 
+              </div>
+              <div id="bottom_right_container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 
+    <div id="share_horizontal">
+      <div class="participate">
+
+      </div>
+    </div>
+
+    <p id="search_map_data" style="display:none"><%= @map_json %></p>
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" charset="utf-8"></script>
+    <%= raw javascript_include_merged :search %>
 <% end %>
