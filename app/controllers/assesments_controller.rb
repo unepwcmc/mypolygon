@@ -12,6 +12,7 @@ class AssesmentsController < ApplicationController
   
   
   def create
+    begin
     file_name = params[:assesment][:shape].original_filename
     
     #test file ending    
@@ -51,7 +52,6 @@ class AssesmentsController < ApplicationController
         session[:assesment_ids] ||= []
         session[:assesment_ids] << @assesment.id
         
-        #require 'geo_ruby/shp'
         #READ IN AND CREATE TENEMENTS
         GeoRuby::Shp4r::ShpFile.open(File.join(directory,f)) do |shp|
           shp.each do |shape|
@@ -72,7 +72,12 @@ class AssesmentsController < ApplicationController
     if @assesment
       flash[:notice] = "analysis complete"
     end
-    redirect_to assesment_path(@assesment)
+      redirect_to assesment_path(@assesment)      
+    rescue Exception => e
+      msg = "File couldn't be uploaded: #{e.inspect}"
+      Rails.logger.fatal msg
+      redirect_to root_url
+    end        
   end
 
   def createFromPolygon
@@ -96,6 +101,20 @@ class AssesmentsController < ApplicationController
     total_area     = @a.tenements.sum(:query_area_km2)
     @percent_protected = protected_area/total_area
     
+    
+    @map_json = @a.map_tenements.map {|t|        
+        {:id          => t.id,
+         :aid         => @a.id,  
+         :name        => "polygon #{t.id}",
+         :local_name  => "#{(t.percentage_protected * 100).floor.to_i}% protection",
+         :x           => t.lng,
+         :y           => t.lat,
+         :the_geom    => JSON.parse(t.geojson),
+         :pois        => 0,
+         :image       => Gchart.pie(:data => [t.percentage_protected, 1-t.percentage_protected], 											 
+ 											 :size => "150x150", :background => "ffffff", :custom => "chco=#{pie_colors.join("|")}")}      
+    }.to_json
+        
     respond_to do |wants|
       wants.html
       wants.csv do

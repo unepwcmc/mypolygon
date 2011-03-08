@@ -6,9 +6,18 @@ class Assesment < ActiveRecord::Base
             'FROM tenements t ' +
             'WHERE t.assesment_id = #{id} ' +
             'ORDER BY t.id'
+  has_many :map_tenements, :class_name => "Tenement", :finder_sql =>
+            'SELECT *, x(ST_PointOnSurface(the_geom)) as lng, 
+              y(ST_PointOnSurface(the_geom)) as lat, 
+              ST_AsGeoJSON(the_geom,6,0) as geojson
+              FROM tenements t
+              WHERE t.assesment_id=#{id}
+              ORDER BY t.id'          
   
   # call ppe web service, get results and store locally
   def analyse    
+    conn = Site.connection
+    
     # build up data structure for the API request
     data = api_tenements.find_all{|tnm| tnm.valid_geom?}.map{|x| {:id => x.id, :the_geom => x.x_wkt}}
     
@@ -26,18 +35,21 @@ class Assesment < ActiveRecord::Base
       t.save
       
       res["protected_areas"].each do |s|
-        ds   = s['data_standard']
-        wkt  = ds["GEOM"]
-        conn = Site.connection
-        s = Site.create :tenement_id                    => t.id,
-                        :wdpaid                         => s['wdpaid'],
-                        :image                          => s['image'],
-                        :encoded_polyline_cache         => s['epl'],
-                        :data_standard                  => s['data_standard'],
-                        :protected_carbon_kg            => s['protected_carbon_kg'],
-                        :protected_area_km2             => s['protected_area_km2'],
-                        :query_area_protected_km2       => s['query_area_protected_km2'],
-                        :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']        
+        if !s["is_point"]
+          
+          site = Site.create :tenement_id                    => t.id,
+                          :name                           => s['name'],
+                          :wdpaid                         => s['wdpaid'],
+                          :image                          => s['image'],
+                          :data_standard                  => s['data_standard'],
+                          :protected_carbon_kg            => s['protected_carbon_kg'],
+                          :protected_area_km2             => s['protected_area_km2'],
+                          :query_area_protected_km2       => s['query_area_protected_km2'],
+                          :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg'], 
+                          :encoded_polyline_cache         => s['epl']
+          sql = "UPDATE sites SET the_geom=ST_GeomFromText('#{s['simple_geom']}') where id=#{site.id}"                                                          
+          Site.connection.execute sql
+        end                  
         end
     end 
     end    

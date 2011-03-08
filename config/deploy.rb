@@ -1,23 +1,26 @@
 #default_run_options[:pty] = true
 
-set :application, "proteus_tool"
-set :repository,  "git@github.com:unep/Proteus-Tool.git"
+set :application, "proteus"
+set :repository,  "http://github.com/tokumine/proteus.git"
 set :scm, "git"
-set :branch, "master"
+#set :branch, "new_proteus"
 
-role :web, "proteus.tinypla.net"
-role :app, "proteus.tinypla.net"
-role :db, "proteus.tinypla.net", :primary=>true
+role :web, "proteus2.tinypla.net"
+role :app, "proteus2.tinypla.net"
+role :db, "proteus2.tinypla.net", :primary=>true
 
 #set :scm_passphrase, "" #This is your custom users password
-set :user, "proteus"
-set :deploy_to, "/data/www/proteus.tinypla.net/#{application}"
+set :user, "ubuntu"
+set :deploy_to, "/home/ubuntu/www/#{application}"
 
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
-    sudo "chown postgres:postgres  #{current_path}/config/environment.rb"
+    #sudo "chown postgres:postgres  #{current_path}/config/environment.rb"
+    run "rm -f #{current_path}/config/database.yml"
+    run "ln -s #{shared_path}/database.yml #{current_path}/config/database.yml"
+    run "cd #{current_path} && RAILS_ENV=production rake asset:packager:build_all"
     run "touch #{current_path}/tmp/restart.txt"
   end  
 end

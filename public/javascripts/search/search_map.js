@@ -66,7 +66,9 @@
 
 			$.each(data,function(i,val){
 				bounds.extend(new google.maps.LatLng(val.y,val.x));
-				var infoBox = new SearchMarker({latlng: new google.maps.LatLng(val.y,val.x), map: map, paInformation: val});
+				new SearchMarker({latlng: new google.maps.LatLng(val.y,val.x), map: map, paInformation: val});
+				var poly = createGeoJsonPolygon(val.the_geom)
+				poly.setMap(map);
 			});
 	
 			map.fitBounds (bounds);
@@ -74,8 +76,7 @@
 
 		}
 
-
-
+	
 
 		function showBottom(){
 			if ($.browser.msie && $.browser.version.substr(0,3)=="7.0"){

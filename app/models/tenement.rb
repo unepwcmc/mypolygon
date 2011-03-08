@@ -1,6 +1,14 @@
 class Tenement < ActiveRecord::Base
   belongs_to :assesment
   has_many :sites, :dependent => :destroy
+  has_many :map_sites, :class_name => "Site", :finder_sql =>
+            'SELECT *, x(ST_PointOnSurface(the_geom)) as lng, 
+              y(ST_PointOnSurface(the_geom)) as lat, 
+              ST_AsGeoJSON(the_geom,6,0) as geojson
+              FROM sites s
+              WHERE s.tenement_id=#{id}
+              ORDER BY s.id'
+              
   acts_as_geom :the_geom => :polygon  
 
   def self.create_from_geojson (geojson,assesment)
@@ -44,6 +52,19 @@ class Tenement < ActiveRecord::Base
     end
   end
 
+  def image
+    Site.first(:select => "image", :conditions => "image IS NOT NULL AND tenement_id=#{id}").try(:image)
+  end
+  
+  def total_query_area_protected
+    Site.sum(:query_area_protected_km2, :conditions => "tenement_id = #{id}")
+  end
+  
+  def percentage_protected               
+    p = (total_query_area_protected / query_area_km2) 
+    p > 1 ? 1 : p
+  end
+  
   # Encoded polyline of the PA geometry optimised for static map display
   # If not cached, generate 
   # @return [String] encoded polyline 

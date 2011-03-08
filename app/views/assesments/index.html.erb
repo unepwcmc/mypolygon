@@ -30,6 +30,7 @@
                 </div>							
 		
 		<div id="header_home">
+			
 			<%= link_to "", "javascript:void showExploreInput()", :class => "logoHome"%>
 			
 			<!--
@@ -66,9 +67,13 @@
         </div>
 			
 	    <div id="searchBox">
-				<h3>Assessments in ProtectedPlanet.net</h3>
+				
+				
+				
+
+				<h3>Polygon queries for ProtectedPlanet.net</h3>
 				<div id="search_input">
-					<label>Upload a new assessment</label>
+					<label>Upload a new polygon</label>
 					<%= form_for @assesment, :html => {:multipart => true} do |f| %>  
 						<div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
 						<%= f.file_field :shape, :class => 'file_input' %>
@@ -80,7 +85,7 @@
 				</div>
 				<div id="explore_input">
 					<label>File formats</label>
-					<p style="color:#eee;font-size:11px;">Please upload zipped tenement ESRI shapefiles in<br> <b>WGS84 projection</b>. <br>Please note, all data uploaded is <b>deleted nightly</b>.</p>
+					<p style="color:#eee;font-size:11px;">Please upload polygons in a zipped ESRI shapefile using<br> <b>WGS84 projection</b>. <br>Please note, all data uploaded is <b>deleted nightly</b>.</p>
 					
 				</div>
 				<div class="bottomContainer">
@@ -90,8 +95,8 @@
 							<a href="http://www.iucn.org/" target="_blank"><img src="../images/logos/IUCNhome.gif"></a>
 							<a href="http://www.iucn.org/about/union/commissions/wcpa/" target="_blank"><img src="../images/logos/WCPAhome.gif"></a>
 						 </div>
-						 <div class="bottomLinks"><p>&copy; 2010 ProtectedPlanet.net / All rights reserved / <%= link_to 'all', "http://www.protectedplanet.net" %> /
-							<%= link_to 'blog', "http://blog.protectedplanet.net"%> / <%= link_to 'about', "http://www.protectedplanet.net" %><!--<a href="#">/ sitemap</a>--></p></div>
+						 <div class="bottomLinks"><p>&copy; 2010 ProtectedPlanet.net / All rights reserved / <%= link_to 'all', "http://www.protectedplanet.net/search" %> /
+							<%= link_to 'blog', "http://blog.protectedplanet.net"%> / <%= link_to 'about', "http://www.protectedplanet.net/about" %><!--<a href="#">/ sitemap</a>--></p></div>
 					</div>
 				</div>
 				
