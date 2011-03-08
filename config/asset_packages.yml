@@ -21,12 +21,9 @@ javascripts:
   - home/homeMap
   - home/PAInfoWindow
 - site:
-  - site/PanoramioMarker
-  - site/PAMarkerInfowindow
-  - site/PAMarker
-  - site/POIMarker
-  - site/pa_map
-  - geometry/editing_map
+  - home/sparsetile  
+  - site/site_map  
+  - site/site_marker
   - site/main
 - activity:
   - activity/Activity_Marker

@@ -98,9 +98,19 @@ a#aboutButton:hover {background:url(../images/home/aboutBtn.png) no-repeat -24px
 
 .search_spinner_header{display:none; position:absolute; top:10px;right:67px;z-index:999;}
 
-
 /* ---------------------------------------------------- NEW HOME ----------------------------------------------------*/
 
+table.datatable{
+	
+}
+
+table.datatable tr td {
+	line-height:16px;
+}
+
+table.datatable .result{
+	padding-left:10px;	
+}
 a#zoomIn {position:absolute; top:50px; left:15px; width:25px; height:25px; background:url(../images/icons/moreZoomBtnExplore.png) no-repeat 0 0; z-index:1000;}
 a#zoomIn:hover {background:url(../images/icons/moreZoomBtnExplore.png) no-repeat -25px 0; cursor:pointer;}
 a#zoomOut {position:absolute; top:80px; left:15px; width:25px; height:25px; background:url(../images/icons/lessZoomBtnExplore.png) no-repeat 0 0; z-index:1000;} 
@@ -111,8 +121,8 @@ p#loading {position:absolute; z-index:1000; margin:0 0 0 -45px; top:50px; left:5
 p#loadingPa {position:absolute; right:0; left:0; margin:0 auto; top:150px; width:91px; color:#333333; border:1px solid #DCBAAD; z-index:1000; background: url(../images/icons/ajax-loader.gif) no-repeat 5px 5px #F6F3EA; padding:6px 8px 6px 30px; -moz-border-radius: 3px;  -webkit-border-radius: 3px;}
 
 div#searchBox {width:800px; height:215px; margin:120px auto auto auto; position:relative; z-index: 1000; background:url(../images/common/background.png) no-repeat 0 0;}
-div#searchBox label {font:bold 17px Arial; color:white; letter-spacing:-0.5px;}
-div#searchBox h3 {float:left; width:700px; font:bold 33px Arial; color: #133E64; letter-spacing:-1px; padding:0; margin:40px 0 0 36px;}
+div#searchBox label {font:bold 17px Arial; color:white; text-shadow: #386876 0px -1px 0px; letter-spacing:-0.5px;}
+div#searchBox h3 {float:left; width:700px; text-shadow: #386876 0px -1px 0px; font:bold 33px Arial; color: #133E64; letter-spacing:-1px; padding:0; margin:40px 0 0 36px;}
 div#searchBox div#search_input {float:left; width:400px; height:80px; margin:15px 0 0 36px;}
 div#searchBox input#search_inputText {float:left; width:320px; padding:9px 8px 10px 8px; margin-top:5px; font:normal 15px Arial; color:#999999; background:url(../images/common/textinput.png) no-repeat 0 0; border:none;}
 div#searchBox input#search_inputText:focus {border:none; outline:none;}

@@ -109,9 +109,9 @@ SearchMarker.prototype.createElement = function() {
     paName.style.width = "112px";
     paName.style.cursor = "pointer";
 		hiddenDiv.appendChild(paName);
-		
+				
 		$(hiddenDiv).click( function(ev){
-		    window.location = '/sites/' + me.paInformation_.id
+		    window.location = '/assesments/'+ me.paInformation_.aid + '/tenements/' + me.paInformation_.id
 				ev.stopPropagation();
 				ev.preventDefault();
 		});

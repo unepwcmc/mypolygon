@@ -3,7 +3,7 @@ class Site < ActiveRecord::Base
   acts_as_geom :the_geom => :polygon
   
   def percent_affected
-    (query_area_protected_km2 / protected_area_km2) *100
+    ((query_area_protected_km2 / protected_area_km2) *100).floor.to_i
   end
   
   # Encoded polyline of the PA geometry optimised for static map display

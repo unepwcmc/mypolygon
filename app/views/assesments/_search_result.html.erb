@@ -8,15 +8,27 @@
 
 	<div class="content_center">
  		<div class="top_information">
- 			<h4><%= link_to "Tenement #{search_result.id}", assesment_tenement_path(@a, search_result) %></h4>
+ 			<h4><%= link_to "Polygon #{search_result.id}", assesment_tenement_path(@a, search_result) %></h4>
 			<p class="category">
-				<b><%= pluralize search_result.sites.count, "Protected Area" %> found</b>  
+				<b><%= pluralize search_result.sites.count, "Protected area" %> touch</b>  
 			</p>
 			<p class="distance">
-				<%= number_with_precision search_result.query_area_km2, 2 %> <b>km<sup>2</sup></b><br>
-				<% if search_result.query_area_carbon_kg %>
-					<%= number_with_delimiter (search_result.query_area_carbon_kg / 1000) %><b><sup>t Carbon</sup> </b>
-				<% end -%>					
+				<table cellspacing="0" cellpadding="0" class="datatable">
+					<tr>
+						<td><b>area</b></td>
+						<td class="result"><%= number_with_precision search_result.query_area_km2, 1 %> km2</td>
+					</tr>
+
+					<tr>
+						<td><b>carbon</b></td>
+						<td class="result"><%=  search_result.query_area_carbon_kg ? number_with_delimiter(number_with_precision(search_result.query_area_carbon_kg.try(:/, 1000000), 1)) + " kt" : 'not surveyed' %> </td>
+					</tr>
+				</table>						
+				<div style="width:400px;">
+				<%= image_tag Gchart.pie(:data => [search_result.percentage_protected, 1-search_result.percentage_protected], 											 
+											 :size => "55x55", :background => "EEEEEE", :custom => "chco=#{pie_colors.join("|")}"), :style => "float:left;" %>					
+				<div style="float:left;margin-top:17px;font-size:10px;font-weight:bold; width:15px;"><%= number_with_precision(search_result.percentage_protected * 100,0) %>% protection</div>
+				</div>							
 			</p>
 			<p>
  		</div>
