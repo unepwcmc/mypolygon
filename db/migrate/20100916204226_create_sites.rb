@@ -1,7 +1,6 @@
 class CreateSites < ActiveRecord::Migration
   def self.up
     create_table :sites do |t|
-      t.text :name
       t.integer :tenement_id
       t.integer :wdpaid
       t.string :image

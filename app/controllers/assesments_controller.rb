@@ -43,7 +43,7 @@ class AssesmentsController < ApplicationController
         zip_file.extract(f, file_path)
       end
     end
-    
+
     #open the shape files and read em in
     Dir.new(directory).each do |f|
       if f.ends_with? ".shp"
