@@ -120,6 +120,14 @@ p#loading {position:absolute; z-index:1000; margin:0 0 0 -45px; top:50px; left:5
 
 p#loadingPa {position:absolute; right:0; left:0; margin:0 auto; top:150px; width:91px; color:#333333; border:1px solid #DCBAAD; z-index:1000; background: url(../images/icons/ajax-loader.gif) no-repeat 5px 5px #F6F3EA; padding:6px 8px 6px 30px; -moz-border-radius: 3px;  -webkit-border-radius: 3px;}
 
+div#selectionBox {text-align:center; width:800px; height:215px;  padding-top:40px; margin:120px auto auto; position:relative; z-index: 1000; background:url(../images/common/background.png) no-repeat 0 0;}
+div#selectionBox label {font:bold 21px Arial; color:white; letter-spacing:-0.5px; }
+div#selectionBox div {height:60px;width:120px; margin:20px; display:inline-block; }
+div#selectionBox a.button {text-decoration:none; margin-top:5px; padding:0px 8px 0 8px; font:bold 17px Arial; border:none; letter-spacing:-1px; color:#000; }
+div#selectionBox a.button:hover {cursor:pointer;}
+div#selectionBox div.draw_map {background:white url(/images/sites/draw_polygon.png) no-repeat 20px 20px;}
+div#selectionBox div.upload_file {background:white url(../images/sites/bkg_download_last_version.png) no-repeat 40px 12px;}
+
 div#searchBox {width:800px; height:215px; margin:120px auto auto auto; position:relative; z-index: 1000; background:url(../images/common/background.png) no-repeat 0 0;}
 div#searchBox label {font:bold 17px Arial; color:white; text-shadow: #386876 0px -1px 0px; letter-spacing:-0.5px;}
 div#searchBox h3 {float:left; width:700px; text-shadow: #386876 0px -1px 0px; font:bold 33px Arial; color: #133E64; letter-spacing:-1px; padding:0; margin:40px 0 0 36px;}
