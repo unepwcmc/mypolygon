@@ -22,7 +22,7 @@ class Assesment < ActiveRecord::Base
     data = api_tenements.find_all{|tnm| tnm.valid_geom?}.map{|x| {:id => x.id, :the_geom => x.x_wkt}}
     
     # call API
-    url = "http://ppe:ppe@stage-www.tinypla.net/api2/geo_searches"
+    url = "http://protectedplanet.net/api2/geo_searches"
     
     res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => data.to_json).body
     

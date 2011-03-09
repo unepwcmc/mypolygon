@@ -1,4 +1,4 @@
-div#map_tools {position:absolute; bottom:10px; right:10px; z-index:1000; width:277px; height:107px; background:url(../images/sites/float.png) no-repeat 0 0; padding:0 6px 6px;}
+div#map_tools {position:absolute; bottom:10px; right:10px; z-index:1000; width:185px; height:107px; background:url(../images/sites/float.png) no-repeat 0 0; padding:0 6px 6px;}
 div#map_tools div#area_tooltip {position:absolute; display:none; right:8px; bottom:116px; z-index:100; background:url(../images/sites/area_tooltip.png) no-repeat 0 0; width:190px; height:110px;}
 div#map_tools h3 {float:left; font:bold 13px Arial; color:#99B3C9; margin:0; padding:7px 0 0 0;}
 div#map_tools span {position:relative; float:right; font:bold 13px Arial; color:#FFFFFF; padding:3px 13px 0 0; cursor:default;}
@@ -21,3 +21,4 @@ div#map_tools div a#done {float:left; width:82px; height:45px; margin:0 0 0 7px;
 div#map_tools div a#done:hover {background-position:0 -45px;}
 div#map_tools div a#done.disabled {background:url(../images/sites/done_geometry_1.png) no-repeat 0 -90px;}
 div#map_tools div a#done.disabled:hover {background-position:0 -90px;}
+div#map_tools div a#done.loading {background:url(../images/sites/ajax-loader.gif) no-repeat 0 0;}

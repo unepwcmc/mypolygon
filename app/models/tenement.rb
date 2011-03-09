@@ -24,7 +24,7 @@ class Tenement < ActiveRecord::Base
 
 
     # call API
-    url = "http://ppe:ppe@stage-www.tinypla.net/api2/geo_searches"
+    url = "http://protectedplanet.net/api2/geo_searches"
 
     res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => query).body
 
