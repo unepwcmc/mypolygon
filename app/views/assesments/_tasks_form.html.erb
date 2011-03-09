@@ -1,12 +1,12 @@
 
-
-<div id="selectionBox">
-        <label>Choose how to submit your data</label><br />
-        <div class="draw_map">
-          <%= link_to "Draw on Map", "#", :onclick => "$('#download_window').hide();$('#map_tools').show();", :class => "button" %>
-        </div>
-        <div class="upload_file">
-          <%= link_to "Upload File", "#", :onclick => "$('#download_window').hide();$('#searchBox').show();", :class => "button" %>
-        </div>
+<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.75; height: 564px; width: 1499px; position: fixed; left: 0px; top: 0px; z-index: 1001;"></div>
+    <div id="selectionBox">
+            <label>Choose how to submit your data</label><br />
+            <div class="draw_map">
+              <%= link_to "Draw on Map", "#", :onclick => "$('#download_window').hide();startPolygon();$('#map_tools').show();", :class => "button" %>
+            </div>
+            <div class="upload_file">
+              <%= link_to "Upload File", "#", :onclick => "$('#download_window').hide();$('#searchBox').show();", :class => "button" %>
+            </div>
+    </div>
 </div>
-

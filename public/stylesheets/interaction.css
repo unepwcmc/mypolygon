@@ -21,3 +21,4 @@ div#map_tools div a#done {float:left; width:82px; height:45px; margin:0 0 0 7px;
 div#map_tools div a#done:hover {background-position:0 -45px;}
 div#map_tools div a#done.disabled {background:url(../images/sites/done_geometry_1.png) no-repeat 0 -90px;}
 div#map_tools div a#done.disabled:hover {background-position:0 -90px;}
+div#map_tools div a#done.loading {background:url(../images/sites/ajax-loader.gif) no-repeat 0 0;}
