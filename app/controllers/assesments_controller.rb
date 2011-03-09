@@ -8,14 +8,13 @@ class AssesmentsController < ApplicationController
       @assesments ||= []
     end
 
-    if session[:assesment_to_preload]
-      @assesment = Assesment.find(session[:assesment_to_preload])
-      session[:assesment_to_preload] = nil
+    if params[:base]
+      @assesment = Assesment.find params[:base]
     else
       @assesment = Assesment.new
     end
   end
-  
+
   
   def create
     begin
@@ -73,13 +72,13 @@ class AssesmentsController < ApplicationController
       FileUtils.rm_rf directory
 
       # Query API
-      @assesment.analyse
+      #@assesment.analyse # let's postpone analysis, since we're allowing user to review this polygon before continuing.
 
       if @assesment
         flash[:notice] = "analysis complete"
       end
-      session[:assesment_to_preload] = @assesment.id
-      redirect_to assesment_path(@assesment)
+
+      redirect_to assesments_path(:base => @assesment.id)
 
     rescue Exception => e
       msg = "File couldn't be uploaded: #{e.inspect}"
@@ -108,21 +107,20 @@ class AssesmentsController < ApplicationController
     protected_area = @a.tenements.inject(0){|sum,tenement|sum+tenement.sites.sum("query_area_protected_km2")}
     total_area     = @a.tenements.sum(:query_area_km2)
     @percent_protected = protected_area/total_area
-    
-    
-    @map_json = @a.map_tenements.map {|t|        
-        {:id          => t.id,
-         :aid         => @a.id,  
-         :name        => "polygon #{t.id}",
-         :local_name  => "#{(t.percentage_protected * 100).floor.to_i}% protection",
-         :x           => t.lng,
-         :y           => t.lat,
-         :the_geom    => JSON.parse(t.geojson),
-         :pois        => 0,
-         :image       => Gchart.pie(:data => [t.percentage_protected, 1-t.percentage_protected], 											 
- 											 :size => "150x150", :background => "ffffff", :custom => "chco=#{pie_colors.join("|")}")}      
-    }.to_json
-        
+
+    @map_json = @a.map_tenements.map {|t|
+          {:id          => t.id,
+           :aid         => @a.id,
+           :name        => "polygon #{t.id}",
+           :local_name  => "#{(t.percentage_protected * 100).floor.to_i}% protection",
+           :x           => t.lng,
+           :y           => t.lat,
+           :the_geom    => JSON.parse(t.geojson),
+           :pois        => 0,
+           :image       => Gchart.pie(:data => [t.percentage_protected, 1-t.percentage_protected],
+                         :size => "150x150", :background => "ffffff", :custom => "chco=#{pie_colors.join("|")}").html_safe}
+      }.to_json
+
     respond_to do |wants|
       wants.html
       wants.csv do

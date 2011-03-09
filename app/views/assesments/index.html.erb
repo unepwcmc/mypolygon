@@ -12,19 +12,22 @@
 		<%= stylesheet_link_tag 'interaction' %>
 
 		<!--[if IE]><%= stylesheet_link_tag "ie" %><![endif]-->
-		
-		<!-- JAVASCRIPT GOES HERE -->
+
+        <!-- JAVASCRIPT GOES HERE -->
 		<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-		<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+        <%= raw javascript_include_tag( "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",
+          "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js",
+          javascript_environment) %>
+        <%= raw javascript_include_merged :search %>
 
-        <%= raw(javascript_include_merged :home) %>
+        <%= raw javascript_include_merged :home %>
         <%= javascript_include_tag "environments/#{Rails.env}" %>
       	<%= javascript_include_tag "jquery.json-2.2.js" %>
         <%= javascript_include_tag "drawPolygon.js" %>
 
 	</head>
-	<body onload="initialize()">	
+	<body>
                 <div id="login_error_home"<%= "style='display:none; top:-50px'"%>>
                     <%= flash[:login] %>
                 </div>
@@ -67,10 +70,6 @@
         </div>
 			
 	    <div id="searchBox">
-				
-				
-				
-
 				<h3>Polygon queries for ProtectedPlanet.net</h3>
 				<div id="search_input">
 					<label>Upload a new polygon</label>
@@ -102,13 +101,31 @@
 				
 				</div>
 
-        	    <script type="text/javascript">
-            $('#download_window').empty().append('<%= escape_javascript(render :partial => "tasks_form", :locals => {:format => @format}) %>');
-            //show_modal(510, 300, '#download_window','url(/images/sites/download_bkg.png)');
-            $('#download_window').show();
-                $('#map_tools').hide();
-                $('#searchBox').hide();
-	    </script>
+                <script type="text/javascript">
+                    $('#download_window').empty().append('<%= escape_javascript(render :partial => "tasks_form", :locals => {:format => @format}) %>');
+                    //show_modal(510, 300, '#download_window','url(/images/sites/download_bkg.png)');
+                        <% if @assesment.map_tenements.blank? %>
+                            $('#download_window').show();
+                            $('#map_tools').hide();
+                        <% else %>
+                            $('#download_window').hide();
+                            $('#map_tools').show();
+                            <%
+                               points = ""
+                               @assesment.map_tenements.each do |mt|
+                                 coords = JSON.parse mt.geojson
+
+                                 point = coords["coordinates"][0][0]
+                                 points << point.to_json + ", "
+                               end
+                            %>
+                            var points = [ <%= points %> ];
+                            $(document).ready(function(){
+                                addPolygonToMap(points[0]); // TODO: load multiple polygons.
+                            });
+                        <% end %>
+                        $('#searchBox').hide();
+                </script>
 			</div>
 
 
@@ -154,7 +171,7 @@
 		</div>
 		
 		<div id="container" style="position:absolute; bottom:0; left:0; width: 100%; height:30%; display:none;"></div>
-	
+
 		<script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-12920389-1']);

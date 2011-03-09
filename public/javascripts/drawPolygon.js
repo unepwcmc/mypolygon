@@ -8,14 +8,45 @@ var vertexIcon = new google.maps.MarkerImage('/images/sites/delete_vertex_noover
     // The origin for this image 
     new google.maps.Point(0,0),
     // The anchor for this image
-    new google.maps.Point(6, 6));
+    new google.maps.Point(6, 6)
+    );
+
+/**
+ * Adds a polygon with the defined points.
+ * @param points an array of latitude/longitude pairs.
+ */
+function addPolygonToMap(points) {
+  if (points.length <= 2) //do we have a polygon?
+  {
+    return;
+  }
+
+  var myPolyCoords = [];
+  for(var i =0; i<points.length; i++) {
+    myPolyCoords[i] = new google.maps.LatLng(points[i][1], points[i][0]); // First 1, then 0 ?!?
+  }
+
+  var bounds = new google.maps.LatLngBounds();
+  startPolygon();
+  for(i=0; i<myPolyCoords.length - 1; i++) {
+    addPointUsingLatLong(myPolyCoords[i]);
+    bounds.extend(myPolyCoords[i]);
+  }
+
+  map.fitBounds(bounds);
+  map.setCenter( bounds.getCenter());
+}
+
 
 
 function addPoint(event) {
-  path.insertAt(path.length, event.latLng);
+  addPointUsingLatLong(event.latLng)
+}
+function addPointUsingLatLong(latLng) {
+  path.insertAt(path.length, latLng);
 
   var marker = new google.maps.Marker({
-    position: event.latLng,
+    position: latLng,
     map: map,
     draggable: true,
     icon: vertexIcon
