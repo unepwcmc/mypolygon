@@ -65,7 +65,7 @@
             <div>
                 <!--<a id="select" href="javascript: void stopEditing()"></a>-->
                 <!--<a id="draw" href="javascript: void startPolygon()"></a>-->
-                <a id="done" class="disabled" href="javascript: void submitPolygon(); $('#done').addClass('loading');"></a>
+                <a id="done" class="disabled" onclick="submitPolygon(); $('#done').addClass('loading'); return false;" href="#"></a>
             </div>
         </div>
 			
