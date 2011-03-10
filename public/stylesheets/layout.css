@@ -123,7 +123,7 @@ p#loadingPa {position:absolute; right:0; left:0; margin:0 auto; top:150px; width
 div#selectionBox {text-align:center; width:800px; height:215px;  padding-top:40px; margin:120px auto auto; position:relative; z-index: 1002; background:url(../images/common/background.png) no-repeat 0 0;}
 div#selectionBox label {font:bold 21px Arial; color:white; letter-spacing:-0.5px; }
 div#selectionBox div {height:60px;width:120px; margin:20px; display:inline-block; }
-div#selectionBox a.button {text-decoration:none; margin-top:5px; padding:0px 8px 0 8px; font:bold 17px Arial; border:none; letter-spacing:-1px; color:#000; }
+div#selectionBox a.button {text-decoration:none; margin-top:5px; padding:0px 8px 0 8px; font:bold 17px Arial; border:none; letter-spacing:-1px; color:#000; display: block; height: 100%; }
 div#selectionBox a.button:hover {cursor:pointer;}
 div#selectionBox div.draw_map {background:white url(/images/sites/draw_polygon.png) no-repeat 20px 20px;}
 div#selectionBox div.draw_map:hover {background:#E5E5E5 url(/images/sites/draw_polygon.png) no-repeat 20px 20px;}
@@ -131,6 +131,7 @@ div#selectionBox div.upload_file {background:white url(../images/sites/bkg_file.
 div#selectionBox div.upload_file:hover {background:#E5E5E5 url(../images/sites/bkg_file.png) no-repeat 40px 12px;}
 
 div#searchBox {width:800px; height:215px; margin:120px auto auto auto; position:relative; z-index: 1000; background:url(../images/common/background.png) no-repeat 0 0;}
+div#searchBox .close { position: absolute; top: 25px; right:35px;  }
 div#searchBox label {font:bold 17px Arial; color:white; text-shadow: #386876 0px -1px 0px; letter-spacing:-0.5px;}
 div#searchBox h3 {float:left; width:700px; text-shadow: #386876 0px -1px 0px; font:bold 33px Arial; color: #133E64; letter-spacing:-1px; padding:0; margin:40px 0 0 36px;}
 div#searchBox div#search_input {float:left; width:400px; height:80px; margin:15px 0 0 36px;}

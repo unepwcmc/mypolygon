@@ -70,17 +70,20 @@
         </div>
 			
 	    <div id="searchBox">
+                <a href="#" onclick="$('#download_window').show();$('#searchBox').hide();" class="close">
+                  <%= image_tag 'icons/close_session.png', :alt=>"close" %>
+                </a>
 				<h3>Polygon queries for ProtectedPlanet.net</h3>
 				<div id="search_input">
 					<label>Upload a new polygon</label>
-					<%= form_for @assesment, :html => {:multipart => true} do |f| %>  
+					<%= form_for @assesment, :html => {:multipart => true} do |f| %>
 						<div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
-						<%= f.file_field :shape, :class => 'file_input' %>
-						<div style="float:right;">
-						<%= f.submit "Upload", :disable_with => "Uploading..." %>
+                            <%= f.file_field :shape, :class => 'file_input' %>
+                            <div style="float:right;">
+                                <%= f.submit "Upload", :disable_with => "Uploading..." %>
+                            </div>
 						</div>
-						</div>
-					<% end -%>						
+					<% end -%>
 				</div>
 				<div id="explore_input">
 					<label>File formats</label>
