@@ -68,16 +68,16 @@
 			poly.setMap(map);
 
 
+      coords = t_geom.coordinates[0][0];
+      for(var i=0;i<coords.length; i++) {
+        bounds.extend(new google.maps.LatLng(coords[i][1], coords[i][0]));
+      }
+
 			$.each(data,function(i,val){
         var latLong = new google.maps.LatLng(val.y,val.x);
-				bounds.extend(latLong);
 				new SearchMarker({latlng: latLong, map: map, paInformation: val});
 				var poly = createGeoJsonPolygon(val.the_geom)
 				poly.setMap(map);
-        coords = val.the_geom.coordinates[0][0];
-        for(var i=0;i<coords.length; i++) {
-          bounds.extend(new google.maps.LatLng(coords[i][1], coords[i][0]));
-        }
 			});
 	
 			map.fitBounds (bounds);
