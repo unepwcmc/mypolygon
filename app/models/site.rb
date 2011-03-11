@@ -17,7 +17,7 @@ class Site < ActiveRecord::Base
   end
 
   def atoz_data area_name
-    uri = URI.parse DESCRIPTION_URL + "?name=" + area_name
+    uri = URI.parse DESCRIPTION_URL + "?name=" + area_name.gsub(" ", "%20")
     data = Net::HTTP.get( uri )
     res = JSON.parse data
     [res["id"], res["strap_line"]]

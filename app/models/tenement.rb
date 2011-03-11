@@ -39,7 +39,7 @@ class Tenement < ActiveRecord::Base
         ds   = s['data_standard']
         wkt  = ds["GEOM"]
         conn = Site.connection
-        s = Site.create :tenement_id                    => t.id,
+        site = Site.create :tenement_id                    => t.id,
                         :wdpaid                         => s['wdpaid'],
                         :image                          => s['image'],
                         :encoded_polyline_cache         => s['epl'],
@@ -48,6 +48,8 @@ class Tenement < ActiveRecord::Base
                         :protected_area_km2             => s['protected_area_km2'],
                         :query_area_protected_km2       => s['query_area_protected_km2'],
                         :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']
+          sql = "UPDATE sites SET the_geom=ST_GeomFromText('#{s['simple_geom']}') where id=#{site.id}"
+          Site.connection.execute sql
       end
     end
   end
