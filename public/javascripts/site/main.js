@@ -1,5 +1,12 @@
 
-$(document).ready(function() {
+
+var timeoutForMap = 0;
+if($.browser.msie)
+{
+  timeoutForMap = 250;
+}
+
+$(document).ready(setTimeout(function() {
 
 
 		$('.more_facet_link').hoverIntent(function(ev){
@@ -69,4 +76,4 @@ $(document).ready(function() {
 
 		$('#zoom_in').click(function(){map.setZoom(map.getZoom()+1);});
 		$('#zoom_out').click(function(){map.setZoom(map.getZoom()-1);});
-	});
+	}), timeoutForMap);
