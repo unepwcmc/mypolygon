@@ -43,15 +43,17 @@
 			        <div class="content_area">
 
                                   <!-- SITE IMAGES -->
-                                  <% if !@images.empty? %>
+                                  <% unless @images.empty? %>
                                     <div class="pa_images" id="slider2">
                                       <ul style="float:left; position:relative; list-style:none">
-                                        <% @images.each_with_index do |r,i| %>
+                                        <% @images.each_with_index do |img,i| %>
                                           <% if  i % 3 == 0 %><li><% end %>
                                             <%= raw (i % 3 != 2) ? '<div class="pa_image">' : '<div class="pa_image_last">' %>
                                             <span class="shadow"></span>
                                             <div>
-                                                <%= link_to image_tag(r, {:style => 'width:189px'}), "#", {:style => 'position:relative; overflow:hidden; ', :target=>'_blank'} %>
+                                                <% url = img.match /\/([\d]+).[a-zA-Z]+\z/ %>
+                                                <% url = url.length != 2 ? "#" : "///www.panoramio.com/photo/#{url[1]}" %>
+                                                <%= link_to image_tag(img, {:style => 'width:189px'}), url, {:style => 'position:relative; overflow:hidden; '} %>
 
                                             </div>
                                           </div>
