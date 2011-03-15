@@ -1,14 +1,14 @@
 
+	$(document).ready(function() {
+    if($.browser.msie) {
+      setTimeout(loadMap, 250);
+    } else {
+      loadMap();
+    }
+  });
 
-var timeoutForMap = 0;
-if($.browser.msie)
+function loadMap()
 {
-  timeoutForMap = 250;
-}
-
-	$(document).ready(setTimeout(function() {
-
-
 		$('.more_facet_link').hoverIntent(function(ev){
 			var more_box = $(this).siblings(".more_facet_list");
 			more_box.fadeIn("fast");
@@ -77,5 +77,5 @@ if($.browser.msie)
 		$('#zoom_in').click(function(){map.setZoom(map.getZoom()+1);});
 		$('#zoom_out').click(function(){map.setZoom(map.getZoom()-1);});
 
-	}), timeoutForMap);
+}
 	
