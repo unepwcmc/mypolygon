@@ -84,7 +84,7 @@
 												</div>
 											<% end -%>
 											<a href="http://stage-www.tinypla.net/sites/<%=r.wdpaid%>">
-												<div class="image" style="background-image: url(http://maps.google.com/maps/api/staticmap<%=r.epl%>&sensor=false)"></div>
+												<div class="image" style="background-image: url(http://maps.google.com/maps/api/staticmap<%=r.epl%>&v=3.3&sensor=false)"></div>
 											</a>
 											<a href="http://stage-www.tinypla.net/sites/<%=r.wdpaid%>">
 												<div class="bottomData">
@@ -139,7 +139,7 @@
 
 				<p id="t_map_data" style="display:none"><%= @t_json %></p>
 				<p id="search_map_data" style="display:none"><%= @map_json %></p>
-				<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" charset="utf-8"></script>
+				<script src="http://maps.google.com/maps/api/js?v=3.3&sensor=false" type="text/javascript" charset="utf-8"></script>
 				<%= raw javascript_include_merged :site %>
 
 <% end -%>

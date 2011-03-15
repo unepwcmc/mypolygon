@@ -15,9 +15,21 @@ var vertexIcon = new google.maps.MarkerImage('/images/sites/delete_vertex_noover
  * Adds a polygon with the defined points.
  * @param points an array of latitude/longitude pairs.
  */
-function addPolygonToMap(points) {
+var polysToPreDraw = [];
+
+function addPolygonToMap(points, repopulating) {
   if (points.length <= 2) //do we have a polygon?
   {
+    return;
+  }
+
+  if(typeof(map) == "undefined")
+  {
+    if( repopulating ) {
+      throw "Map should be loaded already.";
+    } else {
+      polysToPreDraw[polysToPreDraw.length] = points;
+    }
     return;
   }
 
@@ -27,6 +39,7 @@ function addPolygonToMap(points) {
   }
 
   var bounds = new google.maps.LatLngBounds();
+
   startPolygon();
   for(i=0; i<myPolyCoords.length - 1; i++) {
     addPointUsingLatLong(myPolyCoords[i]);

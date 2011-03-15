@@ -27,6 +27,12 @@ function loadMap()
 		var map_data = $('#search_map_data').text().replace('\\','');
 		initialize(jQuery.parseJSON(map_data));
 
+    if( typeof(polysToPreDraw) != "undefined") {
+      for(var i=0; i<polysToPreDraw.length; i++) {
+        addPolygonToMap(polysToPreDraw[i]);
+      }
+    }
+
 
 		if ($.browser.msie && $.browser.version.substr(0,3)=="7.0"){
 			var zIndexNumber = 1000;  
