@@ -340,13 +340,6 @@ function initialize() {
 		}
 	}
 
-	function goToSearchSecond() {
-		var searchString = $('#searchHeader').val();
-		var url = BASE_APP_URL+'/search?q=' + searchString + '&commit=Search';
-		if (searchString.length>0) {
-				window.location = url;
-		}
-	}
 
 
 

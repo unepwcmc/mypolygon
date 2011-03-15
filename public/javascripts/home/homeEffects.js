@@ -18,7 +18,7 @@ $(document).ready(function() {
    //Deep linking support
    $.historyInit(pageload, "jquery_history.html");
 	
-	 $('#new_user_session').submitWithAjax();
+	 //$('#new_user_session').submitWithAjax();//Doesn't seem to exist.
 
 		$('#loginBox a#sign_in').click (
 			function (ev) {	
@@ -38,14 +38,6 @@ $(document).ready(function() {
 				$('#signUp').fadeOut('fast');
 			}
 		);
-		
-		$('#tinyExplore a').click (
-			function (ev) {
-				ev.stopPropagation();
-				ev.preventDefault();
-				$('#categoryBox').fadeIn('fast');
-			}
-		);
 
 		$('#close_options').click (
 			function (ev) {
@@ -54,17 +46,7 @@ $(document).ready(function() {
 				$('#categoryBox').fadeOut('fast');
 			}
 		);
-		
-		$('#backToStart').click (
-			function (ev) {
-				ev.stopPropagation();
-				ev.preventDefault();
-				$('#searchBox').fadeIn('slow');
-				$('#tinyExplore').fadeOut('slow');
-				$('#search_inputText').focus();
-			}
-		);
-		
+
 		$('a#go_forget').click(function(ev){
 			ev.stopPropagation();
 			ev.preventDefault();
@@ -300,17 +282,7 @@ $(document).ready(function() {
 
 function hideExploreInput() {
     $('#searchBox').fadeOut('slow');
-		$('#tinyExplore').fadeIn('slow');
-		$('#header_home').fadeIn('slow');
-		$('#login_error_home').fadeOut('fast');
 		searchBoxVisible=false;
-}
-
-function showExploreInput() {
-    $('#searchBox').fadeIn('slow');
-		$('#tinyExplore').fadeOut('slow');
-		$('#header_home').fadeOut('slow');
-		searchBoxVisible=true;
 }
 
 function displayLoading() {

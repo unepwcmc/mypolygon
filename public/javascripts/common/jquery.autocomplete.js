@@ -252,7 +252,7 @@ $.Autocompleter = function(input, options) {
 		currentValue = lastWord(currentValue);
 		if ( currentValue.length >= options.minChars) {
 			//$input.addClass(options.loadingClass);
-			$(".search_spinner, .search_spinner_mini, .search_spinner_header").show();
+			$(".search_spinner, .search_spinner_mini").show();
 			//$input.css('background', "white url('../images/indicator.gif') 97% center no-repeat");
 			if (!options.matchCase)
 				currentValue = currentValue.toLowerCase();
@@ -403,7 +403,7 @@ $.Autocompleter = function(input, options) {
 
 	function stopLoading() {
 		//$input.removeClass(options.loadingClass);
-		$(".search_spinner, .search_spinner_mini, .search_spinner_header").hide();
+		$(".search_spinner, .search_spinner_mini").hide();
 	};
 
 };

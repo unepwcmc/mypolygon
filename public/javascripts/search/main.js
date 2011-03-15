@@ -1,7 +1,7 @@
 
 	$(document).ready(function() {
     if($.browser.msie) {
-      setTimeout(loadMap, 250);
+      setTimeout(loadMap, 1000);
     } else {
       loadMap();
     }

@@ -14,12 +14,6 @@ div#layout{margin:0 auto; width:961px;}
 #simplemodal-container a {color:#ddd; cursor:pointer;}
 #simplemodal-container a.modalCloseImg {background:url(../images/icons/close.png) no-repeat center center; width:15px; height:15px; display:inline; z-index:3200; position:absolute; top:10px; right:10px;}
 #simplemodal-container a.modalCloseImg:hover {cursor:pointer;}
- div#login_error_home {top:-15px; position:absolute; width:100%; background:#FF6633; font:normal 13px Arial; color:#FFFFFF; border-bottom:2px solid #FFFFFF; text-align:center; padding:12px 0; z-index:100000;}
-div#login_error_home a {font-weight:bold; text-decoration:underline; color:#FFFFFF;}
-div#login_error_home a:hover {cursor:pointer;}
-div#login_error {width:100%; background:#FF6633; font:normal 13px Arial; color:#FFFFFF; border-bottom:2px solid #FFFFFF; text-align:center; padding:12px 0; z-index:100000; height:0px;}
-div#login_error a {font-weight:bold; text-decoration:underline; color:#FFFFFF;}
-div#login_error a:hover {cursor:pointer;}
  div#outer_header{float:left; width:100%; background:url(../images/common/header_bg.gif) repeat-x 0 0; height:36px;}
 div#inner_header{margin:0 auto; width:961px;}
 div#header{position:relative; float:left; width:952px; padding:0 0 0 9px; height:35px;}
@@ -58,30 +52,26 @@ div#signUp div.bottomData {float:left; width: 217px; margin:15px 0 0 20px; paddi
 div#signUp div.bottomData p {font:normal 12px Arial; color:#666666;}
 div#signUp div.bottomData p a {text-decoration:none; font:bold 12px Arial; color:#FF6600; margin:0 0 0 5px;}
 div#signUp div.bottomData p a:hover {text-decoration:underline}
- div#header_home {z-index:1000; position:absolute; top:0; left:0; right:0; background:url(../images/home/header_bg_home.png) repeat-x 0 0; display:none;}
-div#header_home a.logoHome{float:left; width:285px; height:36px; background:url(../images/home/logoHome.png) no-repeat 0 0;}
-div#header_home form {float:right; width:auto; margin:6px 5px 0 0;}
-div#header_home form input[type="text"]{float:left; background:url(../images/home/inputSearch.gif) no-repeat 0 0; padding:5px 25px 5px 5px; width:165px; margin:0; border:none; font:normal 13px Arial; font-style:italic; color:#aaaaaa;}
-div#header_home form input[type="text"]:focus {outline:none;}
-div#header_home form input[type="submit"]{float:left; background:url(../images/home/buttonSearch.gif) no-repeat 0 0; margin:0; width:27px; height:24px; border:none;}
-div#header_home form input[type="submit"]:focus {outline:none;}
-div#header_home form input[type="submit"]:hover {cursor:pointer;}
-div#header_home span {float:right; background:url(../images/home/filter_bkg.png) no-repeat 0 0; width:118px; margin:6px 5px 0 0; text-align:center; height:25px; padding:5px 0 0 0}
-div#header_home span a {background:url(../images/icons/transArrow.png) no-repeat right 2px; font:bold 12px Arial; color:#ffffff; letter-spacing:-0.5px; padding:0 13px 0 0; text-decoration:none;}
-div#header_home span a:hover {text-decoration:underline; cursor:pointer;}
-a#aboutButton {width:24px; height:24px; float:right; background:url(../images/home/aboutBtn.png) no-repeat 0 0; margin:6px 5px 0 0;}
-a#aboutButton:hover {background:url(../images/home/aboutBtn.png) no-repeat -24px 0;}
-.search_spinner_header{display:none; position:absolute; top:10px;right:67px;z-index:999;}
-table.datatable{ }
+ table.datatable{ }
 table.datatable tr td {line-height:16px}
 table.datatable .result{ padding-left:10px}
- a#zoomIn {position:absolute; top:50px; left:15px; width:25px; height:25px; background:url(../images/icons/moreZoomBtnExplore.png) no-repeat 0 0; z-index:1000;}
+a#zoomIn {position:absolute; top:50px; left:15px; width:25px; height:25px; background:url(../images/icons/moreZoomBtnExplore.png) no-repeat 0 0; z-index:1000;}
 a#zoomIn:hover {background:url(../images/icons/moreZoomBtnExplore.png) no-repeat -25px 0; cursor:pointer;}
 a#zoomOut {position:absolute; top:80px; left:15px; width:25px; height:25px; background:url(../images/icons/lessZoomBtnExplore.png) no-repeat 0 0; z-index:1000;}
 a#zoomOut:hover {background:url(../images/icons/lessZoomBtnExplore.png) no-repeat -25px 0; cursor:pointer;}
 p#loading {position:absolute; z-index:1000; margin:0 0 0 -45px; top:50px; left:50%; width:91px; color:#333333; border:1px solid #DCBAAD; background: url(../images/icons/ajax-loader.gif) no-repeat 5px 5px #F6F3EA; padding:6px 8px 6px 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
 p#loadingPa {position:absolute; right:0; left:0; margin:0 auto; top:150px; width:91px; color:#333333; border:1px solid #DCBAAD; z-index:1000; background: url(../images/icons/ajax-loader.gif) no-repeat 5px 5px #F6F3EA; padding:6px 8px 6px 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+div#selectionBox {text-align:center; width:800px; height:215px; padding-top:40px; margin:120px auto auto; position:relative; z-index: 1002; background:url(../images/common/background.png) no-repeat 0 0;}
+div#selectionBox label {font:bold 21px Arial; color:white; letter-spacing:-0.5px}
+div#selectionBox div {height:60px;width:120px; margin:20px; display:inline-block}
+div#selectionBox a.button {text-decoration:none; margin-top:5px; padding:0px 8px 0 8px; font:bold 17px Arial; border:none; letter-spacing:-1px; color:#000; display: block; height: 100%}
+div#selectionBox a.button:hover {cursor:pointer;}
+div#selectionBox div.draw_map {background:white url(/images/sites/draw_polygon.png) no-repeat 20px 20px;}
+div#selectionBox div.draw_map:hover {background:#E5E5E5 url(/images/sites/draw_polygon.png) no-repeat 20px 20px;}
+div#selectionBox div.upload_file {background:white url(../images/sites/bkg_file.png) no-repeat 40px 12px;}
+div#selectionBox div.upload_file:hover {background:#E5E5E5 url(../images/sites/bkg_file.png) no-repeat 40px 12px;}
 div#searchBox {width:800px; height:215px; margin:120px auto auto auto; position:relative; z-index: 1000; background:url(../images/common/background.png) no-repeat 0 0;}
+div#searchBox .close {position: absolute; top: 25px; right:35px}
 div#searchBox label {font:bold 17px Arial; color:white; text-shadow: #386876 0px -1px 0px; letter-spacing:-0.5px;}
 div#searchBox h3 {float:left; width:700px; text-shadow: #386876 0px -1px 0px; font:bold 33px Arial; color: #133E64; letter-spacing:-1px; padding:0; margin:40px 0 0 36px;}
 div#searchBox div#search_input {float:left; width:400px; height:80px; margin:15px 0 0 36px;}
@@ -337,17 +327,19 @@ ol#controls_img_site li.current a{background:url(../images/common/paginationButt
 ol#controls_img_site li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
 div#left_container div.content_area div.relatedAreas {float:left; width:610px; margin:28px 0 0 0;}
 div#left_container div.content_area div.relatedAreas h3{float:left; width:610px; font:bold 19px Arial; color:#333333; border-bottom:1px solid #c6c6c6; padding-bottom:4px; letter-spacing:-1px;}
-div#left_container div.content_area div.relatedAreas div.relatedBox {position:relative; float:left; width:197px; height:173px; background:#CCCCCC; margin:12px 9px 0 0;}
-div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData {position:absolute; bottom:0; left:0; right:0; height:59px; background:url(../images/sites/relatedBottom.png) no-repeat 0 0;}
-div#left_container div.content_area div.relatedAreas div.relatedBox:hover {cursor:pointer;}
+div#left_container div.content_area div.relatedAreas div.relatedBox {position:relative; float:left; width:197px; height:193px; background: #006699; margin:12px 9px 0 0;}
+div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData {position:absolute; bottom:20px; left:0; right:0; height:59px; background:url(../images/sites/relatedBottom.png) no-repeat 0 0;}
+div#left_container div.content_area div.relatedAreas div.relatedBox .strapLine {position:absolute; bottom:0; left:0; right:0; height:20px}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover {cursor:pointer; background: #254C72;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.image {float:left; width:197px; height:124px; background-position:0 0; background-repeat:no-repeat;}
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.image {border:3px solid #254C72; border-bottom:none; width:191px; height:122px; background-position:-3px -3px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData{background:url(../images/sites/relatedBottom.png) no-repeat 0 -59px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.description {float:left; margin:15px 0 0 13px; width:auto; padding:2px 0 0 16px; background:url(../images/icons/arrowRelated.png) no-repeat 0 2px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.description a{font:bold 13px Arial; color:#FFFFFF; text-decoration:none;}
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.description {background:url(../images/icons/arrowRelated.png) no-repeat 0 -15px;}
-div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.submitted {float:left; margin:0 0 0 15px; font:normal 11px Arial; color:#719FB5; width:auto; padding:0 0 0 16px; background:none;}
-div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.submitted {color:#7787A7;}
+div#left_container div.content_area div.relatedAreas div.relatedBox .strapLine, div#left_container div.content_area div.relatedAreas div.relatedBox div.bottomData p.submitted{float:left; margin:0 0 0 15px; font:normal 11px Arial; color:#719FB5; width:auto; padding:0 0 0 16px; background:none}
+div#left_container div.content_area div.relatedAreas div.relatedBox .strapLine {padding-left: 16px; background:url(../images/icons/atoz.png) no-repeat center left;}
+div#left_container div.content_area div.relatedAreas div.relatedBox:hover .strapLine, div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.submitted {color:#7787A7;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.relatedToolTipBack {position:absolute; background: url('/images/icons/marker.png') left top no-repeat; width:80px; height:80px; left:58px; top:22px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.relatedToolTipImage {position:absolute; width:50px; height:50px; overflow:hidden; top: 34px; left:73px;}
 div#left_container div.content_area div.last_activity {float:left; width:100%; padding:0 0 37px 0; margin:30px 0 0 0;}

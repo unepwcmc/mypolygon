@@ -19,16 +19,6 @@ div#layout{margin:0 auto; width:961px;}
 #simplemodal-container a.modalCloseImg {background:url(../images/icons/close.png) no-repeat center center; width:15px; height:15px; display:inline; z-index:3200; position:absolute; top:10px; right:10px;}
 #simplemodal-container a.modalCloseImg:hover {cursor:pointer;}
 
-/* LOGIN ERRORS */
-
-div#login_error_home {top:-15px; position:absolute; width:100%; background:#FF6633; font:normal 13px Arial; color:#FFFFFF; border-bottom:2px solid #FFFFFF; text-align:center; padding:12px 0; z-index:100000;}
-div#login_error_home a {font-weight:bold; text-decoration:underline; color:#FFFFFF;}
-div#login_error_home a:hover {cursor:pointer;}
-
-div#login_error {width:100%; background:#FF6633; font:normal 13px Arial; color:#FFFFFF; border-bottom:2px solid #FFFFFF; text-align:center; padding:12px 0; z-index:100000; height:0px;}
-div#login_error a {font-weight:bold; text-decoration:underline; color:#FFFFFF;}
-div#login_error a:hover {cursor:pointer;}
-
 /* ---------------------------------------------------- HEADER ---------------------------------------------------- */
 
 div#outer_header{float:left; width:100%; background:url(../images/common/header_bg.gif) repeat-x 0 0; height:36px;}
@@ -75,28 +65,6 @@ div#signUp div.bottomData p {font:normal 12px Arial; color:#666666;}
 div#signUp div.bottomData p a {text-decoration:none; font:bold 12px Arial; color:#FF6600; margin:0 0 0 5px;}
 div#signUp div.bottomData p a:hover {text-decoration:underline}
 
-
-/*---------------------------------------------------- HEADER HOME ----------------------------------------------------*/
-
-div#header_home {z-index:1000; position:absolute; top:0; left:0; right:0; background:url(../images/home/header_bg_home.png) repeat-x 0 0; display:none;}
-div#header_home a.logoHome{float:left; width:285px; height:36px; background:url(../images/home/logoHome.png) no-repeat 0 0;}
-
-div#header_home form {float:right; width:auto; margin:6px 5px 0 0;}
-div#header_home form input[type="text"]{float:left; background:url(../images/home/inputSearch.gif) no-repeat 0 0; padding:5px 25px 5px 5px; width:165px; margin:0; border:none; font:normal 13px Arial; font-style:italic; color:#aaaaaa;}
-div#header_home form input[type="text"]:focus {outline:none;}
-div#header_home form input[type="submit"]{float:left; background:url(../images/home/buttonSearch.gif) no-repeat 0 0; margin:0; width:27px; height:24px; border:none;}
-div#header_home form input[type="submit"]:focus {outline:none;}
-div#header_home form input[type="submit"]:hover {cursor:pointer;}
-
-
-div#header_home span {float:right; background:url(../images/home/filter_bkg.png) no-repeat 0 0; width:118px; margin:6px 5px 0 0; text-align:center; height:25px; padding:5px 0 0 0; }
-div#header_home span a {background:url(../images/icons/transArrow.png) no-repeat right 2px; font:bold 12px Arial; color:#ffffff; letter-spacing:-0.5px; padding:0 13px 0 0; text-decoration:none;}
-div#header_home span a:hover {text-decoration:underline; cursor:pointer;}
-
-a#aboutButton {width:24px; height:24px; float:right; background:url(../images/home/aboutBtn.png) no-repeat 0 0; margin:6px 5px 0 0;}
-a#aboutButton:hover {background:url(../images/home/aboutBtn.png) no-repeat -24px 0;}
-
-.search_spinner_header{display:none; position:absolute; top:10px;right:67px;z-index:999;}
 
 /* ---------------------------------------------------- NEW HOME ----------------------------------------------------*/
 
