@@ -52,7 +52,7 @@
                                             <span class="shadow"></span>
                                             <div>
                                                 <% url = img.match /\/([\d]+).[a-zA-Z]+\z/ %>
-                                                <% url = url.length != 2 ? "#" : "///www.panoramio.com/photo/#{url[1]}" %>
+                                                <% url = url.length != 2 ? "#" : "http//www.panoramio.com/photo/#{url[1]}" %>
                                                 <%= link_to image_tag(img, {:style => 'width:189px'}), url, {:style => 'position:relative; overflow:hidden; '} %>
 
                                             </div>
