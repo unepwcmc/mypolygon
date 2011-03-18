@@ -9,47 +9,55 @@ class Tenement < ActiveRecord::Base
               WHERE s.tenement_id=#{id}
               ORDER BY s.id'
               
-  acts_as_geom :the_geom => :polygon  
+  acts_as_geom :the_geom => :polygon
+
+  validates_presence_of :query_area_km2
 
   def self.create_from_geojson (geojson,assesment)
         wkb = ActiveRecord::Base.connection.execute("SELECT ST_GeomFromText('#{GeomHelper.geojson_to_wkt geojson}')")
         assesment.tenements.create :the_geom =>  wkb.getvalue(0,0)
-
   end
-    # call ppe web service, get results and store locally
+
+  # call ppe web service, get results and store locally
   def analysePolygon(geojson)
+    self.query_area_km2 = 0
+    self.query_area_carbon_kg = 0
+    self.save
+
     #convert geojson to wkt
     wkt = GeomHelper.geojson_to_wkt geojson
-    query = [{:id => id, :the_geom => wkt}].to_json
+    query = [{:id => self.id, :the_geom => wkt}].to_json
 
+    urls = [
+        "http://protectedplanet.net/api2/geo_searches",
+        #"http://localhost:4567/marine_search/coral"
+    ]
+    urls.each do |url|
+      # call API
+      res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => query).body
 
-    # call API
-    url = "http://protectedplanet.net/api2/geo_searches"
+      # populate DB with results
+      res["results"].each do |item|
+        self.query_area_km2 += item["query_area_km2"].to_f
+        self.query_area_carbon_kg += item["query_area_carbon_kg"].to_f
+        self.save
 
-    res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => query).body
-
-    # populate DB with results
-    res["results"].each do |res|
-      t = Tenement.find res["id"]
-      t.query_area_km2 = res["query_area_km2"]
-      t.query_area_carbon_kg = res["query_area_carbon_kg"]
-      t.save
-
-      res["protected_areas"].each do |s|
-        ds   = s['data_standard']
-        wkt  = ds["GEOM"]
-        conn = Site.connection
-        site = Site.create :tenement_id                    => t.id,
-                        :wdpaid                         => s['wdpaid'],
-                        :image                          => s['image'],
-                        :encoded_polyline_cache         => s['epl'],
-                        :data_standard                  => s['data_standard'],
-                        :protected_carbon_kg            => s['protected_carbon_kg'],
-                        :protected_area_km2             => s['protected_area_km2'],
-                        :query_area_protected_km2       => s['query_area_protected_km2'],
-                        :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']
-          sql = "UPDATE sites SET the_geom=ST_GeomFromText('#{s['simple_geom']}') where id=#{site.id}"
-          Site.connection.execute sql
+        item["protected_areas"].each do |s|
+          ds   = s['data_standard']
+          wkt  = ds["GEOM"]
+          conn = Site.connection
+          site = Site.create :tenement_id                    => id,
+                          :wdpaid                         => s['wdpaid'],
+                          :image                          => s['image'],
+                          :encoded_polyline_cache         => s['epl'],
+                          :data_standard                  => s['data_standard'],
+                          :protected_carbon_kg            => s['protected_carbon_kg'],
+                          :protected_area_km2             => s['protected_area_km2'],
+                          :query_area_protected_km2       => s['query_area_protected_km2'],
+                          :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']
+            sql = "UPDATE sites SET the_geom=ST_GeomFromText('#{s['simple_geom']}') where id=#{site.id}"
+            Site.connection.execute sql
+        end
       end
     end
   end
@@ -57,14 +65,13 @@ class Tenement < ActiveRecord::Base
   def image
     Site.first(:select => "image", :conditions => "image IS NOT NULL AND tenement_id=#{id}").try(:image)
   end
-  
+
   def total_query_area_protected
     Site.sum(:query_area_protected_km2, :conditions => "tenement_id = #{id}")
   end
-  
-  def percentage_protected               
-    p = (total_query_area_protected / query_area_km2) 
-    p > 1 ? 1 : p
+
+  def percentage_protected
+    total_query_area_protected.out_of query_area_km2
   end
   
   # Encoded polyline of the PA geometry optimised for static map display
@@ -159,5 +166,4 @@ class Tenement < ActiveRecord::Base
     return false if id.nil?
     self.find_by_sql("SELECT ST_AsGeoJSON(ST_Multi(ST_Simplify(the_geom,#{tolerance})),#{precision},#{bbox ? 1 : 0}) as json from tenements WHERE id = #{id}").first.try(:json)
   end
-  
 end

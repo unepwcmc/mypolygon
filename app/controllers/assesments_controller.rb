@@ -106,7 +106,7 @@ class AssesmentsController < ApplicationController
     # percent protected to non protected
     protected_area = @a.tenements.inject(0){|sum,tenement|sum+tenement.sites.sum("query_area_protected_km2")}
     total_area     = @a.tenements.sum(:query_area_km2)
-    @percent_protected = protected_area/total_area
+    @percent_protected = protected_area.out_of total_area
 
     @map_json = @a.map_tenements.map {|t|
           {:id          => t.id,
