@@ -44,7 +44,6 @@ class AssesmentsController < ApplicationController
       end
 
       #open the shape files and read em in
-      debugger
       Dir.new(directory).each do |f|
         if f.ends_with? ".shp"
           #CREATE ASSESSMENT
@@ -53,7 +52,7 @@ class AssesmentsController < ApplicationController
           #READ IN AND CREATE TENEMENTS
           GeoRuby::Shp4r::ShpFile.open(File.join(directory,f)) do |shp|
             shp.each do |shape|
-              @assesment.tenements.create :the_geom => shape.geometry, :attribute_data => shape.data
+              @assesment.tenements.create :the_geom => shape.geometry, :attribute_data => shape.data, :query_area_km2 => 0
             end
           end
         end
