@@ -29,8 +29,8 @@ class Tenement < ActiveRecord::Base
     query = [{:id => self.id, :the_geom => wkt}].to_json
 
     urls = [
-        #"http://protectedplanet.net/api2/geo_searches",
-        "http://localhost:4567/marine_search/coral"
+        "http://protectedplanet.net/api2/geo_searches",
+        #"http://localhost:4567/marine_search/coral"
     ]
     urls.each do |url|
       # call API
