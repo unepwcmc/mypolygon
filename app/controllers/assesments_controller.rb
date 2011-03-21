@@ -2,12 +2,6 @@ class AssesmentsController < ApplicationController
   layout 'base_layout', :except => 'index'
   
   def index
-    if !session[:assesment_ids].blank?
-      @assesments = Assesment.find(session[:assesment_ids], :order => "created_at DESC")
-    else  
-      @assesments ||= []
-    end
-
     if params[:base]
       @assesment = Assesment.find params[:base]
     else
@@ -50,12 +44,11 @@ class AssesmentsController < ApplicationController
       end
 
       #open the shape files and read em in
+      debugger
       Dir.new(directory).each do |f|
         if f.ends_with? ".shp"
           #CREATE ASSESSMENT
           @assesment ||= Assesment.create(:file_name => file_name)
-          session[:assesment_ids] ||= []
-          session[:assesment_ids] << @assesment.id
 
           #READ IN AND CREATE TENEMENTS
           GeoRuby::Shp4r::ShpFile.open(File.join(directory,f)) do |shp|
@@ -90,8 +83,6 @@ class AssesmentsController < ApplicationController
   def createFromPolygon
    #CREATE ASSESSMENT
     @assesment ||= Assesment.create()
-    session[:assesment_ids] ||= []
-    session[:assesment_ids] << @assesment.id
 
     #READ IN AND CREATE TENEMENTS
     tenement = Tenement.create_from_geojson(params[:data],@assesment)

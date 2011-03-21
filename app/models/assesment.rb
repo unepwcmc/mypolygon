@@ -12,7 +12,7 @@ class Assesment < ActiveRecord::Base
               ST_AsGeoJSON(the_geom,6,0) as geojson
               FROM tenements t
               WHERE t.assesment_id=#{id}
-              ORDER BY t.id'          
+              ORDER BY t.id'
   
   # call ppe web service, get results and store locally
   def analyse    
