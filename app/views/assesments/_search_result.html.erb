@@ -10,8 +10,7 @@
  			<h4><%= link_to "Polygon #{search_result.id}", assesment_tenement_path(@a, search_result) %></h4>
 			<p class="category">
 				<b>
-                  <%= pluralize search_result.sites.count, "Protected area" %> touch,
-                  covering <%= number_with_precision(search_result.percentage_protected * 100, :precision => 0) %>% of the area
+                  <%= pluralize search_result.sites.count, "Protected area" %> touch
                 </b>
 			</p>
 			<p class="distance">
@@ -20,16 +19,24 @@
 						<td><b>area</b></td>
 						<td class="result"><%= number_with_precision search_result.query_area_km2, :precision => 1 %> km2</td>
 					</tr>
-
 					<tr>
 						<td><b>carbon</b></td>
 						<td class="result"><%=  search_result.query_area_carbon_kg ? number_with_delimiter(number_with_precision(search_result.query_area_carbon_kg.try(:/, 1000000), :precision => 1)) + " kt" : 'not surveyed' %> </td>
 					</tr>
+
+                    <tr><td colspan="2">&nbsp;</td></tr>
+
+                    <tr>
+                      <td><b>protected areas coverage</b></td>
+                      <td class="result">
+                        <%= to_percent search_result.percentage_protected %>
+                      </td>
+                    </tr>
                     <% unless search_result.query_area_coral_km2.blank? %>
                       <tr>
                         <td><b>corals coverage</b></td>
                         <td class="result">
-                          <%= to_percent search_result.query_area_coral_km2, search_result.query_area_km2, 4  %>
+                          <%= to_percent search_result.query_area_coral_km2.out_of(search_result.query_area_km2), 4  %>
                         </td>
                       </tr>
                     <% end %>
@@ -37,7 +44,7 @@
                       <tr>
                         <td><b>mangroves coverage</b></td>
                         <td class="result">
-                          <%= to_percent search_result.query_area_mangrove_km2, search_result.query_area_km2, 4  %>
+                          <%= to_percent search_result.query_area_mangrove_km2.out_of(search_result.query_area_km2), 4  %>
                         </td>
                       </tr>
                     <% end %>
@@ -45,7 +52,7 @@
                       <tr>
                         <td><b>sea grass coverage</b></td>
                         <td class="result">
-                          <%= to_percent search_result.query_area_sea_grass_km2, search_result.query_area_km2, 4  %>
+                          <%= to_percent search_result.query_area_sea_grass_km2.out_of(search_result.query_area_km2), 4  %>
                         </td>
                       </tr>
                     <% end %>
