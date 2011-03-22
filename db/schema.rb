@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110308150500) do
+ActiveRecord::Schema.define(:version => 20110322143500) do
 
   create_table "assesments", :force => true do |t|
     t.column "user_id", :integer
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(:version => 20110308150500) do
     t.column "created_at", :datetime
     t.column "updated_at", :datetime
     t.column "the_geom", :multi_polygon, :srid => 4326
+    t.column "query_area_coral_km2", :float
+    t.column "query_area_mangrove_km2", :float
+    t.column "query_area_sea_grass_km2", :float
   end
 
   create_table "users", :force => true do |t|

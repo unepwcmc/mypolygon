@@ -57,8 +57,8 @@ end
 class Numeric
   # Returns the percent of self in total. Contains result within [0;1].
   def out_of total
+    return 1 if total == 0
     return 1 if total.is_a?(Float) && total.nan?
-    return 0 if total == 0
     percent = self / total
     return 1 if percent > 1
     return 0 if percent < 0

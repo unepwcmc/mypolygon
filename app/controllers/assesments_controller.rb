@@ -52,13 +52,11 @@ class AssesmentsController < ApplicationController
           #READ IN AND CREATE TENEMENTS
           GeoRuby::Shp4r::ShpFile.open(File.join(directory,f)) do |shp|
             shp.each do |shape|
-              @assesment.tenements.create :the_geom => shape.geometry, :attribute_data => shape.data, :query_area_km2 => 0
+              @assesment.tenements.create :the_geom => shape.geometry, :attribute_data => shape.data, :query_area_km2 => 0 # must be filled later.
             end
           end
         end
       end
-
-      #WE WOULD NORMALLY ADD TO USER HERE, BUT TEMP IS ADD TO SESSION
 
       #cleanup files
       FileUtils.rm_rf directory
@@ -86,7 +84,7 @@ class AssesmentsController < ApplicationController
     #READ IN AND CREATE TENEMENTS
     tenement = Tenement.create_from_geojson(params[:data],@assesment)
 
-    tenement.analysePolygon(params[:data])
+    tenement.analysePolygon(params[:data], [:protected_areas, :coral])
     render :json => @assesment.as_json
   end
     

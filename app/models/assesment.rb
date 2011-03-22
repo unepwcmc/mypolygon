@@ -41,6 +41,7 @@ class Assesment < ActiveRecord::Base
                           :name                           => s['name'],
                           :wdpaid                         => s['wdpaid'],
                           :image                          => s['image'],
+                          # this data_standard could be removed, except for the export and a single use of its ["NAME"] property.
                           :data_standard                  => s['data_standard'],
                           :protected_carbon_kg            => s['protected_carbon_kg'],
                           :protected_area_km2             => s['protected_area_km2'],

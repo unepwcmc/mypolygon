@@ -9,7 +9,10 @@
  		<div class="top_information">
  			<h4><%= link_to "Polygon #{search_result.id}", assesment_tenement_path(@a, search_result) %></h4>
 			<p class="category">
-				<b><%= pluralize search_result.sites.count, "Protected area" %> touch</b>  
+				<b>
+                  <%= pluralize search_result.sites.count, "Protected area" %> touch,
+                  covering <%= number_with_precision(search_result.percentage_protected * 100, :precision => 0) %>% of the area
+                </b>
 			</p>
 			<p class="distance">
 				<table cellspacing="0" cellpadding="0" class="datatable">
@@ -22,12 +25,31 @@
 						<td><b>carbon</b></td>
 						<td class="result"><%=  search_result.query_area_carbon_kg ? number_with_delimiter(number_with_precision(search_result.query_area_carbon_kg.try(:/, 1000000), :precision => 1)) + " kt" : 'not surveyed' %> </td>
 					</tr>
-				</table>						
-				<div style="width:400px;">
-				<%= image_tag Gchart.pie(:data => [search_result.percentage_protected, 1-search_result.percentage_protected], 											 
-											 :size => "55x55", :background => "EEEEEE", :custom => "chco=#{pie_colors.join("|")}"), :style => "float:left;" %>					
-				<div style="float:left;margin-top:17px;font-size:10px;font-weight:bold; width:15px;"><%= number_with_precision(search_result.percentage_protected * 100, :precision => 0) %>% protection</div>
-				</div>							
+                    <% unless search_result.query_area_coral_km2.blank? %>
+                      <tr>
+                        <td><b>corals coverage</b></td>
+                        <td class="result">
+                          <%= to_percent search_result.query_area_coral_km2, search_result.query_area_km2, 4  %>
+                        </td>
+                      </tr>
+                    <% end %>
+                    <% unless search_result.query_area_mangrove_km2.blank? %>
+                      <tr>
+                        <td><b>mangroves coverage</b></td>
+                        <td class="result">
+                          <%= to_percent search_result.query_area_mangrove_km2, search_result.query_area_km2, 4  %>
+                        </td>
+                      </tr>
+                    <% end %>
+                    <% unless search_result.query_area_sea_grass_km2.blank? %>
+                      <tr>
+                        <td><b>sea grass coverage</b></td>
+                        <td class="result">
+                          <%= to_percent search_result.query_area_sea_grass_km2, search_result.query_area_km2, 4  %>
+                        </td>
+                      </tr>
+                    <% end %>
+				</table>
 			</p>
 			<p>
  		</div>

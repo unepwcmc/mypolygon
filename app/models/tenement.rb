@@ -19,7 +19,7 @@ class Tenement < ActiveRecord::Base
   end
 
   # call ppe web service, get results and store locally
-  def analysePolygon(geojson)
+  def analysePolygon(geojson, data_sources)
     self.query_area_km2 = 0
     self.query_area_carbon_kg = 0
     self.save
@@ -28,35 +28,76 @@ class Tenement < ActiveRecord::Base
     wkt = GeomHelper.geojson_to_wkt geojson
     query = [{:id => self.id, :the_geom => wkt}].to_json
 
-    urls = [
-        "http://protectedplanet.net/api2/geo_searches",
-        #"http://localhost:4567/marine_search/coral"
-    ]
-    urls.each do |url|
-      # call API
-      res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => query).body
+    data_sources ||= []
+    data_sources.each { |source|
+      case source
+        when :coral
+          url = "http://localhost:4567/marine_search/coral"
+          field_setter = "query_area_coral_km2="
+        when :mangroves
+          url = ""
+          field_setter = "query_area_mangrove_km2="
+        when :sea_grass
+          url = ""
+          field_setter = "query_area_sea_grass_km2="
+        else
+          next
+      end
 
-      # populate DB with results
-      res["results"].each do |item|
-        self.query_area_km2 += item["query_area_km2"].to_f
-        self.query_area_carbon_kg += item["query_area_carbon_kg"].to_f
-        self.save
+      res = nil
+      begin
+        res = JSON.parse Net::HTTP.post_form(URI.parse(url),:data => query).body
+      rescue
+        next
+      end
+      next unless res
+      if res.include? :error
+        msg = "Error fetching data from #{source} data source: " + res[:error]
+        logger.error msg
+        next
+      end
 
-        item["protected_areas"].each do |s|
-          ds   = s['data_standard']
-          wkt  = ds["GEOM"]
-          conn = Site.connection
-          site = Site.create :tenement_id                    => id,
-                          :wdpaid                         => s['wdpaid'],
-                          :image                          => s['image'],
-                          :encoded_polyline_cache         => s['epl'],
-                          :data_standard                  => s['data_standard'],
-                          :protected_carbon_kg            => s['protected_carbon_kg'],
-                          :protected_area_km2             => s['protected_area_km2'],
-                          :query_area_protected_km2       => s['query_area_protected_km2'],
-                          :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']
-            sql = "UPDATE sites SET the_geom=ST_GeomFromText('#{s['simple_geom']}') where id=#{site.id}"
-            Site.connection.execute sql
+      val = 0
+      res["results"].each{|item|val += item["overlapped_area"].to_f}
+      self.send field_setter, val
+      self.save
+    }
+
+    if data_sources.include?( :protected_areas )
+      ok = true
+      begin
+        # call API
+        url = "http://protectedplanet.net/api2/geo_searches"
+        res = Net::HTTP.post_form(URI.parse(url),:data => query).body
+        res = JSON.parse res
+      rescue
+        ok = false
+      end
+
+      if ok
+        # populate DB with results
+        res["results"].each do |item|
+          # This will be returned multiple times, but... it seems to be the only way to get it, other than calculating
+          # locally. (Would that be so bad?.)
+          self.query_area_km2 = item["query_area_km2"].to_f
+          self.query_area_carbon_kg = item["query_area_carbon_kg"].to_f
+          self.save
+
+          item["protected_areas"].each do |s|
+            #ds   = s['data_standard']
+            #wkt  = ds["GEOM"]
+            site = Site.create :tenement_id                    => id,
+                            :wdpaid                         => s['wdpaid'],
+                            :image                          => s['image'],
+                            :encoded_polyline_cache         => s['epl'],
+                            :data_standard                  => s['data_standard'],
+                            :protected_carbon_kg            => s['protected_carbon_kg'],
+                            :protected_area_km2             => s['protected_area_km2'],
+                            :query_area_protected_km2       => s['query_area_protected_km2'],
+                            :query_area_protected_carbon_kg => s['query_area_protected_carbon_kg']
+              sql = "UPDATE sites SET the_geom=ST_GeomFromText('#{s['simple_geom']}') where id=#{site.id}"
+              Site.connection.execute sql
+          end
         end
       end
     end
