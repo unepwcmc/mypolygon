@@ -67,10 +67,9 @@
                                  
 																
 								<!-- RELATED AREAS -->
-								<% if !@t.sites.empty? %>									
-									<div class="relatedAreas" style="margin:26px 0 0 0">
-									
-									<h3><%= pluralize @t.sites.count, "Protected area"%> overlap this polygon</h3>
+                                <div class="relatedAreas" style="margin:26px 0 0 0">
+								<% if !@t.sites.empty? %>
+                                    <h3><%= pluralize @t.sites.count, "Protected area"%> overlap this polygon</h3>
 									<% @t.sites.each_with_index do |r,i| %>
 									  <% d = YAML.load(r.data_standard) %>
 										<div class="relatedBox" <%= raw (i % 3 != 2) ? "" : "style='margin-right:0;'" %>>
@@ -98,15 +97,29 @@
 														</p>
 												</div>
 											</a>
-                                            <% atoz_id,atoz_strap_line = r.atoz_data d["NAME"]
-                                               unless atoz_id.blank?
-                                            %>
+                                            <% atoz_id,atoz_strap_line = r.atoz_data d["NAME"] %>
+                                            <% unless atoz_id.blank? %>
                                                 <a class="strapLine" href="http://www.biodiversitya-z.org/areas/<%= atoz_id %>"><%= truncate(atoz_strap_line,:length => 22) %></a>
                                             <% end %>
 										</div>
 									<% end -%>
-								</div>
 								  <% end -%>
+
+                                <% if @t.query_area_coral_km2 || @t.query_area_mangrove_km2 || @t.query_area_sea_grass_km2 %>
+                                  <h3>Other data</h3>
+                                  <ul class="otherData">
+                                    <% if @t.query_area_coral_km2 %>
+                                        <li><strong>Coral coverage:</strong> <%= to_percent @t.query_area_coral_km2.out_of(@t.query_area_km2), 4  %></li>
+                                    <% end %>
+                                    <% if @t.query_area_mangrove_km2 %>
+                                        <li><strong>Mangroves coverage:</strong> <%= to_percent @t.query_area_mangrove_km2.out_of(@t.query_area_km2), 4  %></li>
+                                    <% end %>
+                                    <% if @t.query_area_sea_grass_km2 %>
+                                        <li><strong>Sea grass coverage:</strong> <%= to_percent @t.query_area_sea_grass_km2.out_of(@t.query_area_km2), 4  %></li>
+                                    <% end %>
+                                  </ul>
+                                  <% end %>
+								</div>
 	 						</div>
  						</div>
 

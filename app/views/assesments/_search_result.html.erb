@@ -32,7 +32,7 @@
                         <%= to_percent search_result.percentage_protected %>
                       </td>
                     </tr>
-                    <% unless search_result.query_area_coral_km2.blank? %>
+                    <% if search_result.query_area_coral_km2 %>
                       <tr>
                         <td><b>corals coverage</b></td>
                         <td class="result">
@@ -40,7 +40,7 @@
                         </td>
                       </tr>
                     <% end %>
-                    <% unless search_result.query_area_mangrove_km2.blank? %>
+                    <% if search_result.query_area_mangrove_km2 %>
                       <tr>
                         <td><b>mangroves coverage</b></td>
                         <td class="result">
@@ -48,7 +48,7 @@
                         </td>
                       </tr>
                     <% end %>
-                    <% unless search_result.query_area_sea_grass_km2.blank? %>
+                    <% if search_result.query_area_sea_grass_km2 %>
                       <tr>
                         <td><b>sea grass coverage</b></td>
                         <td class="result">

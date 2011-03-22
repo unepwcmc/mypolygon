@@ -435,6 +435,8 @@ div#left_container div.content_area div.relatedAreas div.relatedBox:hover .strap
 div#left_container div.content_area div.relatedAreas div.relatedBox:hover div.bottomData p.submitted {color:#7787A7;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.relatedToolTipBack {position:absolute; background: url('/images/icons/marker.png') left top no-repeat; width:80px; height:80px; left:58px; top:22px;}
 div#left_container div.content_area div.relatedAreas div.relatedBox div.relatedToolTipImage {position:absolute; width:50px; height:50px; overflow:hidden; top: 34px; left:73px;}
+div#left_container div.content_area div.relatedAreas *+h3 {margin-top: 14px;}
+div#left_container div.content_area div.relatedAreas ul.otherData {float: left; list-style: inside; margin-top: 10px;}
 
 
 div#left_container div.content_area div.last_activity {float:left; width:100%; padding:0 0 37px 0; margin:30px 0 0 0;}
@@ -2001,4 +2003,6 @@ li.sfHover > a > .sf-sub-indicator { background-position: -10px -100px;}
 .sf-shadow ul { background:	url(/images/admin/shadow.png) no-repeat bottom right; padding: 0 8px 9px 0; -moz-border-radius-bottomleft: 17px; -moz-border-radius-topright: 17px; -webkit-border-top-right-radius: 17px; -webkit-border-bottom-left-radius: 17px;}
 .sf-shadow ul.sf-shadow-off { background: transparent;}
 
+.percent { position: relative; display: inline-block; text-align: center; vertical-align: middle; min-width: 50px; border: solid #a9a9a9 1px; color:transparent; }
+.percent .bar { position: absolute; top: 0px; left: 0px; background-color: gray; height:100%; }
 
