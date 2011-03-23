@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>FAO, ISME, ITTO, UNESCO-MAB, UNEP-WCMC and UNU-INWEH</origin>
+				<pubdate>00/00/2006</pubdate>
+				<title Sync="TRUE">AmericanSamoa</title>
+				<edition>Version 2.0</edition>
+				<geoform Sync="TRUE">vector digital data</geoform>
+				<pubinfo>
+					<pubplace>Cambridge</pubplace>
+					<publish>UNEP-WCMC</publish>
+				</pubinfo>
+				<onlink>http://stort.unep-wcmc.org/imaps/marine/mangroves/viewer.htm</onlink>
+				<ftname Sync="TRUE">AmericanSamoa</ftname></citeinfo>
+		</citation>
+		<descript>
+			<abstract>This dataset has been created as part of a collaboration between FAO, ISME, ITTO, UNESCO-MAB, UNEP-WCMC and UNU-INWEH  to revise the 1997 World Alas of Mangroves. The aim to further promote the conservation, restoration and sustainable use of Mangrove ecosystems and produce a revised Global Atlas.
+
+Further details about the project and the partners can be found at:
+
+http://www.fao.org/forestry/foris/webview/forestry2/index.jsp?siteId=5321&amp;langId=1</abstract>
+			<purpose>Mangroves are of great environmental and economic importance. They contribute a rich genetic diversity, provide homes for a wide variety of species and act as a buffer zone between terrestrial and marine ecosystems. They also provide valuable goods and services for many local communities. However, mangrove ecosystems have also been severely damaged by human activities including urban development; agriculture; development of shrimp aquaculture; and influxes of pollutants. Drastic loss of mangrove forests has been observed in tropical and sub-tropical countries all over the world. As close ecological connections exist between the three major tropical coastal ecosystems - coral reef, seagrass and mangrove ecosystems - the conservation of mangroves is essential for the survival of these coral reefs and seagrass.</purpose>
+			<langdata Sync="TRUE">en</langdata><supplinf>When displaying the data it is important to select those polygons where vegn = 111 to display mangrove.
+
+vegn = 111 Mangrove
+vegn = 900 Non-Mangrove
+
+Source_id . Links mangrove polygons to source table.</supplinf></descript>
+		<timeperd>
+			<timeinfo>
+				<sngdate>
+					<caldate>00/00/2006</caldate>
+				</sngdate>
+			</timeinfo>
+			<current>publication date</current>
+		</timeperd>
+		<status>
+			<progress>In work</progress>
+			<update>Continually</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc Sync="TRUE">-170.786838</westbc>
+				<eastbc Sync="TRUE">177.151070</eastbc>
+				<northbc Sync="TRUE">32.389698</northbc>
+				<southbc Sync="TRUE">-38.886259</southbc>
+			</bounding>
+			<lboundng><leftbc Sync="TRUE">-170.786838</leftbc><rightbc Sync="TRUE">177.151070</rightbc><bottombc Sync="TRUE">-38.886259</bottombc><topbc Sync="TRUE">32.389698</topbc></lboundng></spdom>
+		<keywords>
+			<theme>
+				<themekt>none</themekt>
+				<themekey>mangrove</themekey>
+				<themekey>forest</themekey>
+				<themekey>marine</themekey>
+			</theme>
+			<place>
+				<placekt>none</placekt>
+				<placekey>global</placekey>
+			</place>
+		</keywords>
+		<accconst>This dataset  is not currently available for release. However,  the 1997 version may be obtained under data licence from UNEP-WCMC.</accconst>
+		<useconst>
+Contact the information office at UNEP-WCMC for terms and conditions of licence agreement.
+1 - acknowledge the source appropriately
+2 - will not distribute the data in its original form - this is to
+ensure that current data is being used.
+3. - provide up to two copies of any publication that uses the data
+4. - the data is made available to for strictly non-commercial use
+</useconst>
+		<native Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</native>
+		<natvform Sync="TRUE">File Geodatabase Feature Class</natvform><datacred>FAO, ISME, ITTO, UNESCO-MAB, UNEP-WCMC and UNU-INWEH.</datacred></idinfo>
+	<dataqual>
+		<attracc>
+			<attraccr>Attribute accurace has been verified by ensuring that all polygons have a vegn attribute of either 111 (for mangrove) or 999 ( for non mangrove).  Visual comparisons with original source material through hard copy print outs was undertaken after the digitization/incorporation of every source, before incorporation into the global mangrove layer. All data must have an ISO3 country code. The attribute information is being restructured to incorporate species level information and direct linkage to the UNEP-WCMC species database.</attraccr>
+		</attracc>
+		<logic>All polygons must have a label point containing a VEGN code and and ISO3 country code. No node-dangles are permitted in the dataset. No duplicate features or overlapping polygons allowed.</logic>
+		<complete>This dataset is currently in the process of being updated.</complete>
+		<lineage>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>International Society for Mangrove Ecosystems (ISME)</origin>
+						<origin>World Conservation Monitoring Centre (WCMC)</origin>
+						<origin>International Tropical Timber Organisation (ITTO)</origin>
+						<pubdate>00/001997</pubdate>
+						<title>World Mangrove Atlas</title>
+						<geoform>atlas</geoform>
+						<serinfo>
+							<issue>4 906584 03 9</issue>
+						</serinfo>
+						<pubinfo>
+							<pubplace>Itley, West Yorkshire, UK</pubplace>
+							<publish>The International Society for Mangrove Ecosystems (ISME)</publish>
+						</pubinfo>
+					</citeinfo>
+				</srccite>
+				<srcscale> to be determined.</srcscale>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>00/00/1997</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>publication date</srccurr>
+				</srctime>
+				<srccontr>This dataset has been compiled from a wide range of sources. Individual source informatiuon is directly linked to each polygon. </srccontr>
+			</srcinfo>
+			<procstep>
+				<procdesc>Present:
+Data collection is currently being coordinated by FAO and ISME. Data processing and integration of new data is being carried out by UNEP-WCMC. Further information to be added shortly.
+
+Past:
+Mangrove data were mainly hand digitized at UNEP-WCMC from paper map sources. The data come form a wide range of sources at a wide range of scales. The nominal resolution of the global dataset is therefore around 1: 1000000. After digitization the data were manually edited to eliminate node-dangle errors and duplicate or sliver polygons. Data were matched to the MundoCart digital coastline database, except in cases were matching would cause serios loss of detail and degrade the data. The data were cleaned and build using the smallest tollerances. The data were manually labelled and checked for labelerrors.  Data which came in digital form were treated in the same manner as hand digitized maps for quality control.
+
+</procdesc>
+				<procdate>00/00/2003</procdate>
+			</procstep>
+			<procstep>
+				<procdesc>Metadata imported.</procdesc>
+				<srcused>C:\DOCUME~1\corinnar\LOCALS~1\Temp\xml6.tmp</srcused>
+			</procstep>
+			<procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\DOCUME~1\corinnar\LOCALS~1\Temp\xmlD.tmp</srcused><date Sync="TRUE">20041123</date><time Sync="TRUE">12400800</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">Server=kennett; Service=port:5151; Database=GIS_BML; User=vec; Version=sde.DEFAULT</srcused><date Sync="TRUE">20050926</date><time Sync="TRUE">11011700</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">Server=hydrogen; Service=port:5151; Database=GIS_BML; User=vec; Version=sde.DEFAULT</srcused><date Sync="TRUE">20051001</date><time Sync="TRUE">22211600</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">Server=hydrogen; Service=port:5151; Database=GIS_BML; User=vec; Version=sde.DEFAULT</srcused><date Sync="TRUE">20051017</date><time Sync="TRUE">12104500</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">Server=hydrogen; Service=port:5151; Database=GIS_BML; User=vec; Version=sde.DEFAULT</srcused><date Sync="TRUE">20060621</date><time Sync="TRUE">16583400</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">Server=kennett; Service=port:5151; Database=GIS_BML; User=corinnar; Version=sde.DEFAULT</srcused><date Sync="TRUE">20061004</date><time Sync="TRUE">22465300</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE"></srcused><date Sync="TRUE">20061005</date><time Sync="TRUE">16160800</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE"></srcused><date Sync="TRUE">20090121</date><time Sync="TRUE">10351000</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">C:\Mangrove_AtlasMay08\Global\Mangrove_global_layer_090109\shp\Mangr_Global_layer_AmericanSamoa</srcused><date Sync="TRUE">20090126</date><time Sync="TRUE">12451000</time></procstep><procstep><procdesc Sync="TRUE">Dataset copied.</procdesc><srcused Sync="TRUE">\\WCMC-PC-01165\D$\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb</srcused><procdate Sync="TRUE">20110321</procdate><proctime Sync="TRUE">18371400</proctime></procstep></lineage>
+	</dataqual>
+	<spdoinfo>
+		<direct Sync="TRUE">Vector</direct>
+		<ptvctinf>
+			<sdtsterm Name="AmericanSamoa">
+				<sdtstype Sync="TRUE">G-polygon</sdtstype>
+				<ptvctcnt Sync="TRUE">0</ptvctcnt>
+			</sdtsterm>
+			<esriterm Name="AmericanSamoa"><efeatyp Sync="TRUE">Simple</efeatyp><efeageom Sync="TRUE">Polygon</efeageom><esritopo Sync="TRUE">FALSE</esritopo><efeacnt Sync="TRUE">0</efeacnt><spindex Sync="TRUE">TRUE</spindex><linrefer Sync="TRUE">FALSE</linrefer></esriterm></ptvctinf>
+	</spdoinfo>
+	<spref>
+		<horizsys>
+			<geograph>
+				<latres Sync="TRUE">0.000000</latres>
+				<longres Sync="TRUE">0.000000</longres>
+				<geogunit Sync="TRUE">Decimal degrees</geogunit>
+			</geograph>
+			<geodetic>
+				<horizdn Sync="TRUE">D_WGS_1984</horizdn>
+				<ellips Sync="TRUE">WGS_1984</ellips>
+				<semiaxis Sync="TRUE">6378137.000000</semiaxis>
+				<denflat Sync="TRUE">298.257224</denflat>
+			</geodetic>
+			<cordsysn><geogcsn Sync="TRUE">GCS_WGS_1984</geogcsn></cordsysn></horizsys>
+		<vertdef>
+			<altsys>
+				<altres Sync="TRUE">0.000100</altres>
+				<altenc Sync="TRUE">Explicit elevation coordinate included with horizontal coordinates</altenc>
+			</altsys>
+		</vertdef>
+	</spref>
+	<eainfo>
+		<detailed Name="AmericanSamoa">
+			<enttyp>
+				<enttypl Sync="TRUE">AmericanSamoa</enttypl>
+				<enttypd>Mangroves</enttypd>
+				<enttypt Sync="TRUE">Feature Class</enttypt><enttypc Sync="TRUE">0</enttypc><enttypds>UNEP-WCMC</enttypds></enttyp>
+			<attr><attrlabl Sync="TRUE">Shape_Area</attrlabl><attalias Sync="TRUE">OBJECTID</attalias><attrtype Sync="TRUE">OID</attrtype><attwidth Sync="TRUE">4</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Area of feature in internal units squared.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Positive real numbers that are automatically generated.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">notes</attrlabl><attalias Sync="TRUE">notes</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">254</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Internal feature number.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom></attrdomv></attr><attr>
+				<attrlabl Sync="TRUE">VEGN</attrlabl>
+				<attrdef>Code indicating mangrove.non-mangrove</attrdef>
+				<attrdefs>UNEP-WCMC</attrdefs>
+				<attalias Sync="TRUE">VEGN</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdomv><edom><edomv>111</edomv><edomvd>Mangrove</edomvd></edom><edom><edomv>900</edomv><edomvd>Area of non-mangrove within a mangrove area</edomvd></edom></attrdomv></attr>
+			<attr><attrlabl Sync="TRUE">ISO3</attrlabl><attalias Sync="TRUE">ISO3</attalias><attrtype Sync="TRUE">String</attrtype><attwidth Sync="TRUE">3</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef>3 letter country code</attrdef><attrdefs>UNEP-WCMC</attrdefs></attr><attr><attrlabl Sync="TRUE">LON</attrlabl><attalias Sync="TRUE">LON</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><attrdef>Internal feature number</attrdef><attrdefs>ESRI</attrdefs><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SOURCE_ID</attrlabl><attalias Sync="TRUE">SOURCE_ID</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><attrdef>6 character identifier (ISO3 + source No.)</attrdef><attrdefs>UNEP-WCMC</attrdefs><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">SHAPE</attrlabl><attalias Sync="TRUE">LAT</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><attrdef>Feature geometry</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Coordinates defining the features.</udom></attrdomv><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">LAT</attrlabl><attalias Sync="TRUE">Shape</attalias><attrtype Sync="TRUE">Geometry</attrtype><attwidth Sync="TRUE">0</attwidth><attrdef>Internal feature number</attrdef><attrdefs>ESRI</attrdefs><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdomv><udom Sync="TRUE">Coordinates defining the features.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">Shape</attrlabl><attalias Sync="TRUE">Area</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><attrdef Sync="TRUE">Feature geometry.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Coordinates defining the features.</udom></attrdomv><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">Area</attrlabl><attalias Sync="TRUE">Perimeter</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale></attr><attr><attrlabl Sync="TRUE">Perimeter</attrlabl><attalias Sync="TRUE">Shape_Length</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Length of feature in internal units.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Positive real numbers that are automatically generated.</udom></attrdomv></attr><attr><attrlabl Sync="TRUE">Shape_Length</attrlabl><attalias Sync="TRUE">Shape_Area</attalias><attrtype Sync="TRUE">Double</attrtype><attwidth Sync="TRUE">8</attwidth><atprecis Sync="TRUE">0</atprecis><attscale Sync="TRUE">0</attscale><attrdef Sync="TRUE">Length of feature in internal units.</attrdef><attrdefs Sync="TRUE">ESRI</attrdefs><attrdomv><udom Sync="TRUE">Positive real numbers that are automatically generated.</udom></attrdomv></attr></detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntperp>
+					<cntper>Corinna Ravilious</cntper>
+					<cntorg>UNEP World Conservation Monitoring Centre</cntorg>
+				</cntperp>
+				<cntpos>Senior GIS Officer</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>219 Huntingdon Road</address>
+					<city>Cambridge</city>
+					<postal>CB3 0DL</postal>
+					<country>United Kingdom</country>
+				</cntaddr>
+				<cntvoice>+44 (0)1223 277314</cntvoice>
+				<cntfax>+44(0)1223 277136</cntfax>
+				<cntemail>Corinna.Ravilious@UNEP-WCMC.org</cntemail>
+			</cntinfo>
+		</distrib>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<formname>ESRI sahpefile format or SDE</formname>
+					<formvern>ArcGIS Version 8.3</formvern>
+					<transize Sync="TRUE">60.431</transize><dssize Sync="TRUE">60.431</dssize></digtinfo>
+				<digtopt>
+					<onlinopt>
+						<computer>
+							<networka>
+								<networkr>This dataset is not currently available for direct download.</networkr>
+							</networka>
+						</computer>
+						<accinstr>Please contact UNEP-WCMC for further information.</accinstr>
+					</onlinopt>
+				</digtopt>
+			</digform>
+		</stdorder>
+		<resdesc Sync="TRUE">Downloadable Data</resdesc></distinfo>
+	<metainfo>
+		<metd Sync="TRUE">20110110</metd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>UNEP World Conservation Monitoring Centre</cntorg>
+					<cntper>Corinna Ravilious</cntper>
+				</cntorgp>
+				<cntpos>Senior GIS Officer</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>219 Huntingdon Road</address>
+					<city>Cambridge</city>
+					<state>REQUIRED: The state or province of the address.</state>
+					<postal>CB3 0DL</postal>
+					<country>United Kingdom</country>
+				</cntaddr>
+				<cntvoice>+44 (0)1223 277314</cntvoice>
+				<cntemail>Corinna.Ravilious@UNEP-WCMC.org</cntemail>
+			</cntinfo>
+		</metc>
+		<metstdn Sync="TRUE">FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv Sync="TRUE">FGDC-STD-001-1998</metstdv>
+		<mettc Sync="TRUE">local time</mettc>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<metextns>
+			<onlink>http://www.esri.com/metadata/esriprof80.html</onlink>
+			<metprof>ESRI Metadata Profile</metprof>
+		</metextns>
+		<langmeta Sync="TRUE">en</langmeta><metextns><onlink Sync="TRUE">http://www.esri.com/metadata/esriprof80.html</onlink><metprof Sync="TRUE">ESRI Metadata Profile</metprof></metextns></metainfo>
+	<Esri><CreaDate>20110323</CreaDate><CreaTime>16035400</CreaTime><SyncOnce>FALSE</SyncOnce><SyncDate>20110110</SyncDate><SyncTime>15321000</SyncTime><ModDate>20110110</ModDate><ModTime>15321000</ModTime><DataProperties><lineage><Process Name="DefineProjection_1" ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\DefineProjection" Date="20061005" Time="181310">DefineProjection C:\WorkSpace\final_mangsde\finoct06\mami_deliver\itto_mang.shp GEOGCS['GCS_WGS_1984',DATUM['D_WGS_1984',SPHEROID['WGS_1984',6378137.0,298.257223563]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]] C:\WorkSpace\final_mangsde\finoct06\mami_deliver\itto_mang.shp</Process><Process ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\CopyFeatures" Date="20110110" Time="124103">CopyFeatures "D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangr_Global_layer_AmericanSamoa.shp" "D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa" # 0 0 0</Process><Process ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\RepairGeometry" Date="20110110" Time="131017">RepairGeometry "D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa" DELETE_NULL "D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa"</Process><Process ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Conversion Tools.tbx\FeatureClassToFeatureClass" Date="20110110" Time="153210">FeatureClassToFeatureClass "D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa" "D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangroves" AmericanSamoa # "VEGN 'VEGN' true true false 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,VEGN,-1,-1;ISO3 'ISO3' true true false 3 Text 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,ISO3,-1,-1;LON 'LON' true true false 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,LON,-1,-1;LAT 'LAT' true true false 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,LAT,-1,-1;SOURCE_ID 'SOURCE_ID' true true false 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,SOURCE_ID,-1,-1;Area 'Area' true true false 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,Area,-1,-1;Perimeter 'Perimeter' true true false 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,Perimeter,-1,-1;notes 'notes' true true false 254 Text 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,notes,-1,-1;Shape_Length 'Shape_Length' false true true 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,Shape_Length,-1,-1;Shape_Area 'Shape_Area' false true true 8 Double 0 0 ,First,#,D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangr_Global_layer_AmericanSamoa,Shape_Area,-1,-1" # "D:\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\Mangroves_10.gdb\Mangroves\AmericanSamoa"</Process></lineage></DataProperties><ArcGISFormat>1.0</ArcGISFormat></Esri><dataIdInfo><envirDesc Sync="TRUE">Microsoft Windows XP Version 5.1 (Build 2600) Service Pack 3; ESRI ArcCatalog 9.3.1.3000</envirDesc><dataLang><languageCode Sync="TRUE" value="en"></languageCode></dataLang><idCitation><resTitle Sync="TRUE">AmericanSamoa</resTitle><presForm><PresFormCd Sync="TRUE" value="005"></PresFormCd></presForm></idCitation><spatRpType><SpatRepTypCd Sync="TRUE" value="001"></SpatRepTypCd></spatRpType><dataExt><geoEle><GeoBndBox esriExtentType="native"><westBL Sync="TRUE">-170.786838</westBL><eastBL Sync="TRUE">177.15107</eastBL><northBL Sync="TRUE">32.389698</northBL><southBL Sync="TRUE">-38.886259</southBL><exTypeCode Sync="TRUE">1</exTypeCode></GeoBndBox></geoEle></dataExt><geoBox esriExtentType="decdegrees"><westBL Sync="TRUE">-170.786838</westBL><eastBL Sync="TRUE">177.15107</eastBL><northBL Sync="TRUE">32.389698</northBL><southBL Sync="TRUE">-38.886259</southBL><exTypeCode Sync="TRUE">1</exTypeCode></geoBox></dataIdInfo><mdLang><languageCode Sync="TRUE" value="en"></languageCode></mdLang><mdStanName Sync="TRUE">ISO 19115 Geographic Information - Metadata</mdStanName><mdStanVer Sync="TRUE">DIS_ESRI1.0</mdStanVer><mdChar><CharSetCd Sync="TRUE" value="004"></CharSetCd></mdChar><mdHrLv><ScopeCd Sync="TRUE" value="005"></ScopeCd></mdHrLv><mdHrLvName Sync="TRUE">dataset</mdHrLvName><distInfo><distributor><distorTran><onLineSrc><orDesc Sync="TRUE">002</orDesc><linkage Sync="TRUE">file://\\WCMC-PC-01165\D$\WorldAtlasOfMangroves\globalmangrove_layers_Atlas 2010\globalmangrove_layers_only\WorldAtlasofMangroves2010\Mangrove_2010.gdb</linkage><protocol Sync="TRUE">Local Area Network</protocol></onLineSrc><transSize Sync="TRUE">60.431</transSize></distorTran><distorFormat><formatName Sync="TRUE">File Geodatabase Feature Class</formatName></distorFormat></distributor></distInfo><refSysInfo><RefSystem><refSysID><identCode Sync="TRUE">GCS_WGS_1984</identCode></refSysID></RefSystem></refSysInfo><spatRepInfo><VectSpatRep><topLvl><TopoLevCd Sync="TRUE" value="001"></TopoLevCd></topLvl><geometObjs Name="AmericanSamoa"><geoObjTyp><GeoObjTypCd Sync="TRUE" value="001"></GeoObjTypCd></geoObjTyp><geoObjCnt Sync="TRUE">0</geoObjCnt></geometObjs></VectSpatRep></spatRepInfo><mdDateSt Sync="TRUE">20110110</mdDateSt></metadata>
