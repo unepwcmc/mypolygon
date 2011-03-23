@@ -34,7 +34,7 @@ class Tenement < ActiveRecord::Base
           url = "http://localhost:4567/marine_search/coral"
           field_setter = "query_area_coral_km2="
         when "mangroves"
-          url = ""
+          url = "http://localhost:4567/marine_search/mangroves"
           field_setter = "query_area_mangrove_km2="
         when "sea_grass"
           url = ""
