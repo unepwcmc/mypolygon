@@ -84,7 +84,7 @@ class AssesmentsController < ApplicationController
     #READ IN AND CREATE TENEMENTS
     tenement = Tenement.create_from_geojson(params[:data],@assesment)
 
-    tenement.analysePolygon(params[:data], [:protected_areas, :coral])
+    tenement.analysePolygon(params[:data], params[:sources])
     render :json => @assesment.as_json
   end
     

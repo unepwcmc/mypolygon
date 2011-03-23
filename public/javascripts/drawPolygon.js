@@ -137,7 +137,12 @@ function polys2geoJson(polygons) {
 
 function submitPolygon(){
 	var geojson = polys2geoJson([poly]);
-	var dataObj = {"data": geojson};
+  var sources = [];
+  $('#layers input:checkbox:checked').each(function() {
+    sources.push($(this).val());
+  });
+
+	var dataObj = {"data": geojson, "sources": sources};
 	$.ajax({
       type: 'POST',
   		url: "assesments/createFromPolygon",

@@ -19,7 +19,7 @@ class Tenement < ActiveRecord::Base
   end
 
   # call ppe web service, get results and store locally
-  def analysePolygon(geojson, data_sources)
+  def analysePolygon(geojson, data_sources = ["protected_areas"])
     self.query_area_km2 = 0
     self.query_area_carbon_kg = 0
     self.save
@@ -28,16 +28,15 @@ class Tenement < ActiveRecord::Base
     wkt = GeomHelper.geojson_to_wkt geojson
     query = [{:id => self.id, :the_geom => wkt}].to_json
 
-    data_sources ||= []
     data_sources.each { |source|
       case source
-        when :coral
+        when "coral"
           url = "http://localhost:4567/marine_search/coral"
           field_setter = "query_area_coral_km2="
-        when :mangroves
+        when "mangroves"
           url = ""
           field_setter = "query_area_mangrove_km2="
-        when :sea_grass
+        when "sea_grass"
           url = ""
           field_setter = "query_area_sea_grass_km2="
         else
@@ -63,7 +62,7 @@ class Tenement < ActiveRecord::Base
       self.save
     }
 
-    if data_sources.include?( :protected_areas )
+    if data_sources.include?( "protected_areas" )
       ok = true
       begin
         # call API

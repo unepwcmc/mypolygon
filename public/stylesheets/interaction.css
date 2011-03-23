@@ -1,24 +1,20 @@
-div#map_tools {position:absolute; bottom:10px; right:10px; z-index:1000; width:185px; height:107px; background:url(../images/sites/float.png) no-repeat 0 0; padding:0 6px 6px;}
-div#map_tools div#area_tooltip {position:absolute; display:none; right:8px; bottom:116px; z-index:100; background:url(../images/sites/area_tooltip.png) no-repeat 0 0; width:190px; height:110px;}
-div#map_tools h3 {float:left; font:bold 13px Arial; color:#99B3C9; margin:0; padding:7px 0 0 0;}
-div#map_tools span {position:relative; float:right; font:bold 13px Arial; color:#FFFFFF; padding:3px 13px 0 0; cursor:default;}
-div#map_tools span img {position:absolute; right:12px; top:6px;}
-div#map_tools div {float:left; margin:24px 0 0 0; width:100%;}
-div#map_tools div a:focus {outline:none;}
-div#map_tools div a#select {float:left; width:82px; height:45px; background:url(../images/sites/edit_polygon.png) no-repeat 0 2px; margin:0 0 0 4px;}
-div#map_tools div a#select:hover {background-position:0 -45px;}
-div#map_tools div a#select.selected {background-position: 0 -45px;}
-div#map_tools div a#select.selected:hover {background-position:0 -45px;}
-div#map_tools div a#remove {float:left; width:82px; height:45px; background:url(../images/sites/remove_vertex.png) no-repeat 0 2px; margin:0 0 0 7px;}
-div#map_tools div a#remove:hover {background-position:0 -45px;}
-div#map_tools div a#remove.selected {background-position: 0 -45px;}
-div#map_tools div a#remove.selected:hover {background-position:0 -45px;}
-div#map_tools div a#draw {float:left; width:82px; height:45px; background:url(../images/sites/draw_polygon.png) no-repeat 0 2px; margin:0 0 0 7px;}
-div#map_tools div a#draw:hover {background-position:0 -45px;}
-div#map_tools div a#draw.selected {background-position: 0 -45px;}
-div#map_tools div a#draw.selected:hover {background-position:0 -45px;}
-div#map_tools div a#done {float:left; width:82px; height:45px; margin:0 0 0 7px; background:url(../images/sites/done_geometry_1.png) no-repeat 0 0;}
-div#map_tools div a#done:hover {background-position:0 -45px;}
-div#map_tools div a#done.disabled {background:url(../images/sites/done_geometry_1.png) no-repeat 0 -90px;}
-div#map_tools div a#done.disabled:hover {background-position:0 -90px;}
-div#map_tools div a#done.loading {background:url(../images/sites/ajax-loader.gif) no-repeat 0 0;}
+#map_tools {position:absolute; bottom:10px; right:10px; z-index:1000; width:150px; background:url(../images/sites/float_for_tools.png) no-repeat top left; padding: 6px; margin-bottom: 18px; text-align: center;}
+#map_tools .shader { position: absolute; bottom: -11px; left: 0; width: 100%; height: 20px; background:url(../images/sites/float_for_tools__bottom_shade.png) no-repeat bottom left; }
+#map_tools ul#layers { list-style-type: none; display: inline-block; text-align: left; }
+#map_tools #layers .disabled { text-decoration: line-through; }
+#map_tools #area_tooltip {position:absolute; display:none; right:8px; bottom:116px; z-index:100; background:url(../images/sites/area_tooltip.png) no-repeat 0 0; width:190px; height:110px;}
+#map_tools h3 {font:bold 13px Arial; color:#99B3C9; margin: 3px; margin-bottom: 13px; text-align: left;}
+#map_tools span {position:relative; float:right; font:bold 13px Arial; color:#FFFFFF; padding:3px 13px 0 0; cursor:default;}
+#map_tools span img {position:absolute; right:12px; top:6px;}
+#map_tools .buttons { margin-top: 13px; }
+#map_tools a:focus {outline:none;}
+#map_tools a { display: inline-block; width:110px; height:45px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+#map_tools a:hover,
+#map_tools a#done:hover {
+    background-position: center -45px;
+}
+#map_tools a#done.disabled:hover {background-position: center -90px;}
+#map_tools a#done { background: #ff9900 url(../images/sites/done_geometry_1.png) no-repeat center 0;}
+#map_tools a#done:hover { background-color: #c64819; }
+#map_tools a#done.disabled {background: #cccccc url(../images/sites/done_geometry_1.png) no-repeat center -90px;}
+#map_tools a#done.loading {background: white url(../images/sites/ajax-loader.gif) no-repeat center 0;}
