@@ -2003,6 +2003,6 @@ li.sfHover > a > .sf-sub-indicator { background-position: -10px -100px;}
 .sf-shadow ul { background:	url(/images/admin/shadow.png) no-repeat bottom right; padding: 0 8px 9px 0; -moz-border-radius-bottomleft: 17px; -moz-border-radius-topright: 17px; -webkit-border-top-right-radius: 17px; -webkit-border-bottom-left-radius: 17px;}
 .sf-shadow ul.sf-shadow-off { background: transparent;}
 
-.percent { position: relative; display: inline-block; text-align: center; vertical-align: middle; min-width: 50px; border: solid #a9a9a9 1px; color:transparent; }
+.percent { position: relative; display: inline-block; text-align: center; vertical-align: middle; width: 75px; border: solid #a9a9a9 1px; color:transparent; }
 .percent .bar { position: absolute; top: 0px; left: 0px; background-color: gray; height:100%; }
 
