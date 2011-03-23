@@ -37,14 +37,19 @@
 	    </div>
 
         <div id="map_tools">
-            <h3>Tools</h3>
+            <h3>Select layers</h3>
+            <ul id="layers">
+              <li class="disabled"><label><input type="checkbox" value="protected_areas" checked="checked" disabled="disabled" /> Protected areas</label></li>
+              <li><label><input type="checkbox" value="coral" /> Corals</label></li>
+              <li class="disabled"><label><input type="checkbox" value="mangroves" disabled="disabled" /> Mangroves</label></li>
+              <li class="disabled"><label><input type="checkbox" value="sea_grass" disabled="disabled" /> Sea grass</label></li>
+            </ul>
             <div id="area_tooltip"></div>
             <span><img src="images/sites/ajax-loader.gif" style="display:none" id="loader_image"/></span>
-            <div>
-                <!--<a id="select" href="javascript: void stopEditing()"></a>-->
-                <!--<a id="draw" href="javascript: void startPolygon()"></a>-->
+            <div class="buttons">
                 <a id="done" class="disabled" onclick="submitPolygon(); $('#done').addClass('loading'); return false;" href="#"></a>
             </div>
+            <div class="shader"> </div>
         </div>
 			
 	    <div id="searchBox">
