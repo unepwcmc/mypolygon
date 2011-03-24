@@ -92,6 +92,7 @@ class AssesmentsController < ApplicationController
     @a = Assesment.find(params[:id]) #.includes(:tenements => :sites)
     
     # percent protected to non protected
+    #if PAs overlap, this racks up. (sadface.png)
     protected_area = @a.tenements.inject(0){|sum,tenement|sum+tenement.sites.sum("query_area_protected_km2")}
     total_area     = @a.tenements.sum(:query_area_km2)
     @percent_protected = protected_area.out_of total_area
