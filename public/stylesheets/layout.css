@@ -1301,14 +1301,13 @@ div#left_small_container div.search_list ul{float:left; width:620px; list-style:
 div#left_small_container div.search_list li{position:relative; float:left; width:620px; padding:10px 0 10px 0; border-bottom: 1px #c5c5c5 dotted;}
 div#left_small_container div.search_list li.none{float:left; background:none;}
 div#left_small_container div.search_list li.first{float:left; padding-top:6px;}
-div#left_small_container div.search_list li div.pic_area{float:left; border-top:1px solid #d0d7e1; border-right:1px solid #d0d7e1; border-left:1px solid #d0d7e1; background:#f7f7f7; padding:3px; margin:0 10px 0 0;}
-div#left_small_container div.search_list li div.pic_area div {overflow:hidden; width:169px; height:111px;}
-div#left_small_container div.search_list li div.pic_area div img{float:left;}
-div#left_small_container div.search_list ul li div.avatarBottomEnd{background: url(../images/common/avatarBottomEnd.gif) no-repeat 0 0; height:7px; width:177px; margin:0; position: absolute; left:0; bottom:3px;}
+div#left_small_container div.search_list li div.pic_area{float:left; position:relative;border-top:1px solid #d0d7e1; border-right:1px solid #d0d7e1; border-left:1px solid #d0d7e1; background:#f7f7f7; padding:3px; margin:0 10px 0 0;}
+div#left_small_container div.search_list li div.pic_area a.searchImage {display: block; overflow:hidden; width:169px; height:111px;}
+div#left_small_container div.search_list ul li div.avatarBottomEnd{background: url(../images/common/avatarBottomEnd.gif) no-repeat 0 0; height:7px; width:177px; margin:0; position: absolute; left:-1px; bottom:-7px;}
 
 
 div#left_small_container div.search_list li div.content_center{float:left; width:430px;}
-div#left_small_container div.search_list li div.content_center div.top_information {float:left; height: 102px;}
+div#left_small_container div.search_list li div.content_center div.top_information {float:left;}
 div#left_small_container div.search_list li div.content_center div.top_information h4{float:left; width:430px; font: bold 17px Arial; line-height:15px; color:#006699; padding:0; margin:0; margin-bottom:3px; margin-top:4px;}
 div#left_small_container div.search_list li div.content_center div.top_information h4 a{color:#336699; text-decoration:none;}
 div#left_small_container div.search_list li div.content_center div.top_information h4 a:hover{text-decoration:none; color:#003366;}

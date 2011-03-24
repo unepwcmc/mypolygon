@@ -4,18 +4,33 @@ module ApplicationHelper
     "environments/#{Rails.env.downcase}"
   end
 
-  def to_percent percent, precision=1, none_text = 'none'
-    return none_text if percent == 0
-    percent = number_with_precision(100 * percent, :precision => precision)
-    percent_slider(percent) + percent.to_s + '%'
+  def overlapping_percent_of part, total, options ={}
+    defaults = {:precision => 4, :units => "km2", :notice => "no coverage"}
+    percent_of part, total, options.reverse_merge(defaults)
   end
 
-  def percent_bar percent
-    " <span class='percent'><div class='bar' style='width: #{percent}%; background-color: #{calculate_bg percent};'></div>#{percent} %</span> ".html_safe
+  def percent_of part, total, options = {}
+    options.reverse_merge! :precision => 1, :notice => 'none'
+
+    percent = part.out_of(total)
+    return options[:notice] if percent == 0
+
+    units = options[:units]
+    units = "km<sup>2</sup>" if units == "km2"
+
+    percent = number_with_precision(100 * percent, :precision => options[:precision])
+    res = percent_slider(percent) + percent.to_s + "% [" + number_with_precision(part, :precision => options[:precision]||1)
+    res += " #{units}".html_safe if units
+    res += "]"
+    res.html_safe
   end
 
-  def percent_slider percent
-    " <span class='percent_slider'><div class='bar' style='left: #{percent}%; background-color: #{calculate_bg percent};'></div>#{percent} %</span> ".html_safe
+  def percent_bar percent, colored = false
+    " <span class='percent'><div class='bar' style='width: #{percent}%; #{"background-color: #{calculate_bg percent};" if colored}'></div>#{percent} %</span> ".html_safe
+  end
+
+  def percent_slider percent, colored = false
+    " <span class='percent_slider'><div class='bar' style='left: #{percent}%; #{"background-color: #{calculate_bg percent};" if colored }'></div> &nbsp; </span> ".html_safe
   end
 
   private

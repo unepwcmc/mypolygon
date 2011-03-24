@@ -1,8 +1,7 @@
 <li class="first">
-	<div class="pic_area" style="position:relative; overflow:hidden;">
-		<div style="position:relative; overflow:hidden;">
-			<%= link_to image_tag("http://maps.google.com/maps/api/staticmap#{search_result.epl(169,120)}&sensor=false", {:style => 'width:169px'}), assesment_tenement_path(@a, search_result), :class => "searchImage" %>
-		</div>
+	<div class="pic_area">
+      <%= link_to image_tag("http://maps.google.com/maps/api/staticmap#{search_result.epl(169,120)}&sensor=false", {:style => 'width:169px'}), assesment_tenement_path(@a, search_result), :class => "searchImage" %>
+      <div class="avatarBottomEnd"></div>
 	</div>
 
 	<div class="content_center">
@@ -29,14 +28,14 @@
                     <tr>
                       <td><b>protected areas coverage</b></td>
                       <td class="result">
-                        <%= to_percent search_result.percentage_protected %>
+                        <%= overlapping_percent_of search_result.percentage_protected, 1, :precision => 1 %>
                       </td>
                     </tr>
                     <% if search_result.query_area_coral_km2 %>
                       <tr>
                         <td><b>corals coverage</b></td>
                         <td class="result">
-                          <%= to_percent search_result.query_area_coral_km2.out_of(search_result.query_area_km2), 4  %>
+                          <%= overlapping_percent_of search_result.query_area_coral_km2, search_result.query_area_km2 %>
                         </td>
                       </tr>
                     <% end %>
@@ -44,7 +43,7 @@
                       <tr>
                         <td><b>mangroves coverage</b></td>
                         <td class="result">
-                          <%= to_percent search_result.query_area_mangrove_km2.out_of(search_result.query_area_km2), 4  %>
+                          <%= overlapping_percent_of search_result.query_area_mangrove_km2, search_result.query_area_km2 %>
                         </td>
                       </tr>
                     <% end %>
@@ -52,7 +51,7 @@
                       <tr>
                         <td><b>sea grass coverage</b></td>
                         <td class="result">
-                          <%= to_percent search_result.query_area_sea_grass_km2.out_of(search_result.query_area_km2), 4  %>
+                          <%= overlapping_percent_of search_result.query_area_sea_grass_km2, search_result.query_area_km2 %>
                         </td>
                       </tr>
                     <% end %>
@@ -61,5 +60,4 @@
 			<p>
  		</div>
 	</div>
-	<div class="avatarBottomEnd"></div>
 </li>

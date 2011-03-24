@@ -50,8 +50,9 @@ class Tenement < ActiveRecord::Base
         next
       end
       next unless res
-      if res.include? :error
-        msg = "Error fetching data from #{source} data source: " + res[:error]
+      if res.include? "error"
+        msg = "Error fetching data from #{source} data source: " + res["error"]
+        puts msg
         logger.error msg
         next
       end

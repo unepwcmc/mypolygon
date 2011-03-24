@@ -109,13 +109,13 @@
                                   <h3>Other data</h3>
                                   <ul class="otherData">
                                     <% if @t.query_area_coral_km2 %>
-                                        <li><strong>Coral coverage:</strong> <%= to_percent @t.query_area_coral_km2.out_of(@t.query_area_km2), 4  %></li>
+                                        <li><strong>Coral coverage:</strong> <%= overlapping_percent_of @t.query_area_coral_km2, @t.query_area_km2 %></li>
                                     <% end %>
                                     <% if @t.query_area_mangrove_km2 %>
-                                        <li><strong>Mangroves coverage:</strong> <%= to_percent @t.query_area_mangrove_km2.out_of(@t.query_area_km2), 4  %></li>
+                                        <li><strong>Mangroves coverage:</strong> <%= overlapping_percent_of @t.query_area_mangrove_km2, @t.query_area_km2 %></li>
                                     <% end %>
                                     <% if @t.query_area_sea_grass_km2 %>
-                                        <li><strong>Sea grass coverage:</strong> <%= to_percent @t.query_area_sea_grass_km2.out_of(@t.query_area_km2), 4  %></li>
+                                        <li><strong>Sea grass coverage:</strong> <%= overlapping_percent_of @t.query_area_sea_grass_km2, @t.query_area_km2 %></li>
                                     <% end %>
                                   </ul>
                                   <% end %>
