@@ -136,11 +136,20 @@ function polys2geoJson(polygons) {
 }
 
 function submitPolygon(){
+  $('#done').addClass('loading');
 	var geojson = polys2geoJson([poly]);
   var sources = [];
   $('#layers input:checkbox:checked').each(function() {
     sources.push($(this).val());
   });
+
+  area = google.maps.geometry.spherical.computeArea(poly.getPath());
+  if(area > MAX_POLYGON_AREA_KM2 * 1000 * 1000)
+  {
+    alert("Your polygon is too large ("+Math.round(area/1000/1000)+" km2), please limit its area to "+MAX_POLYGON_AREA_KM2+" km2.");
+    $('#done').removeClass('loading');
+    return false;
+  }
 
 	var dataObj = {"data": geojson, "sources": sources};
 	$.ajax({
@@ -150,11 +159,16 @@ function submitPolygon(){
   		cache: false,
 			dataType: 'json',
   		success: function(result){
-				$('#loader_image').hide();
-                window.location = 'assesments/' + result.assesment.id;
+        if(typeof(result.assesment) != "undefined") {
+          window.location = 'assesments/' + result.assesment.id;
+        } else {
+          alert( result.error ||"Unknown error while uploading polygon.\nIs the polygon too big?\nOr perhaps its edges intersect each-other?" );
+        }
+        $('#done').removeClass('loading');
   		},
     	error:function (xhr, ajaxOptions, thrownError){
-				$('#loader_image').hide();
+        alert(thrownError);
+        $('#done').removeClass('loading');
      	}
 		});
 }

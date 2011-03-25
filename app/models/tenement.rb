@@ -13,9 +13,25 @@ class Tenement < ActiveRecord::Base
 
   validates_presence_of :query_area_km2
 
+
+  MAX_SHP_FILESIZE_MB = 2
+  MAX_POLYGON_AREA_KM2 = 25
+
   def self.create_from_geojson (geojson,assesment)
-        wkb = ActiveRecord::Base.connection.execute("SELECT ST_GeomFromText('#{GeomHelper.geojson_to_wkt geojson}')")
+    polygon_wkt = GeomHelper.geojson_to_wkt geojson
+    validate_max_area polygon_wkt
+        wkb = ActiveRecord::Base.connection.execute("SELECT ST_GeomFromText('#{polygon_wkt}')")
         assesment.tenements.create :the_geom =>  wkb.getvalue(0,0)
+  end
+
+  def self.validate_max_area polygon_wkt, srid = GeoRuby::SimpleFeatures::DEFAULT_SRID
+    area = ActiveRecord::Base.connection.select_value("SELECT (ST_Area(ST_Transform(ST_GeomFromText('#{polygon_wkt}',#{srid}),954009)))").to_i
+    area = area / 1000000 . to_i
+    if area <= Tenement::MAX_POLYGON_AREA_KM2
+      return true
+    end
+    raise "Your polygon is too large (#{area} km2), please limit its area to #{Tenement::MAX_POLYGON_AREA_KM2} km2."
+    redirect_to root_url
   end
 
   # call ppe web service, get results and store locally

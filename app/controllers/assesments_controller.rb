@@ -16,7 +16,13 @@ class AssesmentsController < ApplicationController
 
       #test file ending
       if !file_name.ends_with? ".zip"
-        flash[:notice] = "You must import a zip file"
+        flash[:warning] = "You must import a zip file"
+        redirect_to root_url
+        return
+      end
+
+      if params[:assesment][:shape].size > Tenement::MAX_SHP_FILESIZE_MB*1000*1000
+        flash[:warning] = "Max file size is #{Tenement::MAX_SHP_FILESIZE_MB}MB."
         redirect_to root_url
         return
       end
@@ -51,6 +57,9 @@ class AssesmentsController < ApplicationController
 
           #READ IN AND CREATE TENEMENTS
           GeoRuby::Shp4r::ShpFile.open(File.join(directory,f)) do |shp|
+            shp.each { |polygon|
+              Tenement.validate_max_area polygon.geometry.as_wkt, polygon.geometry.srid
+            }
             shp.each do |shape|
               @assesment.tenements.create :the_geom => shape.geometry, :attribute_data => shape.data, :query_area_km2 => 0 # must be filled later.
             end
@@ -73,6 +82,7 @@ class AssesmentsController < ApplicationController
     rescue Exception => e
       msg = "File couldn't be uploaded: #{e.inspect}"
       Rails.logger.fatal msg
+      flash[:error] = msg
       redirect_to root_url
     end        
   end
@@ -82,10 +92,16 @@ class AssesmentsController < ApplicationController
     @assesment ||= Assesment.create()
 
     #READ IN AND CREATE TENEMENTS
-    tenement = Tenement.create_from_geojson(params[:data],@assesment)
-
-    tenement.analysePolygon(params[:data], params[:sources])
-    render :json => @assesment.as_json
+    begin
+      tenement = Tenement.create_from_geojson(params[:data],@assesment)
+    rescue Exception => e
+      msg = "Tenement couldn't be uploaded: #{e.message}"
+      Rails.logger.fatal "#{msg} (#{e.class})"
+      render :json => {:error => msg}
+    else
+      tenement.analysePolygon(params[:data], params[:sources])
+      render :json => @assesment.as_json
+    end
   end
     
   def show
