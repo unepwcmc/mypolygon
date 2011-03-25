@@ -10,9 +10,7 @@
 </head>
 <body>
 <div class="container">
-  <% if flash[:notice] %>
-		<div id="flash" class="notice"><%= flash[:notice] %></div>
-	<% end -%>
+    <%= render :partial => "layouts/flash", :locals => { :flash => flash }%>
 	<h1 style="margin-bottom:0.75em;"><%= link_to image_tag("logo.png"), root_url %></h1>
 
 		<%= yield :map%>	

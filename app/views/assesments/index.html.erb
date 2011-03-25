@@ -28,6 +28,7 @@
 
 	</head>
 	<body>
+        <%= render :partial => "layouts/flash", :locals => { :flash => flash }%>
 		<a id="zoomIn"></a>
 		<a id="zoomOut"></a>
 		<p id="loading">Transfering data</p>

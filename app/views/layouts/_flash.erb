@@ -1,0 +1,24 @@
+<div id="flash">
+  <% flash.each do |key, msg| %>
+      <div class="<%= key %> message">
+        <a class="close-button" href="#">
+          <%= image_tag "icons/close.png", :alt =>"close", :title => "close" %>
+        </a>
+        <%= msg %>
+      </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+    //$('#flash .message').fadeOut(30000);
+    $('#flash .message').live("hover", function() {
+        var item = $(this);
+        if (item.is(".cancelled")) {
+            return;
+        }
+        item.addClass("cancelled");
+        item.stop().animate({opacity:'100'});
+    });
+    $("#messages .message .close-button").live("click", function() {
+        $(this).parent(".message").hide(500);
+    });
+</script>

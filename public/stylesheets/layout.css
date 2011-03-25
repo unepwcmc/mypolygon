@@ -729,11 +729,33 @@ div#upper_area div.content div.terms_conditions p a:hover {color: #254c72; borde
 .form_error{ margin:90px 1em 1em 1em; padding:1em; background:#ffcccc; border:5px solid #ffbbbb; color:#ff5555; font-weight:bold; -moz-border-radius:3px; -webkit-border-radius:3px }
 
 /*FLASH*/
-div#flash {top:0px; left:0; position:absolute; width:100%; background:#FF6633; font:normal 13px Arial; color:#FFFFFF; border-bottom:2px solid #FFFFFF; text-align:center; padding:12px 0; z-index:100000;}
+/*div#flash {top:0px; left:0; position:absolute; width:100%; background:#FF6633; font:normal 13px Arial; color:#FFFFFF; border-bottom:2px solid #FFFFFF; text-align:center; padding:12px 0; z-index:100000;}
 div#flash.success{background:#99CC66;}
 div#flash.notice{background:#FF6633;}
-div#flash.error{background:#B22222}
+div#flash.error{background:#B22222}*/
 
+#flash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2003;
+    padding: 5px;
+}
+#flash .message {
+    clear:right;
+    float: right;
+    width: 250px;
+    padding: 5px;
+    margin: 5px;
+    background: #99CC66;
+    border: solid 1px gray;
+    border-radius: 3px;
+}
+#flash .message.notice {}
+#flash .message.success { background-color: #99CC66; }
+#flash .message.warning { background-color: #FF6633; }
+#flash .message.error { background-color: #B22222; }
+#flash .message .close-button { float: right; margin:2px; padding:2px; background-color: #d3d3d3; border-radius:3px; }
 
 /*PA DATASHEET*/
 .unknown_value { color:red; font-weight:bold; font-size:11px;}
