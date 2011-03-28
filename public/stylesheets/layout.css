@@ -102,7 +102,7 @@ div#searchBox {width:800px; height:215px; margin:120px auto auto auto; position:
 div#searchBox .close { position: absolute; top: 25px; right:35px;  }
 div#searchBox label {font:bold 17px Arial; color:white; text-shadow: #386876 0px -1px 0px; letter-spacing:-0.5px;}
 div#searchBox h3 {float:left; width:700px; text-shadow: #386876 0px -1px 0px; font:bold 33px Arial; color: #133E64; letter-spacing:-1px; padding:0; margin:40px 0 0 36px;}
-div#searchBox div#search_input {float:left; width:400px; height:80px; margin:15px 0 0 36px;}
+div#searchBox div#search_input {float:left; width:400px; height:80px; margin:15px 0 0 36px; color: white;}
 div#searchBox input#search_inputText {float:left; width:320px; padding:9px 8px 10px 8px; margin-top:5px; font:normal 15px Arial; color:#999999; background:url(../images/common/textinput.png) no-repeat 0 0; border:none;}
 div#searchBox input#search_inputText:focus {border:none; outline:none;}
 div#searchBox input#search_inputButton {float:left; width:120px; height:36px; margin-top:5px; padding:0px 8px 0 8px; font:bold 21px Arial; color:#FFFFFF; background:url(../images/common/search.png) no-repeat right 0; border:none; letter-spacing:-1px;}
@@ -734,28 +734,52 @@ div#flash.success{background:#99CC66;}
 div#flash.notice{background:#FF6633;}
 div#flash.error{background:#B22222}*/
 
-#flash {
+#messages {
     position: absolute;
     top: 0;
     right: 0;
     z-index: 2003;
     padding: 5px;
 }
-#flash .message {
+
+#messages .close-button { float: right; padding: 4px; background-color: #d3d3d3; border-radius:3px; }
+
+#flash .message,
+#help {
     clear:right;
     float: right;
     width: 250px;
-    padding: 5px;
     margin: 5px;
-    background: #99CC66;
+    padding: 5px;
+    background: #d3d3d3;
     border: solid 1px gray;
     border-radius: 3px;
 }
-#flash .message.notice {}
+#flash .message.notice { background-color: #ffffe0; }
 #flash .message.success { background-color: #99CC66; }
 #flash .message.warning { background-color: #FF6633; }
 #flash .message.error { background-color: #B22222; color: white; }
-#flash .message .close-button { float: right; margin:2px; padding:2px; background-color: #d3d3d3; border-radius:3px; }
+
+#help {
+    background-color: white;
+    width: 350px;
+    display: none;
+    padding: 0px;
+}
+#help .close-button {
+    margin: 5px;
+}
+#help h3 {
+    font:bold 13px Arial;
+    color:#99B3C9;
+    background-color: #326696;
+}
+#help>* {
+    padding: 9px;
+}
+#help ul {
+    list-style-position: inside;
+}
 
 /*PA DATASHEET*/
 .unknown_value { color:red; font-weight:bold; font-size:11px;}

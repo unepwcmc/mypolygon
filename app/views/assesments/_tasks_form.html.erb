@@ -3,7 +3,7 @@
     <div id="selectionBox">
             <label>Choose how to submit your data</label><br />
             <div class="draw_map">
-              <%= link_to "Draw on Map", "#", :onclick => "$('#download_window').hide();startPolygon();$('#map_tools').show();", :class => "button" %>
+              <%= link_to "Draw on Map", "#", :onclick => "$('#download_window').hide(); $('#help').show(); startPolygon();$('#map_tools').show();", :class => "button" %>
             </div>
             <div class="upload_file">
               <%= link_to "Upload File", "#", :onclick => "$('#download_window').hide();$('#searchBox').show();", :class => "button" %>

@@ -9,7 +9,7 @@
   <% end %>
 </div>
 <script type="text/javascript">
-    //$('#flash .message').fadeOut(30000);
+    /*$('#flash .message').fadeOut(30000);
     $('#flash .message').live("hover", function() {
         var item = $(this);
         if (item.is(".cancelled")) {
@@ -17,8 +17,8 @@
         }
         item.addClass("cancelled");
         item.stop().animate({opacity:'100'});
-    });
-    $("#messages .message .close-button").live("click", function() {
-        $(this).parent(".message").hide(500);
+    });*/
+    $("#messages .close-button").live("click", function() {
+        $(this).parent().hide("normal");
     });
 </script>

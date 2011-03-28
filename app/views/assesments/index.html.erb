@@ -30,7 +30,23 @@
         </script>
 	</head>
 	<body>
-        <%= render :partial => "layouts/flash", :locals => { :flash => flash }%>
+        <div id="messages">
+            <%= render :partial => "layouts/flash", :locals => { :flash => flash }%>
+            <div id="help">
+                <a class="close-button" href="#">
+                  <%= image_tag "icons/close.png", :alt =>"close", :title => "close" %>
+                </a>
+                <h3>Help</h3>
+                <ul>
+                  <li>Click on the map to add a vertex</li>
+                  <li>Click on a vertex to delete it</li>
+                  <li>Drag a vertex to move it</li>
+                  <li>Polygons must have at least 3 vertexes</li>
+                  <li>Polygon max accepted area is <strong><%=Tenement::MAX_POLYGON_AREA_KM2%>km<sup>2</sup></strong></li>
+
+                </ul>
+            </div>
+        </div>
 		<a id="zoomIn"></a>
 		<a id="zoomOut"></a>
 		<p id="loading">Transfering data</p>
@@ -61,7 +77,7 @@
                 </a>
 				<h3>Polygon queries for ProtectedPlanet.net</h3>
 				<div id="search_input">
-					<label>Upload a new polygon</label>
+					<label>Upload a new polygon (max size <%= Tenement::MAX_SHP_FILESIZE_MB %>MB)</label>
 					<%= form_for @assesment, :html => {:multipart => true} do |f| %>
 						<div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
                             <%= f.file_field :shape, :class => 'file_input' %>
