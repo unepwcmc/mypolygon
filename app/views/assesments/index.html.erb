@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head lang="en" xml:lang="en">
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title>ProtectedPlanet.net - Explore Protected Areas</title>
-		<meta name="description" content="Discover and help Protected Areas globally. The latest innovation from the World Database on Protected Areas">
-		<meta name="keywords" content="Protected Area, PA, WDPA, World Database on Protected Areas, conservation, biodiversity, iucn, unep, united nations, unep-wcmc, National Park, World Heritage Site">
+		<title>MyPolygon</title>
+		<meta name="description" content="Inspect which protected areas are overlapped by a certain shaped area.">
+		<meta name="keywords" content="Protected Area, PA, corals, mangroves, conservation, biodiversity, iucn, unep, united nations, unep-wcmc">
 		
 		<!-- STYLESHEETS GO HERE -->
 		<%= raw(stylesheet_link_merged :base) %>
@@ -64,7 +64,6 @@
               <li class="disabled"><label><input type="checkbox" value="sea_grass" disabled="disabled" /> Sea grass</label></li>
             </ul>
             <div id="area_tooltip"></div>
-            <span><img src="images/sites/ajax-loader.gif" style="display:none" id="loader_image"/></span>
             <div class="buttons">
                 <a id="done" class="disabled" onclick="submitPolygon(); return false;" href="#"></a>
             </div>
@@ -75,7 +74,7 @@
                 <a href="#" onclick="$('#download_window').show();$('#searchBox').hide();" class="close">
                   <%= image_tag 'icons/close_session.png', :alt=>"close" %>
                 </a>
-				<h3>Polygon queries for ProtectedPlanet.net</h3>
+				<h3>Upload</h3>
 				<div id="search_input">
 					<label>Upload a new polygon (max size <%= Tenement::MAX_SHP_FILESIZE_MB %>MB)</label>
 					<%= form_for @assesment, :html => {:multipart => true} do |f| %>
@@ -99,8 +98,8 @@
 							<a href="http://www.iucn.org/" target="_blank"><img src="../images/logos/IUCNhome.gif"></a>
 							<a href="http://www.iucn.org/about/union/commissions/wcpa/" target="_blank"><img src="../images/logos/WCPAhome.gif"></a>
 						 </div>
-						 <div class="bottomLinks"><p>&copy; 2010 ProtectedPlanet.net / All rights reserved / <%= link_to 'all', "http://www.protectedplanet.net/search" %> /
-							<%= link_to 'blog', "http://blog.protectedplanet.net"%> / <%= link_to 'about', "http://www.protectedplanet.net/about" %><!--<a href="#">/ sitemap</a>--></p></div>
+						 <div class="bottomLinks"><p>&copy; 2010 All rights reserved / <!--<#%= link_to 'about', about_path %>
+						 --></p></div>
 					</div>
 				</div>
 				

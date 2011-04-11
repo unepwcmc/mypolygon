@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head lang="en" xml:lang="en">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title> ProtectedPlanet - Tenement Analysis</title>
+    <title>MyPolygon - Tenement Analysis</title>
 
     <!-- STYLESHEETS GO HERE -->
     <%= raw(stylesheet_link_merged :base) %>
@@ -43,11 +43,11 @@
       <div id="outer_footer">
         <div id="inside_footer">
           <div id="footer">
-            <p>ProtectedPlanet.net - 2010 - All rights reserved</p>
+            <p>&copy; 2010 - All rights reserved</p>
             <ul>
               <li class="none">
               <%= link_to "Explore", {:controller => 'assesments', :action => 'index', :anchor => session[:home_anchor]} %></li>
-              <li><%= link_to "About", "http://www.protectedplanet.net" %></li>
+              <!--<li><%#= link_to "About", about_path %></li>-->
             </ul>
             <div class="powered"> 
               <a href="http://www.iucn.org/about/union/commissions/wcpa/"><img src="/images/logos/wcpa.gif" class="last" alt=""/></a>
