@@ -9,7 +9,8 @@
     cursor: default;
 }
 .simplemodal-overlay,
-#initial_dialog>* {
+#initial_dialog .buttons li a,
+#initial_dialog .description {
     opacity: 0.8;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* opacity for IE8 */
     filter: alpha(opacity = 80); /* opacity for IE7- */
@@ -51,6 +52,11 @@
     vertical-align: middle;
     text-align: center;
 }
+#initial_dialog .buttons li a.selected {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; /* opacity for IE8 */
+    filter: alpha(opacity = 100); /* opacity for IE7- */
+}
 
 #initial_dialog .description {
     margin-right: 155px;
@@ -59,6 +65,26 @@
     padding: 35px;
     min-height: 51px;
 }
+
+#initial_dialog .search_location input {
+    margin-top: 15px;
+    font-size: 105%;
+}
+#initial_dialog .search_location input[type="text"] {
+    width: 265px;
+    margin-right: 1px;
+}
+#initial_dialog .search_location input[type="submit"] {
+    border: 0;
+    margin: 0;
+    padding: 2px 10px;
+    color: white;
+    background-color: #ff9900;
+    font-weight: bold;
+    border-radius: 0 2px 2px 0;
+}
+
+
 
 #map_tools {
     position: absolute;

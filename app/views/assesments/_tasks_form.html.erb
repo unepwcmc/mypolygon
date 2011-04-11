@@ -2,8 +2,8 @@
 <div id="initial_dialog">
   <div id="selectionBox">
     <ul class="buttons">
-      <li><%= link_to "Upload File", "#", :class=>"upload_file", :onclick => "$('#selectionBox .description p').hide();$('#selectionBox .description p.upload').show();" %></li>
-      <li><%= link_to "Draw polygon", "#", :class=>"draw_map", :onclick => "$('#selectionBox .description p').hide();$('#selectionBox .description p.search_location').show(); //$('#help').show(); startPolygon();$('#map_tools').show();" %></li>
+      <li><%= link_to "Upload File", "#", :class=>"upload", :onclick => "initialDialogSelect('upload');" %></li>
+      <li><%= link_to "Draw polygon", "#", :class=>"search_location", :onclick => "initialDialogSelect('search_location');" %></li>
     </ul>
     <div class="description">
       <p class="intro">
@@ -16,11 +16,22 @@
 
       <p class="search_location" style="display:none;">
         Enter the name of the location you want to assess:
-        <input type="text" /><input type="submit" value="View on map"/>
+        <input type="text"/><input type="submit" value="View on map"/>
       </p>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    function initialDialogSelect(button) {
+        $('#selectionBox .description p').hide();
+        $('#selectionBox .description p.' + button).show();
+        $('#selectionBox .buttons a').removeClass('selected');
+        $('#selectionBox .buttons a.' + button).addClass('selected');
+    }
+    // TODO: after searching for a location:
+    // $('#help').show(); startPolygon();$('#map_tools').show();
+</script>
 
 
 <div id="searchBox">
