@@ -19,7 +19,9 @@ module ApplicationHelper
     units = "km<sup>2</sup>" if units == "km2"
 
     percent = number_with_precision(100 * percent, :precision => options[:precision])
-    res = percent_slider(percent) + percent.to_s + "% [" + number_with_precision(part, :precision => options[:precision]||1)
+    res = percent_slider(percent)
+    #return res.html_safe if options[:no_text]
+    res += percent.to_s + "% [" + number_with_precision(part, :precision => options[:precision]||1)
     res += " #{units}".html_safe if units
     res += "]"
     res.html_safe
@@ -31,6 +33,10 @@ module ApplicationHelper
 
   def percent_slider percent, colored = false
     " <span class='percent_slider'><div class='bar' style='left: #{percent}%; #{"background-color: #{calculate_bg percent};" if colored }'></div> &nbsp; </span> ".html_safe
+  end
+
+  def percent_scale
+    image_tag 'misc/percent_scale.png', :alt =>'percent scale', :title=>'percent scale', :class => "percent_scale"
   end
 
   private

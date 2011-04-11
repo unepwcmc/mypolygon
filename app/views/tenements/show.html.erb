@@ -132,8 +132,8 @@
 			          <ul>
 									<li><div class="<%= cycle('up','down') %>"> <strong>TENEMENT ID</strong><span><%= @t.id %></span></div></li>
 									<li><div class="<%= cycle('up','down') %> last"> <strong>SITE COUNT</strong><span><%= @t.sites.count%></span></div></li>
-									<li><div class="<%= cycle('up','down') %> last"> <strong>TENEMENT AREA</strong><span><%= number_with_delimiter(number_with_precision(@t.query_area_km2))%> <sup>km2</sup></span></div></li>
-									<li><div class="<%= cycle('up','down') %> last"> <strong>TENEMENT AREA CARBON</strong><span><%= number_with_delimiter(number_with_precision(@t.query_area_carbon_kg.try(:/, 1000))) %><sup>t</sup></span></div></li>
+									<li><div class="<%= cycle('up','down') %> last"> <strong>TENEMENT AREA</strong><span><%= number_with_delimiter(number_with_precision(@t.query_area_km2))%> km&sup2;</span></div></li>
+									<li><div class="<%= cycle('up','down') %> last"> <strong>TENEMENT AREA CARBON</strong><span><%= number_with_delimiter(number_with_precision(@t.query_area_carbon_kg.try(:/, 1000))) %> t</span></div></li>
 			          </ul>
 			        </div>
 							<div class="biodiversity">

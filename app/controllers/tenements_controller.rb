@@ -9,7 +9,6 @@ class TenementsController < ApplicationController
     @total_area     = @t.query_area_km2
     @percent_protected = (@protected_area/@total_area)     
 
-    debugger
     @t_json = @t.as_geo_json
     @map_json = @t.map_sites.map {|s|        
         {:id          => s.id,

@@ -1298,19 +1298,6 @@ div#left_container div.search_list li div.pic_area div { overflow:hidden; width:
 div#left_container div.search_list li div.pic_area div img{float:left;}
 div#left_container div.search_list li div.avatarBottomEnd {background: url(../images/common/avatarBottomEnd.gif) no-repeat 0 0; height:7px; width:177px; margin:0; position: absolute; left:0; bottom:3px;}
 
-div#left_container li div.content_center{float:left; width:750px;}
-div#left_container li div.content_center div.top_information {float:left; height: 102px;}
-div#left_container li div.content_center div.top_information h4{float:left; width:750px; font: bold 17px Arial; line-height:15px; color:#006699; padding:0; margin:0; margin-bottom:3px; margin-top:4px;}
-div#left_container li div.content_center div.top_information h4 a{color:#336699; text-decoration:none;}
-div#left_container li div.content_center div.top_information h4 a:hover{text-decoration:none; color:#003366;}
-div#left_container li div.content_center div.top_information p.country{float:left; width:750px; font:normal 13px Arial; color:#666666; padding:0; margin:2px 0 0 0;}
-div#left_container li div.content_center div.top_information p.category{float:left; width:750px; font-size:12px; color:#666666; padding:0; margin:1px 0 0 0;}
-div#left_container li div.content_center div.top_information p.distance{float:left; width:750px; font-size:12px; color:#666666; padding:0; margin:1px 0 0 0;}
-div#left_container li div.content_center p.pointInterest{float:left; width:367px; font-size:12px; color:#666666; padding:0; margin:0;}
-div#left_container li div.content_center p.pointInterest a{font-size:12px; color:#666666; border:none; text-decoration: none; border-bottom: 1px solid #666666;}
-div#left_container li div.content_center p.pointInterest a:hover{color:#ff0066; border-bottom: 1px dotted #ff0066;}
-
-
 div#left_container div.content_area div.bottom_paginator {float:left; width:940px;}
 div#left_container div.content_area div.bottom_paginator ul{float:left; width:406px; list-style:none; padding-bottom: 45px;}
 div#left_container div.content_area div.bottom_paginator li{float:left; width:auto; position:relative;}
@@ -1352,18 +1339,16 @@ div#left_small_container div.search_list li div.pic_area a.searchImage {display:
 div#left_small_container div.search_list ul li div.avatarBottomEnd{background: url(../images/common/avatarBottomEnd.gif) no-repeat 0 0; height:7px; width:177px; margin:0; position: absolute; left:-1px; bottom:-7px;}
 
 
-div#left_small_container div.search_list li div.content_center{float:left; width:430px;}
-div#left_small_container div.search_list li div.content_center div.top_information {float:left;}
-div#left_small_container div.search_list li div.content_center div.top_information h4{float:left; width:430px; font: bold 17px Arial; line-height:15px; color:#006699; padding:0; margin:0; margin-bottom:3px; margin-top:4px;}
-div#left_small_container div.search_list li div.content_center div.top_information h4 a{color:#336699; text-decoration:none;}
-div#left_small_container div.search_list li div.content_center div.top_information h4 a:hover{text-decoration:none; color:#003366;}
-div#left_small_container div.search_list li div.content_center div.top_information p.country{float:left; width:377px; font:normal 13px Arial; color:#666666; padding:0; margin:2px 0 0 0;}
-div#left_small_container div.search_list li div.content_center div.top_information p.category{float:left; width:367px; font-size:12px; color:#666666; padding:0; margin:1px 0 0 0;}
-div#left_small_container div.search_list li div.content_center div.top_information p.distance{float:left; width:367px; font-size:12px; color:#666666; padding:0; margin:1px 0 0 0;}
-div#left_small_container div.search_list li div.content_center p.pointInterest{float:left; width:367px; font-size:12px; color:#666666; padding:0; margin:0;}
-div#left_small_container div.search_list li div.content_center p.pointInterest a{font-size:12px; color:#666666; border:none; text-decoration: none; border-bottom: 1px solid #666666;}
-div#left_small_container div.search_list li div.content_center p.pointInterest a:hover{color:#ff0066; border-bottom: 1px dotted #ff0066;}
-
+div#left_small_container div.search_list li h4 {font-size: 125%; line-height:125%; color:#006699;}
+div#left_small_container div.search_list li h4,
+div#left_small_container div.search_list li h5 {padding:0; margin: 0 0 8px 0;}
+div#left_small_container div.search_list li h4 a{color:#336699; text-decoration:none;}
+div#left_small_container div.search_list li h4 a:hover{text-decoration:none; color:#003366;}
+div#left_small_container div.search_list li h5 { font-size: 150%; line-height:150%; color: #333333; }
+div#left_small_container div.search_list li .coverage,
+div#left_small_container div.search_list li .carbon { float: left; }
+div#left_small_container div.search_list li .coverage { border-right: 1px solid #BEBEBE; padding-right:10px; margin-right:10px; }
+div#left_small_container div.search_list li .carbon .value { font-size: 200%; font-weight: bold; }
 
 div#left_small_container div.search_list li div.content_right {float:right; width:160px; text-align: right;}
 div#left_small_container div.search_list li div.content_right div.top_data {float:right; width: 170px; height: 33px;}
@@ -2049,9 +2034,10 @@ li.sfHover > a > .sf-sub-indicator { background-position: -10px -100px;}
 .sf-shadow ul.sf-shadow-off { background: transparent;}
 
 .percent,
-.percent_slider { position: relative; display: inline-block; text-align: center; vertical-align: middle; width: 75px; color:transparent; }
-.percent { border: solid #a9a9a9 1px;  }
-.percent_slider { background: url(../images/misc/percent_slider.png) center center repeat-x; }
+.percent_slider,
+.percent_scale { position: relative; display: inline-block; text-align: center; vertical-align: middle; width: 181px; color:transparent; }
+.percent { border: solid #a9a9a9 1px; width: 179px;  }
+/*.percent_slider { background: url(../images/misc/percent_slider.png) center center repeat-x; }*/
 .percent .bar,
-.percent_slider .bar { position: absolute; top: 0px; left: 0px; background-color: #888888; height:100%; }
+.percent_slider .bar { position: absolute; top: 0px; left: 0px; background-color: #E98A45; height:100%; }
 .percent_slider .bar { width: 3px; }

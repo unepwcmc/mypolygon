@@ -1,63 +1,47 @@
-<li class="first">
-	<div class="pic_area">
-      <%= link_to image_tag("http://maps.google.com/maps/api/staticmap#{search_result.epl(169,120)}&sensor=false", {:style => 'width:169px'}), assesment_tenement_path(@a, search_result), :class => "searchImage" %>
-      <div class="avatarBottomEnd"></div>
-	</div>
+<li>
+  <h4><%= link_to "Polygon #{search_result.id} (area #{number_with_precision search_result.query_area_km2, :precision => 2 } km2)", assesment_tenement_path(@a, search_result) %></h4>
 
-	<div class="content_center">
- 		<div class="top_information">
- 			<h4><%= link_to "Polygon #{search_result.id}", assesment_tenement_path(@a, search_result) %></h4>
-			<p class="category">
-				<b>
-                  <%= pluralize search_result.sites.count, "Protected area" %> touch
-                </b>
-			</p>
-			<p class="distance">
-				<table cellspacing="0" cellpadding="0" class="datatable">
-					<tr>
-						<td><b>area</b></td>
-						<td class="result"><%= number_with_precision search_result.query_area_km2, :precision => 1 %> km2</td>
-					</tr>
-					<tr>
-						<td><b>carbon</b></td>
-						<td class="result"><%=  search_result.query_area_carbon_kg ? number_with_delimiter(number_with_precision(search_result.query_area_carbon_kg.try(:/, 1000000), :precision => 1)) + " kt" : 'not surveyed' %> </td>
-					</tr>
+  <div class="pic_area">
+    <%= link_to image_tag("http://maps.google.com/maps/api/staticmap#{search_result.epl(169, 120)}&sensor=false", {:style => 'width:169px'}), assesment_tenement_path(@a, search_result), :class => "searchImage" %>
+    <div class="avatarBottomEnd"></div>
+  </div>
 
-                    <tr><td colspan="2">&nbsp;</td></tr>
+  <div class="coverage">
+    <h5>Coverage</h5>
 
-                    <tr>
-                      <td><b>protected areas coverage</b></td>
-                      <td class="result">
-                        <%= overlapping_percent_of search_result.percentage_protected, 1, :precision => 1 %>
-                      </td>
-                    </tr>
-                    <% if search_result.query_area_coral_km2 %>
-                      <tr>
-                        <td><b>corals coverage</b></td>
-                        <td class="result">
-                          <%= overlapping_percent_of search_result.query_area_coral_km2, search_result.query_area_km2 %>
-                        </td>
-                      </tr>
-                    <% end %>
-                    <% if search_result.query_area_mangrove_km2 %>
-                      <tr>
-                        <td><b>mangroves coverage</b></td>
-                        <td class="result">
-                          <%= overlapping_percent_of search_result.query_area_mangrove_km2, search_result.query_area_km2 %>
-                        </td>
-                      </tr>
-                    <% end %>
-                    <% if search_result.query_area_sea_grass_km2 %>
-                      <tr>
-                        <td><b>sea grass coverage</b></td>
-                        <td class="result">
-                          <%= overlapping_percent_of search_result.query_area_sea_grass_km2, search_result.query_area_km2 %>
-                        </td>
-                      </tr>
-                    <% end %>
-				</table>
-			</p>
-			<p>
- 		</div>
-	</div>
+    <table>
+      <% if search_result.query_area_coral_km2 %>
+          <tr>
+            <td>Coral</td>
+            <td><%= overlapping_percent_of search_result.query_area_coral_km2, search_result.query_area_km2 %></td>
+          </tr>
+      <% end %>
+      <% if search_result.query_area_mangrove_km2 %>
+          <tr>
+            <td>Mangrove</td>
+            <td><%= overlapping_percent_of search_result.query_area_mangrove_km2, search_result.query_area_km2 %></td>
+          </tr>
+      <% end %>
+      <% if search_result.query_area_sea_grass_km2 %>
+          <tr>
+            <td>Sea grass</td>
+            <td><%= overlapping_percent_of search_result.query_area_sea_grass_km2, search_result.query_area_ss %></td>
+          </tr>
+      <% end %>
+      <tr>
+        <td>PA (<%= search_result.sites.count %>)</td>
+        <td><%= percent_bar search_result.percentage_protected*100 %></td>
+      </tr>
+      <tr>
+        <td/><td><%= percent_scale %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="carbon">
+    <h5>Carbon</h5>
+    <p class="value">
+        <%= search_result.query_area_carbon_kg ? number_with_delimiter(number_with_precision(search_result.query_area_carbon_kg.try(:/, 1000000), :precision => 0)) + " kt" : 'not surveyed' %>
+    </p>
+  </div>
 </li>

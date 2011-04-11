@@ -59,7 +59,7 @@ class Numeric
   def out_of total
     return 1 if total == 0
     return 1 if total.is_a?(Float) && total.nan?
-    percent = self / total
+    percent = self.to_f / total
     return 1 if percent > 1
     return 0 if percent < 0
     percent
