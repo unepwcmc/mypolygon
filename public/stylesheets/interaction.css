@@ -1,20 +1,168 @@
-#map_tools {position:absolute; bottom:10px; right:10px; z-index:1000; width:150px; background:url(../images/sites/float_for_tools.png) no-repeat top left; padding: 6px; margin-bottom: 18px; text-align: center;}
-#map_tools .shader { position: absolute; bottom: -11px; left: 0; width: 100%; height: 20px; background:url(../images/sites/float_for_tools__bottom_shade.png) no-repeat bottom left; }
-#map_tools ul#layers { list-style-type: none; display: inline-block; text-align: left; }
-#map_tools #layers .disabled { color: #a9a9a9; }
-#map_tools #area_tooltip {position:absolute; display:none; right:8px; bottom:116px; z-index:100; background:url(../images/sites/area_tooltip.png) no-repeat 0 0; width:190px; height:110px;}
-#map_tools h3 {font:bold 13px Arial; color:#99B3C9; margin: 3px; margin-bottom: 13px; text-align: left;}
-#map_tools span {position:relative; float:right; font:bold 13px Arial; color:#FFFFFF; padding:3px 13px 0 0; cursor:default;}
-#map_tools span img {position:absolute; right:12px; top:6px;}
-#map_tools .buttons { margin-top: 13px; }
-#map_tools a:focus {outline:none;}
-#map_tools a { display: inline-block; width:110px; height:45px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+.simplemodal-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 101;
+    background-color: #000000;
+    cursor: default;
+}
+.simplemodal-overlay,
+#initial_dialog>* {
+    opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* opacity for IE8 */
+    filter: alpha(opacity = 80); /* opacity for IE7- */
+}
+
+#initial_dialog {
+    color: #d3d3d3;
+    background: #22598f url(../images/home/background_for_dialog.png) repeat-x top left;
+    border-radius: 10px;
+    width: 650px;
+    min-height: 150px;
+    margin: 120px auto auto auto;
+    position: relative;
+    z-index: 102;
+    padding: 20px;
+    font-size: 150%;
+}
+
+#initial_dialog ul.buttons {
+    float: right;
+    list-style-type: none;
+}
+#initial_dialog .buttons li {
+    padding: 0;
+    margin: 10px;
+    margin-right: 0px;
+}
+#initial_dialog .buttons li:first-child {
+    margin-top: 0px;
+}
+#initial_dialog .buttons li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    background-color: white;
+    border-radius: 3px;
+    width: 115px;
+    padding: 18px 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#initial_dialog .description {
+    margin-right: 155px;
+    background: #244263;
+    border-radius: 3px;
+    padding: 35px;
+    min-height: 51px;
+}
+
+#map_tools {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+    width: 150px;
+    background: url(../images/sites/float_for_tools.png) no-repeat top left;
+    padding: 6px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+#map_tools .shader {
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: url(../images/sites/float_for_tools__bottom_shade.png) no-repeat bottom left;
+}
+
+#map_tools ul#layers {
+    list-style-type: none;
+    display: inline-block;
+    text-align: left;
+}
+
+#map_tools #layers .disabled {
+    color: #a9a9a9;
+}
+
+#map_tools #area_tooltip {
+    position: absolute;
+    display: none;
+    right: 8px;
+    bottom: 116px;
+    z-index: 100;
+    background: url(../images/sites/area_tooltip.png) no-repeat 0 0;
+    width: 190px;
+    height: 110px;
+}
+
+#map_tools h3 {
+    font: bold 13px Arial;
+    color: #99B3C9;
+    margin: 3px;
+    margin-bottom: 13px;
+    text-align: left;
+}
+
+#map_tools span {
+    position: relative;
+    float: right;
+    font: bold 13px Arial;
+    color: #FFFFFF;
+    padding: 3px 13px 0 0;
+    cursor: default;
+}
+
+#map_tools span img {
+    position: absolute;
+    right: 12px;
+    top: 6px;
+}
+
+#map_tools .buttons {
+    margin-top: 13px;
+}
+
+#map_tools a:focus {
+    outline: none;
+}
+
+#map_tools a {
+    display: inline-block;
+    width: 110px;
+    height: 45px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
 #map_tools a:hover,
 #map_tools a#done:hover {
     background-position: center -45px;
 }
-#map_tools a#done.disabled:hover {background-position: center -90px;}
-#map_tools a#done { background: #ff9900 url(../images/sites/done_geometry_1.png) no-repeat center 0;}
-#map_tools a#done:hover { background-color: #c64819; }
-#map_tools a#done.disabled {background: #cccccc url(../images/sites/done_geometry_1.png) no-repeat center -90px;}
-#map_tools a#done.loading {background: white url(../images/sites/ajax-loader.gif) no-repeat center 0;}
+
+#map_tools a#done.disabled:hover {
+    background-position: center -90px;
+}
+
+#map_tools a#done {
+    background: #ff9900 url(../images/sites/done_geometry_1.png) no-repeat center 0;
+}
+
+#map_tools a#done:hover {
+    background-color: #c64819;
+}
+
+#map_tools a#done.disabled {
+    background: #cccccc url(../images/sites/done_geometry_1.png) no-repeat center -90px;
+}
+
+#map_tools a#done.loading {
+    background: white url(../images/sites/ajax-loader.gif) no-repeat center 0;
+}

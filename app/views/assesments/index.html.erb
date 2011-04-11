@@ -51,9 +51,7 @@
 		<a id="zoomOut"></a>
 		<p id="loading">Transfering data</p>
 
-	    <div id="download_window">
-          <%= render :partial => "tasks_form", :locals => {:format => @format} %>
-	    </div>
+	    <%= render :partial => "tasks_form", :locals => {:format => @format} %>
 
         <div id="map_tools">
             <h3>Select layers</h3>
@@ -69,41 +67,6 @@
             </div>
             <div class="shader"> </div>
         </div>
-			
-	    <div id="searchBox">
-                <a href="#" onclick="$('#download_window').show();$('#searchBox').hide();" class="close">
-                  <%= image_tag 'icons/close_session.png', :alt=>"close" %>
-                </a>
-				<h3>Upload</h3>
-				<div id="search_input">
-					<label>Upload a new polygon (max size <%= Tenement::MAX_SHP_FILESIZE_MB %>MB)</label>
-					<%= form_for @assesment, :html => {:multipart => true} do |f| %>
-						<div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
-                            <%= f.file_field :shape, :class => 'file_input' %>
-                            <div style="float:right;">
-                                <%= f.submit "Upload", :disable_with => "Uploading..." %>
-                            </div>
-						</div>
-					<% end -%>
-				</div>
-				<div id="explore_input">
-					<label>File formats</label>
-					<p style="color:#eee;font-size:11px;">Please upload polygons in a zipped ESRI shapefile using<br> <b>WGS84 projection</b>. <br>Please note, all data uploaded is <b>deleted nightly</b>.</p>
-					
-				</div>
-				<div class="bottomContainer">
-					<div class="logosContainer">
-						 <div class="logoContainer">
-							<a href="http://www.unep-wcmc.org/" target="_blank"><img src="../images/logos/UNEPhome.gif"></a>
-							<a href="http://www.iucn.org/" target="_blank"><img src="../images/logos/IUCNhome.gif"></a>
-							<a href="http://www.iucn.org/about/union/commissions/wcpa/" target="_blank"><img src="../images/logos/WCPAhome.gif"></a>
-						 </div>
-						 <div class="bottomLinks"><p>&copy; 2010 All rights reserved / <!--<#%= link_to 'about', about_path %>
-						 --></p></div>
-					</div>
-				</div>
-				
-				</div>
 
                 <script type="text/javascript">
                         <% if @assesment.map_tenements.blank? %>

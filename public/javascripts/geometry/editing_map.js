@@ -62,9 +62,6 @@ $(document).ready(function() {
 		var map_type_position = $('a#satellite').position();
 		$('div#mamufas').fadeIn('fast',function(ev){
 			 $.scrollTo('div.content',300, function(ev){
-				$('div.geometry_container').css('left','0');
-				$('div.geometry_container').css('top',(map_position.top)+'px');				
-				$('div.geometry_container').fadeIn('fast');
 				$('a#zoom_in_geometry').fadeIn();
 				$('a#zoom_out_geometry').fadeIn();
 				$('a#terrain_geometry').fadeIn();

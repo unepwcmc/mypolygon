@@ -1,12 +1,64 @@
+<div class="simplemodal-overlay"></div>
+<div id="initial_dialog">
+  <div id="selectionBox">
+    <ul class="buttons">
+      <li><%= link_to "Upload File", "#", :class=>"upload_file", :onclick => "$('#selectionBox .description p').hide();$('#selectionBox .description p.upload').show();" %></li>
+      <li><%= link_to "Draw polygon", "#", :class=>"draw_map", :onclick => "$('#selectionBox .description p').hide();$('#selectionBox .description p.search_location').show(); //$('#help').show(); startPolygon();$('#map_tools').show();" %></li>
+    </ul>
+    <div class="description">
+      <p class="intro">
+        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+      </p>
 
-<div id="simplemodal-overlay" class="simplemodal-overlay" style='opacity: 0.75; height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 1001; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* opacity for IE8 */ filter: alpha(opacity=50); /* opacity for IE7- */'></div>
-    <div id="selectionBox">
-            <label>Choose how to submit your data</label><br />
-            <div class="draw_map">
-              <%= link_to "Draw on Map", "#", :onclick => "$('#download_window').hide(); $('#help').show(); startPolygon();$('#map_tools').show();", :class => "button" %>
-            </div>
-            <div class="upload_file">
-              <%= link_to "Upload File", "#", :onclick => "$('#download_window').hide();$('#searchBox').show();", :class => "button" %>
-            </div>
+      <p class="upload" style="display:none;">
+        Some text here to explain how this works: the projection; must be zip; max file size; etc.
+      </p>
+
+      <p class="search_location" style="display:none;">
+        Enter the name of the location you want to assess:
+        <input type="text" /><input type="submit" value="View on map"/>
+      </p>
     </div>
+  </div>
 </div>
+
+
+<div id="searchBox">
+  <a href="#" onclick="$('#download_window').show();$('#searchBox').hide();" class="close">
+    <%= image_tag 'icons/close_session.png', :alt=>"close" %>
+  </a>
+
+  <h3>Upload</h3>
+
+  <div id="search_input">
+    <label>Upload a new polygon (max size <%= Tenement::MAX_SHP_FILESIZE_MB %>MB)</label>
+    <%= form_for @assesment, :html => {:multipart => true} do |f| %>
+        <div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
+          <%= f.file_field :shape, :class => 'file_input' %>
+          <div style="float:right;">
+            <%= f.submit "Upload", :disable_with => "Uploading..." %>
+          </div>
+        </div>
+    <% end -%>
+  </div>
+  <div id="explore_input">
+    <label>File formats</label>
+
+    <p style="color:#eee;font-size:11px;">Please upload polygons in a zipped ESRI shapefile using<br>
+      <b>WGS84 projection</b>. <br>Please note, all data uploaded is <b>deleted nightly</b>.</p>
+
+  </div>
+  <div class="bottomContainer">
+    <div class="logosContainer">
+      <div class="logoContainer">
+        <a href="http://www.unep-wcmc.org/" target="_blank"><img src="../images/logos/UNEPhome.gif"></a>
+        <a href="http://www.iucn.org/" target="_blank"><img src="../images/logos/IUCNhome.gif"></a>
+        <a href="http://www.iucn.org/about/union/commissions/wcpa/" target="_blank"><img src="../images/logos/WCPAhome.gif"></a>
+      </div>
+      <div class="bottomLinks"><p>&copy; 2010 All rights reserved / <!--<#%= link_to 'about', about_path %>
+                 --></p></div>
+    </div>
+  </div>
+
+</div>
+

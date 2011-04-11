@@ -1,6 +1,6 @@
 body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,form,fieldset,p{margin:0; padding:0; font-weight:normal}
 img,fieldset{border:none; padding:0; margin:0;}
-body{font:12px  Arial, Helvetica, sans-serif; color:#666666; background:#eeeeee}
+body{font:12px Helvetica, sans-serif; color:#666666; background:#eeeeee}
 span.clear{clear:both;}
 div.left{float:left; width:auto;}
 div.right{float:right; width:auto;}
@@ -85,18 +85,7 @@ a#zoomOut {position:absolute; top:80px; left:15px; width:25px; height:25px; back
 a#zoomOut:hover {background:url(../images/icons/lessZoomBtnExplore.png) no-repeat -25px 0; cursor:pointer;}
 p#loading {position:absolute; z-index:1000; margin:0 0 0 -45px; top:50px; left:50%; width:91px; color:#333333; border:1px solid #DCBAAD; background: url(../images/icons/ajax-loader.gif) no-repeat 5px 5px #F6F3EA; padding:6px 8px 6px 30px; -moz-border-radius: 3px;  -webkit-border-radius: 3px;}
 
-
 p#loadingPa {position:absolute; right:0; left:0; margin:0 auto; top:150px; width:91px; color:#333333; border:1px solid #DCBAAD; z-index:1000; background: url(../images/icons/ajax-loader.gif) no-repeat 5px 5px #F6F3EA; padding:6px 8px 6px 30px; -moz-border-radius: 3px;  -webkit-border-radius: 3px;}
-
-div#selectionBox {text-align:center; width:800px; height:215px;  padding-top:40px; margin:120px auto auto; position:relative; z-index: 1002; background:url(../images/common/background.png) no-repeat 0 0;}
-div#selectionBox label {font:bold 21px Arial; color:white; letter-spacing:-0.5px; }
-div#selectionBox div {height:60px;width:120px; margin:20px; display:inline-block; }
-div#selectionBox a.button {text-decoration:none; margin-top:5px; padding:0px 8px 0 8px; font:bold 17px Arial; border:none; letter-spacing:-1px; color:#000; display: block; height: 100%; }
-div#selectionBox a.button:hover {cursor:pointer;}
-div#selectionBox div.draw_map {background:white url(/images/sites/draw_polygon.png) no-repeat 20px 20px;}
-div#selectionBox div.draw_map:hover {background:#E5E5E5 url(/images/sites/draw_polygon.png) no-repeat 20px 20px;}
-div#selectionBox div.upload_file {background:white url(../images/sites/bkg_file.png) no-repeat 40px 12px;}
-div#selectionBox div.upload_file:hover {background:#E5E5E5 url(../images/sites/bkg_file.png) no-repeat 40px 12px;}
 
 div#searchBox {width:800px; height:215px; margin:120px auto auto auto; position:relative; z-index: 1000; background:url(../images/common/background.png) no-repeat 0 0;}
 div#searchBox .close { position: absolute; top: 25px; right:35px;  }
@@ -293,57 +282,6 @@ div#left_container div.content_area div.pa_images div span.classified_container 
 div#left_container div.content_area div.pa_images div span.classified_container span a.vote_down.voted:hover {background-position:0 0;}
 div#left_container div.content_area div.pa_images div span.classified_container span a.vote_down.discard {background-position:0 -44px;}
 div#left_container div.content_area div.pa_images div span.classified_container span a.vote_down.discard:hover {background-position:0 -44px;}
-
-
-#download_window {display:none; width:100%; margin:0; padding:0; background:url(../images/sites/download_bkg.png) no-repeat 0 0; border:none;}
-#download_window p.title {float:left; text-align:center; font:bold 25px Arial; color:#666666; margin: 28px 30px 0 30px; letter-spacing:-1.0px; width:450px;}
-#download_window p.subtitle {float:left; font:normal 13px Arial; color:#666666; text-align:center; margin: 49px 10px 0 26px; width:462px; padding:0; display:inline;}
-#download_window p.subtitle a{color:#006699; text-decoration:none; font:bold 13px Arial;}
-#download_window p.subtitle a:hover {color: #254C72; border-bottom:1px dotted #254C72;}
-
-
-
-/* MARGIN FOR TWO OPTIONS ONLY */
-/*#download_window div.versions_area {float:left; height:84px; margin: 20px 0px 0 110px;}*/
-
-/* PADDING FOR TWO OPTIONS ONLY */
-/*#download_window div.versions_area div.last_version {float:left; background:url(../images/sites/bkg_download_last_version.png) no-repeat; width:138px; height:84px; padding-right:19px;}*/
-
-#download_window div.versions_area {float:left; height:84px; margin: 20px 0px 0 40px;}
-#download_window div.versions_area div.last_version {float:left; background:url(../images/sites/bkg_download_last_version.png) no-repeat; width:138px; height:84px; padding-right:9px;}
-#download_window div.versions_area div.last_version div.version p{float: left; font:bold 12px Arial; color:#333333; margin: 10px 0px 0px 43px;}
-#download_window div.versions_area div.last_version div.date p{float: left; font:11px Arial; color:#333333; margin: 3px 0px 0px 44px;}
-#download_window div.versions_area div.last_version a.button{float: left; width:118px; height:22px; margin: 7px 0px 0px 10px; font:bold 15px Arial; color:#FFFFFF; text-align:center; background:url(../images/sites/bkg_download_button.png) no-repeat 0 0; text-decoration:none; padding: 4px 0px 0px 0px;}
-
-#download_window div.versions_area div.last_version a.button:hover {background-position: 0 -26px;}
-
-#download_window div.versions_area div.all_versions  {float:left; background:url(../images/sites/bkg_download_all_versions.png) no-repeat; width:138px; height:84px; padding-right:9px;}
-#download_window div.versions_area div.all_versions div.version p{float: left; font:bold 12px Arial; color:#333333; margin: 10px 0px 0px 43px;}
-#download_window div.versions_area div.all_versions div.date p{float: left; font:11px Arial; color:#333333; margin: 3px 0px 0px 43px;}
-#download_window div.versions_area div.all_versions a.button{float: left; width:118px; height:22px; margin: 7px 0px 0px 10px; font:bold 15px Arial; color:#FFFFFF; text-align:center; background:url(../images/sites/bkg_download_button.png) no-repeat 0 0; text-decoration:none; padding: 4px 0px 0px 0px;}
-#download_window div.versions_area div.all_versions a.button:hover {background-position: 0 -26px;}
-
-#download_window div.versions_area div.your_version {float:left; background:url(../images/sites/bkg_download_your_version.png) no-repeat; width:138px; height:84px; }
-#download_window div.versions_area div.your_version div.version p{float: left; font:bold 12px Arial; color:#333333; margin: 10px 0px 0px 43px;}
-#download_window div.versions_area div.your_version div.date p{float: left; font:11px Arial; color:#333333; margin: 3px 0px 0px 43px;}
-#download_window div.versions_area div.your_version a.button{float: left; width:118px; height:22px; margin: 7px 0px 0px 10px; font:bold 15px Arial; color:#FFFFFF; text-align:center; background:url(../images/sites/bkg_download_button.png) no-repeat 0 0; text-decoration:none; padding: 4px 0px 0px 0px;}
-#download_window div.versions_area div.your_version a.button:hover {background-position: 0 -26px;}
-
-#download_window div.versions_area div.your_version.disabled {background:url(../images/sites/bkg_download_your_version_disabled.png) no-repeat;}
-#download_window div.versions_area div.your_version.disabled div.version p{color:#A2A2A2;}
-#download_window div.versions_area div.your_version.disabled div.date p{color:#A2A2A2;}
-#download_window div.versions_area div.your_version.disabled div.button{float: left; width:118px; height:23px; margin: 7px 0px 0px 10px; color:#FFFFFF; text-align:center; background:url(../images/sites/bkg_download_button_disabled.png) no-repeat 0 0; font:bold 15px Arial; text-decoration:none; padding: 4px 0px 0px 0px;}
-
-#wikipedia_url_description {display:none; width:100%; margin:0; padding:0; background:url(../images/common/modal_wikipedia_bkg.png) no-repeat 0 0; border:none;}
-#wikipedia_url_description p.title {float:left; text-align:center; font:bold 25px Arial; color:#666666; margin: 28px 43px 0 43px;}
-#wikipedia_url_description p.subtitle {float:left; font:normal 13px Arial; color:#666666; text-align:center; margin: 45px 27px 0 43px; width:424px; padding:0; display:inline;}
-#wikipedia_url_description form {float:left; margin:18px 43px 0 43px; width:424px; padding:0; display:inline;}
-#wikipedia_url_description form input[type="text"] {float:left; margin:0; padding:9px ; width:406px; height:auto; background:url(../images/common/wiki_input.png) no-repeat 0 0; border:none; font:normal 15px Arial; color:#999999;}
-#wikipedia_url_description form input[type="text"]:hover {background-position:0 0; cursor:text;}
-#wikipedia_url_description form input {float:left; margin:20px 0 0 133px; width:148px; padding:7px 0 6px 0; height:33px; background:url(../images/common/wiki_button.png) no-repeat 0 0; border:none; font:bold 15px Arial; color:#666666;}
-#wikipedia_url_description form input:hover {background-position: 0 -33px; cursor:pointer;}
-#wikipedia_url_description a {float:left; text-align:center; font:bold 13px Arial; color:#006699; margin:5px 0 0 200px; padding:0; width:auto; text-decoration:none;}
-#wikipedia_url_description a:hover {color:#00354F;}
 
 #flickr_window {display:none; background:url(../images/common/modal_bkg.png) no-repeat 0 0; width:100%; height:100%; margin:0; padding:0; overflow:hidden;}
 #flickr_window p.title {float:left; text-align:center; font:bold 25px Arial; color:#666666; margin: 28px 43px 0 43px;}
