@@ -13,13 +13,12 @@
       <div class="upload" style="display:none;">
         <%= form_for @assesment, :html => {:multipart => true} do |f| %>
             <p>
-              Some text here to explain how this works: the projection; must be zip; max file size; etc.
-              <!-- Max size <%= Tenement::MAX_SHP_FILESIZE_MB %>MB.
-        Please upload polygons in a zipped ESRI shapefile using WGS84 projection.
-        Please note, all data uploaded is deleted nightly. -->
+              Please upload polygons in a <strong>zipped ESRI shapefile</strong> using WGS84 projection.<br />
+              Maximum file size is <strong><%= Tenement::MAX_SHP_FILESIZE_MB %>MB</strong>.<br />
+              All data uploaded is deleted nightly.
               <span class="fileInput">
                 <label for="initial_dialog_upload_replacement">Choose file</label><!--
-                --><%= f.file_field :shape, :class => 'file_input' %><!--
+                --><%= f.file_field :shape, :class => 'file_input', :accept => 'application/zip' %><!--
                 --><input type="text" class="replacement" id="initial_dialog_upload_replacement"/><!--
                 --><%= f.submit "Analyse", :disable_with => "Uploading..." %>
               </span>
