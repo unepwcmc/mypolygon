@@ -1,6 +1,6 @@
 <div class="simplemodal-overlay"></div>
 <div id="initial_dialog">
-  <div id="selectionBox">
+  <div class="content">
     <ul class="buttons">
       <li><%= link_to "Upload File", "#", :class=>"upload", :onclick => "initialDialogSelect('upload');" %></li>
       <li><%= link_to "Draw polygon", "#", :class=>"search_location", :onclick => "initialDialogSelect('search_location');" %></li>
@@ -10,29 +10,46 @@
         Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
       </p>
 
-      <p class="upload" style="display:none;">
-        Some text here to explain how this works: the projection; must be zip; max file size; etc.
-      </p>
+      <div class="upload" style="display:none;">
+        <%= form_for @assesment, :html => {:multipart => true} do |f| %>
+            <p>
+              Some text here to explain how this works: the projection; must be zip; max file size; etc.
+              <!-- Max size <%= Tenement::MAX_SHP_FILESIZE_MB %>MB.
+        Please upload polygons in a zipped ESRI shapefile using WGS84 projection.
+        Please note, all data uploaded is deleted nightly. -->
+              <span class="fileInput">
+                <%= f.file_field :shape, :class => 'file_input' %>
+                <input type="text" class="replacement" id="initial_dialog_upload_replacement" />
+              </span>
+              <%= f.submit "Analyse", :disable_with => "Uploading..." %>
+            </p>
+        <% end -%>
+      </div>
 
       <p class="search_location" style="display:none;">
-        Enter the name of the location you want to assess:
-        <input type="text"/><input type="submit" value="View on map"/>
+        <label for="location">Enter the name of the location you want to assess:</label>
+        <input type="text" name="location" id="location"/><input type="submit" value="View on map"/>
       </p>
     </div>
-    <div class="footer">
-
-    </div>
+  </div>
+  <div class="footer">
+    <%= link_to image_tag('logos/UNEPhome.gif'), 'http://www.unep-wcmc.org', :class => 'host' %>
+    <ul class="links">
+      <li><%= link_to 'about', '#' %></li>
+      <li><a href="http://www.proteuspartners.org/">proteus</a></li>
+      <li><a href="http://protectedplanet.net/">protectedplanet.net</a></li>
+    </ul>
   </div>
 </div>
 
 <script type="text/javascript">
     function initialDialogSelect(button) {
-        $('#selectionBox .description p').hide();
-        $('#selectionBox .description p.' + button).show();
-        $('#selectionBox .buttons a').removeClass('selected');
-        $('#selectionBox .buttons a.' + button).addClass('selected');
+        $('#initial_dialog .description>*').hide();
+        $('#initial_dialog .description>.' + button).show();
+        $('#initial_dialog .buttons li').removeClass('selected');
+        $('#initial_dialog .buttons a.' + button).parent('li').addClass('selected');
     }
-    $('#selectionBox .description .search_location').click(function(){
+    $('#initial_dialog .description .search_location input:submit').click(function() {
         // TODO: search and move map to.
         $('#help').show();
         startPolygon();
@@ -41,44 +58,3 @@
         $('.simplemodal-overlay').hide();
     });
 </script>
-
-
-<div id="searchBox">
-  <a href="#" onclick="$('#download_window').show();$('#searchBox').hide();" class="close">
-    <%= image_tag 'icons/close_session.png', :alt=>"close" %>
-  </a>
-
-  <h3>Upload</h3>
-
-  <div id="search_input">
-    <label>Upload a new polygon (max size <%= Tenement::MAX_SHP_FILESIZE_MB %>MB)</label>
-    <%= form_for @assesment, :html => {:multipart => true} do |f| %>
-        <div style="background:#6F9FCC;border-radius:15px;color:white;width:350px;padding:0.4em;margin-top:0.5em;margin-bottom:0.5em;">
-          <%= f.file_field :shape, :class => 'file_input' %>
-          <div style="float:right;">
-            <%= f.submit "Upload", :disable_with => "Uploading..." %>
-          </div>
-        </div>
-    <% end -%>
-  </div>
-  <div id="explore_input">
-    <label>File formats</label>
-
-    <p style="color:#eee;font-size:11px;">Please upload polygons in a zipped ESRI shapefile using<br>
-      <b>WGS84 projection</b>. <br>Please note, all data uploaded is <b>deleted nightly</b>.</p>
-
-  </div>
-  <div class="bottomContainer">
-    <div class="logosContainer">
-      <div class="logoContainer">
-        <a href="http://www.unep-wcmc.org/" target="_blank"><img src="../images/logos/UNEPhome.gif"></a>
-        <a href="http://www.iucn.org/" target="_blank"><img src="../images/logos/IUCNhome.gif"></a>
-        <a href="http://www.iucn.org/about/union/commissions/wcpa/" target="_blank"><img src="../images/logos/WCPAhome.gif"></a>
-      </div>
-      <div class="bottomLinks"><p>&copy; 2010 All rights reserved / <!--<#%= link_to 'about', about_path %>
-                 --></p></div>
-    </div>
-  </div>
-
-</div>
-
