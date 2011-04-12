@@ -62,8 +62,8 @@
     margin-right: 155px;
     background: #244263;
     border-radius: 3px;
-    padding: 35px;
-    min-height: 51px;
+    padding: 25px;
+    min-height: 70px;
 }
 
 #initial_dialog .search_location input {
@@ -129,7 +129,7 @@
 }
 
 #map_tools h3 {
-    font: bold 13px Arial;
+    font: bold 13px;
     color: #99B3C9;
     margin: 3px;
     margin-bottom: 13px;
@@ -139,7 +139,7 @@
 #map_tools span {
     position: relative;
     float: right;
-    font: bold 13px Arial;
+    font: bold 13px;
     color: #FFFFFF;
     padding: 3px 13px 0 0;
     cursor: default;

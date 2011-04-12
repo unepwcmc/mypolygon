@@ -19,6 +19,9 @@
         <input type="text"/><input type="submit" value="View on map"/>
       </p>
     </div>
+    <div class="footer">
+
+    </div>
   </div>
 </div>
 
@@ -29,8 +32,14 @@
         $('#selectionBox .buttons a').removeClass('selected');
         $('#selectionBox .buttons a.' + button).addClass('selected');
     }
-    // TODO: after searching for a location:
-    // $('#help').show(); startPolygon();$('#map_tools').show();
+    $('#selectionBox .description .search_location').click(function(){
+        // TODO: search and move map to.
+        $('#help').show();
+        startPolygon();
+        $('#map_tools').show();
+        $('#initial_dialog').hide();
+        $('.simplemodal-overlay').hide();
+    });
 </script>
 
 
