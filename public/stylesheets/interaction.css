@@ -20,7 +20,7 @@
     color: #d3d3d3;
     background: #22598f url(../images/home/background_for_dialog.png) repeat-x top left;
     border-radius: 10px;
-    width: 690px;
+    width: 750px;
     min-height: 150px;
     margin: 120px auto auto auto;
     position: relative;
@@ -82,7 +82,7 @@
     font-size: 105%;
 }
 #initial_dialog input[type="text"] {
-    width: 265px;
+    width: 330px;
     margin-right: 1px;
 }
 #initial_dialog input[type="submit"] {
@@ -92,28 +92,38 @@
     background-color: #ff9900;
     font-weight: bold;
     border-radius: 0 2px 2px 0;
+    width: 150px;
+    text-align: center;
 }
 
 #initial_dialog .fileInput {
     position: relative;
     display: inline-block;
 }
+#initial_dialog .fileInput * {
+    margin-top: 10px;
+    vertical-align: middle;
+}
 #initial_dialog .fileInput input[type="file"] {
     position: absolute;
     z-index: 2;
+    top: 0;
+    left: -35px;
 
-    opacity: 0.2;
+    opacity: 0.01;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)"; /* opacity for IE8 */
     filter: alpha(opacity = 1); /* opacity for IE7- */
 }
-#initial_dialog .fileInput input.replacement {
-    background-color: green;
-    margin-left: 200px;
+#initial_dialog .fileInput label {
+    background-color: gray;
+    border-radius: 3px 0 0 3px;
+    display: inline-block;
+    line-height: 30px;
+    width: 135px;
+    text-align: center;
 }
-#initial_dialog .fileInput input:before {
-    content: "Choose file";
-    background-color: pink;
-    color:red;
+#initial_dialog .fileInput input.replacement {
+    width: 195px;
 }
 
 #initial_dialog .footer {

@@ -8,6 +8,13 @@ a:focus{outline:none}
 img.left_curve{float:left;}
 img.right_curve{float:right;}
 
+input[type="submit"] {
+    cursor: pointer;
+}
+input[type="file"] {
+    cursor: text;
+}
+
 div#outer_layout{float:left; width:100%;}
 div#layout{margin:0 auto; width:961px;}
 

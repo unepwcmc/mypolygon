@@ -18,10 +18,11 @@
         Please upload polygons in a zipped ESRI shapefile using WGS84 projection.
         Please note, all data uploaded is deleted nightly. -->
               <span class="fileInput">
-                <%= f.file_field :shape, :class => 'file_input' %>
-                <input type="text" class="replacement" id="initial_dialog_upload_replacement" />
+                <label for="initial_dialog_upload_replacement">Choose file</label><!--
+                --><%= f.file_field :shape, :class => 'file_input' %><!--
+                --><input type="text" class="replacement" id="initial_dialog_upload_replacement"/><!--
+                --><%= f.submit "Analyse", :disable_with => "Uploading..." %>
               </span>
-              <%= f.submit "Analyse", :disable_with => "Uploading..." %>
             </p>
         <% end -%>
       </div>
