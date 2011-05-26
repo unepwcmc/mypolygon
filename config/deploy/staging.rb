@@ -81,6 +81,7 @@ task :setup_database_configuration do
                                    "adapter" => "postgresql",
                                    "database" => database_name,
                                    "username" => database_user,
+                                   "template" => "template_postgis",
                                    "host" => the_host,
                                    "password" => pg_password }}
   run "mkdir -p #{shared_path}/config"
