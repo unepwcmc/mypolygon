@@ -1,3 +1,10 @@
+== Installing Postgis on the database
+
+Before migrating the database one needs to install postgis in it, do so by executing these commands on the database server:
+sudo -u postgres psql -d mypolygon_production -f /usr/share/postgresql/9.0/contrib/postgis-1.5/postgis.sql
+sudo -u postgres psql -d mypolygon_production -f /usr/share/postgresql/9.0/contrib/postgis-1.5/spatial_ref_sys.sql
+
+
 == Bootstrapping
 
 To analyse a geometry's area, the database needs SRID 954009.
