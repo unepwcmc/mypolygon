@@ -87,3 +87,13 @@ task :setup_database_configuration do
   put(spec.to_yaml, "#{shared_path}/config/database.yml")
 end
 after "deploy:setup", :setup_database_configuration
+
+task :setup_postgis do
+  database_name = Capistrano::CLI.ui.ask("Database name: ")
+  run "sudo -u postgres psql -d #{database_name} -f /usr/share/postgresql/9.0/contrib/postgis-1.5/postgis.sql"
+  run "sudo -u postgres psql -d #{database_name} -f /usr/share/postgresql/9.0/contrib/postgis-1.5/spatial_ref_sys.sql"
+  run "cd #{release_path}; RAILS_ENV=production rake bootstrap:srid"
+end
+after "deploy:cold", :setup_postgis
+
+
