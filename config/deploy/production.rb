@@ -82,6 +82,7 @@ task :setup_database_configuration do
                                    "database" => database_name,
                                    "username" => database_user,
                                    "host" => the_host,
+                                   "template" =>   "template_postgis",
                                    "password" => pg_password }}
   run "mkdir -p #{shared_path}/config"
   put(spec.to_yaml, "#{shared_path}/config/database.yml")
