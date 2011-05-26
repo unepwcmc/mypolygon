@@ -39,6 +39,14 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (2.0.9)
     builder (2.1.2)
+    capistrano (2.6.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
     columnize (0.3.2)
     dbf (1.5.1)
       activesupport (~> 3.0.0)
@@ -47,6 +55,7 @@ GEM
       abstract (>= 1.0.0)
     fastercsv (1.5.3)
     googlecharts (1.6.1)
+    highline (1.6.2)
     i18n (0.5.0)
     json (1.5.1)
     json_pure (1.5.1)
@@ -59,6 +68,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.1.4)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     nofxx-georuby (1.9.0)
       json_pure (>= 1.4.6)
     paperclip (2.3.8)
@@ -109,6 +125,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano
+  capistrano-ext
   dbf
   googlecharts
   json
