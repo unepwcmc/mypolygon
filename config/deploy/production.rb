@@ -87,10 +87,3 @@ task :setup_database_configuration do
   put(spec.to_yaml, "#{shared_path}/config/database.yml")
 end
 after "deploy:setup", :setup_database_configuration
-
-task :setup_postgis do
-  run "cd #{release_path}; RAILS_ENV=production rake bootstrap:srid"
-end
-after "deploy:rake_tasks:singleton", :setup_postgis #postgis_must be installed on the database first..
-
-
