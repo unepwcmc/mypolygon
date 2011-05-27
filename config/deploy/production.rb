@@ -2,7 +2,6 @@
 gem 'brightbox', '>=2.3.8'
 require 'brightbox/recipes'
 require 'brightbox/passenger'
-require 'bundler/capistrano'
 
 # The name of your application.  Used for deployment directory and filenames
 # and Apache configs. Should be unique on the Brightbox
