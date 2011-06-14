@@ -16,4 +16,4 @@ And then you'll be able to migrate. =)
 == Bootstrapping
 
 To analyse a geometry's area, the database needs SRID 954009.
-To ensure it exists, run 'rake bootstrap:srid'
+To ensure it exists, run 'RAILS_ENV=production rake bootstrap:srid'
