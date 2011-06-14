@@ -59,6 +59,6 @@ javascripts:
     - public/javascripts/common/main.js
 stylesheets: 
   base:
-    - public/javascripts/layout.css
-    - public/javascripts/tipsy.css
-    - public/javascripts/jquery.autocomplete.css
+    - public/stylesheets/layout.css
+    - public/stylesheets/tipsy.css
+    - public/stylesheets/jquery.autocomplete.css
