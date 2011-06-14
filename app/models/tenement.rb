@@ -15,7 +15,7 @@ class Tenement < ActiveRecord::Base
 
 
   MAX_SHP_FILESIZE_MB = 2
-  MAX_POLYGON_AREA_KM2 = 25
+  MAX_POLYGON_AREA_KM2 = 10000
 
   def self.create_from_geojson (geojson,assesment)
     polygon_wkt = GeomHelper.geojson_to_wkt geojson
