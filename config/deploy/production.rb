@@ -87,3 +87,8 @@ task :setup_database_configuration do
   put(spec.to_yaml, "#{shared_path}/config/database.yml")
 end
 after "deploy:setup", :setup_database_configuration
+
+task :package_assets do
+  run "cd #{deploy_to}/current && jammit"
+end
+after "deploy", "package_assets"
