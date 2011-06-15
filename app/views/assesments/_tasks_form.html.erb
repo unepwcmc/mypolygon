@@ -50,9 +50,13 @@
         $('#initial_dialog .description>.' + button).show();
         $('#initial_dialog .buttons li').removeClass('selected');
         $('#initial_dialog .buttons a.' + button).parent('li').addClass('selected');
+        $("#location").focus();
     }
+    $("#location").keyup(function(e){
+      if(e.keyCode == 13)
+        $("#initial_dialog .description .search_location input:submit").click();
+    });
     $('#initial_dialog .description .search_location input:submit').click(function() {
-        // TODO: search and move map to.
         var address = $("#location").val();
         if(address != ""){
           geocoder.geocode({'address': address}, function(results, status){
