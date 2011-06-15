@@ -43,6 +43,8 @@
 </div>
 
 <script type="text/javascript">
+    var geocoder;
+    geocoder = new google.maps.Geocoder();
     function initialDialogSelect(button) {
         $('#initial_dialog .description>*').hide();
         $('#initial_dialog .description>.' + button).show();
@@ -51,10 +53,26 @@
     }
     $('#initial_dialog .description .search_location input:submit').click(function() {
         // TODO: search and move map to.
-        $('#help').show();
-        startPolygon();
-        $('#map_tools').show();
-        $('#initial_dialog').hide();
-        $('.simplemodal-overlay').hide();
+        var address = $("#location").val();
+        if(address != ""){
+          geocoder.geocode({'address': address}, function(results, status){
+            if(status == google.maps.GeocoderStatus.OK) {
+              map.setCenter(results[0].geometry.location);
+              $('#help').show();
+              startPolygon();
+              $('#map_tools').show();
+              $('#initial_dialog').hide();
+              $('.simplemodal-overlay').hide();
+            }else {
+            alert("Your query did not return a valid result. Please enter another location.");
+          }
+          });
+        }else {
+            $('#help').show();
+            startPolygon();
+            $('#map_tools').show();
+            $('#initial_dialog').hide();
+            $('.simplemodal-overlay').hide();
+        }
     });
 </script>
