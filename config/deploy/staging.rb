@@ -87,3 +87,8 @@ task :setup_database_configuration do
   put(spec.to_yaml, "#{shared_path}/config/database.yml")
 end
 after "deploy:setup", :setup_database_configuration
+
+task :package_assets do
+  run "cd #{release_path} && rake asset:packager:build_all RAILS_ENV=production"
+end
+after "deploy:update", :package_assets
