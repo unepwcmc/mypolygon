@@ -97,7 +97,7 @@
 														</p>
 												</div>
 											</a>
-                                            <% atoz_id,atoz_strap_line = r.atoz_data d["NAME"] %>
+                                            <% atoz_id,atoz_strap_line = r.atoz_data d["NAME"] unless atoz_id.blank? %>
                                             <% unless atoz_id.blank? %>
                                                 <a class="strapLine" href="http://www.biodiversitya-z.org/areas/<%= atoz_id %>"><%= truncate(atoz_strap_line,:length => 22) %></a>
                                             <% end %>
