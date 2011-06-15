@@ -1,20 +1,18 @@
 class Assesment < ActiveRecord::Base
   belongs_to :user
   has_many :tenements, :dependent => :destroy
-  has_many :api_tenements, :class_name => "Tenement", :finder_sql => proc {
+  has_many :api_tenements, :class_name => "Tenement", :finder_sql =>
             'SELECT t.id, ST_AsText(t.the_geom) as x_wkt ' +
             'FROM tenements t ' +
             'WHERE t.assesment_id = #{id} ' +
             'ORDER BY t.id'
-  }
-  has_many :map_tenements, :class_name => "Tenement", :finder_sql => proc {
+  has_many :map_tenements, :class_name => "Tenement", :finder_sql =>
             'SELECT *, x(ST_PointOnSurface(the_geom)) as lng, 
               y(ST_PointOnSurface(the_geom)) as lat, 
               ST_AsGeoJSON(the_geom,6,0) as geojson
               FROM tenements t
               WHERE t.assesment_id=#{id}
               ORDER BY t.id'
-  }
   
   # call ppe web service, get results and store locally
   def analyse    
