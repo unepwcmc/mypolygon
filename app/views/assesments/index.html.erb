@@ -53,8 +53,9 @@
             });
           $(document).ready(function(){
             $("#toggle_coral").change(function(){
-              if($(this).is(':checked'))
-                map.overlayMapTypes.insertAt(1,coral_tiles);
+              if($(this).is(':checked')){
+              map.overlayMapTypes.insertAt(1,coral_tiles);
+              }
               else if(map.overlayMapTypes.getAt(1))
                 map.overlayMapTypes.removeAt(1);
               });
