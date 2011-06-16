@@ -50,7 +50,8 @@
         $('#initial_dialog .description>.' + button).show();
         $('#initial_dialog .buttons li').removeClass('selected');
         $('#initial_dialog .buttons a.' + button).parent('li').addClass('selected');
-        $("#location").focus();
+        if(button == "search_location")
+          $("#location").focus();
     }
     $("#location").keyup(function(e){
       if(e.keyCode == 13)
@@ -79,4 +80,7 @@
             $('.simplemodal-overlay').hide();
         }
     });
+  $("#assesment_shape").change(function(){
+    $("#initial_dialog_upload_replacement").val($(this).val());
+  });
 </script>
