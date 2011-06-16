@@ -19,11 +19,15 @@ module ApplicationHelper
     units = "km<sup>2</sup>" if units == "km2"
 
     percent = number_with_precision(100 * percent, :precision => options[:precision])
-    res = percent_slider(percent)
+    #res = percent_slider(percent)
+    res = percent_bar(percent)
     #return res.html_safe if options[:no_text]
-    res += percent.to_s + "% [" + number_with_precision(part, :precision => options[:precision]||1)
-    res += " #{units}".html_safe if units
-    res += "]"
+    res += percent.to_s + "%"
+    if options[:no_km2]
+      res += " [" + number_with_precision(part, :precision => options[:precision]||1)
+      res += " #{units}".html_safe if units
+      res += "]"
+    end
     res.html_safe
   end
 
