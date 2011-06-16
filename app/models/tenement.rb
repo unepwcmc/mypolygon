@@ -124,7 +124,9 @@ class Tenement < ActiveRecord::Base
   end
 
   def total_query_area_protected
-    Site.sum(:query_area_protected_km2, :conditions => "tenement_id = #{id}")
+    res = Site.sum(:query_area_protected_km2, :conditions => "tenement_id = #{id}")
+    puts res.to_s
+    res
   end
 
   def percentage_protected
