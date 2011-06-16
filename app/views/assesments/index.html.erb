@@ -89,8 +89,9 @@
 		<a id="zoomIn"></a>
 		<a id="zoomOut"></a>
 		<p id="loading">Transfering data</p>
-
-	    <%= render :partial => "tasks_form", :locals => {:format => @format} %>
+            <% if @assesment.new_record? %>
+              <%= render :partial => "tasks_form", :locals => {:format => @format} %>
+            <% end %>
 
         <div id="map_tools">
             <h3>Select layers</h3>
