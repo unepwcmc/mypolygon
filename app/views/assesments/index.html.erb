@@ -27,6 +27,44 @@
         <%= javascript_include_tag "drawPolygon.js" %>
         <script type="text/javascript">
           var MAX_POLYGON_AREA_KM2 = <%= Tenement::MAX_POLYGON_AREA_KM2 %>;
+          coral_tiles = new google.maps.ImageMapType({
+            getTileUrl: function(tile, zoom) {
+                return "http://downloads.wdpa.org/ArcGIS/rest/services/ocean_data_viewer/coralreefs/MapServer/tile/"+zoom+"/"+tile.y+"/"+tile.x;
+              },
+              tileSize: new google.maps.Size(256, 256),
+              opacity:0.75,
+              isPng: true,
+              minZoom: 6,
+              maxZoom: 12,
+              name: "coral distribution tiles",
+              alt: ""
+          });
+          mangroves_tiles = new google.maps.ImageMapType({
+          getTileUrl: function(tile, zoom) {
+              return "http://downloads.wdpa.org/ArcGIS/rest/services/ocean_data_viewer/mangroves/MapServer/tile/"+zoom+"/"+tile.y+"/"+tile.x;
+            },
+            tileSize: new google.maps.Size(256, 256),
+            opacity:0.75,
+            isPng: true,
+            minZoom: 6,
+            maxZoom: 12,
+            name: "mangrove distribution tiles",
+            alt: ""
+            });
+          $(document).ready(function(){
+            $("#toggle_coral").change(function(){
+              if($(this).is(':checked'))
+                map.overlayMapTypes.insertAt(1,coral_tiles);
+              else if(map.overlayMapTypes.getAt(1))
+                map.overlayMapTypes.removeAt(1);
+              });
+            $("#toggle_mangroves").change(function(){
+              if($(this).is(':checked'))
+                map.overlayMapTypes.insertAt(2,mangroves_tiles);
+              else if(map.overlayMapTypes.getAt(2))
+                map.overlayMapTypes.removeAt(2);
+              });
+          });
         </script>
 	</head>
 	<body>
@@ -57,8 +95,8 @@
             <h3>Select layers</h3>
             <ul id="layers">
               <li class="disabled"><label><input type="checkbox" value="protected_areas" checked="checked" disabled="disabled" /> Protected areas</label></li>
-              <li><label><input type="checkbox" value="coral" /> Corals</label></li>
-              <li><label><input type="checkbox" value="mangroves" /> Mangroves</label></li>
+              <li><label><input type="checkbox" value="coral" id="toggle_coral"/> Corals</label></li>
+              <li><label><input type="checkbox" value="mangroves" id="toggle_mangroves"/> Mangroves</label></li>
               <li class="disabled"><label><input type="checkbox" value="sea_grass" disabled="disabled" /> Sea grass</label></li>
             </ul>
             <div id="area_tooltip"></div>
