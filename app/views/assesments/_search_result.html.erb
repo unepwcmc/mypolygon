@@ -13,13 +13,13 @@
       <% if search_result.query_area_coral_km2 %>
           <tr>
             <td>Coral</td>
-            <td><%= overlapping_percent_of search_result.query_area_coral_km2, search_result.query_area_km2 %></td>
+            <td><%= overlapping_percent_of search_result.query_area_coral_km2, search_result.query_area_km2, {:no_km2 => true} %></td>
           </tr>
       <% end %>
       <% if search_result.query_area_mangrove_km2 %>
           <tr>
             <td>Mangrove</td>
-            <td><%= overlapping_percent_of search_result.query_area_mangrove_km2, search_result.query_area_km2 %></td>
+            <td><%= overlapping_percent_of search_result.query_area_mangrove_km2, search_result.query_area_km2, {:no_km2 => true} %></td>
           </tr>
       <% end %>
       <% if search_result.query_area_sea_grass_km2 %>
