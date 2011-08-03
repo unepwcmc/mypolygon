@@ -4,6 +4,9 @@ Before migrating the database one needs to install postgis in it, do so by execu
 sudo -u postgres psql -d mypolygon_production -f /usr/share/postgresql/9.0/contrib/postgis-1.5/postgis.sql
 sudo -u postgres psql -d mypolygon_production -f /usr/share/postgresql/9.0/contrib/postgis-1.5/spatial_ref_sys.sql
 
+The Postgis 1.5.2 files are included in db/spatial and used to create the db, you will need to modify these if you wish to update postgis
+
+
 == If you get errors when db:migrating connect to the database and grant privileges to the user that is going to use the database (after installing the postgis. This might be because we are installing the postgis with user postgres and then accessing the database with a different user):
 GRANT ALL PRIVILEGES ON TABLE geometry_columns to [user];
 GRANT ALL PRIVILEGES ON TABLE spatial_ref_sys to [user];
