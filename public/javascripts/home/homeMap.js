@@ -195,16 +195,17 @@ function initialize() {
 }
 
 // Draw the named overlay
-// @param ['string'] layer_name the name of the layer you want to toggle
+// @param [String] layer_name the name of the layer you want to toggle
 var enableOverlay = function (layer_name) {
   map.overlayMapTypes.setAt(window[layer_name + 'OverlayPosition'], window[layer_name + 'MapType']);
 }
 
 // Hide the named overlay
-// @param ['string'] layer_name the name of the layer you want to toggle
+// @param [String] layer_name the name of the layer you want to toggle
 var hideOverlay = function (layer_name) {
   map.overlayMapTypes.setAt(window[layer_name + 'OverlayPosition'], null);
 }
+
 
 function getTileLayerOverlay(layer) {
   var overlay = new SparseTileLayerOverlay();
@@ -382,7 +383,14 @@ function goToSearch() {
   }
 }
 
-
-
-
-
+$(document).ready(function() {
+  // Bind layer toggler
+  $('ul#layers').find('input').change(function (e) {
+    var layerName = $(this).attr('value');
+    if ($(this).attr('checked')){
+      enableOverlay(layerName);
+    }else{
+      hideOverlay(layerName);
+    }
+  });
+});
