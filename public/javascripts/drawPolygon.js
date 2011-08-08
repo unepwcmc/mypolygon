@@ -1,5 +1,5 @@
 /*drawing polygon*/
-var polys = []; // Array of all the Polys on the map
+var allPolys = []; // Array of all the Polys on the map
 
 // Represents a polygon with its markers and path
 var Poly = (function() {
@@ -17,7 +17,7 @@ var Poly = (function() {
     this.polygon.setMap(map);
     this.polygon.setPaths(new google.maps.MVCArray([this.path]));
 
-    polys.push(this); // Add to the polys collection
+    allPolys.push(this); // Add to the allPolys collection
   }
 
   // Add a point to the polygon using a latLng
@@ -60,6 +60,19 @@ var Poly = (function() {
         $('#done').removeClass('disabled');
       }
     }
+  }
+
+  // Returns an JSON point array
+  Poly.prototype.toPointArray = function () {
+    var pathArray=[];
+    var _i, numPoints;
+    for(var _i=0, numPoints = this.path.length; _i < numPoints; _i++) {
+      var lat = this.path.getAt(_i).lat();
+      var lng = this.path.getAt(_i).lng();
+      pathArray.push([lng,lat]);
+    }
+    pathArray.push([this.path.getAt(0).lng(),this.path.getAt(0).lat()]); //google maps will automatically close the polygon; postgis requires the last coordinate to be repeted
+    return pathArray;
   }
 
   return Poly;
@@ -121,33 +134,27 @@ function addPoint(event) {
   addPointUsingLatLong(event.latLng)
 }
 
-/*adapted from Lifeweb's calculator.js*/
-function polys2geoJson(polygons) {
-    var geojson={"type":"MultiPolygon"};
-    var polys = [];
-    for (var i=0; i<polygons.length; i++)
-    {
-        var pol = polygons[i];
-        var polyArray =[];
-        var pathArray=[];
-        var numPoints = path.length;
-        for(var i=0; i < numPoints; i++) {
-            var lat = path.getAt(i).lat();
-            var lng = path.getAt(i).lng();
-            pathArray.push([lng,lat]);
-        }
-        pathArray.push([path.getAt(0).lng(),path.getAt(0).lat()]); //google maps will automatically close the polygon; postgis requires the last coordinate to be repeted
-        polyArray.push(pathArray);
-        polys.push(polyArray);
-    }
-    geojson['coordinates'] = polys;
+/**
+ * Converts an array of Polys to GeoJSON
+ * @param polys An array of Polys
+ */
+function polys2geoJson(polys) {
+  var geojson={"type":"MultiPolygon"};
+  var json_polys = [];
+  var _i, _len;
+  for (_i=0, _len = polys.length; _i<_len; _i++) {
+    var poly = polys[_i];
 
-    return $.toJSON(geojson);
+    json_polys.push([poly.toPointArray()]);
+  }
+  geojson['coordinates'] = json_polys;
+
+  return $.toJSON(geojson);
 }
 
 function submitPolygon(){
   $('#done').addClass('loading');
-	var geojson = polys2geoJson([poly]);
+  var geojson = polys2geoJson(allPolys);
   var sources = [];
   $('#layers input:checkbox:checked').each(function() {
     sources.push($(this).val());
