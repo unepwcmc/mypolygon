@@ -65,7 +65,7 @@
             if(status == google.maps.GeocoderStatus.OK) {
               map.setCenter(results[0].geometry.location);
               $('#help').show();
-              startPolygon();
+              new Poly();
               $('#map_tools').show();
               $('#initial_dialog').hide();
               $('.simplemodal-overlay').hide();
@@ -75,7 +75,7 @@
           });
         }else {
             $('#help').show();
-            startPolygon();
+            new Poly();
             $('#map_tools').show();
             $('#initial_dialog').hide();
             $('.simplemodal-overlay').hide();
