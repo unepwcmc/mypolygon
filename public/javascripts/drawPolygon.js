@@ -17,6 +17,15 @@ var Poly = (function() {
     this.polygon.setMap(map);
     this.polygon.setPaths(new google.maps.MVCArray([this.path]));
 
+    //Tie click to add marker event
+    if (allPolys.length === 0){ //Only tie the event once
+      google.maps.event.addListener(map, 'click', function (event){
+        //Note: this method currently just adds to the last poly, not THIS poly
+        poly = allPolys[allPolys.length - 1];
+        poly.addPointUsingLatLng(event.latLng);
+      });
+    }
+
     allPolys.push(this); // Add to the allPolys collection
   }
 
