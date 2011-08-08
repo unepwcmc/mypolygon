@@ -29,29 +29,31 @@ var Poly = (function() {
       position: latLng,
       map: map,
       draggable: true,
-      icon: vertexIcon
+      icon: vertexIcon,
+      poly: this
     });
     this.markers.push(marker);
     marker.setTitle("#" + this.path.length);
 
     google.maps.event.addListener(marker, 'click', function() {
-      if (this.markers.length < 4) {
+      poly = marker.poly;
+      if (poly.markers.length < 4) {
         if (!$('#done').hasClass('disabled')) {
             $('#done').addClass('disabled');
         }
       }
 
       marker.setMap(null);
-      for (var i = 0, I = this.markers.length; i < I && this.markers[i] != marker; ++i);
-      this.markers.splice(i, 1);
-      this.path.removeAt(i);
+      for (var i = 0, I = poly.markers.length; i < I && poly.markers[i] != marker; ++i);
+      poly.markers.splice(i, 1);
+      poly.path.removeAt(i);
       }
     );
 
 
     google.maps.event.addListener(marker, 'dragend', function() {
-      for (var i = 0, I = this.markers.length; i < I && this.markers[i] != marker; ++i);
-      this.path.setAt(i, marker.getPosition());
+      for (var i = 0, I = marker.poly.markers.length; i < I && marker.poly.markers[i] != marker; ++i);
+      marker.poly.path.setAt(i, marker.getPosition());
       }
     );
 
@@ -160,32 +162,36 @@ function submitPolygon(){
     sources.push($(this).val());
   });
 
-  area = google.maps.geometry.spherical.computeArea(poly.getPath());
-  if(area > MAX_POLYGON_AREA_KM2 * 1000 * 1000)
-  {
-    alert("Your polygon is too large ("+Math.round(area/1000/1000)+" km2), please limit its area to "+MAX_POLYGON_AREA_KM2+" km2.");
-    $('#done').removeClass('loading');
-    return false;
+  var area, poly, _i, _len;
+  for (_i = 0, _len = allPolys.length; _i < _len; _i++) {
+    polygon = allPolys[_i].polygon;
+    
+    area = google.maps.geometry.spherical.computeArea(polygon.getPath());
+    if(area > MAX_POLYGON_AREA_KM2 * 1000 * 1000) {
+      alert("Polygon is too large ("+Math.round(area/1000/1000)+" km2), please limit its area to "+MAX_POLYGON_AREA_KM2+" km2.");
+      $('#done').removeClass('loading');
+      return false;
+    }
   }
 
-	var dataObj = {"data": geojson, "sources": sources};
-	$.ajax({
-      type: 'POST',
-  		url: "assesments/createFromPolygon",
-  		data: dataObj,
-  		cache: false,
-			dataType: 'json',
-  		success: function(result){
-        if(typeof(result.assesment) != "undefined") {
-          window.location = 'assesments/' + result.assesment.id;
-        } else {
-          alert( result.error ||"Unknown error while uploading polygon.\nIs the polygon too big?\nOr perhaps its edges intersect each-other?" );
-        }
-        $('#done').removeClass('loading');
-  		},
-    	error:function (xhr, ajaxOptions, thrownError){
-        alert(thrownError);
-        $('#done').removeClass('loading');
-     	}
-		});
+  var dataObj = {"data": geojson, "sources": sources};
+  $.ajax({
+    type: 'POST',
+    url: "assesments/createFromPolygon",
+    data: dataObj,
+    cache: false,
+    dataType: 'json',
+    success: function(result){
+      if(typeof(result.assesment) != "undefined") {
+        window.location = 'assesments/' + result.assesment.id;
+      } else {
+        alert( result.error ||"Unknown error while uploading polygon.\nIs the polygon too big?\nOr perhaps its edges intersect each-other?" );
+      }
+      $('#done').removeClass('loading');
+    },
+    error:function (xhr, ajaxOptions, thrownError){
+      alert(thrownError);
+      $('#done').removeClass('loading');
+    }
+  });
 }
