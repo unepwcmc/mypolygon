@@ -1,7 +1,70 @@
 /*drawing polygon*/
-var poly;
-var markers = [];
-var path = new google.maps.MVCArray;
+var polys = []; // Array of all the Polys on the map
+
+// Represents a polygon with its markers and path
+var Poly = (function() {
+  // Constructor -
+  // Creates and initialises a new google.maps.Polygon 
+  function Poly(polygon, markers, path) {
+    this.markers = [];
+    this.path = new google.maps.MVCArray;
+
+    this.polygon = new google.maps.Polygon({
+        strokeWeight: 2,
+        fillColor: '#FF6600',
+        strokeColor: '#FF6600'
+      });
+    this.polygon.setMap(map);
+    this.polygon.setPaths(new google.maps.MVCArray([this.path]));
+
+    polys.push(this); // Add to the polys collection
+  }
+
+  // Add a point to the polygon using a latLng
+  // @param latLng
+  Poly.prototype.addPointUsingLatLng = function (latLng) {
+    this.path.insertAt(this.path.length, latLng);
+
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      draggable: true,
+      icon: vertexIcon
+    });
+    this.markers.push(marker);
+    marker.setTitle("#" + this.path.length);
+
+    google.maps.event.addListener(marker, 'click', function() {
+      if (this.markers.length < 4) {
+        if (!$('#done').hasClass('disabled')) {
+            $('#done').addClass('disabled');
+        }
+      }
+
+      marker.setMap(null);
+      for (var i = 0, I = this.markers.length; i < I && this.markers[i] != marker; ++i);
+      this.markers.splice(i, 1);
+      this.path.removeAt(i);
+      }
+    );
+
+
+    google.maps.event.addListener(marker, 'dragend', function() {
+      for (var i = 0, I = this.markers.length; i < I && this.markers[i] != marker; ++i);
+      this.path.setAt(i, marker.getPosition());
+      }
+    );
+
+    if (this.markers.length > 2) {//do we have a polygon?
+      if ($('#done').hasClass('disabled')) {
+        $('#done').removeClass('disabled');
+      }
+    }
+  }
+
+  return Poly;
+})();
+
 
 var vertexIcon = new google.maps.MarkerImage('/images/sites/delete_vertex_noover.png',
     new google.maps.Size(12, 12),
@@ -34,16 +97,17 @@ function addPolygonToMap(points, repopulating) {
   }
 
   var myPolyCoords = [];
-  for(var i =0; i<points.length; i++) {
-    myPolyCoords[i] = new google.maps.LatLng(points[i][1], points[i][0]); // First 1, then 0 ?!?
+  var _i, _len;
+  for(_i = 0, _len = points.length; _i<_len; _i++) {
+    myPolyCoords[_i] = new google.maps.LatLng(points[_i][1], points[_i][0]); // First 1, then 0 ?!?
   }
 
   var bounds = new google.maps.LatLngBounds();
 
-  startPolygon();
-  for(i=0; i<myPolyCoords.length - 1; i++) {
-    addPointUsingLatLong(myPolyCoords[i]);
-    bounds.extend(myPolyCoords[i]);
+  var p = new Poly();
+  for(_i=0, _len = myPolyCoords.length - 1; _i<_len; _i++) {
+    p.addPointUsingLatLng(myPolyCoords[_i]);
+    bounds.extend(myPolyCoords[_i]);
   }
 
   map.fitBounds(bounds);
@@ -53,62 +117,8 @@ function addPolygonToMap(points, repopulating) {
 
 
 function addPoint(event) {
+  alert("refactor this method to use the addPointUsingLatLong method on a Poly object");
   addPointUsingLatLong(event.latLng)
-}
-function addPointUsingLatLong(latLng) {
-  path.insertAt(path.length, latLng);
-
-  var marker = new google.maps.Marker({
-    position: latLng,
-    map: map,
-    draggable: true,
-    icon: vertexIcon
-  });
-  markers.push(marker);
-  marker.setTitle("#" + path.length);
-
-  google.maps.event.addListener(marker, 'click', function() {
-      if (markers.length < 4)
-      {
-        if (!$('#done').hasClass('disabled')) {
-            $('#done').addClass('disabled');
-        }
-      }
-
-    marker.setMap(null);
-    for (var i = 0, I = markers.length; i < I && markers[i] != marker; ++i);
-    markers.splice(i, 1);
-    path.removeAt(i);
-    }
-
-  );
-
-
-  google.maps.event.addListener(marker, 'dragend', function() {
-    for (var i = 0, I = markers.length; i < I && markers[i] != marker; ++i);
-    path.setAt(i, marker.getPosition());
-    }
-  );
-
-  if (markers.length > 2) //do we have a polygon?
-  {
-    if ($('#done').hasClass('disabled')) {
-		$('#done').removeClass('disabled');
-	}
-  }
-}
-
-function startPolygon()  //destroy old polygon?
-{
-  poly = new google.maps.Polygon({
-    strokeWeight: 2,
-    fillColor: '#FF6600',
-    strokeColor: '#FF6600'
-  });
-  poly.setMap(map);
-  poly.setPaths(new google.maps.MVCArray([path]));
-
-  google.maps.event.addListener(map, 'click', addPoint);
 }
 
 /*adapted from Lifeweb's calculator.js*/
