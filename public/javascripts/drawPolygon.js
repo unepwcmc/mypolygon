@@ -86,7 +86,7 @@ var Poly = (function() {
     }
     pathArray.push([this.path.getAt(0).lng(),this.path.getAt(0).lat()]); //google maps will automatically close the polygon; postgis requires the last coordinate to be repeted
 
-    geojson['coordinates'] = [pathArray];
+    geojson['coordinates'] = [[pathArray]];
     return geojson;
   }
 

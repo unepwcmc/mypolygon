@@ -93,13 +93,19 @@ class AssesmentsController < ApplicationController
 
     #READ IN AND CREATE TENEMENTS
     begin
-      tenement = Tenement.create_from_geojson(params[:data],@assesment)
+      features = JSON.parse(params[:data])['features']
+      tenements = []
+      features.each do |feature|
+        tenements << Tenement.create_from_geojson(feature['geometry'].to_json,@assesment)
+      end
     rescue Exception => e
       msg = "Tenement couldn't be uploaded: #{e.message}"
       Rails.logger.fatal "#{msg} (#{e.class})"
       render :json => {:error => msg}
     else
-      tenement.analysePolygon(params[:data], params[:sources])
+      tenements.each_with_index do |tenement, i|
+        tenement.analysePolygon(features[i]['geometry'].to_json, params[:sources])
+      end
       render :json => @assesment.as_json
     end
   end
