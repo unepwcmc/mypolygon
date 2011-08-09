@@ -6,7 +6,8 @@ class Tenement < ActiveRecord::Base
               y(ST_PointOnSurface(the_geom)) as lat, 
               ST_AsGeoJSON(the_geom,6,0) as geojson
               FROM sites s
-              WHERE s.tenement_id=#{id}
+              WHERE s.tenement_id=#{id} AND
+              ST_IsValid(the_geom)
               ORDER BY s.id'
               
   acts_as_geom :the_geom => :polygon
