@@ -24,7 +24,7 @@ set(:deploy_to) { File.join("", "home", user, application) }
 set :repository, "git@github.com:unepwcmc/mypolygon.git"
 
 set :scm, :git
-set :branch, "master"
+set :branch, "develop"
 set :scm_username, "unepwcmc-read"
 set :scm_password, "conservation1"
 #set :deploy_via, :copy
