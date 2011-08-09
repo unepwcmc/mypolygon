@@ -73,8 +73,10 @@ var Poly = (function() {
     }
   }
 
-  // Returns an JSON point array
-  Poly.prototype.toPointArray = function () {
+  // Returns a GeoJSON object to represent the poly
+  Poly.prototype.toGeoJSON = function () {
+    var geojson={"type":"MultiPolygon"};
+
     var pathArray=[];
     var _i, numPoints;
     for(var _i=0, numPoints = this.path.length; _i < numPoints; _i++) {
@@ -83,7 +85,9 @@ var Poly = (function() {
       pathArray.push([lng,lat]);
     }
     pathArray.push([this.path.getAt(0).lng(),this.path.getAt(0).lat()]); //google maps will automatically close the polygon; postgis requires the last coordinate to be repeted
-    return pathArray;
+
+    geojson['coordinates'] = [pathArray];
+    return geojson;
   }
 
   return Poly;
@@ -150,15 +154,17 @@ function addPoint(event) {
  * @param polys An array of Polys
  */
 function polys2geoJson(polys) {
-  var geojson={"type":"MultiPolygon"};
-  var json_polys = [];
+  var geojson = { "type": "FeatureCollection"}
+
+  geojson.features = [];
   var _i, _len;
   for (_i=0, _len = polys.length; _i<_len; _i++) {
+    var feature = {"type": "Feature"}
     var poly = polys[_i];
+    feature.geometry = poly.toGeoJSON();
 
-    json_polys.push([poly.toPointArray()]);
+    geojson.features.push(feature);
   }
-  geojson['coordinates'] = json_polys;
 
   return $.toJSON(geojson);
 }

@@ -88,7 +88,7 @@ class AssesmentsController < ApplicationController
   end
 
   def createFromPolygon
-   #CREATE ASSESSMENT
+    #CREATE ASSESSMENT
     @assesment ||= Assesment.create()
 
     #READ IN AND CREATE TENEMENTS
