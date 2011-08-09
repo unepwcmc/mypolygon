@@ -95,6 +95,7 @@ class AssesmentsController < ApplicationController
     begin
       features = JSON.parse(params[:data])['features']
       tenements = []
+      debugger
       features.each do |feature|
         tenements << Tenement.create_from_geojson(feature['geometry'].to_json,@assesment)
       end
