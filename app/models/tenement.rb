@@ -92,6 +92,7 @@ class Tenement < ActiveRecord::Base
 
       if ok
         # populate DB with results
+        debugger
         res["results"].each do |item|
           # This will be returned multiple times, but... it seems to be the only way to get it, other than calculating
           # locally. (Would that be so bad?.)
