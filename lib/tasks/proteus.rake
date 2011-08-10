@@ -54,9 +54,10 @@ namespace :proteus do
   task :destroy_old_objects => :environment do
     a = Assesment.where(["created_at < ?", Date.today])
     a.destroy_all
-  end
 
-        
+    #This shouldn't need to happen, as the app cleans this directory after it's done
+    #puts `rm -r #{Rails.root}/tmp/shape_uploads/*`
+  end
     
    
   #################

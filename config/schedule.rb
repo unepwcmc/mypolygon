@@ -18,3 +18,11 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+#
+# Rake doesn't work without exporting the path
+env :PATH, ENV['PATH']
+
+#Clear out all the data
+every 1.day, :at => '4:30 am' do 
+  rake "proteus:destroy_old_objects"                 
+end
