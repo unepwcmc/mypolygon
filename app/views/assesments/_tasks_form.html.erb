@@ -82,6 +82,7 @@
         }
     });
   $("#assesment_shape").change(function(){
-    $("#initial_dialog_upload_replacement").val($(this).val());
-    });
+    file_name_parts = $(this).val().split('\\');
+    $("#initial_dialog_upload_replacement").val(file_name_parts[file_name_parts.length -1]);
+  });
 </script>
