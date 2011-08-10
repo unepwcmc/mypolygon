@@ -18,6 +18,7 @@ gem "rubyzip", :require => "zip/zip" #, :git => "git://github.com/febeling/rubyz
 gem "json"
 gem "googlecharts", :require => "gchart"
 
+gem 'whenever', :require => false
 
 # Use unicorn as the web server
 # gem 'unicorn'

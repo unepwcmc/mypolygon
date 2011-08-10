@@ -49,6 +49,13 @@ namespace :proteus do
       throw "ensure that WDPApol2009.shp and associated files are inside your lib/data/shp directory. you can download them here: http://wdpa.s3.amazonaws.com/WDPApol2009_1.zip"
     end
   end      
+
+  desc "destroy all objects older than today"
+  task :destroy_old_objects => :environment do
+    a = Assesment.where(["created_at < ?", Date.today])
+    a.destroy_all
+  end
+
         
     
    
