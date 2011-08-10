@@ -114,6 +114,9 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)"; /* opacity for IE8 */
     filter: alpha(opacity = 1); /* opacity for IE7- */
 }
+#initial_dialog .fileInput input[type="file"]:hover {
+  cursor:pointer;
+}
 #initial_dialog .fileInput label {
     background-color: gray;
     border-radius: 3px 0 0 3px;
@@ -121,6 +124,9 @@
     line-height: 30px;
     width: 135px;
     text-align: center;
+}
+#initial_dialog .fileInput label:hover {
+  cursor:pointer;
 }
 #initial_dialog .fileInput input.replacement {
     width: 195px;
