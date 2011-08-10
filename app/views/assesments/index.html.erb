@@ -1,197 +1,197 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head lang="en" xml:lang="en">
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title>MyPolygon</title>
-		<meta name="description" content="Inspect which protected areas are overlapped by a certain shaped area.">
-		<meta name="keywords" content="Protected Area, PA, corals, mangroves, conservation, biodiversity, iucn, unep, united nations, unep-wcmc">
-		
-		<!-- STYLESHEETS GO HERE -->
-		<%= raw(stylesheet_link_merged :base) %>
-		<%= stylesheet_link_tag 'interaction' %>
+  <head lang="en" xml:lang="en">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>MyPolygon</title>
+    <meta name="description" content="Inspect which protected areas are overlapped by a certain shaped area.">
+    <meta name="keywords" content="Protected Area, PA, corals, mangroves, conservation, biodiversity, iucn, unep, united nations, unep-wcmc">
 
-		<!--[if IE]><%= stylesheet_link_tag "ie" %><![endif]-->
+    <!-- STYLESHEETS GO HERE -->
+    <%= raw(stylesheet_link_merged :base) %>
+    <%= stylesheet_link_tag 'interaction' %>
 
-        <!-- JAVASCRIPT GOES HERE -->
-        <script src="http://maps.google.com/maps/api/js?sensor=true&libraries=geometry" type="text/javascript"></script>
-		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-        <%= raw javascript_include_tag( "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",
-          "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js",
-          javascript_environment) %>
-        <%= raw javascript_include_merged :search %>
+    <!--[if IE]><%= stylesheet_link_tag "ie" %><![endif]-->
 
-        <%= raw javascript_include_merged :home %>
-        <%= javascript_include_tag "environments/#{Rails.env}" %>
-      	<%= javascript_include_tag "jquery.json-2.2.js" %>
-        <%= javascript_include_tag "drawPolygon.js" %>
-        <script type="text/javascript">
-          var MAX_POLYGON_AREA_KM2 = <%= Tenement::MAX_POLYGON_AREA_KM2 %>;
-          coral_tiles = new google.maps.ImageMapType({
-            getTileUrl: function(tile, zoom) {
-                return "http://downloads.wdpa.org/ArcGIS/rest/services/ocean_data_viewer/coralreefs/MapServer/tile/"+zoom+"/"+tile.y+"/"+tile.x;
-              },
-              tileSize: new google.maps.Size(256, 256),
-              opacity:0.75,
-              isPng: true,
-              minZoom: 6,
-              maxZoom: 12,
-              name: "coral distribution tiles",
-              alt: ""
+    <!-- JAVASCRIPT GOES HERE -->
+    <script src="http://maps.google.com/maps/api/js?sensor=true&libraries=geometry" type="text/javascript"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <%= raw javascript_include_tag( "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",
+                                   "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js",
+                                   javascript_environment) %>
+    <%= raw javascript_include_merged :search %>
+
+    <%= raw javascript_include_merged :home %>
+    <%= javascript_include_tag "environments/#{Rails.env}" %>
+    <%= javascript_include_tag "jquery.json-2.2.js" %>
+    <%= javascript_include_tag "drawPolygon.js" %>
+    <script type="text/javascript">
+      var MAX_POLYGON_AREA_KM2 = <%= Tenement::MAX_POLYGON_AREA_KM2 %>;
+      coral_tiles = new google.maps.ImageMapType({
+        getTileUrl: function(tile, zoom) {
+            return "http://downloads.wdpa.org/ArcGIS/rest/services/ocean_data_viewer/coralreefs/MapServer/tile/"+zoom+"/"+tile.y+"/"+tile.x;
+          },
+          tileSize: new google.maps.Size(256, 256),
+          opacity:0.75,
+          isPng: true,
+          minZoom: 6,
+          maxZoom: 12,
+          name: "coral distribution tiles",
+          alt: ""
+      });
+      mangroves_tiles = new google.maps.ImageMapType({
+      getTileUrl: function(tile, zoom) {
+          return "http://downloads.wdpa.org/ArcGIS/rest/services/ocean_data_viewer/mangroves/MapServer/tile/"+zoom+"/"+tile.y+"/"+tile.x;
+        },
+        tileSize: new google.maps.Size(256, 256),
+        opacity:0.75,
+        isPng: true,
+        minZoom: 6,
+        maxZoom: 12,
+        name: "mangrove distribution tiles",
+        alt: ""
+        });
+      $(document).ready(function(){
+        $("#toggle_coral").change(function(){
+          if($(this).is(':checked')){
+          map.overlayMapTypes.insertAt(1,coral_tiles);
+          }
+          else if(map.overlayMapTypes.getAt(1))
+            map.overlayMapTypes.removeAt(1);
           });
-          mangroves_tiles = new google.maps.ImageMapType({
-          getTileUrl: function(tile, zoom) {
-              return "http://downloads.wdpa.org/ArcGIS/rest/services/ocean_data_viewer/mangroves/MapServer/tile/"+zoom+"/"+tile.y+"/"+tile.x;
-            },
-            tileSize: new google.maps.Size(256, 256),
-            opacity:0.75,
-            isPng: true,
-            minZoom: 6,
-            maxZoom: 12,
-            name: "mangrove distribution tiles",
-            alt: ""
-            });
-          $(document).ready(function(){
-            $("#toggle_coral").change(function(){
-              if($(this).is(':checked')){
-              map.overlayMapTypes.insertAt(1,coral_tiles);
-              }
-              else if(map.overlayMapTypes.getAt(1))
-                map.overlayMapTypes.removeAt(1);
-              });
-            $("#toggle_mangroves").change(function(){
-              if($(this).is(':checked'))
-                map.overlayMapTypes.insertAt(2,mangroves_tiles);
-              else if(map.overlayMapTypes.getAt(2))
-                map.overlayMapTypes.removeAt(2);
-              });
+        $("#toggle_mangroves").change(function(){
+          if($(this).is(':checked'))
+            map.overlayMapTypes.insertAt(2,mangroves_tiles);
+          else if(map.overlayMapTypes.getAt(2))
+            map.overlayMapTypes.removeAt(2);
           });
-        </script>
-	</head>
-	<body>
-        <div id="messages">
-            <%= render :partial => "layouts/flash", :locals => { :flash => flash }%>
-            <div id="help">
-                <a class="close-button" href="#">
-                  <%= image_tag "icons/close.png", :alt =>"close", :title => "close" %>
-                </a>
-                <h3>Help</h3>
-                <ul>
-                  <li>Click on the map to add a vertex</li>
-                  <li>Click on a vertex to delete it</li>
-                  <li>Drag a vertex to move it</li>
-                  <li>Polygons must have at least 3 vertexes</li>
-                  <li>Polygon max accepted area is <strong><%=Tenement::MAX_POLYGON_AREA_KM2%>km<sup>2</sup></strong></li>
+      });
+    </script>
+  </head>
+  <body>
+    <div id="messages">
+      <%= render :partial => "layouts/flash", :locals => { :flash => flash }%>
+      <div id="help">
+        <a class="close-button" href="#">
+          <%= image_tag "icons/close.png", :alt =>"close", :title => "close" %>
+        </a>
+        <h3>Help</h3>
+        <ul>
+          <li>Click on the map to add a vertex</li>
+          <li>Click on a vertex to delete it</li>
+          <li>Drag a vertex to move it</li>
+          <li>Polygons must have at least 3 vertexes</li>
+          <li>Polygon max accepted area is <strong><%=Tenement::MAX_POLYGON_AREA_KM2%>km<sup>2</sup></strong></li>
 
-                </ul>
-            </div>
-        </div>
-		<a id="zoomIn"></a>
-		<a id="zoomOut"></a>
-		<p id="loading">Transfering data</p>
-            <% if @assesment.new_record? %>
-              <%= render :partial => "tasks_form", :locals => {:format => @format} %>
-            <% end %>
+        </ul>
+      </div>
+    </div>
+    <a id="zoomIn"></a>
+    <a id="zoomOut"></a>
+    <p id="loading">Transfering data</p>
+    <% if @assesment.new_record? %>
+      <%= render :partial => "tasks_form", :locals => {:format => @format} %>
+    <% end %>
 
-        <div id="map_tools">
-            <h3>Select layers</h3>
-            <ul id="layers">
-              <li class="disabled"><label><input type="checkbox" value="protected_areas" checked="checked" disabled="disabled" /> Protected areas</label></li>
-              <li><label><input type="checkbox" value="coral" id="toggle_coral"/> Corals</label></li>
-              <li><label><input type="checkbox" value="mangroves" id="toggle_mangroves"/> Mangroves</label></li>
-              <li class="disabled"><label><input type="checkbox" value="sea_grass" disabled="disabled" /> Sea grass</label></li>
-            </ul>
-            <div id="area_tooltip"></div>
-            <div class="buttons">
-                <a id="done" class="disabled" onclick="submitPolygon(); return false;" href="#"></a>
-            </div>
-            <div class="shader"> </div>
-        </div>
+    <div id="map_tools">
+      <h3>Select layers</h3>
+      <ul id="layers">
+        <li class="disabled"><label><input type="checkbox" value="protected_areas" checked="checked" disabled="disabled" /> Protected areas</label></li>
+        <li><label><input type="checkbox" value="coral" id="toggle_coral"/> Corals</label></li>
+        <li><label><input type="checkbox" value="mangroves" id="toggle_mangroves"/> Mangroves</label></li>
+        <li class="disabled"><label><input type="checkbox" value="sea_grass" disabled="disabled" /> Sea grass</label></li>
+      </ul>
+      <div id="area_tooltip"></div>
+      <div class="buttons">
+        <a id="done" class="disabled" onclick="submitPolygon(); return false;" href="#"></a>
+      </div>
+      <div class="shader"> </div>
+    </div>
 
-                <script type="text/javascript">
-                        <% if @assesment.map_tenements.blank? %>
-                            $('#download_window').show();
-                            $('#map_tools').hide();
-                        <% else %>
-                            $('#download_window').hide();
-                            $('#map_tools').show();
-                            <%
-                               points = ""
-                               @assesment.map_tenements.each do |mt|
-                                 coords = JSON.parse mt.geojson
+    <script type="text/javascript">
+      <% if @assesment.map_tenements.blank? %>
+        $('#download_window').show();
+        $('#map_tools').hide();
+      <% else %>
+        $('#download_window').hide();
+        $('#map_tools').show();
+        <%
+          points = ""
+          @assesment.map_tenements.each do |mt|
+            coords = JSON.parse mt.geojson
 
-                                 point = coords["coordinates"][0][0]
-                                 points << point.to_json + ", "
-                               end
-                            %>
-                            var points = [ <%= points %> ];
-                            $(document).ready(function(){
-                                addPolygonToMap(points[0]); // TODO: load multiple polygons.
-                            });
-                        <% end %>
-                        $('#searchBox').hide();
-                </script>
-			</div>
-
-
-			<div id="categoryBox">
-				<p id="close_options"><a>Explore options</a></p>
-				<label>FILTER BY IUCN CATEGORY</label>
-				<div class="IUCN">
-					<span>
-						<label><input type="checkbox" value="Ia" id="c1" checked="true"/>Ia</label>
-					</span>
-					<span>
-						<label><input type="checkbox" value="Ib" id="c2" checked="true"/>Ib</label>
-					</span>
-					<span>
-						<label><input type="checkbox" value="II" id="c3" checked="true"/>II</label>
-					</span>
-					<span>
-						<label><input type="checkbox" value="III" id="c4" checked="true"/>III</label>
-					</span>
-					<span>
-						<label><input type="checkbox" value="IV" id="c5" checked="true"/>IV</label>
-					</span>
-					<span>
-						<label><input type="checkbox" value="V" id="c6" checked="true"/>V</label>
-					</span>
-					<span>
-						<label><input type="checkbox" value="VI" id="c7" checked="true"/>VI</label>
-					</span>
-					<span>
-						<label><input type="checkbox" value="Unkown" id="c8" checked="true"/>Unknown</label>
-					</span>					
-					<span>
-						<label><input type="checkbox" value="ALL" id="all" checked="true"/>ALL</label>
-					</span>
-				</div>
-			</div>
+            point = coords["coordinates"][0][0]
+            points << point.to_json + ", "
+          end
+        %>
+        var points = [ <%= points %> ];
+        $(document).ready(function(){
+            var p, _i, _len;
+            for (_i = 0, _len = points.length; _i < _len; _i++) {
+              p = points[_i];
+              addPolygonToMap(p);
+            }
+          });
+      <% end %>
+      $('#searchBox').hide();
+    </script>
+    </div>
 
 
+    <div id="categoryBox">
+      <p id="close_options"><a>Explore options</a></p>
+      <label>FILTER BY IUCN CATEGORY</label>
+      <div class="IUCN">
+        <span>
+          <label><input type="checkbox" value="Ia" id="c1" checked="true"/>Ia</label>
+        </span>
+        <span>
+          <label><input type="checkbox" value="Ib" id="c2" checked="true"/>Ib</label>
+        </span>
+        <span>
+          <label><input type="checkbox" value="II" id="c3" checked="true"/>II</label>
+        </span>
+        <span>
+          <label><input type="checkbox" value="III" id="c4" checked="true"/>III</label>
+        </span>
+        <span>
+          <label><input type="checkbox" value="IV" id="c5" checked="true"/>IV</label>
+        </span>
+        <span>
+          <label><input type="checkbox" value="V" id="c6" checked="true"/>V</label>
+        </span>
+        <span>
+          <label><input type="checkbox" value="VI" id="c7" checked="true"/>VI</label>
+        </span>
+        <span>
+          <label><input type="checkbox" value="Unkown" id="c8" checked="true"/>Unknown</label>
+        </span>					
+        <span>
+          <label><input type="checkbox" value="ALL" id="all" checked="true"/>ALL</label>
+        </span>
+      </div>
+    </div>
 
 
-		<div style="position:absolute; top:0; left:0; width:100%; height:100%">
-	  	<div id="map_canvas" style="z-index:1; position:absolute; top:0; left:0; right:0; bottom:0; height:100%"></div>
-		</div>
-		
-		<div id="container" style="position:absolute; bottom:0; left:0; width: 100%; height:30%; display:none;"></div>
 
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-12920389-1']);
-		  _gaq.push(['_trackPageview']);
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
-		  })();
-		</script>
-		
-	
-		
-	</body>
+
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%">
+      <div id="map_canvas" style="z-index:1; position:absolute; top:0; left:0; right:0; bottom:0; height:100%"></div>
+    </div>
+
+    <div id="container" style="position:absolute; bottom:0; left:0; width: 100%; height:30%; display:none;"></div>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12920389-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+    })();
+    </script>
+
+
+  </body>
 </html>
-
-
-
