@@ -26,7 +26,6 @@ set :repository, "git@github.com:unepwcmc/mypolygon.git"
 set :scm, :git
 set :branch, "master"
 set :scm_username, "unepwcmc-read"
-set :scm_password, "conservation1"
 #set :deploy_via, :copy
 
 ### Other options you can set ##
