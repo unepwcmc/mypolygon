@@ -39,6 +39,8 @@ GEM
     activesupport (3.0.5)
     archive-tar-minitar (0.5.2)
     arel (2.0.9)
+    brightbox (2.3.8)
+      capistrano (>= 2.5)
     builder (2.1.2)
     capistrano (2.6.0)
       highline
@@ -129,6 +131,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  brightbox
   capistrano
   capistrano-ext
   dbf
