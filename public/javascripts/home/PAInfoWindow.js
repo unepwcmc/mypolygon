@@ -117,7 +117,7 @@ PAInfoWindow.prototype.createElement = function() {
 		
 		$(hiddenDiv).click( function(ev){
 		    if(!onDragMovement) {
-		        window.location = 'http://stage-www.tinypla.net/sites/' + $(this).attr('alt');
+		        window.location = 'http://protectedplanet.net/sites/' + $(this).attr('alt');
 		    } else {
 		        onDragMovement=false;
 		    }
