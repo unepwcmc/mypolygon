@@ -112,7 +112,7 @@ SearchMarker.prototype.createElement = function() {
 		hiddenDiv.appendChild(paName);
 				
 		$(hiddenDiv).click( function(ev){
-		    window.location = 'http://stage-www.tinypla.net/sites/'+ me.paInformation_.wdpaid
+		    window.location = 'http://protectedplanet.net/sites/'+ me.paInformation_.wdpaid
 				ev.stopPropagation();
 				ev.preventDefault();
 		});
