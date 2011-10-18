@@ -58,11 +58,11 @@
       if(e.keyCode == 13)
         $("#initial_dialog .description .search_location input:submit").click();
     });
-    $('label#file_chooser_btn').click(function(event) {
-        // pass focus from label to click, because IE sucks
-        event.stopPropagation();
-        event.preventDefault();
-        $('#assesment_shape').click();
+    $('#initial_dialog_upload_replacement').click(function(event) {
+      // pass focus from label to click, because IE sucks
+      event.stopPropagation();
+      event.preventDefault();
+      $('#assesment_shape').click();
     });
     $('#initial_dialog .description .search_location input:submit').click(function() {
         var address = $("#location").val();
