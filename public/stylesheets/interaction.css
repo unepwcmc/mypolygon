@@ -87,13 +87,23 @@
 }
 #initial_dialog input[type="submit"] {
     border: 0;
-    padding: 2px 10px;
+    padding: 0px 10px;
+    margin-top: 7px;
+    line-height: 28px;
     color: white;
-    background-color: #ff9900;
     font-weight: bold;
-    border-radius: 0 2px 2px 0;
-    width: 150px;
+    border-radius: 3px ;
+    width: 140px;
     text-align: center;
+
+    background: rgb(255,129,0); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(255,129,0,1) 0%, rgba(255,103,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,129,0,1)), color-stop(100%,rgba(255,103,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,129,0,1) 0%,rgba(255,103,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,129,0,1) 0%,rgba(255,103,0,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,129,0,1) 0%,rgba(255,103,0,1) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(255,129,0,1) 0%,rgba(255,103,0,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8100', endColorstr='#ff6700',GradientType=0 ); /* IE6-9 */
 }
 
 #initial_dialog .fileInput {
@@ -108,7 +118,9 @@
     position: absolute;
     z-index: 2;
     top: 0;
-    left: -35px;
+    left: 125px;
+
+    width: 214px;
 
     opacity: 0.01;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)"; /* opacity for IE8 */
@@ -118,18 +130,29 @@
   cursor:pointer;
 }
 #initial_dialog .fileInput label {
-    background-color: gray;
-    border-radius: 3px 0 0 3px;
-    display: inline-block;
-    line-height: 30px;
-    width: 135px;
-    text-align: center;
+  border-radius: 3px 0 0 3px;
+  display: inline-block;
+  margin-top:7px;
+  line-height: 28px;
+  width: 125px;
+  text-align: center;
+
+  background: rgb(148,156,163); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(148,156,163,1) 0%, rgba(87,97,107,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(148,156,163,1)), color-stop(100%,rgba(87,97,107,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(148,156,163,1) 0%,rgba(87,97,107,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(148,156,163,1) 0%,rgba(87,97,107,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(148,156,163,1) 0%,rgba(87,97,107,1) 100%); /* IE10+ */
+  background: linear-gradient(top, rgba(148,156,163,1) 0%,rgba(87,97,107,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#949ca3', endColorstr='#57616b',GradientType=0 ); /* IE6-9 */
 }
 #initial_dialog .fileInput label:hover {
   cursor:pointer;
 }
 #initial_dialog .fileInput input.replacement {
     width: 195px;
+    margin-top: 7px;
+    margin-right: 25px;
 }
 
 #initial_dialog .footer {

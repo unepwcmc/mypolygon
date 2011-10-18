@@ -13,17 +13,17 @@
 
       <div class="upload" style="display:none;">
         <%= form_for @assesment, :html => {:multipart => true} do |f| %>
-            <p>
-              Please upload polygons in a <strong>zipped ESRI shapefile</strong> using WGS84 projection.<br />
-              Maximum file size is <strong><%= Tenement::MAX_SHP_FILESIZE_MB %>MB</strong>.<br />
-              All data uploaded is deleted nightly.
-              <span class="fileInput">
-                <label for="initial_dialog_upload_replacement">Choose file</label><!--
-                --><%= f.file_field :shape, :class => 'file_input', :accept => 'application/zip' %><!--
-                --><input type="text" class="replacement" id="initial_dialog_upload_replacement"/><!--
-                --><%= f.submit "Analyse", :disable_with => "Uploading..." %>
-              </span>
-            </p>
+          <p>
+          Please upload polygons in a <strong>zipped ESRI shapefile</strong> using WGS84 projection.<br />
+          Maximum file size is <strong><%= Tenement::MAX_SHP_FILESIZE_MB %>MB</strong>.<br />
+          All data uploaded is deleted nightly.
+          <span class="fileInput">
+            <label id='file_chooser_btn' for='assesment_shape'>Choose file</label>
+            <%= f.file_field :shape, :class => 'file_input', :accept => 'application/zip' %>
+            <input type="text" class="replacement" id="initial_dialog_upload_replacement"/>
+            <%= f.submit "Analyse", :disable_with => "Uploading..." %>
+          </span>
+          </p>
         <% end -%>
       </div>
 
@@ -57,6 +57,10 @@
     $("#location").keyup(function(e){
       if(e.keyCode == 13)
         $("#initial_dialog .description .search_location input:submit").click();
+    });
+    $('label#file_chooser_btn').click(function(e) {
+        // pass focus from label to click, because IE sucks
+        $('#assesment_shape').click();
     });
     $('#initial_dialog .description .search_location input:submit').click(function() {
         var address = $("#location").val();
