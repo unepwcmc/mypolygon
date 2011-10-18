@@ -92,6 +92,9 @@
     <% if @assesment.new_record? %>
       <%= render :partial => "tasks_form", :locals => {:format => @format} %>
     <% end %>
+    <div id="main_page_buttons">
+      <a href="#" id="hide_markers"></a>
+    </div>
 
     <div id="map_tools">
       <h3>Select layers</h3>
@@ -135,7 +138,6 @@
       <% end %>
       $('#searchBox').hide();
     </script>
-    </div>
 
 
     <div id="categoryBox">

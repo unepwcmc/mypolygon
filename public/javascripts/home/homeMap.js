@@ -31,6 +31,8 @@ var drag_end_event;
 var click_event;
 var drag_end_event_tiny;
 
+// Holds the site markers
+var markers_array = [];
 
 //DEEP LINKING
 function pageload(hash) {
@@ -54,6 +56,25 @@ function getMapHash() {
   }
   return "";
 }
+
+$(function() {
+  $('a#hide_markers').click(function(ev) {
+    ev.stopPropagation();
+    ev.preventDefault();
+    if (!$(this).hasClass('disabled')) {
+      if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+        displayLoading();
+        show_markers();
+      } else {
+        $(this).addClass('selected');
+        displayLoading();
+        clear_markers();
+      }
+    }
+  });
+});
+
 
 
 
@@ -394,3 +415,23 @@ $(document).ready(function() {
     }
   });
 });
+
+// remove the markers fromthe map
+function clear_markers() {
+  if (paDictionary) {
+    for (var i in paDictionary) {
+      paDictionary[i].setMap(null);
+    }
+    hideLoading();
+  }
+}
+
+// reshow the markers on the map
+function show_markers() {
+  if (paDictionary) {
+    for (var i in paDictionary) {
+      paDictionary[i].setMap(map);
+    }
+    hideLoading();
+  }
+}
