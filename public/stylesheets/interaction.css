@@ -77,6 +77,9 @@
     min-height: 70px;
 }
 
+#initial_dialog .description i{
+  color: #F69D00;
+}
 #initial_dialog input {
     margin-top: 15px;
     font-size: 105%;
