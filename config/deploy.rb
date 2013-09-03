@@ -23,7 +23,7 @@ set(:deploy_to) { File.join("", "home", user, application) }
 #set :deploy_via, :copy
 set :repository, "git@github.com:unepwcmc/mypolygon.git"
 set :scm, :git
-set :branch, "master"
+set :branch, "New_Brightbox"
 set :scm_username, "unepwcmc-read"
 set :deploy_via, :remote_cache
 
